@@ -1,0 +1,35 @@
+#N canvas 541 70 574 383 10;
+#X declare -path /home/roman/netpd/instruments/abs;
+#X obj 193 80 osc~ 440;
+#X obj 193 100 dac~ 1;
+#X obj 191 132 adc~ 1;
+#X obj 257 15 declare -path /home/roman/netpd/instruments/abs;
+#X obj 61 102 metro;
+#X msg 88 47 1000 \$1;
+#X obj 88 67 /;
+#X floatatom 88 26 5 0 0 0 - - -, f 5;
+#X obj 61 26 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 61 157 rh_vtabwrite~ \$0.scope;
+#X obj 208 178 dac~ 2;
+#X obj 208 157 *~ 0.1;
+#X floatatom 196 47 5 0 0 0 - - -, f 5;
+#X obj 275 75 noise~;
+#X obj 275 95 *~ 0.1;
+#X obj 55 213 cnv 15 500 150 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0.scope 500 float 2;
+#X coords 0 1 500 -1 500 150 2 0 0;
+#X restore 55 213 graph;
+#X connect 0 0 1 0;
+#X connect 2 0 9 1;
+#X connect 2 0 11 0;
+#X connect 4 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 1;
+#X connect 7 0 5 0;
+#X connect 8 0 4 0;
+#X connect 11 0 10 0;
+#X connect 12 0 0 0;
+#X connect 13 0 14 0;
