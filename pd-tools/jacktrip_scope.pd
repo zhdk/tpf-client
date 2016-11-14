@@ -26,7 +26,6 @@
 #X floatatom 400 140 5 0 0 0 - - -, f 5;
 #X obj 400 120 moving_sum 90;
 #X text 440 140 glitch/15min;
-#X obj 366 197 print;
 #X connect 1 0 8 1;
 #X connect 1 0 14 0;
 #X connect 2 0 8 0;
@@ -38,7 +37,7 @@
 #X connect 11 0 10 0;
 #X connect 12 0 13 1;
 #X connect 13 0 0 0;
-#X connect 14 0 22 0;
+#X connect 14 0 15 0;
 #X connect 15 0 16 0;
 #X connect 15 0 20 0;
 #X connect 16 0 17 0;
