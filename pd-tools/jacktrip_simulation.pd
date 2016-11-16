@@ -28,29 +28,29 @@
 #X connect 7 1 6 0;
 #X connect 8 0 5 0;
 #X restore 342 158 pd generate-8bit-noise;
-#X obj 14 110 cnv 15 220 40 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 14 160 cnv 15 220 40 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X text 20 132 -n;
-#X obj 40 132 nbx 2 14 1 64 0 0 \$0.num.channels \$0.num.channels empty
+#X text 20 182 -n;
+#X obj 40 182 nbx 2 14 1 64 0 0 \$0.num.channels \$0.num.channels empty
 0 -8 0 10 -204800 -1 -1 4 256;
-#X obj 95 132 nbx 2 14 0 99 0 0 \$0.port.offset \$0.port.offset empty
+#X obj 95 182 nbx 2 14 0 99 0 0 \$0.port.offset \$0.port.offset empty
 0 -8 0 10 -204800 -1 -1 5 256;
-#X text 75 132 -o;
-#X text 129 132 -b;
-#X text 17 114 jacktrip;
-#X obj 149 132 nbx 2 14 8 32 0 0 \$0.bitres \$0.bitres empty 0 -8 0
+#X text 75 182 -o;
+#X text 129 182 -b;
+#X text 17 164 jacktrip;
+#X obj 149 182 nbx 2 14 8 32 0 0 \$0.bitres \$0.bitres empty 0 -8 0
 10 -204800 -1 -1 16 256;
 #X obj 263 17 loadbang;
 #X obj 263 37 \$0;
-#X obj 14 80 cnv 15 220 25 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 14 130 cnv 15 220 25 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X text 20 87 jack blocksize:;
-#X obj 134 80 hradio 25 1 0 4 \$0.jack.blocksize \$0.jack.blocksize
-empty 0 -8 0 10 -232576 -159808 -1 1;
-#X text 137 85 64;
-#X text 159 85 128;
-#X text 185 85 256;
-#X text 209 85 512;
+#X text 20 137 jack blocksize:;
+#X obj 134 130 hradio 25 1 0 4 \$0.jack.blocksize \$0.jack.blocksize
+empty 0 -8 0 10 -204800 -4032 -1 1;
+#X text 137 135 64;
+#X text 159 135 128;
+#X text 185 135 256;
+#X text 209 135 512;
 #X obj 383 314 r \$0.num.channels;
 #X obj 384 249 r \$0.bitres;
 #X obj 344 214 r \$0.jack.blocksize;
@@ -66,7 +66,7 @@ empty 0 -8 0 10 -232576 -159808 -1 1;
 #X obj 14 50 cnv 15 220 25 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 14 50 tgl 25 0 \$0.on.off \$0.on.off empty 17 7 0 10 -261234
--1 -1 1 1;
+-1 -1 0 1;
 #X text 42 57 start / stop;
 #N canvas 0 43 311 384 sender 0;
 #X obj 33 14 r \$0.on.off;
@@ -372,25 +372,79 @@ empty 0 -8 0 10 -232576 -159808 -1 1;
 #X connect 9 0 2 0;
 #X connect 9 1 0 0;
 #X restore 19 272 pd connection;
-#X obj 152 56 nbx 5 14 0 65535 0 0 \$0.bla \$0.sequence empty 0 -8
-0 10 -191407 -1 -1 34308 256;
+#X obj 151 57 nbx 5 14 0 65535 0 0 \$0.bla \$0.sequence empty 0 -8
+0 10 -262130 -1 -1 6293 256;
 #X text 207 57 seq;
 #X msg 263 57 \; \$1.num.channels 2 \; \$1.port.offset 0 \; \$1.bitres
 16 \; \$1.jack.blocksize 1 \; \$1.queue 2;
-#X obj 200 132 nbx 2 14 2 99 0 0 \$0.queue \$0.queue empty 0 -8 0 10
+#X obj 200 182 nbx 2 14 2 99 0 0 \$0.queue \$0.queue empty 0 -8 0 10
 -204800 -1 -1 8 256;
-#X text 180 132 -q;
-#X obj 14 156 cnv 15 220 40 empty empty empty 20 12 0 14 -233017 -66577
+#X text 180 182 -q;
+#X obj 14 206 cnv 15 220 40 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X text 71 159 DROPPED;
-#X text 124 159 OOORDER;
-#X obj 72 177 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.dropped empty 0
--8 0 10 -262130 -1 -1 72 256;
-#X obj 125 177 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.outoforder empty
-0 -8 0 10 -262130 -1 -1 35 256;
-#X text 19 160 GLITCH;
-#X obj 20 177 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.glitch empty 0
--8 0 10 -262130 -1 -1 10 256;
+#X text 71 209 DROPPED;
+#X text 124 209 OOORDER;
+#X obj 72 227 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.dropped empty 0
+-8 0 10 -262130 -1 -1 0 256;
+#X obj 125 227 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.outoforder empty
+0 -8 0 10 -262130 -1 -1 0 256;
+#X text 19 210 GLITCH;
+#X obj 20 227 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.glitch empty 0
+-8 0 10 -262130 -1 -1 0 256;
+#X obj 14 85 cnv 15 220 40 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 16 104 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.udp.packet.size
+empty 0 -8 0 10 -262130 -1 -1 1040 256;
+#X text 15 87 bytes/p;
+#X obj 66 104 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.bandwidth empty
+0 -8 0 10 -262130 -1 -1 0.290627 256;
+#X text 65 87 MB/s;
+#X obj 116 104 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.samplerate empty
+0 -8 0 10 -262130 -1 -1 44100 256;
+#X text 115 87 sr;
+#N canvas 0 43 458 351 calculate.metrics 0;
+#X obj 14 14 loadbang;
+#X obj 14 34 samplerate~;
+#X obj 14 54 s \$0.samplerate;
+#X obj 10 114 r \$0.payload.length;
+#X obj 10 134 + 16;
+#X obj 10 154 s \$0.udp.packet.size;
+#X obj 240 27 r \$0.jack.blocksize;
+#X obj 309 99 r \$0.samplerate;
+#X obj 240 122 list prepend;
+#X obj 240 142 /;
+#X obj 275 148 r \$0.udp.packet.size;
+#X obj 240 243 *;
+#X obj 275 208 t b a;
+#X obj 240 49 t b a;
+#X msg 240 69 64;
+#X obj 240 89 <<;
+#X obj 240 271 / 1204;
+#X obj 240 291 / 1024;
+#X obj 240 311 s \$0.bandwidth;
+#X obj 275 168 + 20;
+#X text 311 176 12 Bytes: IP HEADER;
+#X text 311 190 8 Bytes: UDP HEADER;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 13 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 0;
+#X connect 9 0 11 0;
+#X connect 10 0 19 0;
+#X connect 11 0 16 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 13 0 14 0;
+#X connect 13 1 15 1;
+#X connect 14 0 15 0;
+#X connect 15 0 8 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 12 0;
+#X restore 19 346 pd calculate.metrics;
 #X connect 0 0 2 0;
 #X connect 0 2 3 0;
 #X connect 1 0 0 0;
