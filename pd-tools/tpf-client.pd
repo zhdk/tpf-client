@@ -2,13 +2,13 @@
 #X declare -stdpath iemnet -stdpath osc -stdpath slip;
 #X obj 5 38 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
 -1 0;
-#X obj 5 57 cnv 18 100 18 empty \$0.client.display.0 LUZERN 3 10 0
-12 -232576 -4160 0;
-#X obj 5 76 cnv 18 100 18 empty \$0.client.display.1 BERN 3 10 0 12
+#X obj 5 57 cnv 18 100 18 empty \$0.client.display.0 empty 3 10 0 12
 -232576 -4160 0;
-#X obj 5 95 cnv 18 100 18 empty \$0.client.display.2 BASEL 3 10 0 12
+#X obj 5 76 cnv 18 100 18 empty \$0.client.display.1 empty 3 10 0 12
 -232576 -4160 0;
-#X obj 5 114 cnv 18 100 18 empty \$0.client.display.3 ZURICH 3 10 0
+#X obj 5 95 cnv 18 100 18 empty \$0.client.display.2 empty 3 10 0 12
+-232576 -4160 0;
+#X obj 5 114 cnv 18 100 18 empty \$0.client.display.3 empty 3 10 0
 12 -232576 -4160 0;
 #X obj 5 133 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
 12 -232576 -4160 0;
@@ -16,12 +16,12 @@
 12 -232576 -4160 0;
 #X obj 106 38 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
 0;
-#X obj 106 57 cnv 18 400 18 empty \$0.mylink.display.0 jacktrip -o0 --clientname LUZERN
-3 10 0 12 -232576 -4160 0;
-#X obj 106 76 cnv 18 400 18 empty \$0.mylink.display.1 jacktrip -o1 --clientname BERN
-3 10 0 12 -232576 -4160 0;
-#X obj 106 95 cnv 18 400 18 empty \$0.mylink.display.2 jacktrip -o4 --clientname BASEL
-3 10 0 12 -232576 -4160 0;
+#X obj 106 57 cnv 18 400 18 empty \$0.mylink.display.0 empty 3 10 0
+12 -232576 -4160 0;
+#X obj 106 76 cnv 18 400 18 empty \$0.mylink.display.1 empty 3 10 0
+12 -232576 -4160 0;
+#X obj 106 95 cnv 18 400 18 empty \$0.mylink.display.2 empty 3 10 0
+12 -232576 -4160 0;
 #X obj 106 114 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
 0 12 -232576 -4160 0;
 #X obj 106 133 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
