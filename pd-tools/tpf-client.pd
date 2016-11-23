@@ -1,5 +1,34 @@
-#N canvas 4 43 522 404 10;
+#N canvas 4 43 521 186 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip;
+#X obj 5 38 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
+-1 0;
+#X obj 5 57 cnv 18 100 18 empty \$0.client.display.0 LUZERN 3 10 0
+12 -232576 -4160 0;
+#X obj 5 76 cnv 18 100 18 empty \$0.client.display.1 BERN 3 10 0 12
+-232576 -4160 0;
+#X obj 5 95 cnv 18 100 18 empty \$0.client.display.2 BASEL 3 10 0 12
+-232576 -4160 0;
+#X obj 5 114 cnv 18 100 18 empty \$0.client.display.3 ZURICH 3 10 0
+12 -232576 -4160 0;
+#X obj 5 133 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
+12 -232576 -4160 0;
+#X obj 5 152 cnv 18 100 18 empty \$0.client.display.5 empty 3 10 0
+12 -232576 -4160 0;
+#X obj 106 38 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
+0;
+#X obj 106 57 cnv 18 400 18 empty \$0.mylink.display.0 jacktrip -o0 --clientname LUZERN
+3 10 0 12 -232576 -4160 0;
+#X obj 106 76 cnv 18 400 18 empty \$0.mylink.display.1 jacktrip -o1 --clientname BERN
+3 10 0 12 -232576 -4160 0;
+#X obj 106 95 cnv 18 400 18 empty \$0.mylink.display.2 jacktrip -o4 --clientname BASEL
+3 10 0 12 -232576 -4160 0;
+#X obj 106 114 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
+0 12 -232576 -4160 0;
+#X obj 106 133 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
+0 12 -232576 -4160 0;
+#X obj 106 152 cnv 18 400 18 empty \$0.mylink.display.5 empty 3 10
+0 12 -232576 -4160 0;
+#N canvas 0 276 432 291 code 0;
 #X obj 8 11 declare -stdpath iemnet -stdpath osc -stdpath slip;
 #N canvas 0 43 664 577 communication 0;
 #X obj 9 38 packOSC;
@@ -71,8 +100,6 @@
 #X connect 35 0 36 0;
 #X connect 36 0 18 0;
 #X restore 8 31 pd communication;
-#X obj 11 135 tgl 20 0 \$0.connect \$0.connect.r empty 17 7 0 10 -262144
--1 -1 0 1;
 #X obj 11 172 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8 0
 10 -262144 -1 -1 0 256;
 #N canvas 358 93 419 464 tpf.initialization 0;
@@ -223,13 +250,10 @@
 #X connect 36 0 38 0;
 #X connect 36 1 37 0;
 #X restore 8 75 pd refresh;
-#X symbolatom 35 135 20 0 0 0 - - #0.name, f 20;
 #X text 71 173 my_id;
-#X obj 171 58 text define \$0.clients;
-#X obj 171 78 text define \$0.mylinks;
-#X obj 13 260 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
--1 0;
-#N canvas 377 306 640 490 display 0;
+#X obj 176 53 text define \$0.clients;
+#X obj 176 73 text define \$0.mylinks;
+#N canvas 377 306 700 529 display 0;
 #X obj 24 14 r \$0.refresh.client.display;
 #X obj 24 73 until;
 #X obj 24 93 f;
@@ -251,22 +275,30 @@
 #X obj 370 105 + 1;
 #X msg 331 76 0;
 #X obj 302 150 text get \$0.clients;
-#X obj 287 388 list prepend \$0;
-#X obj 287 367 list prepend 0;
+#X obj 287 458 list prepend \$0;
+#X obj 287 437 list prepend 0;
 #X obj 287 38 t b b;
 #X msg 287 58 6;
-#X obj 287 349 symbol;
-#X msg 302 321 symbol empty;
+#X obj 287 419 symbol;
+#X msg 302 391 symbol empty;
 #X obj 287 117 t b a b a a;
 #X obj 302 172 route bang;
 #X msg 359 193 \$1;
 #X obj 359 213 sel;
-#X obj 374 261 text get \$0.mylinks;
-#X msg 374 281 symbol __\$1____\$2___;
-#X msg 287 410 \; \$1.mylink.display.\$2 label \$3;
-#X obj 374 239 text search \$0.mylinks 0;
+#X obj 392 261 text get \$0.mylinks;
+#X msg 287 480 \; \$1.mylink.display.\$2 label \$3;
+#X obj 392 239 text search \$0.mylinks 0;
 #X obj 287 18 r \$0.refresh.mylink.display;
 #X obj 395 194 r \$0.id;
+#X obj 392 281 unpack f f;
+#X obj 392 304 text search \$0.clients 0;
+#X obj 392 324 text get \$0.clients;
+#X msg 392 344 symbol \$2;
+#X obj 576 316 loadbang;
+#X msg 576 336 32;
+#X obj 576 356 list tosymbol;
+#X obj 392 364 pack s f s;
+#X msg 392 384 symbol jacktrip\$3-o\$2\$3--clientname\$3\$1;
 #X connect 0 0 10 0;
 #X connect 1 0 2 0;
 #X connect 2 0 14 0;
@@ -292,7 +324,7 @@
 #X connect 18 0 17 1;
 #X connect 19 0 17 1;
 #X connect 20 0 28 0;
-#X connect 21 0 33 0;
+#X connect 21 0 32 0;
 #X connect 22 0 21 0;
 #X connect 23 0 24 0;
 #X connect 23 1 19 0;
@@ -307,37 +339,24 @@
 #X connect 28 1 29 0;
 #X connect 29 0 30 0;
 #X connect 30 0 26 0;
-#X connect 30 1 34 0;
-#X connect 31 0 32 0;
-#X connect 32 0 25 1;
-#X connect 34 0 31 0;
-#X connect 35 0 23 0;
-#X connect 36 0 30 1;
+#X connect 30 1 33 0;
+#X connect 31 0 36 0;
+#X connect 33 0 31 0;
+#X connect 34 0 23 0;
+#X connect 35 0 30 1;
+#X connect 36 0 37 0;
+#X connect 36 1 43 1;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 43 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 42 0 43 2;
+#X connect 43 0 44 0;
+#X connect 44 0 25 1;
 #X restore 8 96 pd display;
-#X obj 13 279 cnv 18 100 18 empty \$0.client.display.0 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 13 298 cnv 18 100 18 empty \$0.client.display.1 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 13 317 cnv 18 100 18 empty \$0.client.display.2 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 13 336 cnv 18 100 18 empty \$0.client.display.3 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 13 355 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 13 374 cnv 18 100 18 empty \$0.client.display.5 empty 3 10 0
-12 -232576 -4160 0;
-#X obj 114 260 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
-0;
-#X obj 114 279 cnv 18 400 18 empty \$0.mylink.display.0 empty 3 10
-0 12 -232576 -4160 0;
-#X obj 114 298 cnv 18 400 18 empty \$0.mylink.display.1 empty 3 10
-0 12 -232576 -4160 0;
-#X obj 114 317 cnv 18 400 18 empty \$0.mylink.display.2 empty 3 10
-0 12 -232576 -4160 0;
-#X obj 114 336 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
-0 12 -232576 -4160 0;
-#X obj 114 355 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
-0 12 -232576 -4160 0;
-#X obj 114 374 cnv 18 400 18 empty \$0.mylink.display.5 empty 3 10
-0 12 -232576 -4160 0;
-#X connect 5 0 6 0;
+#X connect 4 0 5 0;
+#X restore 459 18 pd code;
+#X obj 5 6 tgl 20 0 \$0.connect \$0.connect.r empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X symbolatom 30 7 20 0 0 0 - - #0.name, f 20;
