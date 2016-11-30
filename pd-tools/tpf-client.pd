@@ -1,33 +1,33 @@
-#N canvas 4 43 521 186 10;
+#N canvas 4 43 515 172 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
-#X obj 5 38 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
+#X obj 5 31 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
 -1 0;
-#X obj 5 57 cnv 18 100 18 empty \$0.client.display.0 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 76 cnv 18 100 18 empty \$0.client.display.1 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 95 cnv 18 100 18 empty \$0.client.display.2 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 114 cnv 18 100 18 empty \$0.client.display.3 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 5 133 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 5 152 cnv 18 100 18 empty \$0.client.display.5 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 106 38 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
+#X obj 5 50 cnv 18 100 18 empty \$0.client.display.0 empty 3 10 0 12
+-261689 -62784 0;
+#X obj 5 69 cnv 18 100 18 empty \$0.client.display.1 empty 3 10 0 12
+-261689 -62784 0;
+#X obj 5 88 cnv 18 100 18 empty \$0.client.display.2 empty 3 10 0 12
+-261689 -62784 0;
+#X obj 5 107 cnv 18 100 18 empty \$0.client.display.3 empty 3 10 0
+12 -261689 -62784 0;
+#X obj 5 126 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
+12 -261689 -62784 0;
+#X obj 5 145 cnv 18 100 18 empty \$0.client.display.5 empty 3 10 0
+12 -261689 -62784 0;
+#X obj 106 31 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
 0;
-#X obj 106 57 cnv 18 400 18 empty \$0.mylink.display.0 empty 3 10 0
+#X obj 106 50 cnv 18 400 18 empty \$0.mylink.display.0 empty 3 10 0
 12 -261689 -33289 0;
-#X obj 106 76 cnv 18 400 18 empty \$0.mylink.display.1 empty 3 10 0
+#X obj 106 69 cnv 18 400 18 empty \$0.mylink.display.1 empty 3 10 0
 12 -261689 -33289 0;
-#X obj 106 95 cnv 18 400 18 empty \$0.mylink.display.2 empty 3 10 0
+#X obj 106 88 cnv 18 400 18 empty \$0.mylink.display.2 empty 3 10 0
 12 -261689 -33289 0;
-#X obj 106 114 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
+#X obj 106 107 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
 0 12 -261689 -33289 0;
-#X obj 106 133 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
+#X obj 106 126 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
 0 12 -261689 -33289 0;
-#X obj 106 152 cnv 18 400 18 empty \$0.mylink.display.5 empty 3 10
+#X obj 106 145 cnv 18 400 18 empty \$0.mylink.display.5 empty 3 10
 0 12 -261689 -33289 0;
 #N canvas 0 276 432 291 code 0;
 #N canvas 0 43 664 577 communication 0;
@@ -100,8 +100,8 @@
 #X connect 35 0 17 0;
 #X connect 36 0 11 0;
 #X restore 8 41 pd communication;
-#X obj 11 172 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8 0
-10 -262144 -1 -1 0 256;
+#X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
+0 10 -262144 -1 -1 0 256;
 #N canvas 358 93 419 464 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -259,10 +259,10 @@
 #X connect 43 0 44 0;
 #X connect 44 0 40 0;
 #X restore 8 85 pd refresh;
-#X text 71 173 my_id;
+#X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
 #X obj 176 83 text define \$0.mylinks;
-#N canvas 377 306 683 556 display 0;
+#N canvas 377 306 963 585 display 0;
 #X obj 24 14 r \$0.refresh.client.display;
 #X obj 24 73 until;
 #X obj 24 93 f;
@@ -293,19 +293,18 @@
 #X obj 302 172 route bang;
 #X msg 359 193 \$1;
 #X obj 359 213 sel;
-#X obj 392 261 text get \$0.mylinks;
-#X obj 392 239 text search \$0.mylinks 0;
+#X obj 392 253 text get \$0.mylinks;
+#X obj 392 231 text search \$0.mylinks 0;
 #X obj 287 18 r \$0.refresh.mylink.display;
 #X obj 395 194 r \$0.id;
-#X obj 392 281 unpack f f;
-#X obj 392 304 text search \$0.clients 0;
-#X obj 392 324 text get \$0.clients;
-#X msg 392 344 symbol \$2;
-#X obj 576 316 loadbang;
-#X msg 576 336 32;
-#X obj 576 356 list tosymbol;
-#X obj 392 364 pack s f s;
-#X msg 392 384 symbol jacktrip\$3-o\$2\$3--clientname\$3\$1;
+#X obj 392 273 unpack f f;
+#X obj 392 296 text search \$0.clients 0;
+#X obj 392 316 text get \$0.clients;
+#X msg 392 336 symbol \$2;
+#X obj 569 264 loadbang;
+#X msg 569 285 32;
+#X obj 569 304 list tosymbol;
+#X obj 392 356 pack s f s;
 #X msg 24 364 \; \$1.client.display.\$2 label \$3 \; \$1.client.display.\$2
 color 3 \$4 \$4 \;;
 #X obj 96 190 t a a;
@@ -321,6 +320,20 @@ color 3 \$4 \$4 \;;
 #X msg 19 516 \; \$1.mylink.display.\$2 color 3 \$3 \$3;
 #X floatatom 182 426 5 0 0 0 - - -, f 5;
 #X obj 182 443 t b a;
+#X obj 677 201 text search \$0.params 0;
+#X msg 677 156 symbol channels \, symbol bitres;
+#X obj 677 221 sel -1;
+#X obj 710 243 text get \$0.params;
+#X obj 710 268 list split 1;
+#X obj 744 290 list prepend;
+#X obj 744 315 t a a;
+#X obj 658 349 list append;
+#X obj 658 132 t b b b;
+#X obj 392 376 list append;
+#X msg 392 398 symbol jacktrip\$3-o\$2\$3-n\$4\$3-b\$5\$3--clientname\$3\$1
+;
+#X obj 472 11 r \$0.updated.params;
+#X obj 472 31 t b b;
 #X connect 0 0 9 0;
 #X connect 1 0 2 0;
 #X connect 2 0 13 0;
@@ -328,8 +341,8 @@ color 3 \$4 \$4 \;;
 #X connect 4 0 2 1;
 #X connect 5 0 14 0;
 #X connect 6 0 11 1;
-#X connect 7 0 43 0;
-#X connect 8 0 49 0;
+#X connect 7 0 42 0;
+#X connect 8 0 48 0;
 #X connect 9 0 10 0;
 #X connect 9 1 4 0;
 #X connect 10 0 1 0;
@@ -340,13 +353,13 @@ color 3 \$4 \$4 \;;
 #X connect 13 3 8 1;
 #X connect 13 4 3 0;
 #X connect 14 0 12 0;
-#X connect 14 1 44 0;
+#X connect 14 1 43 0;
 #X connect 15 0 16 0;
 #X connect 16 0 26 0;
 #X connect 17 0 16 1;
 #X connect 18 0 16 1;
 #X connect 19 0 27 0;
-#X connect 20 0 50 0;
+#X connect 20 0 49 0;
 #X connect 21 0 20 0;
 #X connect 22 0 23 0;
 #X connect 22 1 18 0;
@@ -374,22 +387,38 @@ color 3 \$4 \$4 \;;
 #X connect 38 0 39 0;
 #X connect 39 0 40 0;
 #X connect 40 0 41 2;
-#X connect 41 0 42 0;
-#X connect 42 0 24 1;
-#X connect 44 0 6 0;
-#X connect 44 1 45 0;
+#X connect 41 0 65 0;
+#X connect 43 0 6 0;
+#X connect 43 1 44 0;
+#X connect 44 0 45 0;
 #X connect 45 0 46 0;
-#X connect 46 0 47 0;
-#X connect 46 1 48 0;
-#X connect 47 0 49 1;
-#X connect 48 0 49 1;
-#X connect 49 0 7 0;
+#X connect 45 1 47 0;
+#X connect 46 0 48 1;
+#X connect 47 0 48 1;
+#X connect 48 0 7 0;
+#X connect 50 0 51 0;
 #X connect 51 0 52 0;
 #X connect 52 0 53 0;
-#X connect 53 0 54 0;
-#X connect 55 0 56 0;
-#X connect 56 0 51 0;
-#X connect 56 1 53 1;
+#X connect 54 0 55 0;
+#X connect 55 0 50 0;
+#X connect 55 1 52 1;
+#X connect 56 0 58 0;
+#X connect 57 0 56 0;
+#X connect 58 1 59 0;
+#X connect 59 0 60 0;
+#X connect 60 1 61 0;
+#X connect 61 0 62 0;
+#X connect 62 0 63 1;
+#X connect 62 1 61 1;
+#X connect 63 0 65 1;
+#X connect 64 0 63 0;
+#X connect 64 1 57 0;
+#X connect 64 2 61 1;
+#X connect 65 0 66 0;
+#X connect 66 0 24 1;
+#X connect 67 0 68 0;
+#X connect 68 0 22 0;
+#X connect 68 1 64 0;
 #X restore 8 106 pd display;
 #X obj 8 8 declare -stdpath iemnet -stdpath osc -stdpath slip -path
 include;
@@ -558,8 +587,6 @@ include;
 #X obj 30 243 list prepend /params;
 #X obj 30 263 list trim;
 #X obj 11 222 t b a b;
-#X msg 693 327 set samplerate 48000;
-#X obj 693 347 s \$0.param;
 #X obj 366 19 r \$0.from.tpf;
 #X obj 366 39 routeOSC /updated/params;
 #X msg 366 59 /refresh/params;
@@ -604,8 +631,10 @@ include;
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 10 0 11 0;
-#X restore 328 352 pd update.guis;
+#X restore 355 354 pd update.guis;
 #X obj 469 61 r \$0.registered;
+#X obj 328 259 t b b;
+#X obj 328 374 s \$0.updated.params;
 #X connect 6 0 7 0;
 #X connect 7 0 17 0;
 #X connect 8 0 11 0;
@@ -627,42 +656,97 @@ include;
 #X connect 24 1 22 0;
 #X connect 24 2 20 0;
 #X connect 25 0 26 0;
+#X connect 26 0 27 0;
 #X connect 27 0 28 0;
-#X connect 28 0 29 0;
 #X connect 29 0 30 0;
+#X connect 30 0 31 0;
 #X connect 31 0 32 0;
-#X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 33 1 43 0;
-#X connect 33 2 37 0;
-#X connect 34 0 45 0;
-#X connect 34 1 35 0;
-#X connect 35 0 37 1;
-#X connect 36 0 37 1;
+#X connect 31 1 41 0;
+#X connect 31 2 35 0;
+#X connect 32 0 45 0;
+#X connect 32 1 33 0;
+#X connect 33 0 35 1;
+#X connect 34 0 35 1;
+#X connect 35 0 36 0;
+#X connect 36 0 39 0;
 #X connect 37 0 38 0;
-#X connect 38 0 41 0;
-#X connect 39 0 40 0;
-#X connect 40 0 41 1;
-#X connect 43 0 36 0;
-#X connect 43 1 44 0;
-#X connect 44 0 42 0;
-#X connect 46 0 29 0;
+#X connect 38 0 39 1;
+#X connect 41 0 34 0;
+#X connect 41 1 42 0;
+#X connect 42 0 40 0;
+#X connect 44 0 27 0;
+#X connect 45 0 46 0;
+#X connect 45 1 43 0;
 #X restore 8 126 pd params;
 #X obj 176 103 text define \$0.params;
+#N canvas 398 461 618 258 gui.code 0;
+#X obj 26 14 r \$0.settings.gui;
+#X msg 26 34 vis 1;
+#X obj 26 54 s pd-SETTINGS/\$0;
+#X obj 29 88 r \$0.connect.gui;
+#X obj 29 108 sel;
+#X obj 60 108 t a;
+#X obj 60 129 r \$0.connection.state;
+#X obj 29 148 ==;
+#X obj 29 173 s \$0.connect;
+#X obj 208 19 r \$0.connection.state;
+#X obj 208 39 sel 0 1;
+#X msg 208 65 CONNECT;
+#X msg 260 65 CONNECTING;
+#X msg 208 106 label \$1;
+#X obj 208 85 symbol;
+#X obj 208 127 s \$0.connect.gui.r;
+#X obj 354 18 r \$0.registered;
+#X msg 354 64 CONNECTED;
+#X obj 338 179 s \$0.connect.gui.r;
+#X msg 338 152 color \$1 \$1 12;
+#X msg 432 64 3;
+#X msg 328 107 10;
+#X obj 488 39 r \$0.block.settings;
+#X obj 488 59 sel 0 1;
+#X msg 515 91 10;
+#X msg 488 91 3;
+#X msg 488 115 color \$1 \$1 12;
+#X obj 488 154 s \$0.settings.gui.r;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
 #X connect 3 0 4 0;
-#X restore 459 18 pd code;
-#X obj 5 6 tgl 20 0 \$0.connect \$0.connect.r empty 17 7 0 10 -262144
--1 -1 0 1;
-#X symbolatom 30 7 20 0 0 0 - - #0.name, f 20;
-#N canvas 525 43 366 151 SETTINGS 0;
+#X connect 4 0 7 0;
+#X connect 4 1 5 0;
+#X connect 5 0 4 1;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 0 21 0;
+#X connect 10 0 24 0;
+#X connect 10 1 12 0;
+#X connect 11 0 14 0;
+#X connect 12 0 14 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 16 0 17 0;
+#X connect 16 0 20 0;
+#X connect 17 0 14 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 0;
+#X connect 23 0 25 0;
+#X connect 23 1 24 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X restore 15 169 pd gui.code;
+#N canvas 525 43 366 151 SETTINGS/\$0 0;
 #X obj 11 23 vradio 14 1 0 5 \$0.jack.buffer.size.gui \$0.jack.buffer.size.gui.r
-empty 0 -8 0 10 -262131 -33289 -1 1;
+empty 0 -8 0 10 -262131 -166441 -1 1;
 #X text 25 24 64;
 #X text 25 52 256;
 #X text 25 66 512;
 #X text 25 80 1024;
 #X obj 290 23 vradio 14 1 0 4 \$0.bitres.gui \$0.bitres.gui.r empty
-0 -8 0 10 -262131 -33289 -1 1;
+0 -8 0 10 -262131 -166441 -1 1;
 #X text 306 23 8;
 #X text 306 37 16;
 #X text 306 51 24;
@@ -670,7 +754,7 @@ empty 0 -8 0 10 -262131 -33289 -1 1;
 #X text 273 5 bitres;
 #X text 9 5 Buffer size;
 #X obj 90 23 vradio 14 1 0 7 \$0.jack.samplerate.gui \$0.jack.samplerate.gui.r
-empty 0 -8 0 10 -262131 -33289 -1 3;
+empty 0 -8 0 10 -262131 -166441 -1 3;
 #X text 89 5 Sample rate;
 #X text 25 38 128;
 #X text 105 23 22050;
@@ -681,7 +765,7 @@ empty 0 -8 0 10 -262131 -33289 -1 3;
 #X text 105 93 96000;
 #X text 105 107 192000;
 #X obj 190 23 vradio 14 1 0 7 \$0.channels.gui \$0.channels.gui.r empty
-0 -8 0 10 -262131 -33289 -1 4;
+0 -8 0 10 -262131 -166441 -1 3;
 #X text 179 5 Channels;
 #X text 206 23 2;
 #X text 206 37 3;
@@ -690,4 +774,11 @@ empty 0 -8 0 10 -262131 -33289 -1 3;
 #X text 206 79 6;
 #X text 206 93 7;
 #X text 206 107 8;
-#X restore 165 9 pd SETTINGS;
+#X restore 185 233 pd SETTINGS/\$0;
+#X connect 3 0 4 0;
+#X restore 460 7 pd code;
+#X symbolatom 96 7 15 0 0 0 - #0.bli #0.name, f 15;
+#X obj 8 7 hsl 80 18 0 127 0 0 \$0.connect.gui \$0.connect.gui.r CONNECT
+2 10 0 12 -233017 -233017 -33289 0 1;
+#X obj 197 7 hsl 80 18 0 127 0 0 \$0.settings.gui \$0.settings.gui.r
+SETTINGS 2 10 0 12 -233017 -233017 -33289 1100 1;
