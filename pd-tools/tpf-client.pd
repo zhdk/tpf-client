@@ -1,34 +1,10 @@
-#N canvas 4 43 515 172 10;
+#N canvas 4 43 517 211 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 5 31 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
 -1 0;
-#X obj 5 50 cnv 18 100 18 empty \$0.client.display.0 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 69 cnv 18 100 18 empty \$0.client.display.1 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 88 cnv 18 100 18 empty \$0.client.display.2 empty 3 10 0 12
--261689 -258699 0;
-#X obj 5 107 cnv 18 100 18 empty \$0.client.display.3 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 5 126 cnv 18 100 18 empty \$0.client.display.4 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 5 145 cnv 18 100 18 empty \$0.client.display.5 empty 3 10 0
-12 -261689 -258699 0;
-#X obj 106 31 cnv 18 400 18 empty empty LINKS: 3 10 0 12 -232576 -1
+#X obj 106 31 cnv 18 399 18 empty empty LINKS: 3 10 0 12 -232576 -1
 0;
-#X obj 106 50 cnv 18 400 18 empty \$0.mylink.display.0 empty 3 10 0
-12 -261689 -33289 0;
-#X obj 106 69 cnv 18 400 18 empty \$0.mylink.display.1 empty 3 10 0
-12 -261689 -33289 0;
-#X obj 106 88 cnv 18 400 18 empty \$0.mylink.display.2 empty 3 10 0
-12 -261689 -33289 0;
-#X obj 106 107 cnv 18 400 18 empty \$0.mylink.display.3 empty 3 10
-0 12 -261689 -33289 0;
-#X obj 106 126 cnv 18 400 18 empty \$0.mylink.display.4 empty 3 10
-0 12 -261689 -33289 0;
-#X obj 106 145 cnv 18 400 18 empty \$0.mylink.display.5 empty 3 10
-0 12 -261689 -33289 0;
 #N canvas 0 276 474 281 code 0;
 #N canvas 0 43 664 577 communication 0;
 #X obj 9 38 packOSC;
@@ -787,7 +763,7 @@ empty 0 -8 0 10 -262131 -33289 -1 2;
 #X text 105 93 96000;
 #X text 105 107 192000;
 #X obj 190 23 vradio 14 1 0 7 \$0.channels.gui \$0.channels.gui.r empty
-0 -8 0 10 -262131 -33289 -1 2;
+0 -8 0 10 -262131 -33289 -1 4;
 #X text 179 5 Channels;
 #X text 206 23 2;
 #X text 206 37 3;
@@ -821,3 +797,11 @@ empty 0 -8 0 10 -262131 -33289 -1 2;
 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 197 7 hsl 80 18 0 127 0 0 \$0.settings.gui \$0.settings.gui.r
 SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
+#X obj 5 69 tpf-client-link \$0 1;
+#X obj 5 88 tpf-client-link \$0 2;
+#X obj 5 50 tpf-client-link \$0 0;
+#X obj 5 107 tpf-client-link \$0 3;
+#X obj 5 126 tpf-client-link \$0 4;
+#X obj 5 145 tpf-client-link \$0 5;
+#X obj 5 164 tpf-client-link \$0 6;
+#X obj 5 183 tpf-client-link \$0 7;
