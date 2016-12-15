@@ -9,7 +9,7 @@ except ValueError:
     sys.exit(1)
 
 # haben wir einen gueltigen Port
-if not isinstance( UDP_PORT, int ) or not  4464 <= UDP_PORT <= 4500:
+if not isinstance( UDP_PORT, int ) or not  4464 <= UDP_PORT <= 5200:
     print 'Specified port (', UDP_PORT, ') is invalid.'
     print 'Valid port range: 4464 - 4500'
     sys.exit(1)
