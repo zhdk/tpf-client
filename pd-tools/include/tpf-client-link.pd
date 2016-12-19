@@ -1,6 +1,6 @@
 #N canvas 20 301 608 378 10;
 #X obj 20 20 cnv 18 100 18 empty \$0.location.label empty 4 10 0 12
--261689 -258699 0;
+-261689 -62784 0;
 #X obj 121 20 cnv 18 150 18 empty \$0.status.label empty 4 10 0 12
 -261689 -33289 0;
 #X obj 272 20 cnv 18 248 18 empty \$0.error.label empty 4 10 0 12 -261689
@@ -87,6 +87,7 @@
 #X connect 9 0 2 0;
 #X connect 10 0 9 0;
 #X connect 10 1 4 0;
+#X connect 10 1 16 0;
 #X connect 11 0 16 0;
 #X connect 11 1 18 0;
 #X connect 12 0 13 0;
