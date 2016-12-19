@@ -1,0 +1,73 @@
+Abstract
+--------
+
+Protocol Version: 1.0
+
+This document describes the protocol used by the TPF (telematic performances format [1]) tool
+set which consists of a client part and a server part. An implementation of the server
+is always running on telematic.zhdk.ch on TCP port 3025. This document describes how
+the client interacts with the server. It serves as a reference to allow for a client
+implementation in any programming language that supports OSC (Open Sound Control [2]). Along
+with that document comes a client implementation done in Pure Data [3]: tpf-client.pd
+
+Underlying protocol
+-------------------
+
+This specification is based on the OSC 1.1 [2] format and uses TCP as transport method. Since
+OSC consists of packets and TCP is a stream oriented protocol, SLIP [4] is used as an
+encapsulation mechanism to allow OSC packets to be transported over TCP.
+
+About notation style
+--------------------
+
+OSC supports a wide range of data types as payload. Since we're dealing only with strings
+and integers, we assume any number to be of the type integer and any non-numeric data
+to be of type string. To facilitate notation in this document, we omit any type specification
+in OSC messages and write only OSC address, optionally followed by payload. An OSC message
+with the adress '/some/path/' and 'string' (type string)  and '43' (type int) as payload is
+written as:
+
+/some/path string 43
+
+A 'C: ' is prepended to denote messages sent by the client, while server messages are
+prepended by a 'S: '.
+
+
+Initialization
+--------------
+
+Clients are identified by their socket number, which is assigned by the server. 
+When the client connects to the server, it requests its own socket number:
+
+C: /s/server/socket
+
+The server responds with: 
+
+S: /s/server/socket 4
+
+Once the client knows its socket number, it negotiates the protocol version to ensure
+that client and server speak the same language:
+
+C: /s/tpf/protocol/version
+S: /s/tpf/protocol/version 1 0
+
+The client is supposed to disconnect with an appropriate error message in case of a
+protocol version mismatch.
+
+Once the procol version is agreed upon, the client registers its given name, which 
+can be any string configured by the user:
+
+C: /s/tpf/register/name ZHdK
+S: /s/tpf/register/done
+
+If the server responds with:
+
+S: 
+
+
+
+[1] https://blog.zhdk.ch/telematic/
+[2] http://cnmat.berkeley.edu/system/files/attachments/Nime09OSCfinal.pdf
+[3] https://puredata.info/
+[4] https://tools.ietf.org/html/rfc1055
+
