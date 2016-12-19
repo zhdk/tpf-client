@@ -43,7 +43,7 @@
 #X obj 405 492 routeOSC /s/tpf;
 #X obj 405 55 sel 1;
 #X obj 405 75 del 100;
-#X msg 141 59 connect telematic.zhdk.ch 3025;
+#X msg 141 59 connect 195.176.247.53 3025;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -663,7 +663,7 @@ empty 0 -8 0 10 -262131 -33289 -1 2;
 #X obj 7 7 hsl 80 18 0 127 0 0 \$0.connect.gui \$0.connect.gui.r CONNECT
 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 197 7 hsl 80 18 0 127 0 0 \$0.settings.gui \$0.settings.gui.r
-SETTINGS 2 10 0 12 -233017 -233017 -33289 100 1;
+SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 5 50 tpf-client-link \$0 0;
 #X obj 5 69 tpf-client-link \$0 1;
 #X obj 5 88 tpf-client-link \$0 2;
