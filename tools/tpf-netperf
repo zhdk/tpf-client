@@ -15,6 +15,7 @@ VALIDSAMPLERATELIST="22050 32000 44100 48000 88200 96000 192000"
 VALIDBLOCKSIZELIST="64 128 256 512 1024 2048 4096"
 
 # Parse cmdline arguments
+help=false
 while [ $# -gt 0 ]
 do
   case "$1" in
@@ -25,6 +26,7 @@ do
     -i|--instances)        NUMOFINSTANCES="$2"; shift;;
     -c|--client)           CLIENTOF="$2"; shift;;
     -d|--duration)         DURATION="$2"; shift;;
+    -h|--help)             help=true;;
     -*) printerr "$SCRIPTNAME: error - unrecognized option '$1'"
         printerr "use '$SCRIPTNAME --help' to get a list of available options"
         exit 1;;
@@ -32,6 +34,40 @@ do
   esac
   shift
 done
+
+# show help
+if $help
+then
+  cat << EOF
+
+$SCRIPTNAME
+------------
+
+Tool for testing network connection for Telematic Performances. It's
+basically a wrapper around iperf3.
+
+The tool emulates the payload of one or many jacktrip connections
+and reports jitter and lost packages.
+
+For a given number of channels and bitres, you may want to tweak
+the buffersize and test what works best for the current network
+connection.
+
+CMDLINE OPTIONS:
+
+    -n|--numofchannels INT    number of channels
+    -b|--bitres INT           bit resolution (8, 16, 24, 32)
+    -r|--samplerate INT       samplerate
+    -s|--blocksize INT        blocksize
+    -i|--instances INT        run INT number of clients simultaneously
+    -c|--client HOST          set the host to connect to
+    -d|--duration INT         duration of a test in seconds
+    -h|--help                 show this help
+
+EOF
+  exit
+
+fi
 
 # check BITRES
 if [[ ! $VALIDBITRESLIST =~ (^|[[:space:]])$BITRES($|[[:space:]]) ]]
