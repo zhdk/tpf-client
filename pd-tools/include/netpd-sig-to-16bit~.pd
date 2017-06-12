@@ -1,4 +1,4 @@
-#N canvas 485 190 437 300 10;
+#N canvas 479 170 437 300 10;
 #X obj 10 180 table \$0.msb 65536;
 #X obj 10 198 table \$0.lsb 65536;
 #X obj 173 18 inlet~;
@@ -8,7 +8,7 @@
 #X obj 173 134 tabread~ \$0.msb;
 #X obj 271 135 tabread~ \$0.lsb;
 #X obj 173 48 +~ 1;
-#N canvas 301 278 348 267 generate_msb 0;
+#N canvas 292 248 348 267 generate_msb 0;
 #X obj 19 17 inlet;
 #X obj 36 65 switch~ 256 1 1;
 #N canvas 546 437 450 300 upsampled_by_256 0;
@@ -35,7 +35,7 @@
 #X connect 8 1 1 0;
 #X connect 8 2 3 0;
 #X connect 8 3 7 0;
-#X restore 23 123 pd generate_msb;
+#X restore 37 115 pd generate_msb;
 #N canvas 40 266 311 243 generate_lsb 0;
 #X obj 11 12 inlet;
 #X obj 11 65 switch~ 65536 1 1;
@@ -52,24 +52,18 @@
 #X connect 5 0 6 0;
 #X connect 7 0 1 0;
 #X connect 7 1 2 0;
-#X restore 12 146 pd generate_lsb;
-#X obj 12 28 sel 1;
-#X obj 12 79 spigot 1;
-#X obj 12 99 t a b;
-#X msg 73 90 0;
-#X obj 12 8 netpd-status-get dsp 1;
-#X obj 12 51 del 0;
+#X restore 10 144 pd generate_lsb;
+#X obj 10 32 loadbang;
+#X obj 90 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 88 t b b;
 #X connect 2 0 8 0;
 #X connect 3 0 6 0;
 #X connect 3 0 7 0;
 #X connect 6 0 4 0;
 #X connect 7 0 5 0;
 #X connect 8 0 3 0;
-#X connect 11 0 16 0;
+#X connect 11 0 13 0;
 #X connect 12 0 13 0;
-#X connect 13 0 9 0;
 #X connect 13 0 10 0;
-#X connect 13 1 14 0;
-#X connect 14 0 12 1;
-#X connect 15 0 11 0;
-#X connect 16 0 12 0;
+#X connect 13 1 9 0;
