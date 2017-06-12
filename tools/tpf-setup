@@ -5,15 +5,20 @@ then
   exit 0
 fi
 
-# At this point mtr should be installed and thus if we don't find
-# it means that /usr/local/sbin is not part of PATH
-if ! echo $PATH | grep -q "/usr/local/sbin"
+if [ ! -e /Applications/qjackctl.app ]
 then
-  read -p "Add /usr/local/sbin to your PATH? Y/n " -r
+  read -p "Create symlink to qjackctl.app in /Applications? Y/n " -r
   if [[ ! $REPLY =~ ^[Nn]$ ]]
   then
-    echo "export PATH=/usr/local/sbin:$PATH" >> ~/.bash_profile
-    echo "export PATH=/usr/local/sbin:$PATH"
+    if  [ -w /Applications ]
+    then
+      ln -s /usr/local/opt/qjackctl-tpf/qjackctl.app /Applications/
+    else
+      sudo ln -s /usr/local/opt/qjackctl-tpf/qjackctl.app /Applications/
+    fi
+    echo "Done."
+  else
+    echo "Skipping..."
   fi
 fi
 
@@ -61,6 +66,19 @@ then
   fi
 else
   echo "Skipping..."
+fi
+
+# At this point mtr should be installed and thus if we don't find
+# it means that /usr/local/sbin is not part of PATH
+if ! echo $PATH | grep -q "/usr/local/sbin"
+then
+  read -p "Add /usr/local/sbin to your PATH? Y/n " -r
+  if [[ ! $REPLY =~ ^[Nn]$ ]]
+  then
+    echo "export PATH=/usr/local/sbin:$PATH" >> ~/.bash_profile
+    echo "Please execute the following in your terminal window:"
+    echo 'export PATH=/usr/local/sbin:$PATH'
+  fi
 fi
 
 
