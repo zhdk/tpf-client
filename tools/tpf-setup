@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$1" == "--do-nothing" ]
+then
+  exit 0
+fi
+
 # At this point mtr should be installed and thus if we don't find
 # it means that /usr/local/sbin is not part of PATH
 if ! echo $PATH | grep -q "/usr/local/sbin"
