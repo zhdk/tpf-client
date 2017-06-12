@@ -1,2 +1,61 @@
 #!/bin/bash
-exit 0
+
+# At this point mtr should be installed and thus if we don't find
+# it means that /usr/local/sbin is not part of PATH
+if ! echo $PATH | grep -q "/usr/local/sbin"
+then
+  read -p "Add /usr/local/sbin to your PATH? Y/n " -r
+  if [[ ! $REPLY =~ ^[Nn]$ ]]
+  then
+    echo "export PATH=/usr/local/sbin:$PATH" >> ~/.bash_profile
+    echo "export PATH=/usr/local/sbin:$PATH"
+  fi
+fi
+
+# Install qjackctl configuration
+read -p "Write qjackctl configuration file? Y/n " -r
+if [[ ! $REPLY =~ ^[Nn]$ ]]
+then
+  qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
+  if [ -f $qjconffile ]
+  then
+    read -p "Overwrite existing qjackctl configuration file? Y/n " -r
+    if [[ ! $REPLY =~ ^[Nn]$ ]]
+    then
+      cp /usr/local/share/tpf/org.rncbc.QjackCtl.plist $qjconffile
+      echo "Done."
+    else
+      echo "Skipping..."
+    fi
+  else
+    cp /usr/local/share/tpf/org.rncbc.QjackCtl.plist $qjconffile
+    echo "Done."
+  fi
+else
+  echo "Skipping..."
+fi
+
+# Install pd configuration
+read -p "Write pd configuration file? Y/n " -r
+if [[ ! $REPLY =~ ^[Nn]$ ]]
+then
+  pdconffile=~/Library/Preferences/org.puredata.pd.plist
+  if [ -f $pdconffile ]
+  then
+    read -p "Overwrite existing pd configuration file? Y/n " -r
+    if [[ ! $REPLY =~ ^[Nn]$ ]]
+    then
+      cp /usr/local/share/tpf/org.puredata.pd.plist $pdconffile
+      echo "Done."
+    else
+      echo "Skipping..."
+    fi
+  else
+    cp /usr/local/share/tpf/org.puredata.pd.plist $pdconffile
+    echo "Done."
+  fi
+else
+  echo "Skipping..."
+fi
+
+
