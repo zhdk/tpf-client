@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# do nothing (test)
 if [ "$1" == "--do-nothing" ]
 then
   exit 0
 fi
 
+# Create symlink to qjackctl application
 if [ ! -e /Applications/qjackctl.app ]
 then
   read -p "Create symlink to qjackctl.app in /Applications? Y/n " -r
@@ -23,47 +25,35 @@ then
 fi
 
 # Install qjackctl configuration
-read -p "Write qjackctl configuration file? Y/n " -r
+qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
+if [ -f $qjconffile ]
+then
+  prompt="Overwrite existing qjackctl configuration file? Y/n "
+else
+  prompt="Write qjackctl configuration file? Y/n "
+fi
+read -p "$prompt" -r
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
-  qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
-  if [ -f $qjconffile ]
-  then
-    read -p "Overwrite existing qjackctl configuration file? Y/n " -r
-    if [[ ! $REPLY =~ ^[Nn]$ ]]
-    then
-      cp /usr/local/share/tpf/org.rncbc.QjackCtl.plist $qjconffile
-      echo "Done."
-    else
-      echo "Skipping..."
-    fi
-  else
-    cp /usr/local/share/tpf/org.rncbc.QjackCtl.plist $qjconffile
-    echo "Done."
-  fi
+  cp /usr/local/share/tpf/org.rncbc.QjackCtl.plist $qjconffile
+  echo "Done."
 else
   echo "Skipping..."
 fi
 
 # Install pd configuration
-read -p "Write pd configuration file? Y/n " -r
+pdconffile=~/Library/Preferences/org.puredata.pd.plist
+if [ -f $pdconffile ]
+then
+  prompt="Overwrite existing pd configuration file? Y/n "
+else
+  prompt="Write pd configuration file? Y/n "
+fi
+read -p "$prompt" -r
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
-  pdconffile=~/Library/Preferences/org.puredata.pd.plist
-  if [ -f $pdconffile ]
-  then
-    read -p "Overwrite existing pd configuration file? Y/n " -r
-    if [[ ! $REPLY =~ ^[Nn]$ ]]
-    then
-      cp /usr/local/share/tpf/org.puredata.pd.plist $pdconffile
-      echo "Done."
-    else
-      echo "Skipping..."
-    fi
-  else
-    cp /usr/local/share/tpf/org.puredata.pd.plist $pdconffile
-    echo "Done."
-  fi
+  cp /usr/local/share/tpf/org.puredata.pd.plist $pdconffile
+  echo "Done."
 else
   echo "Skipping..."
 fi
