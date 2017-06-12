@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# DEFAULTS
+SCRIPTNAME=$(basename $0)
+NUMOFCHANNELS=2
+BITRES=16
+SAMPLERATE=44100
+BLOCKSIZE=128
+NUMOFINSTANCES=1
+CLIENTOF="telematic.zhdk.ch"
+
+VALIDBITRESLIST="8 16 24 32"
+VALIDSAMPLERATELIST="22050 32000 44100 48000 88200 96000 192000"
+VALIDBLOCKSIZELIST="64 128 256 512 1024 2048 4096"
+
+# Parse cmdline arguments
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -n|--numofchannels)    NUMOFCHANNELS="$2"; shift;;
+    -b|--bitres)           BITRES="$2"; shift;;
+    -r|--samplerate)       SAMPLERATE="$2"; shift;;
+    -s|--blocksize)        BLOCKSIZE="$2"; shift;;
+    -i|--instances)        NUMOFINSTANCES="$2"; shift;;
+    -c|--client)           CLIENTOF="$2"; shift;;
+    -*) printerr "$SCRIPTNAME: error - unrecognized option '$1'"
+        printerr "use '$SCRIPTNAME --help' to get a list of available options"
+        exit 1;;
+    *)  break;;
+  esac
+  shift
+done
+
+# check BITRES
+if [[ ! $VALIDBITRESLIST =~ (^|[[:space:]])$BITRES($|[[:space:]]) ]]
+then
+  echo "Given bitres ('$BITRES') is not valid."
+  echo "Valid bitres values are: $VALIDBITRESLIST"
+  exit 1
+fi
+
+# check SAMPLERATE
+if [[ ! $VALIDSAMPLERATELIST =~ (^|[[:space:]])$SAMPLERATE($|[[:space:]]) ]]
+then
+  echo "Given samplerate ('$SAMPLERATE') is not valid."
+  echo "Valid samplerate values are: $VALIDSAMPLERATELIST"
+  exit 1
+fi
+
+# check BLOCKSIZE
+if [[ ! $VALIDBLOCKSIZELIST =~ (^|[[:space:]])$BLOCKSIZE($|[[:space:]]) ]]
+then
+  echo "Given samplerate ('$BLOCKSIZE') is not valid."
+  echo "Valid samplerate values are: $VALIDBLOCKSIZELIST"
+  exit 1
+fi
+
+# check NUMOFCHANNELS
+if  (( NUMOFCHANNELS < 2 )) || (( NUMOFCHANNELS > 64 ))
+then
+  echo "Given number of channels ('$NUMOFCHANNELS') is not valid."
+  echo "Valid range is: 2-64"
+  exit 1
+fi
+
+# Calculate UDP packetsize (in bytes)
+# The jacktrip header size is 16 bytes
+PACKETSIZE=$(( BLOCKSIZE * NUMOFCHANNELS * BITRES / 8 + 16 ))
+
+# Calculate packet rate
+PACKETRATE=$(bc <<< "scale=2; $SAMPLERATE/$BLOCKSIZE")
+
+# Calculate bandwidth
+BANDWIDTH=$(bc <<< "scale=3; $PACKETRATE*$PACKETSIZE*8/1000000")
+
+echo "BITRES:       $BITRES"
+echo "SAMPLERATE:   $SAMPLERATE"
+echo "BLOCKSIZE:    $BLOCKSIZE"
+echo "CHANNELS:     $NUMOFCHANNELS"
+echo "PACKETSIZE:   ${PACKETSIZE} bytes"
+echo "PACKETRATE:   ${PACKETRATE}/s"
+echo "BANDWIDTH:    ${BANDWIDTH}Mb/s"
+
+
