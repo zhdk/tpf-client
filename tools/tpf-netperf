@@ -8,6 +8,7 @@ SAMPLERATE=44100
 BLOCKSIZE=128
 NUMOFINSTANCES=1
 CLIENTOF="telematic.zhdk.ch"
+DURATION=10
 
 VALIDBITRESLIST="8 16 24 32"
 VALIDSAMPLERATELIST="22050 32000 44100 48000 88200 96000 192000"
@@ -23,6 +24,7 @@ do
     -s|--blocksize)        BLOCKSIZE="$2"; shift;;
     -i|--instances)        NUMOFINSTANCES="$2"; shift;;
     -c|--client)           CLIENTOF="$2"; shift;;
+    -d|--duration)         DURATION="$2"; shift;;
     -*) printerr "$SCRIPTNAME: error - unrecognized option '$1'"
         printerr "use '$SCRIPTNAME --help' to get a list of available options"
         exit 1;;
@@ -80,5 +82,14 @@ echo "CHANNELS:     $NUMOFCHANNELS"
 echo "PACKETSIZE:   ${PACKETSIZE} bytes"
 echo "PACKETRATE:   ${PACKETRATE}/s"
 echo "BANDWIDTH:    ${BANDWIDTH}Mb/s"
+echo "DURATION:     ${DURATION}s"
 
+echo "-------------------------------------------------------------------"
+echo "Now running test:"
+echo "LOCAL >>>>>>>>>>>>>>> TELEMATIC server"
 
+iperf3 -u -c telematic.zhdk.ch    -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
+
+echo "LOCAL <<<<<<<<<<<<<<< TELEMATIC server"
+
+iperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
