@@ -6,6 +6,7 @@ EXTERNALURLS=(
   'http://puredata.info/Members/rdz/software/iemnet/0.2.1~git20151214/iemnet-v0.2.1~git20151214-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
   'http://puredata.info/Members/rdz/software/osc/0.2~git20151118/osc-v0.2~git20151118-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
   'http://puredata.info/Members/rdz/software/slip/0.1~git20151118/slip-v0.1~git20151118-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
+  'http://puredata.info/Members/rdz/software/ggee/0.27~git20151117/ggee-v0.27~git20151117-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
 )
 qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
 pdconffile=~/Library/Preferences/org.puredata.pd.plist
