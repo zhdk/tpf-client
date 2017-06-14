@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# defaults
+externaldir=~/Library/Pd
+EXTERNALURLS=(
+  'http://puredata.info/Members/rdz/software/iemnet/0.2.1~git20151214/iemnet-v0.2.1~git20151214-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
+  'http://puredata.info/Members/rdz/software/osc/0.2~git20151118/osc-v0.2~git20151118-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
+  'http://puredata.info/Members/rdz/software/slip/0.1~git20151118/slip-v0.1~git20151118-(Darwin-i386-32)(Darwin-x86_64-32)-externals.tar.gz'
+)
+qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
+pdconffile=~/Library/Preferences/org.puredata.pd.plist
+
 # do nothing (test)
 if [ "$1" == "--do-nothing" ]
 then
@@ -25,7 +35,6 @@ then
 fi
 
 # Install qjackctl configuration
-qjconffile=~/Library/Preferences/org.rncbc.QjackCtl.plist
 if [ -f $qjconffile ]
 then
   prompt="Overwrite existing qjackctl configuration file? Y/n "
@@ -42,7 +51,6 @@ else
 fi
 
 # Install pd configuration
-pdconffile=~/Library/Preferences/org.puredata.pd.plist
 if [ -f $pdconffile ]
 then
   prompt="Overwrite existing pd configuration file? Y/n "
@@ -58,6 +66,39 @@ else
   echo "Skipping..."
 fi
 
+# Create external dir, if there is none yet
+if [ ! -d $externaldir ]
+then
+  mkdir $externaldir
+fi
+
+function install_external {
+  # ARG1: url of Pd external
+  local url="$1"
+  local archive
+  (
+    cd $externaldir
+    curl -s -O "$1"
+    archive="$(basename "$url")"
+    tar xf "$archive"
+    rm "$archive"
+  )
+}
+
+read -p "Install required Pd externals? Y/n " -r
+if [[ ! $REPLY =~ ^[Nn]$ ]]
+then
+  for url in ${EXTERNALURLS[*]}
+  do
+    package=$(basename "$url" | sed -e 's/-.*$//')
+    echo "Installing $package to $externaldir"
+    install_external "$url"
+  done
+  echo "Done."
+else
+  echo "Skipping..."
+fi
+
 # At this point mtr should be installed and thus if we don't find
 # it means that /usr/local/sbin is not part of PATH
 if ! echo $PATH | grep -q "/usr/local/sbin"
@@ -67,8 +108,7 @@ then
   then
     echo "export PATH=/usr/local/sbin:$PATH" >> ~/.bash_profile
     echo "Please execute the following in your terminal window:"
-    echo 'export PATH=/usr/local/sbin:$PATH'
+    echo 'source ~/.bash_profile'
   fi
 fi
-
 
