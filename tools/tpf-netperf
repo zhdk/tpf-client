@@ -111,25 +111,25 @@ PACKETRATE=$(bc <<< "scale=2; $SAMPLERATE/$BLOCKSIZE")
 # Calculate bandwidth
 BANDWIDTH=$(bc <<< "scale=3; $PACKETRATE*$PACKETSIZE*8/1000000")
 
-echo -e "Configured options:\e[32m"
+echo -e "Configured options:\033[32m"
 echo "  BITRES:       $BITRES    (-b)"
 echo "  SAMPLERATE:   $SAMPLERATE (-r)"
 echo "  BLOCKSIZE:    $BLOCKSIZE   (-s)"
 echo "  CHANNELS:     $NUMOFCHANNELS     (-n)"
 echo "  DURATION:     ${DURATION}s   (-d)"
-echo -e "\e[0m"
-echo -e "Calculated parameters:\e[35m"
+echo -e "\033[0m"
+echo -e "Calculated parameters:\033[35m"
 echo "  PACKETSIZE:   ${PACKETSIZE} bytes"
 echo "  PACKETRATE:   ${PACKETRATE}/s"
 echo "  BANDWIDTH:    ${BANDWIDTH}Mb/s"
-echo -e "\e[0m"
+echo -e "\033[0m"
 echo "-------------------------------------------------------------------"
 echo "Now running test:"
-echo -e "\e[34mLOCAL >>>>>>>>>>>>>>> TELEMATIC server\e[0m"
+echo -e "\033[34mLOCAL >>>>>>>>>>>>>>> TELEMATIC server\033[0m"
 echo "Exuting command:"
-echo -e "\e[31miperf3 -u -c telematic.zhdk.ch -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\e[0m"
+echo -e "\033[31miperf3 -u -c telematic.zhdk.ch -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\033[0m"
 iperf3 -u -c telematic.zhdk.ch    -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
-echo -e "\e[34mLOCAL <<<<<<<<<<<<<<< TELEMATIC server\e[0m"
+echo -e "\033[34mLOCAL <<<<<<<<<<<<<<< TELEMATIC server\033[0m"
 echo "Executing command:"
-echo -e "\e[31miperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\e[0m"
+echo -e "\033[31miperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\033[0m"
 iperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
