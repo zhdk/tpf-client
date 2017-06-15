@@ -18,8 +18,8 @@
 #X obj 6 13 inlet;
 #N canvas 307 284 576 264 reblock_upsampled_by_2 0;
 #X obj 15 20 inlet;
-#X obj 347 99 rzero_rev~ 0;
-#X text 432 96 <- one sample delay;
+#X obj 260 96 rzero_rev~ 0;
+#X text 345 93 <- one sample delay;
 #X obj 269 169 +~;
 #X obj 268 33 inlet~ pad;
 #X obj 347 35 inlet~ pad;
@@ -29,10 +29,10 @@
 #X obj 83 39 * 2;
 #X msg 83 59 set \$1 1 2;
 #X connect 0 0 7 0;
-#X connect 1 0 3 1;
+#X connect 1 0 3 0;
 #X connect 3 0 6 0;
-#X connect 4 0 3 0;
-#X connect 5 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 1;
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 10 0 7 0;
