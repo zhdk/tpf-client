@@ -1,4 +1,4 @@
-#N canvas 174 35 1094 618 10;
+#N canvas 174 50 1094 618 10;
 #X declare -stdpath iemnet;
 #X obj 249 513 udpclient;
 #X obj 249 482 r \$0.to.udp;
@@ -31,7 +31,7 @@
 #X obj 829 12 cnv 15 220 25 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 829 12 tgl 25 0 \$0.on.off \$0.on.off empty 17 7 0 10 -261234
--1 -1 0 1;
+-1 -1 1 1;
 #N canvas 0 70 285 340 sender 0;
 #X obj 14 137 s \$0.to.udp;
 #N canvas 0 50 635 529 prepend_header 0;
@@ -135,7 +135,7 @@
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X restore 33 509 pd sender;
-#N canvas 504 41 607 637 receiver 0;
+#N canvas 504 50 607 637 receiver 0;
 #X obj 14 11 r \$0.from.udp;
 #X obj 14 32 list split 16;
 #X obj 164 71 list length;
@@ -319,7 +319,7 @@
 #X restore 261 289 pd out.of.order.counter;
 #X obj 29 231 t a a;
 #X obj 14 197 t a a a a a;
-#N canvas 881 316 450 300 glitch.counter 1;
+#N canvas 881 316 450 300 glitch.counter 0;
 #X obj 24 23 inlet;
 #X obj 24 43 t a a;
 #X obj 24 75 -;
@@ -545,7 +545,7 @@ to continuous stream;
 #X connect 9 1 0 0;
 #X restore 11 31 pd connection;
 #X obj 966 19 nbx 5 14 0 65535 0 0 \$0.bla \$0.sequence empty 0 -8
-0 10 -262130 -1 -1 107 256;
+0 10 -262130 -1 -1 28422 256;
 #X text 1022 19 seq;
 #X obj 1015 144 nbx 2 14 2 99 0 0 \$0.queue \$0.queue empty 0 -8 0
 10 -204800 -1 -1 4 256;
@@ -646,7 +646,7 @@ empty 0 -8 0 10 -262130 -1 -1 528 256;
 #X connect 37 0 7 0;
 #X restore 11 51 pd calculate.metrics;
 #X obj 905 19 nbx 4 14 0 65535 0 0 \$0.bla \$0.seconds empty 0 -8 0
-10 -262130 -1 -1 0 256;
+10 -262130 -1 -1 75 256;
 #X text 854 12 start;
 #X text 854 23 stop;
 #X text 951 20 s;
@@ -1255,7 +1255,6 @@ _ _ _ _ _;
 #X obj 165 178 s \$0.channels;
 #X obj 215 161 s \$0.blocksize;
 #X obj 265 143 s \$0.queue;
-#X obj 315 125 s \$0.portoffset;
 #X obj 14 92 b;
 #X obj 39 92 b;
 #X msg 14 116 1;
@@ -1265,23 +1264,25 @@ _ _ _ _ _;
 #X obj 65 56 route start stop channels blocksize queue portoffset status
 ;
 #X obj 365 107 s \$0.print.status;
-#X connect 0 0 9 0;
+#X obj 315 125 s \$0.port.offset;
+#X connect 0 0 8 0;
+#X connect 4 0 6 0;
 #X connect 5 0 7 0;
-#X connect 6 0 8 0;
-#X connect 7 0 10 0;
-#X connect 8 0 10 0;
-#X connect 9 0 5 0;
-#X connect 9 1 6 0;
-#X connect 9 2 11 0;
-#X connect 11 0 5 0;
-#X connect 11 1 6 0;
-#X connect 11 2 1 0;
-#X connect 11 3 2 0;
-#X connect 11 4 3 0;
-#X connect 11 5 4 0;
-#X connect 11 6 12 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 8 1 5 0;
+#X connect 8 2 10 0;
+#X connect 10 0 4 0;
+#X connect 10 1 5 0;
+#X connect 10 2 1 0;
+#X connect 10 3 2 0;
+#X connect 10 4 3 0;
+#X connect 10 5 12 0;
+#X connect 10 6 11 0;
 #X restore 444 56 pd parse.methods;
 #X obj 11 11 declare -stdpath iemnet;
+#X obj 924 463 outlet;
 #X connect 0 0 2 0;
 #X connect 0 2 3 0;
 #X connect 1 0 0 0;
