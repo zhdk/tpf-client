@@ -11,7 +11,7 @@
 #X obj 855 144 nbx 2 14 1 64 0 0 \$0.channels \$0.channels empty 0
 -8 0 10 -204800 -1 -1 2 256;
 #X obj 910 144 nbx 2 14 0 99 0 0 \$0.port.offset \$0.port.offset empty
-0 -8 0 10 -204800 -1 -1 20 256;
+0 -8 0 10 -204800 -1 -1 0 256;
 #X text 890 144 -o;
 #X text 944 144 -b;
 #X text 832 126 jacktrip;
@@ -630,13 +630,11 @@ to continuous stream;
 #X connect 5 0 9 1;
 #X connect 6 0 9 1;
 #X connect 7 0 9 0;
-#X connect 7 1 8 0;
 #X connect 7 2 6 0;
 #X connect 7 3 5 0;
 #X connect 7 4 4 0;
 #X connect 7 5 3 0;
 #X connect 7 6 2 0;
-#X connect 8 0 9 1;
 #X connect 9 0 1 0;
 #X restore 14 128 pd validate_params;
 #N canvas 0 50 450 300 check_payload_length 0;
@@ -728,7 +726,7 @@ to continuous stream;
 #X connect 9 1 0 0;
 #X restore 11 31 pd connection;
 #X obj 966 19 nbx 5 14 0 65535 0 0 \$0.bla \$0.sequence empty 0 -8
-0 10 -262130 -1 -1 18934 256;
+0 10 -262130 -1 -1 7021 256;
 #X text 1022 19 seq;
 #X obj 1015 144 nbx 2 14 2 99 0 0 \$0.queue \$0.queue empty 0 -8 0
 10 -204800 -1 -1 4 256;
@@ -740,7 +738,7 @@ to continuous stream;
 #X obj 887 189 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.dropped empty
 0 -8 0 10 -262130 -1 -1 0 256;
 #X obj 940 189 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.outoforder empty
-0 -8 0 10 -262130 -1 -1 2 256;
+0 -8 0 10 -262130 -1 -1 0 256;
 #X text 834 172 GLITCH;
 #X obj 835 189 nbx 4 14 -1e+37 1e+37 0 0 \$0.bla \$0.glitch empty 0
 -8 0 10 -262130 -1 -1 0 256;
@@ -829,7 +827,7 @@ empty 0 -8 0 10 -262130 -1 -1 528 256;
 #X connect 37 0 7 0;
 #X restore 11 51 pd calculate.metrics;
 #X obj 905 19 nbx 4 14 0 65535 0 0 \$0.bla \$0.seconds empty 0 -8 0
-10 -262130 -1 -1 574 256;
+10 -262130 -1 -1 53 256;
 #X text 854 12 start;
 #X text 854 23 stop;
 #X text 951 20 s;
@@ -1465,7 +1463,16 @@ _ _ _ _ _;
 #X connect 10 6 11 0;
 #X restore 444 56 pd parse.methods;
 #X obj 11 11 declare -stdpath iemnet;
-#X obj 924 463 outlet;
+#X obj 922 464 outlet;
+#N canvas 149 85 450 300 status_and_errors 0;
+#X obj 25 264 outlet;
+#X obj 25 24 r \$0.error;
+#X obj 25 44 list prepend ERROR;
+#X obj 25 64 list trim;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X restore 922 384 pd status_and_errors;
 #X connect 0 0 2 0;
 #X connect 0 2 3 0;
 #X connect 1 0 0 0;
@@ -1535,3 +1542,4 @@ _ _ _ _ _;
 #X connect 113 6 120 0;
 #X connect 113 7 121 0;
 #X connect 122 0 123 0;
+#X connect 126 0 125 0;
