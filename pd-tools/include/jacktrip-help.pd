@@ -1,4 +1,4 @@
-#N canvas 389 43 658 438 10;
+#N canvas 383 35 658 438 10;
 #X obj 20 154 jacktrip . . . . . . . . . . . .;
 #X obj 20 20 adc~ 1 2;
 #X obj 20 290 dac~ 1 2;
