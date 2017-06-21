@@ -1,4 +1,4 @@
-#N canvas 377 35 679 472 10;
+#N canvas 377 50 679 515 10;
 #X obj 20 154 jacktrip . . . . . . . . . . . .;
 #X obj 20 20 adc~ 1 2;
 #X obj 20 290 dac~ 1 2;
@@ -21,22 +21,24 @@
 #X msg 498 245 portoffset \$1;
 #X text 533 223 port offset;
 #X msg 498 322 status;
-#X obj 209 326 route ERROR STATISTICS STATUS;
-#X obj 184 372 print ERROR;
-#X obj 266 372 route dropped_count glitch_count ooo_count bufmis_count
-;
-#X floatatom 266 412 8 0 0 0 - - -, f 8;
-#X floatatom 347 412 8 0 0 0 - - -, f 8;
-#X floatatom 429 412 8 0 0 0 - - -, f 8;
-#X floatatom 511 412 8 0 0 0 - - -, f 8;
-#X text 264 431 dropped;
-#X text 345 431 glitch;
-#X text 427 431 ooo;
-#X text 509 432 bufmis;
-#X obj 323 347 print STATUS;
+#X obj 119 250 route ERROR STATISTICS STATUS;
+#X obj 119 459 print ERROR;
+#X floatatom 176 412 8 0 0 0 - - -, f 8;
+#X floatatom 259 412 8 0 0 0 - - -, f 8;
+#X floatatom 342 412 8 0 0 0 - - -, f 8;
+#X text 174 431 dropped;
+#X text 257 431 glitch;
+#X text 340 431 ooo;
 #X symbolatom 498 275 22 0 0 0 - - -, f 22;
 #X msg 498 292 server \$1;
 #X text 568 291 server;
+#X obj 176 372 route dropped_count glitch_count ooo_count;
+#X obj 233 295 route connected receiving;
+#X obj 380 351 print STATUS;
+#X obj 233 324 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 306 322 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 0 0 2 0;
 #X connect 0 1 2 1;
 #X connect 0 8 21 0;
@@ -57,11 +59,13 @@
 #X connect 18 0 0 8;
 #X connect 20 0 0 8;
 #X connect 21 0 22 0;
-#X connect 21 1 23 0;
-#X connect 21 2 32 0;
-#X connect 23 0 24 0;
-#X connect 23 1 25 0;
-#X connect 23 2 26 0;
-#X connect 23 3 27 0;
-#X connect 33 0 34 0;
-#X connect 34 0 0 8;
+#X connect 21 1 32 0;
+#X connect 21 2 33 0;
+#X connect 29 0 30 0;
+#X connect 30 0 0 8;
+#X connect 32 0 23 0;
+#X connect 32 1 24 0;
+#X connect 32 2 25 0;
+#X connect 33 0 35 0;
+#X connect 33 1 36 0;
+#X connect 33 2 34 0;
