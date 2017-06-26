@@ -100,6 +100,35 @@ else
   echo "Skipping..."
 fi
 
+# Installation of Jackmp.framework
+read -p "Install Jackmp.framwork (required by some Jack clients)? Y/n " -r
+if [[ ! $REPLY =~ ^[Nn]$ ]]
+then
+  URL="https://gitlab.zhdk.ch/TPF/homebrew-tpf-bottles/raw/master/pkgs/Jackmp.framework.tar.gz"
+  (
+    cd /Library/Frameworks/
+    curl -s "$URL" | sudo tar xf -
+  )
+  echo "Done."
+else
+  echo "Skipping..."
+fi
+
+# Installation of JackRouter.plugin
+read -p "Install JackRouter.plugin (required by some Jack clients)? Y/n " -r
+if [[ ! $REPLY =~ ^[Nn]$ ]]
+then
+  URL="https://gitlab.zhdk.ch/TPF/homebrew-tpf-bottles/raw/master/pkgs/JackRouter.plugin.tar.gz"
+  (
+    cd /Library/Audio/Plug-Ins/HAL/
+    curl -s "$URL" | sudo tar xf -
+  )
+  echo "Done."
+  echo "NOTE: JackRouter is only listed in Audio-Midi-Setup after reboot!"
+else
+  echo "Skipping..."
+fi
+
 # At this point mtr should be installed and thus if we don't find
 # it means that /usr/local/sbin is not part of PATH
 if ! echo $PATH | grep -q "/usr/local/sbin"
