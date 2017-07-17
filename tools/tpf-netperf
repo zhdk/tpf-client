@@ -127,9 +127,9 @@ echo "-------------------------------------------------------------------"
 echo "Now running test:"
 echo -e "\033[34mLOCAL >>>>>>>>>>>>>>> TELEMATIC server\033[0m"
 echo "Exuting command:"
-echo -e "\033[31miperf3 -u -c telematic.zhdk.ch -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\033[0m"
-iperf3 -u -c telematic.zhdk.ch    -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
+echo -e "\033[31miperf3 -u -c ${CLIENTOF} -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES} \033[0m"
+iperf3 -u -c ${CLIENTOF}    -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
 echo -e "\033[34mLOCAL <<<<<<<<<<<<<<< TELEMATIC server\033[0m"
 echo "Executing command:"
-echo -e "\033[31miperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}\033[0m"
-iperf3 -u -c telematic.zhdk.ch -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
+echo -e "\033[31miperf3 -u -c ${CLIENTOF} -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES} \033[0m"
+iperf3 -u -c ${CLIENTOF} -R -p 6000 -l ${PACKETSIZE} -b ${BANDWIDTH}M -i 2 -t ${DURATION} -P ${NUMOFINSTANCES}
