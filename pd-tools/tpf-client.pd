@@ -1,12 +1,10 @@
-#N canvas 4 43 517 211 10;
+#N canvas 4 50 619 351 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
-#X obj 5 31 cnv 18 100 18 empty empty LOCATIONS: 3 10 0 12 -232576
+#X obj 40 33 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#X obj 106 31 cnv 18 150 18 empty empty LINKS: 3 10 0 12 -232576 -1
-0;
 #N canvas 0 276 474 281 code 0;
-#N canvas 0 43 664 577 communication 0;
+#N canvas 0 50 664 577 communication 0;
 #X obj 9 38 packOSC;
 #X obj 9 17 r \$0.send;
 #X obj 9 58 slipenc 16384;
@@ -43,7 +41,7 @@
 #X obj 405 492 routeOSC /s/tpf;
 #X obj 405 55 sel 1;
 #X obj 405 75 del 100;
-#X msg 141 59 connect 195.176.247.53 3025;
+#X msg 141 59 connect localhost 3025;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -177,7 +175,6 @@
 #X obj 15 170 t b b;
 #X obj 15 343 s \$0.refresh.client.display;
 #X obj 336 178 t b b;
-#X obj 336 353 s \$0.refresh.mylink.display;
 #X obj 9 389 r \$0.connection.state;
 #X obj 9 409 sel 0;
 #X obj 9 429 t b b b;
@@ -185,15 +182,26 @@
 #X obj 48 470 t a a;
 #X obj 75 490 text delete \$0.clients;
 #X obj 48 510 text delete \$0.mylinks;
-#X obj 28 529 s \$0.refresh.client.display;
-#X obj 9 549 s \$0.refresh.mylink.display;
 #X obj 262 15 r \$0.from.tpf;
 #X obj 262 71 s \$0.to.tpf;
 #X obj 17 29 routeOSC /updated/clients;
 #X msg 17 47 /refresh/clients;
 #X obj 262 35 routeOSC /updated/mylinks;
 #X msg 262 53 /refresh/mylinks;
-#X connect 0 0 41 0;
+#X obj 363 351 text size \$0.mylinks;
+#X obj 363 371 t a b;
+#X obj 363 391 until;
+#X obj 363 411 f;
+#X obj 363 431 t a a;
+#X obj 401 422 + 1;
+#X msg 404 392 0;
+#X obj 363 452 text get \$0.mylinks;
+#X obj 363 493 s \$0.assign.mylink;
+#X obj 336 324 t b b;
+#X obj 336 516 s \$0.refresh.mylink.display;
+#X msg 363 472 0 \$2;
+#X obj 9 530 s \$0.reset;
+#X connect 0 0 38 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 26 0;
@@ -222,21 +230,33 @@
 #X connect 23 0 15 0;
 #X connect 26 0 27 0;
 #X connect 26 1 13 0;
-#X connect 28 0 29 0;
+#X connect 28 0 51 0;
 #X connect 28 1 22 0;
+#X connect 29 0 30 0;
 #X connect 30 0 31 0;
-#X connect 31 0 32 0;
-#X connect 32 0 38 0;
-#X connect 32 1 37 0;
-#X connect 32 2 33 0;
-#X connect 33 0 34 0;
-#X connect 34 0 36 0;
-#X connect 34 1 35 0;
-#X connect 39 0 43 0;
-#X connect 41 0 42 0;
-#X connect 42 0 1 0;
+#X connect 31 0 54 0;
+#X connect 31 2 32 0;
+#X connect 32 0 33 0;
+#X connect 33 0 35 0;
+#X connect 33 1 34 0;
+#X connect 36 0 40 0;
+#X connect 38 0 39 0;
+#X connect 39 0 1 0;
+#X connect 40 0 41 0;
+#X connect 41 0 37 0;
+#X connect 42 0 43 0;
 #X connect 43 0 44 0;
-#X connect 44 0 40 0;
+#X connect 43 1 48 0;
+#X connect 44 0 45 0;
+#X connect 45 0 46 0;
+#X connect 46 0 49 0;
+#X connect 46 1 47 0;
+#X connect 47 0 45 1;
+#X connect 48 0 45 1;
+#X connect 49 0 53 0;
+#X connect 51 0 52 0;
+#X connect 51 1 42 0;
+#X connect 53 0 50 0;
 #X restore 8 85 pd refresh;
 #X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
@@ -274,7 +294,7 @@ include;
 #X obj 5 50 tpf-client-settings-param \$0 jack.samplerate.gui;
 #X obj 5 70 tpf-client-settings-param \$0 channels.gui;
 #X obj 5 90 tpf-client-settings-param \$0 bitres.gui;
-#N canvas 0 43 1005 408 gui.converters 0;
+#N canvas 0 50 1005 408 gui.converters 0;
 #X obj 20 212 s \$0.jack.buffer.size.gui.r;
 #X obj 20 232 r \$0.jack.buffer.size.gui;
 #X obj 225 151 s \$0.jack.samplerate.gui.r;
@@ -451,7 +471,7 @@ include;
 #X obj 413 331 text delete \$0.params;
 #X obj 386 184 t b b;
 #X msg 413 310 -1;
-#N canvas 0 43 450 300 update.guis 0;
+#N canvas 0 50 450 300 update.guis 0;
 #X obj 13 8 inlet;
 #X obj 13 49 text size \$0.params;
 #X obj 13 69 t a b;
@@ -603,15 +623,15 @@ include;
 #X connect 28 0 29 0;
 #X connect 29 0 30 0;
 #X restore 8 172 pd gui.code;
-#N canvas 525 43 366 151 SETTINGS/\$0 0;
+#N canvas 525 50 366 151 SETTINGS/\$0 0;
 #X obj 11 23 vradio 14 1 0 5 \$0.jack.buffer.size.gui \$0.jack.buffer.size.gui.r
-empty 0 -8 0 10 -262131 -33289 -1 1;
+empty 0 -8 0 10 -262131 -166441 -1 3;
 #X text 25 24 64;
 #X text 25 52 256;
 #X text 25 66 512;
 #X text 25 80 1024;
 #X obj 290 23 vradio 14 1 0 4 \$0.bitres.gui \$0.bitres.gui.r empty
-0 -8 0 10 -262131 -33289 -1 1;
+0 -8 0 10 -262131 -166441 -1 1;
 #X text 306 23 8;
 #X text 306 37 16;
 #X text 306 51 24;
@@ -619,7 +639,7 @@ empty 0 -8 0 10 -262131 -33289 -1 1;
 #X text 273 5 bitres;
 #X text 9 5 Buffer size;
 #X obj 90 23 vradio 14 1 0 7 \$0.jack.samplerate.gui \$0.jack.samplerate.gui.r
-empty 0 -8 0 10 -262131 -33289 -1 2;
+empty 0 -8 0 10 -262131 -166441 -1 2;
 #X text 89 5 Sample rate;
 #X text 25 38 128;
 #X text 105 23 22050;
@@ -630,7 +650,7 @@ empty 0 -8 0 10 -262131 -33289 -1 2;
 #X text 105 93 96000;
 #X text 105 107 192000;
 #X obj 190 23 vradio 14 1 0 7 \$0.channels.gui \$0.channels.gui.r empty
-0 -8 0 10 -262131 -33289 -1 4;
+0 -8 0 10 -262131 -166441 -1 2;
 #X text 179 5 Channels;
 #X text 206 23 2;
 #X text 206 37 3;
@@ -660,17 +680,22 @@ empty 0 -8 0 10 -262131 -33289 -1 2;
 #X connect 23 0 15 0;
 #X restore 460 7 pd code;
 #X symbolatom 96 7 15 0 0 0 - #0.name.r #0.name, f 15;
-#X obj 7 7 hsl 80 18 0 127 0 0 \$0.connect.gui \$0.connect.gui.r CONNECT
+#X obj 7 6 hsl 80 18 0 127 0 0 \$0.connect.gui \$0.connect.gui.r CONNECT
 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 197 7 hsl 80 18 0 127 0 0 \$0.settings.gui \$0.settings.gui.r
 SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
-#X obj 5 50 tpf-client-link \$0 0;
-#X obj 5 69 tpf-client-link \$0 1;
-#X obj 5 88 tpf-client-link \$0 2;
-#X obj 5 107 tpf-client-link \$0 3;
-#X obj 5 126 tpf-client-link \$0 4;
-#X obj 5 145 tpf-client-link \$0 5;
-#X obj 5 164 tpf-client-link \$0 6;
-#X obj 5 183 tpf-client-link \$0 7;
-#X obj 257 31 cnv 18 248 18 empty empty ERRORS: 3 10 0 12 -232576 -1
+#X obj 5 60 tpf-client-link \$0 0;
+#X obj 354 33 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
+#X obj 5 33 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
+#X obj 389 33 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
+;
+#X obj 462 33 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
 0;
+#X obj 535 33 cnv 24 70 24 empty empty OoO 5 13 0 16 -228856 -1 0;
+#X obj 5 95 tpf-client-link \$0 1;
+#X obj 5 130 tpf-client-link \$0 2;
+#X obj 5 165 tpf-client-link \$0 3;
+#X obj 5 200 tpf-client-link \$0 4;
+#X obj 5 235 tpf-client-link \$0 5;
+#X obj 5 270 tpf-client-link \$0 6;
+#X obj 5 305 tpf-client-link \$0 7;
