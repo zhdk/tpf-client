@@ -1,4 +1,4 @@
-#N canvas 4 50 619 351 10;
+#N canvas 0 50 619 351 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 40 33 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -670,6 +670,9 @@ empty 0 -8 0 10 -262131 -166441 -1 2;
 #X obj 426 217 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 184 172 /reset/clients;
+#X obj 357 51 loadbang;
+#X msg 357 71 dsp 1;
+#X obj 357 91 s pd;
 #X connect 3 0 4 0;
 #X connect 16 0 18 0;
 #X connect 18 0 17 0;
@@ -678,6 +681,8 @@ empty 0 -8 0 10 -262131 -166441 -1 2;
 #X connect 22 0 18 1;
 #X connect 22 0 19 1;
 #X connect 23 0 15 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
 #X restore 460 7 pd code;
 #X symbolatom 96 7 15 0 0 0 - #0.name.r #0.name, f 15;
 #X obj 7 6 hsl 80 18 0 127 0 0 \$0.connect.gui \$0.connect.gui.r CONNECT
@@ -691,7 +696,7 @@ SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
 ;
 #X obj 462 33 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
 0;
-#X obj 535 33 cnv 24 70 24 empty empty OoO 5 13 0 16 -228856 -1 0;
+#X obj 535 33 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
 #X obj 5 95 tpf-client-link \$0 1;
 #X obj 5 130 tpf-client-link \$0 2;
 #X obj 5 165 tpf-client-link \$0 3;
