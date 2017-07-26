@@ -1,4 +1,4 @@
-#N canvas 0 50 619 351 10;
+#N canvas 0 43 619 351 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 40 33 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -41,7 +41,7 @@
 #X obj 405 492 routeOSC /s/tpf;
 #X obj 405 55 sel 1;
 #X obj 405 75 del 100;
-#X msg 141 59 connect localhost 3025;
+#X msg 141 59 connect telematic.zhdk.ch 3025;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
