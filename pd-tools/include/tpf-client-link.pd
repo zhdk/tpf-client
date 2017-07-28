@@ -1,4 +1,4 @@
-#N canvas 77 375 656 263 10;
+#N canvas 77 381 656 263 10;
 #X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 205 438 450 300 detect.link.peer 0;
@@ -106,6 +106,9 @@
 #X obj 464 100 s \$0.glitch.label;
 #X obj 594 38 route ooo_count;
 #X obj 594 100 s \$0.ooo.label;
+#X obj 591 210 r \$0.from.jacktrip;
+#X obj 591 230 route STATISTICS;
+#X obj 591 250 s \$0.jacktrip.stats;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 3 0 10 0;
@@ -144,6 +147,8 @@
 #X connect 38 0 42 0;
 #X connect 39 0 34 0;
 #X connect 41 0 37 0;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
 #X restore 16 164 pd gui.code;
 #X obj 529 110 s \$0.reset;
 #X obj 540 89 r \$1.reset;
