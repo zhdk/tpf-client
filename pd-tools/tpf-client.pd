@@ -1,4 +1,4 @@
-#N canvas 0 50 623 399 10;
+#N canvas 0 43 615 393 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -706,15 +706,15 @@ SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 4 310 tpf-client-link \$0 7;
 #X obj 4 3 cnv 32 32 32 empty \$0.client.label empty 8 16 0 20 -1 -262144
 0;
-#X obj 39 3 symbolatom_311x32 \$0.name \$0.name.r;
+#X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
 #X obj 413 354 r \$0.name;
 #X symbolatom 413 374 10 0 0 0 - - -, f 10;
 #X obj 353 3 cnv 32 32 32 empty empty 12 5 16 0 20 -1 -262144 0;
-#X obj 461 20 cnv 15 70 15 empty empty 16bit 4 8 0 13 -1 -262144 0
+#X obj 461 20 cnv 15 72 15 empty empty 16bit 4 8 0 13 -1 -262144 0
 ;
-#X obj 388 3 cnv 15 216 15 empty empty telematic.zhdk.ch 4 8 0 13 -1
+#X obj 388 3 cnv 15 216 16 empty empty telematic.zhdk.ch 4 8 0 13 -1
 -262144 0;
-#X obj 388 20 cnv 15 70 15 empty empty 44100Hz 4 8 0 13 -1 -262144
+#X obj 388 20 cnv 15 72 15 empty empty 44100Hz 4 8 0 13 -1 -262144
 0;
 #X obj 534 20 cnv 15 70 15 empty empty 128 4 8 0 13 -1 -262144 0;
 #X connect 20 0 21 0;
