@@ -1,4 +1,4 @@
-#N canvas 0 43 615 393 10;
+#N canvas 0 43 689 447 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -692,11 +692,23 @@ SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 4 65 tpf-client-link \$0 0;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
 #X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
-#X obj 388 38 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
+#X obj 461 38 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
 ;
-#X obj 461 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
+#X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
 0;
-#X obj 534 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
+#X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
+#X obj 4 3 cnv 32 32 32 empty \$0.client.label empty 8 16 0 20 -1 -262144
+0;
+#X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
+#X obj 452 20 cnv 15 84 15 empty empty res=16bit 4 7 0 13 -1 -262144
+0;
+#X obj 353 20 cnv 15 98 15 empty empty sr=192000Hz 4 7 0 13 -1 -262144
+0;
+#X obj 537 20 cnv 15 72 15 empty \$0.blocksize.label bs=2048 4 7 0
+13 -1 -262144 0;
+#X obj 425 358 namecanvas \$0.main.cnv;
+#X obj 388 38 cnv 24 70 24 empty empty CHAN 5 13 0 16 -228856 -1 0
+;
 #X obj 4 100 tpf-client-link \$0 1;
 #X obj 4 135 tpf-client-link \$0 2;
 #X obj 4 170 tpf-client-link \$0 3;
@@ -704,17 +716,8 @@ SETTINGS 2 10 0 12 -233017 -233017 -33289 0 1;
 #X obj 4 240 tpf-client-link \$0 5;
 #X obj 4 275 tpf-client-link \$0 6;
 #X obj 4 310 tpf-client-link \$0 7;
-#X obj 4 3 cnv 32 32 32 empty \$0.client.label empty 8 16 0 20 -1 -262144
-0;
-#X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
-#X obj 413 354 r \$0.name;
-#X symbolatom 413 374 10 0 0 0 - - -, f 10;
-#X obj 353 3 cnv 32 32 32 empty empty 12 5 16 0 20 -1 -262144 0;
-#X obj 461 20 cnv 15 72 15 empty empty 16bit 4 8 0 13 -1 -262144 0
-;
-#X obj 388 3 cnv 15 216 16 empty empty telematic.zhdk.ch 4 8 0 13 -1
+#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=100 4 7 0 13 -1
 -262144 0;
-#X obj 388 20 cnv 15 72 15 empty empty 44100Hz 4 8 0 13 -1 -262144
-0;
-#X obj 534 20 cnv 15 70 15 empty empty 128 4 8 0 13 -1 -262144 0;
-#X connect 20 0 21 0;
+#X obj 602 3 cnv 15 75 16 empty empty ch=6 4 8 0 13 -1 -262144 0;
+#X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
+#X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
