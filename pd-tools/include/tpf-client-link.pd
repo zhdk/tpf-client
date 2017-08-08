@@ -1,4 +1,4 @@
-#N canvas 77 381 656 263 10;
+#N canvas 77 381 726 265 10;
 #X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 205 438 450 300 detect.link.peer 0;
@@ -191,7 +191,7 @@
 #X connect 15 0 12 0;
 #X connect 15 0 11 0;
 #X restore 16 64 pd persistent.linkID;
-#X obj 20 20 cnv 32 600 32 empty empty empty 8 16 0 20 -262144 -262144
+#X obj 20 20 cnv 32 674 32 empty empty empty 8 16 0 20 -262144 -262144
 0;
 #X obj 55 20 cnv 32 311 32 empty \$0.client.label empty 8 16 0 20 -1
 -262144 0;
@@ -199,11 +199,11 @@
 -1 -262144 -1 0 1;
 #X obj 369 20 tgl 32 0 empty \$0.receiving.r empty 17 7 0 10 -1 -262144
 -1 0 1;
-#X obj 404 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
+#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
 -1 -262144 0;
-#X obj 477 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 -1
+#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 -1
 -262144 0;
-#X obj 550 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
+#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
 0;
 #N canvas 352 90 448 520 negotiate.port 0;
 #X obj 10 34 r \$1.receive;
@@ -369,6 +369,8 @@
 #X connect 30 0 31 0;
 #X connect 31 0 11 0;
 #X restore 16 144 pd jacktrip.start.stop;
+#X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
+-1 -262144 0;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 5 0 4 0;
@@ -378,4 +380,4 @@
 #X connect 21 0 22 0;
 #X connect 23 0 18 0;
 #X connect 24 0 18 0;
-#X coords 0 -1 1 1 600 32 2 20 20;
+#X coords 0 -1 1 1 674 32 2 20 20;
