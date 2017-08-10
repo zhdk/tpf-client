@@ -393,6 +393,9 @@
 #X obj 11 56 t b a a a a a b;
 #X obj 173 262 change -1;
 #X obj 173 282 s \$0.in.channels;
+#X obj 236 171 r \$0.connected;
+#X obj 236 191 sel 0;
+#X msg 236 211 set -1;
 #X connect 0 0 9 0;
 #X connect 2 0 8 1;
 #X connect 3 0 8 1;
@@ -408,6 +411,9 @@
 #X connect 9 5 3 0;
 #X connect 9 6 2 0;
 #X connect 10 0 11 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
 #X restore 41 126 pd validate_params;
 #N canvas 270 132 710 558 continuous_sequence 0;
 #X obj 244 181 moses 64;
