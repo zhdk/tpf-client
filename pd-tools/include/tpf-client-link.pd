@@ -1,4 +1,4 @@
-#N canvas 77 381 725 423 10;
+#N canvas 77 381 988 497 10;
 #X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 205 438 450 300 detect.link.peer 0;
@@ -205,7 +205,7 @@
 #X connect 15 0 12 0;
 #X connect 15 0 11 0;
 #X restore 16 64 pd persistent.linkID;
-#X obj 20 20 cnv 32 674 32 empty empty empty 8 16 0 20 -262144 -262144
+#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 -262144 -262144
 0;
 #X obj 55 20 cnv 32 311 32 empty \$0.client.label empty 8 16 0 20 -1
 -262144 0;
@@ -307,9 +307,9 @@
 #X connect 28 0 8 0;
 #X connect 29 0 16 0;
 #X restore 16 124 pd negotiate.port;
-#X obj 163 286 jacktrip . . . . . . . . . . . . . .;
-#X obj 376 264 r \$0.to.jacktrip;
-#X obj 376 309 s \$0.from.jacktrip;
+#X obj 15 284 jacktrip . . . . . . . . . . . . . .;
+#X obj 228 262 r \$0.to.jacktrip;
+#X obj 228 304 s \$0.from.jacktrip;
 #X obj 297 111 s \$0.to.jacktrip;
 #X msg 297 90 status;
 #X obj 297 135 r \$0.from.jacktrip;
@@ -398,8 +398,7 @@
 #X restore 16 144 pd jacktrip.start.stop;
 #X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
 -1 -262144 0;
-#X obj 164 236 adc~ 1 2 3 4 5 6 7 8;
-#X obj 163 332 dac~ 1 2 3 4 5 6 7 8;
+#X obj 16 234 adc~ 1 2 3 4 5 6 7 8;
 #N canvas 178 237 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
 #X msg 31 45 8;
@@ -440,18 +439,43 @@
 #X connect 13 1 2 0;
 #X connect 13 2 9 0;
 #X connect 13 3 8 0;
-#X restore 29 302 pd set.out.channels;
+#X restore 384 234 pd set.out.channels;
+#X obj 696 20 tpf-client-outchannel \$0 \$2 0;
+#X obj 433 416 dac~ 1 2 3 4 5 6 7 8;
+#X obj 433 253 r~ \$0.channel.0;
+#X obj 449 273 r~ \$0.channel.1;
+#X obj 466 293 r~ \$0.channel.2;
+#X obj 483 313 r~ \$0.channel.3;
+#X obj 499 333 r~ \$0.channel.4;
+#X obj 516 353 r~ \$0.channel.5;
+#X obj 533 373 r~ \$0.channel.6;
+#X obj 550 393 r~ \$0.channel.7;
+#X obj 15 464 s~ \$0.channel.0;
+#X obj 41 444 s~ \$0.channel.1;
+#X obj 68 424 s~ \$0.channel.2;
+#X obj 94 404 s~ \$0.channel.3;
+#X obj 121 384 s~ \$0.channel.4;
+#X obj 148 364 s~ \$0.channel.5;
+#X obj 174 344 s~ \$0.channel.6;
+#X obj 201 324 s~ \$0.channel.7;
+#X obj 731 20 tpf-client-outchannel \$0 \$2 1;
+#X obj 766 20 tpf-client-outchannel \$0 \$2 2;
+#X obj 801 20 tpf-client-outchannel \$0 \$2 3;
+#X obj 836 20 tpf-client-outchannel \$0 \$2 4;
+#X obj 871 20 tpf-client-outchannel \$0 \$2 5;
+#X obj 906 20 tpf-client-outchannel \$0 \$2 6;
+#X obj 941 20 tpf-client-outchannel \$0 \$2 7;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 5 0 4 0;
-#X connect 15 0 28 0;
-#X connect 15 1 28 1;
-#X connect 15 2 28 2;
-#X connect 15 3 28 3;
-#X connect 15 4 28 4;
-#X connect 15 5 28 5;
-#X connect 15 6 28 6;
-#X connect 15 7 28 7;
+#X connect 15 0 39 0;
+#X connect 15 1 40 0;
+#X connect 15 2 41 0;
+#X connect 15 3 42 0;
+#X connect 15 4 43 0;
+#X connect 15 5 44 0;
+#X connect 15 6 45 0;
+#X connect 15 7 46 0;
 #X connect 15 8 17 0;
 #X connect 16 0 15 8;
 #X connect 19 0 18 0;
@@ -466,5 +490,13 @@
 #X connect 27 5 15 5;
 #X connect 27 6 15 6;
 #X connect 27 7 15 7;
-#X connect 29 0 28 0;
-#X coords 0 -1 1 1 674 32 2 20 20;
+#X connect 28 0 30 0;
+#X connect 31 0 30 0;
+#X connect 32 0 30 1;
+#X connect 33 0 30 2;
+#X connect 34 0 30 3;
+#X connect 35 0 30 4;
+#X connect 36 0 30 5;
+#X connect 37 0 30 6;
+#X connect 38 0 30 7;
+#X coords 0 -1 1 1 953 32 2 20 20;

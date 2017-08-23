@@ -1,4 +1,4 @@
-#N canvas 0 43 962 372 10;
+#N canvas 0 43 966 371 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -791,13 +791,6 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 59 346 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 70 24 empty empty CHAN 5 13 0 16 -228856 -1 0
 ;
-#X obj 4 100 tpf-client-link \$0 1;
-#X obj 4 135 tpf-client-link \$0 2;
-#X obj 4 170 tpf-client-link \$0 3;
-#X obj 4 205 tpf-client-link \$0 4;
-#X obj 4 240 tpf-client-link \$0 5;
-#X obj 4 275 tpf-client-link \$0 6;
-#X obj 4 310 tpf-client-link \$0 7;
 #X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
 #X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
@@ -816,134 +809,6 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 0 10 0 10 -262144 -262144 -1 0 1;
 #X obj 4 3 cnv 32 32 32 empty \$0.connect.label empty 8 16 0 20 -1
 -1 0;
-#X obj 680 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 715 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 750 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 785 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 820 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 855 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 890 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 925 65 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 680 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 100 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 135 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 170 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 205 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 240 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 275 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 680 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 715 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 750 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 785 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 820 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 855 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 890 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
-#X obj 925 310 cnv 32 32 32 empty empty empty 20 12 0 14 -1 -66577
-0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
 #X obj 750 38 cnv 24 32 24 empty empty 3 10 13 0 16 -228856 -1 0;
@@ -960,3 +825,10 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 855 3 tpf-client-inchannel \$0 5;
 #X obj 890 3 tpf-client-inchannel \$0 6;
 #X obj 925 3 tpf-client-inchannel \$0 7;
+#X obj 4 100 tpf-client-link \$0 1;
+#X obj 4 135 tpf-client-link \$0 2;
+#X obj 4 170 tpf-client-link \$0 3;
+#X obj 4 205 tpf-client-link \$0 4;
+#X obj 4 240 tpf-client-link \$0 5;
+#X obj 4 275 tpf-client-link \$0 6;
+#X obj 4 310 tpf-client-link \$0 7;
