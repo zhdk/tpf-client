@@ -80,7 +80,7 @@
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 -262144 -1 -1 0 256;
-#N canvas 358 93 419 464 tpf.initialization 0;
+#N canvas 358 93 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
 #X obj 17 30 moses 1;
@@ -124,9 +124,14 @@
 #X obj 23 139 r \$0.from.tpf;
 #X obj 23 159 routeOSC /register;
 #X obj 23 203 b;
-#X obj 78 204 s \$0.error;
+#X obj 78 251 s \$0.error;
 #X obj 23 179 routeOSC /done /error /again;
 #X obj 180 22 t b;
+#X obj 297 139 r \$0.name;
+#X obj 296 160 list;
+#X msg 296 180 symbol \$1:;
+#X obj 78 208 list prepend;
+#X obj 78 228 list trim;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 1;
@@ -136,9 +141,14 @@
 #X connect 8 0 11 0;
 #X connect 9 0 5 0;
 #X connect 11 0 9 0;
-#X connect 11 1 10 0;
+#X connect 11 1 16 0;
 #X connect 11 2 12 0;
 #X connect 12 0 0 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;
+#X connect 16 0 17 0;
+#X connect 17 0 10 0;
 #X restore 17 119 pd register/name;
 #X obj 17 162 s \$0.registered;
 #X connect 0 0 2 0;
