@@ -20,8 +20,8 @@
 #X obj 12 78 sel 1;
 #X obj 224 84 sel 0;
 #X obj 224 104 s \$0.reset;
-#X obj 12 22 r \$0.link.connect;
 #X obj 12 42 t a a;
+#X obj 12 22 r \$1.link.connect;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -39,9 +39,9 @@
 #X connect 14 0 10 0;
 #X connect 15 0 1 0;
 #X connect 16 0 17 0;
-#X connect 18 0 19 0;
-#X connect 19 0 15 0;
-#X connect 19 1 16 0;
+#X connect 18 0 15 0;
+#X connect 18 1 16 0;
+#X connect 19 0 18 0;
 #X restore 16 84 pd detect.link.peer;
 #N canvas 247 142 450 300 get.peer.data 0;
 #X obj 21 38 sel 1;
