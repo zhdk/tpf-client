@@ -1,10 +1,10 @@
 #N canvas 733 324 493 161 12;
 #X obj 12 80 symbolatom_code \$0 \$1 \$2 \$3 203 16 \$4 \$5;
-#X obj 13 11 hsl 198 16 0 127 0 0 \$0.clickarea \$0.clickarea.r empty
+#X obj 13 11 hsl 2 16 0 127 0 0 \$0.clickarea \$0.clickarea.r empty
 -2 12 0 10 -258113 -258113 -1 0 1;
 #X obj 10 10 cnv 4 203 16 empty \$0.background empty 8 16 0 20 -262144
 -262144 0;
 #X symbolatom 10 10 25 0 0 0 - #3 #2, f 25;
-#X obj 10 10 cnv 4 203 16 empty \$0.symbolatom.label empty 0 8 0 13
--1 -262144 0;
-#X coords 0 -1 1 1 203 17 2 10 10;
+#X obj 10 10 cnv 4 4 16 empty \$0.symbolatom.label empty 0 8 0 13 -1
+-262144 0;
+#X coords 0 -1 1 1 203 18 2 10 10;
