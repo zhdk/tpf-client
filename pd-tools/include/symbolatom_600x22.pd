@@ -1,8 +1,10 @@
 #N canvas 1029 580 1116 184 12;
 #X obj 12 80 symbolatom_code \$0 \$1 \$2 \$3 600 22 \$4 \$5;
+#X obj 13 10 hsl 595 22 0 127 0 0 \$0.clickarea \$0.clickarea.r empty
+-2 8 0 10 -258113 -258113 -1 0 1;
+#X symbolatom 14 12 80 0 0 0 - #3 #2, f 80;
 #X obj 10 10 cnv 10 600 22 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X symbolatom 12 12 80 0 0 0 - #3 #2, f 80;
 #X obj 10 10 cnv 2 3 22 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 574 10 cnv 10 36 22 empty empty empty 20 12 0 14 -233017 -66577
