@@ -1,0 +1,27 @@
+#N canvas 739 603 450 300 10;
+#X obj 23 20 hsl 123 32 0 127 0 0 \$0.button.click empty empty -2 -8
+0 10 -262144 -1 -1 0 1;
+#X obj 20 20 cnv 32 128 32 empty \$0.button.fg \$1 8 16 0 20 -233017
+-1 0;
+#X obj 278 56 r \$0.button.click;
+#X obj 278 77 sel 0;
+#X obj 320 79 t a;
+#X msg 296 184 color \$1 \$1 -1;
+#X obj 296 219 s \$0.button.fg;
+#X msg 353 140 1;
+#X obj 278 102 t b b b;
+#X obj 297 130 del 200;
+#X msg 297 151 10;
+#X obj 278 250 s \$2;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 3 1 4 0;
+#X connect 4 0 3 1;
+#X connect 5 0 6 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 8 1 9 0;
+#X connect 8 2 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X coords 0 -1 1 1 128 32 2 20 20;
