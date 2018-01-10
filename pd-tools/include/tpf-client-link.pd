@@ -289,7 +289,7 @@
 -262144 0;
 #X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
 0;
-#N canvas 606 101 604 759 negotiate.port 1;
+#N canvas 606 101 604 759 negotiate.port 0;
 #X obj 10 34 r \$1.receive;
 #X obj 10 78 routeOSC /tpf/setpeerport;
 #X obj 10 112 routeOSC /__;
@@ -657,11 +657,6 @@
 #X obj 828 214 s \$0.udp.link.status;
 #X msg 828 191 0;
 #X obj 836 162 r \$0.reset;
-#X obj 280 383 print DEBUG;
-#X obj 746 321 r \$1.send;
-#X obj 746 342 print SEND;
-#X obj 822 320 r \$1.receive;
-#X obj 822 342 print RECEIVE;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 5 0 4 0;
@@ -675,7 +670,6 @@
 #X connect 13 7 44 0;
 #X connect 13 8 15 0;
 #X connect 14 0 13 8;
-#X connect 14 0 58 0;
 #X connect 17 0 16 0;
 #X connect 19 0 20 0;
 #X connect 21 0 16 0;
@@ -700,6 +694,4 @@
 #X connect 54 0 56 0;
 #X connect 56 0 55 0;
 #X connect 57 0 56 0;
-#X connect 59 0 60 0;
-#X connect 61 0 62 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
