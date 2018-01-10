@@ -79,7 +79,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 358 93 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -738,6 +738,7 @@ include;
 #X msg 266 53 0 0 255;
 #X msg 203 57 0 0 0;
 #X msg 121 48 192 192 192;
+#X obj 409 124 loadbang;
 #X connect 0 0 1 1;
 #X connect 1 0 2 0;
 #X connect 3 0 1 0;
@@ -752,6 +753,7 @@ include;
 #X connect 12 0 10 0;
 #X connect 13 0 10 0;
 #X connect 14 0 10 0;
+#X connect 15 0 13 0;
 #X restore 8 7 pd connect;
 #X restore 8 122 pd gui.code;
 #X obj 184 192 s \$0.to.tpf;
@@ -1131,14 +1133,14 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
 0 8 0 10 -262144 -1 -1 8 256;
 #X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
--195568 0;
+-262144 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
 0 8 0 10 -262144 -1 -1 16 256;
-#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -195568
+#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -262144
 0;
 #X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
 -262144 -1 -1 8 256;
-#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=128 4 7 0 13 -1 -195568
+#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=128 4 7 0 13 -1 -262144
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
