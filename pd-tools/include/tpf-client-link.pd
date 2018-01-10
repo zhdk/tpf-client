@@ -682,9 +682,9 @@
 #X obj 871 20 tpf-client-outchannel \$0 \$2 5;
 #X obj 906 20 tpf-client-outchannel \$0 \$2 6;
 #X obj 941 20 tpf-client-outchannel \$0 \$2 7;
-#X obj 20 20 tpf-client-button2 32 32 \$0.tx.switch.s \$0.tx.switch.r
+#X obj 20 20 tpf-client-button32x32 \$0.tx.switch.s \$0.tx.switch.r
 ;
-#X obj 369 20 tpf-client-button2 32 32 \$0.rx.switch.s \$0.rx.switch.r
+#X obj 369 20 tpf-client-button32x32 \$0.rx.switch.s \$0.rx.switch.r
 ;
 #X obj 828 140 loadbang;
 #X obj 828 214 s \$0.udp.link.status;
