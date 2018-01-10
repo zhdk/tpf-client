@@ -36,9 +36,9 @@
 #X obj 356 248 s \$0.front;
 #X msg 356 222 vis_size \$1 \$2;
 #X obj 337 82 t a a a;
-#X obj 20 22 vsl 32 27 0 1 0 0 \$0.click \$0.click.r empty 0 -9 0 10
+#X obj 20 22 vsl 32 27 0 1 0 0 \$0.click \$0.click.r empty 0 5 0 10
 -262144 -1 -1 0 1;
-#X obj 20 20 cnv 10 32 32 empty \$0.front empty 8 16 0 20 -228856 -1
+#X obj 20 20 cnv 10 32 32 empty \$0.front empty 8 16 0 20 -199729 -1
 0;
 #X obj 376 197 s \$0.click.r;
 #X obj 376 105 unpack f f;
