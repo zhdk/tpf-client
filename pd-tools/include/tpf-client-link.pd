@@ -70,7 +70,7 @@
 #X connect 8 3 9 0;
 #X connect 12 0 0 0;
 #X restore 16 104 pd get.peer.data;
-#N canvas 277 523 925 489 gui.code 1;
+#N canvas 277 523 925 489 gui.code 0;
 #X obj 11 164 s \$0.client.label;
 #X msg 11 145 label \$1;
 #X obj 11 22 r \$0.peer.name;
@@ -124,7 +124,7 @@
 #X msg 360 263 label \$1;
 #X obj 360 283 s \$0.channels.label;
 #X obj 240 289 s \$0.channels.label;
-#N canvas 1202 560 592 449 tx.button 1;
+#N canvas 1202 560 592 449 tx.button 0;
 #X obj 47 389 s \$0.tx.switch.r;
 #X msg 47 360 color \$1 \$2 \$3;
 #X msg 47 308 0 0 0;
@@ -289,7 +289,7 @@
 -262144 0;
 #X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
 0;
-#N canvas 606 101 604 759 negotiate.port 0;
+#N canvas 606 101 604 759 negotiate.port 1;
 #X obj 10 34 r \$1.receive;
 #X obj 10 78 routeOSC /tpf/setpeerport;
 #X obj 10 112 routeOSC /__;
@@ -348,7 +348,7 @@
 #X obj 9 355 f;
 #X obj 9 403 f;
 #X obj 9 425 sel 1;
-#X msg 258 507 1;
+#X msg 258 510 1;
 #X obj 9 447 t b b b b;
 #X obj 258 529 s \$0.udp.link.status;
 #X obj 289 141 r \$0.udp.link.status;
@@ -359,13 +359,13 @@
 #X obj 264 211 sel 1;
 #X obj 264 254 s \$0.udp.link.status;
 #X msg 264 233 2;
-#X obj 268 326 r \$0.tx.switch.s;
-#X obj 293 349 r \$0.udp.link.status;
-#X obj 295 397 r \$0.link;
-#X obj 268 349 f;
-#X obj 268 397 f;
-#X obj 268 419 sel 1;
-#X obj 268 372 sel 2;
+#X obj 295 323 r \$0.tx.switch.s;
+#X obj 320 346 r \$0.udp.link.status;
+#X obj 322 394 r \$0.link;
+#X obj 295 346 f;
+#X obj 295 394 f;
+#X obj 295 416 sel 1;
+#X obj 295 369 sel 2;
 #X obj 10 132 t b a;
 #X obj 35 183 r \$0.udp.link.status;
 #X obj 37 231 r \$0.link;
@@ -376,9 +376,10 @@
 #X obj 10 296 s \$0.udp.link.status;
 #X msg 10 274 3;
 #X obj 9 378 sel 0;
-#X obj 268 440 t b b;
-#X msg 268 461 3;
-#X obj 268 481 s \$0.udp.link.status;
+#X obj 295 437 t b b;
+#X msg 295 484 3;
+#X obj 295 504 s \$0.udp.link.status;
+#X obj 295 463 del 0;
 #X connect 0 0 24 0;
 #X connect 1 0 2 0;
 #X connect 2 0 51 0;
@@ -441,9 +442,10 @@
 #X connect 57 0 55 0;
 #X connect 59 0 58 0;
 #X connect 60 0 31 0;
-#X connect 61 0 62 0;
+#X connect 61 0 64 0;
 #X connect 61 1 22 0;
 #X connect 62 0 63 0;
+#X connect 64 0 62 0;
 #X restore 16 124 pd negotiate.port;
 #X obj 15 284 jacktrip . . . . . . . . . . . . . .;
 #X obj 228 262 r \$0.to.jacktrip;
@@ -455,7 +457,7 @@
 #X obj 297 176 print STATUS;
 #X msg 353 88 start;
 #X msg 404 97 stop;
-#N canvas 148 299 855 665 jacktrip.start.stop 1;
+#N canvas 148 299 855 665 jacktrip.start.stop 0;
 #X obj 107 136 r \$0.peer.port;
 #X obj 25 157 pack f f;
 #X obj 107 157 r \$0.bind.port;
@@ -514,6 +516,10 @@
 #X msg 352 562 /\$1/tpf/requeststop/\$2;
 #X obj 575 359 routeOSC /tpf/requeststop;
 #X obj 352 347 sel 1 3 4;
+#X obj 552 189 tgl 20 0 empty empty empty 17 7 0 10 -204786 -1 -1 0
+1;
+#X obj 587 458 print STOP;
+#X obj 533 538 del 0;
 #X connect 0 0 15 1;
 #X connect 1 0 4 0;
 #X connect 2 0 1 1;
@@ -526,6 +532,7 @@
 #X connect 11 0 13 0;
 #X connect 13 0 14 1;
 #X connect 13 0 32 0;
+#X connect 13 0 58 0;
 #X connect 13 1 12 0;
 #X connect 14 0 16 0;
 #X connect 15 0 1 0;
@@ -552,7 +559,7 @@
 #X connect 38 0 57 0;
 #X connect 40 0 39 0;
 #X connect 42 0 41 0;
-#X connect 43 0 42 0;
+#X connect 43 0 60 0;
 #X connect 43 1 40 0;
 #X connect 44 0 47 0;
 #X connect 44 1 43 0;
@@ -564,12 +571,14 @@
 #X connect 51 0 53 0;
 #X connect 52 0 54 0;
 #X connect 53 0 43 0;
+#X connect 53 0 59 0;
 #X connect 54 0 56 0;
 #X connect 55 0 45 0;
 #X connect 56 0 53 0;
 #X connect 57 0 44 0;
 #X connect 57 1 44 0;
 #X connect 57 2 44 0;
+#X connect 60 0 42 0;
 #X restore 16 144 pd jacktrip.start.stop;
 #X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
 -1 -262144 0;
@@ -648,6 +657,11 @@
 #X obj 828 214 s \$0.udp.link.status;
 #X msg 828 191 0;
 #X obj 836 162 r \$0.reset;
+#X obj 280 383 print DEBUG;
+#X obj 746 321 r \$1.send;
+#X obj 746 342 print SEND;
+#X obj 822 320 r \$1.receive;
+#X obj 822 342 print RECEIVE;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 5 0 4 0;
@@ -661,6 +675,7 @@
 #X connect 13 7 44 0;
 #X connect 13 8 15 0;
 #X connect 14 0 13 8;
+#X connect 14 0 58 0;
 #X connect 17 0 16 0;
 #X connect 19 0 20 0;
 #X connect 21 0 16 0;
@@ -685,4 +700,6 @@
 #X connect 54 0 56 0;
 #X connect 56 0 55 0;
 #X connect 57 0 56 0;
+#X connect 59 0 60 0;
+#X connect 61 0 62 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
