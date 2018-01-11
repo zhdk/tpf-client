@@ -94,7 +94,10 @@ while True:
         try:
             methods[command[0]]()
         except:
-            sock.sendto(command[0] + ': method not implemented\n', srcaddr)
+            try:
+                sock.sendto(command[0] + ': method not implemented\n', srcaddr)
+            except:
+                pass
 
     # forward data according to lookup table
     try:
