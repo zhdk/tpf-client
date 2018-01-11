@@ -63,6 +63,12 @@ def addlink():
     except:
         sock.sendto("Error while executing: " + " ".join(command) + '\n', srcaddr)
 
+def clear():
+    try:
+        linklookup.clear()
+    except:
+        sock.sendto("Clearing linklookup table failed\n", srcaddr)
+
 def dellink():
     try:
         ip1, port1, ip2, port2 = command[1:]
@@ -80,6 +86,7 @@ def printlinks():
 # map command to method calls
 methods = {
     'addlink': addlink,
+    'clear': clear,
     'dellink': dellink,
     'printlinks': printlinks,
     }
