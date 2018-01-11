@@ -1,0 +1,105 @@
+#!/usr/bin/env python
+#
+# udp_dyn_proxy manages an internal lookup table to relay incoming
+# udp datagrams to a certain destination
+#
+# The lookup tables contains pairs of ip:port tuples. The table
+# can be edited by sending UDP datagrams from localhost.
+#
+# EXAPMLES
+#
+# Add link:
+#
+#   addlink 10.158.0.53 12304 8.8.8.8 45682
+#
+# Delete link:
+#
+#   dellink 10.158.0.53 12304 8.8.8.8 45682
+#
+# Print lookup table:
+#
+#   printlinks
+#
+
+import socket, sys
+
+# init values
+UDP_IP = "0.0.0.0"
+linklookup = dict()
+
+try:
+    UDP_PORT = int(sys.argv[1])
+except ValueError:
+    print 'Specified port is not a number'
+    sys.exit(1)
+
+# haben wir einen gueltigen Port
+if not isinstance( UDP_PORT, int ) or not  1024 <= UDP_PORT <= 65535:
+    print 'Specified port (', UDP_PORT, ') is invalid.'
+    print 'Valid port range: 1024 - 65535'
+    sys.exit(1)
+
+
+# create a socket
+try:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind((UDP_IP, UDP_PORT))
+except socket.error, msg:
+    sys.stderr.write("[ERROR] %s\n" % msg[1])
+    sys.exit(1)
+
+# lookup table manipulation methods
+def addlink():
+    try:
+        ip1, port1, ip2, port2 = command[1:]
+        port1 = int(port1)
+        port2 = int(port2)
+        assert 32768 <= port1 <= 65535
+        assert 32768 <= port2 <= 65535
+        socket.inet_aton(ip1)
+        socket.inet_aton(ip2)
+        linklookup[(ip1, port1)] = (ip2, port2)
+        linklookup[(ip2, port2)] = (ip1, port1)
+    except:
+        sys.stderr.write("Error while executing: " + " ".join(command) + '\n')
+
+def dellink():
+    try:
+        ip1, port1, ip2, port2 = command[1:]
+        del linklookup[(ip1, int(port1))]
+        del linklookup[(ip2, int(port2))]
+    except:
+        sys.stderr.write("Error while executing: " + " ".join(command) + '\n')
+
+def printlinks():
+    sys.stdout.write('LINK LOOKUP TABLE\n')
+    for lookup_key, lookup_value in linklookup.iteritems():
+        sys.stdout.write(lookup_key[0] + ':' + str(lookup_key[1]) + ' => ')
+        sys.stdout.write(lookup_value[0] + ':' + str(lookup_value[1]) + '\n')
+
+# map command to method calls
+methods = {
+    'addlink': addlink,
+    'dellink': dellink,
+    'printlinks': printlinks,
+    }
+
+# our main loop
+while True:
+    data, srcaddr = sock.recvfrom(65507)
+
+    # manipulate table if packet is from localhost
+    if srcaddr[0] == '127.0.0.1':
+        command = data.split()
+        try:
+            methods[command[0]]()
+        except:
+            sys.stderr.write(command[0] + ': method not implemented\n')
+
+    # forward data according to lookup table
+    try:
+        destaddr = linklookup[srcaddr]
+        sock.sendto(data, destaddr)
+    except:
+        pass
+
