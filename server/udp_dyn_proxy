@@ -26,6 +26,7 @@ import socket, sys
 # init values
 UDP_IP = "0.0.0.0"
 linklookup = dict()
+tokenlookup = dict()
 
 try:
     UDP_PORT = int(sys.argv[1])
@@ -38,7 +39,6 @@ if not isinstance( UDP_PORT, int ) or not  1024 <= UDP_PORT <= 65535:
     print 'Specified port (', UDP_PORT, ') is invalid.'
     print 'Valid port range: 1024 - 65535'
     sys.exit(1)
-
 
 # create a socket
 try:
@@ -63,9 +63,19 @@ def addlink():
     except:
         sock.sendto("Error while executing: " + " ".join(command) + '\n', srcaddr)
 
+def addtoken(token, addr):
+    if token in tokenlookup:
+        tokenlookup[token].append(addr)
+        linklookup[tokenlookup[token][0]] = tokenlookup[token][1]
+        linklookup[tokenlookup[token][1]] = tokenlookup[token][0]
+        del tokenlookup[token]
+    else:
+        tokenlookup[token] = [addr]
+
 def clear():
     try:
         linklookup.clear()
+        tokenlookup.clear()
     except:
         sock.sendto("Clearing linklookup table failed\n", srcaddr)
 
@@ -106,10 +116,19 @@ while True:
             except:
                 pass
 
+    # check token
+    elif data[0:7] == '_TOKEN ':
+        token = data.split()
+        try:
+            addtoken(token[1], srcaddr)
+        except:
+            print "error with parsing token"
+
     # forward data according to lookup table
-    try:
-        destaddr = linklookup[srcaddr]
-        sock.sendto(data, destaddr)
-    except:
-        pass
+    else:
+        try:
+            destaddr = linklookup[srcaddr]
+            sock.sendto(data, destaddr)
+        except:
+            pass
 
