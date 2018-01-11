@@ -61,7 +61,7 @@ def addlink():
         linklookup[(ip1, port1)] = (ip2, port2)
         linklookup[(ip2, port2)] = (ip1, port1)
     except:
-        sys.stderr.write("Error while executing: " + " ".join(command) + '\n')
+        sock.sendto("Error while executing: " + " ".join(command) + '\n', srcaddr)
 
 def dellink():
     try:
@@ -69,13 +69,13 @@ def dellink():
         del linklookup[(ip1, int(port1))]
         del linklookup[(ip2, int(port2))]
     except:
-        sys.stderr.write("Error while executing: " + " ".join(command) + '\n')
+        sock.sendto("Error while executing: " + " ".join(command) + '\n', srcaddr)
 
 def printlinks():
-    sys.stdout.write('LINK LOOKUP TABLE\n')
+    sock.sendto('LINK LOOKUP TABLE\n', srcaddr)
     for lookup_key, lookup_value in linklookup.iteritems():
-        sys.stdout.write(lookup_key[0] + ':' + str(lookup_key[1]) + ' => ')
-        sys.stdout.write(lookup_value[0] + ':' + str(lookup_value[1]) + '\n')
+        sock.sendto(lookup_key[0] + ':' + str(lookup_key[1]) + ' => ', srcaddr)
+        sock.sendto(lookup_value[0] + ':' + str(lookup_value[1]) + '\n', srcaddr)
 
 # map command to method calls
 methods = {
@@ -94,7 +94,7 @@ while True:
         try:
             methods[command[0]]()
         except:
-            sys.stderr.write(command[0] + ': method not implemented\n')
+            sock.sendto(command[0] + ': method not implemented\n', srcaddr)
 
     # forward data according to lookup table
     try:
