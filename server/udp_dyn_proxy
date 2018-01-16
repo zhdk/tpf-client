@@ -65,10 +65,11 @@ def addlink():
 
 def addtoken(token, addr):
     if token in tokenlookup:
-        tokenlookup[token].append(addr)
-        linklookup[tokenlookup[token][0]] = tokenlookup[token][1]
-        linklookup[tokenlookup[token][1]] = tokenlookup[token][0]
-        del tokenlookup[token]
+        if addr not in tokenlookup[token]:
+            tokenlookup[token].append(addr)
+            linklookup[tokenlookup[token][0]] = tokenlookup[token][1]
+            linklookup[tokenlookup[token][1]] = tokenlookup[token][0]
+            del tokenlookup[token]
     else:
         tokenlookup[token] = [addr]
 
@@ -122,7 +123,7 @@ while True:
         try:
             addtoken(token[1], srcaddr)
         except:
-            print "error with parsing token"
+            pass
 
     # forward data according to lookup table
     else:
