@@ -1107,7 +1107,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 271 397 print RECEIVE;
 #X obj 162 365 spigot;
 #X obj 271 365 spigot;
-#X obj 374 370 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 374 370 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 160 478 ---------------------------------;
 #X obj 160 499 print -n;
@@ -1143,13 +1143,13 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=44100Hz 4 7 0 13 -1
 -195568 0;
 #X obj 819 346 namecanvas \$0.main.cnv;
-#X obj 388 38 cnv 24 70 24 empty empty CHAN 5 13 0 16 -228856 -1 0
+#X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
 ;
 #X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
 #X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
 0 8 0 10 -262144 -1 -1 8 256;
-#X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=4 4 8 0 13 -1
+#X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
 -195568 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
 0 8 0 10 -262144 -1 -1 16 256;
