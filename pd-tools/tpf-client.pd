@@ -1352,7 +1352,6 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X restore 552 183 pd list2symbol;
 #X obj 518 213 list append;
 #X obj 518 234 list append -1;
-#X obj 17 123 s pd-message;
 #X obj 393 123 t a b;
 #X obj 518 126 t a b;
 #X obj 660 127 t a b;
@@ -1361,7 +1360,8 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X msg 743 193 -4;
 #X msg 318 242 color 255 128 128;
 #X obj 318 263 s \$0.display.messages.r;
-#X connect 1 0 37 0;
+#X obj 17 123 s pd-messages;
+#X connect 1 0 45 0;
 #X connect 3 0 5 0;
 #X connect 4 0 12 0;
 #X connect 5 0 15 1;
@@ -1389,25 +1389,25 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X connect 28 0 32 0;
 #X connect 28 1 24 0;
 #X connect 29 0 13 0;
-#X connect 30 0 38 0;
-#X connect 31 0 39 0;
-#X connect 32 0 40 0;
+#X connect 30 0 37 0;
+#X connect 31 0 38 0;
+#X connect 32 0 39 0;
 #X connect 33 0 35 0;
 #X connect 33 1 34 0;
 #X connect 34 0 35 1;
 #X connect 35 0 36 0;
 #X connect 36 0 4 0;
+#X connect 37 0 33 0;
+#X connect 37 1 40 0;
+#X connect 37 1 43 0;
 #X connect 38 0 33 0;
 #X connect 38 1 41 0;
-#X connect 38 1 44 0;
 #X connect 39 0 33 0;
 #X connect 39 1 42 0;
-#X connect 40 0 33 0;
-#X connect 40 1 43 0;
+#X connect 40 0 36 1;
 #X connect 41 0 36 1;
 #X connect 42 0 36 1;
-#X connect 43 0 36 1;
-#X connect 44 0 45 0;
+#X connect 43 0 44 0;
 #X restore 8 202 pd messages.code;
 #N canvas 972 502 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
@@ -1463,12 +1463,12 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
 #X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
-0 8 0 10 -262144 -1 -1 34 256;
-#X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=8 4 8 0 13 -1
+0 8 0 10 -262144 -1 -1 8 256;
+#X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
 -195568 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
-0 8 0 10 -262144 -1 -1 32 256;
-#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=8 4 7 0 13 -1 -195568
+0 8 0 10 -262144 -1 -1 16 256;
+#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -195568
 0;
 #X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
 -262144 -1 -1 8 256;
