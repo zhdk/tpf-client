@@ -1,4 +1,4 @@
-#N canvas 0 53 968 388 10;
+#N canvas 0 53 967 386 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -79,7 +79,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 5 256;
 #N canvas 358 93 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -1172,7 +1172,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 347 55 s pd-latency;
 #X obj 12 30 metro 1000;
 #X obj 12 429 delay 900;
-#N canvas 685 92 537 296 latency.display 0;
+#N canvas 977 392 757 449 latency.display 0;
 #X obj 35 178 / 4;
 #X obj 35 200 int;
 #X msg 35 243 label \$1ms;
@@ -1182,12 +1182,33 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X msg 228 202 color -1 -1 \$1;
 #X obj 228 127 - 1;
 #X obj 228 176 f;
-#X obj 160 140 del 200;
-#X msg 132 168 16;
 #X obj 35 22 inlet;
 #X obj 35 43 t a b b;
-#X obj 457 105 inlet;
-#X obj 461 178 print;
+#X obj 456 29 inlet;
+#X obj 553 96 * 1.01;
+#X obj 510 96 * 0.99;
+#X obj 483 130 moses;
+#X obj 510 152 moses;
+#X obj 510 68 f;
+#X obj 510 34 r \$0.lat.range.reset;
+#X obj 456 75 sel 0;
+#X obj 589 242 s \$0.lat.range.reset;
+#X obj 562 216 t b a;
+#X obj 510 243 t a b;
+#X obj 537 279 f;
+#X obj 537 300 + 1;
+#X obj 537 323 t a a;
+#X msg 562 259 0;
+#X msg 537 366 0;
+#X msg 582 367 1;
+#X obj 127 161 f 13;
+#X obj 537 392 s \$0.lat.mes.valid;
+#X obj 211 265 r \$0.lat.mes.valid;
+#X obj 211 286 sel 0 1;
+#X msg 211 311 13;
+#X msg 240 310 16;
+#X obj 160 140 del 300;
+#X obj 537 345 moses 20;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 2 0 3 0;
@@ -1196,12 +1217,40 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X connect 6 0 3 0;
 #X connect 7 0 8 0;
 #X connect 8 0 6 0;
-#X connect 9 0 8 0;
-#X connect 10 0 6 0;
-#X connect 11 0 12 0;
-#X connect 12 0 0 0;
-#X connect 12 1 10 0;
-#X connect 12 2 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 10 1 28 0;
+#X connect 10 2 34 0;
+#X connect 11 0 18 0;
+#X connect 12 0 15 1;
+#X connect 13 0 14 1;
+#X connect 14 0 20 0;
+#X connect 14 1 15 0;
+#X connect 15 0 21 0;
+#X connect 15 1 20 0;
+#X connect 16 0 13 0;
+#X connect 16 0 12 0;
+#X connect 17 0 16 0;
+#X connect 18 1 14 0;
+#X connect 20 0 25 0;
+#X connect 20 1 19 0;
+#X connect 21 1 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 35 0;
+#X connect 24 1 22 1;
+#X connect 25 0 22 1;
+#X connect 26 0 29 0;
+#X connect 27 0 29 0;
+#X connect 28 0 6 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 31 1 33 0;
+#X connect 32 0 28 1;
+#X connect 33 0 28 1;
+#X connect 34 0 8 0;
+#X connect 35 0 26 0;
+#X connect 35 1 27 0;
 #X restore 12 491 pd latency.display;
 #X obj 165 417 r \$0.latency.measurement.state;
 #X obj 165 438 sel 0;
@@ -1263,8 +1312,8 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 -1 -262144 0;
 #X obj 7 113 cnv 32 128 32 empty empty LATENCY 8 16 0 20 -233017 -1
 0;
-#X obj 138 113 cnv 32 70 32 empty \$0.latency.label  44ms 8 16 0 20
--1 -24198 0;
+#X obj 138 113 cnv 32 70 32 empty \$0.latency.label  41ms 8 16 0 20
+-1 -262144 0;
 #X restore 8 262 pd latency;
 #X connect 12 0 14 0;
 #X connect 14 0 13 0;
@@ -1295,7 +1344,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
 #X obj 452 20 cnv 15 84 15 empty \$0.res.label res=16 4 7 0 13 -1 -195568
 0;
-#X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=44100Hz 4 7 0 13 -1
+#X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=48000Hz 4 7 0 13 -1
 -195568 0;
 #X obj 737 346 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
@@ -1303,7 +1352,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
 #X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
-0 8 0 10 -262144 -1 -1 34 256;
+0 8 0 10 -262144 -1 -1 8 256;
 #X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=8 4 8 0 13 -1
 -195568 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
