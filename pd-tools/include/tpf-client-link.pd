@@ -510,13 +510,12 @@
 #X obj 95 206 r \$0.linkID;
 #X obj 52 226 list append;
 #X obj 52 380 s \$1.info;
-#X msg 52 276 connecting linkID=\$4 localhost:\$3 => \$1:\$2;
 #X obj 52 247 t a a;
 #X obj 67 316 list append;
 #X msg 67 339 disconnected linkID=\$4 localhost:\$3 => \$1:\$2;
-#X obj 170 202 r \$0.udp.link.status;
-#X obj 170 250 sel 0 4;
 #X obj 170 223 change 0;
+#X obj 170 250 sel 0;
+#X msg 52 276 connected linkID=\$4 localhost:\$3 => \$1:\$2;
 #X connect 0 0 12 1;
 #X connect 1 0 3 0;
 #X connect 2 0 1 1;
@@ -566,6 +565,7 @@
 #X connect 52 0 11 1;
 #X connect 52 0 25 0;
 #X connect 52 0 50 0;
+#X connect 52 0 64 0;
 #X connect 53 0 3 1;
 #X connect 54 0 55 0;
 #X connect 54 1 55 0;
@@ -578,16 +578,14 @@
 #X connect 57 0 27 0;
 #X connect 57 1 59 0;
 #X connect 58 0 59 1;
-#X connect 59 0 62 0;
-#X connect 61 0 60 0;
-#X connect 62 0 61 0;
-#X connect 62 1 63 1;
-#X connect 63 0 64 0;
-#X connect 64 0 60 0;
-#X connect 65 0 67 0;
-#X connect 66 0 63 0;
-#X connect 66 1 63 0;
-#X connect 67 0 66 0;
+#X connect 59 0 61 0;
+#X connect 61 0 66 0;
+#X connect 61 1 62 1;
+#X connect 62 0 63 0;
+#X connect 63 0 60 0;
+#X connect 64 0 65 0;
+#X connect 65 0 62 0;
+#X connect 66 0 60 0;
 #X restore 16 164 pd jacktrip.start.stop;
 #X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
 -1 -262144 0;
