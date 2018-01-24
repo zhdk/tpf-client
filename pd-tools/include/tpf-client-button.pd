@@ -1,4 +1,4 @@
-#N canvas 739 603 450 300 10;
+#N canvas 739 603 726 288 10;
 #X obj 23 20 hsl 123 32 0 127 0 0 \$0.button.click empty empty -2 -8
 0 10 -262144 -1 -1 0 1;
 #X obj 20 20 cnv 32 128 32 empty \$0.button.fg \$1 8 16 0 20 -233017
@@ -13,6 +13,30 @@
 #X obj 297 130 del 200;
 #X msg 297 151 10;
 #X obj 278 250 s \$2;
+#N canvas 1589 505 310 209 rgb2iem 0;
+#X obj 14 2 inlet;
+#X obj 14 23 unpack f f f;
+#X obj 14 168 outlet;
+#X obj 48 49 << 8;
+#X obj 14 49 << 16;
+#X obj 14 106 +;
+#X obj 48 78 +;
+#X text 93 79 converts rgb 8bit to iem colors;
+#X obj 14 126 * -1;
+#X obj 14 147 - 1;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 1 3 0;
+#X connect 1 2 6 1;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;
+#X restore 446 121 pd rgb2iem;
+#X obj 446 93 route color;
+#X obj 446 72 r \$3;
 #X connect 2 0 3 0;
 #X connect 3 0 8 0;
 #X connect 3 1 4 0;
@@ -24,4 +48,7 @@
 #X connect 8 2 7 0;
 #X connect 9 0 10 0;
 #X connect 10 0 5 0;
+#X connect 12 0 5 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
 #X coords 0 -1 1 1 128 32 2 20 20;
