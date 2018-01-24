@@ -15,7 +15,7 @@
 #X obj 9 299 r \$0.from;
 #X obj 9 319 slipdec 16384;
 #X obj 9 339 unpackOSC;
-#X obj 9 359 s \$0.receive;
+#X obj 9 365 s \$0.receive;
 #X obj 141 123 s \$0.to;
 #X msg 160 100 disconnect;
 #X obj 141 17 r \$0.connect;
@@ -44,6 +44,25 @@
 #X msg 141 79 connect \$1 3025;
 #X obj 141 58 symbol;
 #X obj 196 57 r \$0.host;
+#N canvas 0 53 377 257 msgs 0;
+#X obj 42 17 r \$0.connection.state;
+#X obj 42 38 sel 1 0;
+#X obj 118 53 r \$0.host;
+#X obj 41 89 symbol;
+#X obj 91 92 symbol;
+#X obj 45 165 s \$0.info;
+#X msg 40 124 connected to '\$1';
+#X msg 152 124 disconnected from '\$1';
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 4 0;
+#X connect 2 0 3 1;
+#X connect 2 0 4 1;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X restore 21 419 pd msgs;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -79,7 +98,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 5 256;
+0 10 -262144 -1 -1 4 256;
 #N canvas 358 93 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -150,12 +169,22 @@
 #X connect 16 0 17 0;
 #X connect 17 0 10 0;
 #X restore 17 119 pd register/name;
-#X obj 17 162 s \$0.registered;
+#X obj 17 207 s \$0.registered;
+#X obj 174 135 r \$0.name;
+#X obj 141 205 s \$0.info;
+#X obj 17 140 t b b;
+#X obj 141 164 symbol;
+#X msg 141 184 registered name '\$1';
 #X connect 0 0 2 0;
 #X connect 1 0 3 0;
 #X connect 2 1 1 0;
 #X connect 3 0 4 0;
-#X connect 4 0 5 0;
+#X connect 4 0 8 0;
+#X connect 6 0 9 1;
+#X connect 8 0 5 0;
+#X connect 8 1 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
 #X restore 8 62 pd tpf.initialization;
 #N canvas 235 254 683 613 refresh 0;
 #X obj 17 9 r \$0.from.tpf;
@@ -1471,8 +1500,8 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -195568
 0;
 #X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
--262144 -1 -1 8 256;
-#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=128 4 7 0 13 -1 -195568
+-262144 -1 -1 16 256;
+#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=512 4 7 0 13 -1 -195568
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
