@@ -98,7 +98,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 358 93 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -622,7 +622,7 @@ include;
 #X obj 251 135 spigot 1;
 #X msg 98 238 0;
 #X msg 47 244 1;
-#X obj 81 259 s \$0.blocksize;
+#X obj 81 324 s \$0.blocksize;
 #X obj 150 58 == 0;
 #X obj 47 48 spigot 1;
 #X obj 450 211 s \$0.bs.label;
@@ -635,6 +635,9 @@ include;
 #X obj 150 26 t a a;
 #X obj 150 96 sel 1;
 #X obj 278 187 f;
+#X obj 81 260 t b a;
+#X obj 81 281 del 500;
+#X obj 81 302 f;
 #X connect 0 0 27 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -658,7 +661,7 @@ include;
 #X connect 20 0 21 0;
 #X connect 21 0 24 0;
 #X connect 21 1 6 0;
-#X connect 21 2 25 0;
+#X connect 21 2 38 0;
 #X connect 21 3 23 0;
 #X connect 22 0 19 0;
 #X connect 23 0 22 1;
@@ -677,6 +680,10 @@ include;
 #X connect 35 1 32 0;
 #X connect 36 0 37 0;
 #X connect 37 0 9 0;
+#X connect 38 0 39 0;
+#X connect 38 1 40 1;
+#X connect 39 0 40 0;
+#X connect 40 0 25 0;
 #X restore 8 83 pd blocksize;
 #N canvas 0 43 450 300 bitres 0;
 #X obj 26 76 s \$0.res.label;
@@ -1272,7 +1279,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
 #X obj 170 83 nbx 2 20 0 64 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
-0 -8 0 20 -1 -262144 -1 0 256;
+0 -8 0 20 -1 -262144 -1 1 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
 #X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 -233017
@@ -1285,7 +1292,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 -1 -262144 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 -233017 -1
 0;
-#X obj 170 148 cnv 32 70 32 empty \$0.latency.label 44ms 8 16 0 20
+#X obj 170 148 cnv 32 70 32 empty \$0.latency.label   0ms 8 16 0 20
 -1 -1 0;
 #X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
@@ -1494,14 +1501,14 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
 0 8 0 10 -262144 -1 -1 8 256;
 #X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
--195568 0;
+-262144 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
-0 8 0 10 -262144 -1 -1 16 256;
-#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -195568
+0 8 0 10 -262144 -1 -1 32 256;
+#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=8 4 7 0 13 -1 -262144
 0;
 #X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
--262144 -1 -1 16 256;
-#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=512 4 7 0 13 -1 -195568
+-262144 -1 -1 4 256;
+#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=64 4 7 0 13 -1 -262144
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
