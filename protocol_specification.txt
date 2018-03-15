@@ -38,12 +38,12 @@ prepended by a 'S: '.
 Initialization
 --------------
 
-Clients are identified by their socket number, which is assigned by the server. 
+Clients are identified by their socket number, which is assigned by the server.
 When the client connects to the server, it requests its own socket number:
 
 C: /s/server/socket
 
-The server responds with: 
+The server responds with:
 
 S: /s/server/socket 4
 
@@ -56,7 +56,7 @@ S: /s/tpf/protocol/version 1 0
 The client is supposed to disconnect with an appropriate error message in case of a
 protocol version mismatch.
 
-Once the procol version is agreed upon, the client registers its given name, which 
+Once the procol version is agreed upon, the client registers its given name, which
 can be any string configured by the user:
 
 C: /s/tpf/register/name ZHdK
@@ -66,7 +66,7 @@ If the server responds with:
 
 S: /s/tpf/register/error
 
-The chosen name is already used by another client or is invalid. The client should 
+The chosen name is already used by another client or is invalid. The client should
 display an appropriate error message to the user and must not proceed.
 
 If the server sends the following at any time while the client is connected:
@@ -112,12 +112,12 @@ successfully registered.
 Link list
 ---------
 
-The server distributes port numbers among connected clients, so that each pair of 
+The server distributes port numbers among connected clients, so that each pair of
 clients shares a port for a distinct jacktrip connection. The logic of the assignment
-is done on the server and each client requests its own specific list of ports and 
+is done on the server and each client requests its own specific list of ports and
 respective peer clients to connect to.
 
-Whenever the server re-calculates the links (when a client connects or disconnects), 
+Whenever the server re-calculates the links (when a client connects or disconnects),
 it sends an update notification:
 
 S: /s/tpf/updated/mylinks
@@ -133,7 +133,7 @@ S: /s/tpf/mylinks/begin
 S: /s/tpf/mylinks 5 0
 S: /s/tpf/mylinks 6 1
 S: /s/tpf/mylinks/end
- 
+
 Since in this example three clients are connected, each client needs to establish
 two links. The first number in each mylinks message denotes the corresponding peer
 client by its ID (socket number) and the second number represents the port offset
@@ -149,10 +149,10 @@ Parameter list
 In order for all nodes to be able to establish jacktrip connections with each other,
 some parameters need to be agreed upon. Those settings are synchronized among clients.
 Only the client with directing privileges (see third field in client list) is supposed
-to change those parameters. However, this is not enforced by the server, but expected 
-to be checked on the client side. 
+to change those parameters. However, this is not enforced by the server, but expected
+to be checked on the client side.
 
-Whenever the client with directing privileges changes a value of a certain parameter, 
+Whenever the client with directing privileges changes a value of a certain parameter,
 the server notifies all clients with the following message:
 
 S: /s/tpf/updated/params
@@ -171,7 +171,7 @@ S: /s/tpf/params bitres 16
 S: /s/tpf/params/end
 
 'buffersize' and 'samplerate' are relevant for running JACK, while 'channels' and
-'bitres' are parameters given as options to the jacktrip command. 
+'bitres' are parameters given as options to the jacktrip command.
 
 Unlike the client list and link list, the client needs to request the parameter
 list after initialization without waiting for a notification, since a notification
