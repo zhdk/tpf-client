@@ -56,14 +56,21 @@ You can install externals through the Pd menu:
 'Help' -> 'Find Externals'
 
 
+Known bugs
+----------
+
+  * tpf-client crashes Pd when receiving a stream with 3 channels
+
+
 Authors
 -------
 
   * Roman Haefeli <roman.haefeli@zhdk.ch>
   * Johannes Schütt <johannes.schuett@zhdk.ch>
 
+
 License
 -------
 
-TO_BE_DEFINED
+  GPL 3.0 (see LICENSE.txt)
 
