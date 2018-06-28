@@ -1,4 +1,4 @@
-#N canvas 0 53 972 389 10;
+#N canvas 0 65 972 389 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
@@ -1279,7 +1279,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
 #X obj 170 83 nbx 2 20 0 64 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
-0 -8 0 20 -1 -262144 -1 1 256;
+0 -8 0 20 -1 -262144 -1 0 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
 #X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 -233017
@@ -1292,8 +1292,8 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 -1 -262144 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 -233017 -1
 0;
-#X obj 170 148 cnv 32 70 32 empty \$0.latency.label   0ms 8 16 0 20
--1 -1 0;
+#X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 -1
+-1 0;
 #X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
 #X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 -233017
@@ -1462,6 +1462,13 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 9 263 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 2;
 #X obj 9 286 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 1;
 #X restore 8 222 pd messages;
+#N canvas 184 692 422 154 META 0;
+#X text 10 7 VERSION 1.0.0;
+#X text 11 23 AUTHOR Roman Haefeli <roman.haefeli@zhdk.ch>;
+#X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
+#X text 10 55 LICENSE GPL-3;
+#X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
+#X restore 732 15 pd META;
 #X connect 12 0 14 0;
 #X connect 14 0 13 0;
 #X connect 15 0 17 0;
@@ -1491,7 +1498,7 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
 #X obj 452 20 cnv 15 84 15 empty \$0.res.label res=16 4 7 0 13 -1 -195568
 0;
-#X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=48000Hz 4 7 0 13 -1
+#X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=44100Hz 4 7 0 13 -1
 -195568 0;
 #X obj 737 346 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
@@ -1503,12 +1510,12 @@ symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
 -262144 0;
 #X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
-0 8 0 10 -262144 -1 -1 32 256;
-#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=8 4 7 0 13 -1 -262144
+0 8 0 10 -262144 -1 -1 16 256;
+#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -262144
 0;
 #X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
--262144 -1 -1 4 256;
-#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=64 4 7 0 13 -1 -262144
+-262144 -1 -1 8 256;
+#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=128 4 7 0 13 -1 -262144
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
