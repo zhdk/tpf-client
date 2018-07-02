@@ -99,7 +99,7 @@ Ready-to-use macOS app
 If your computer runs macOS, you may download a self-contained
 application bundle from:
 
-  https://gitlab.zhdk.ch/TPF/tpf-client/uploads/31c324edc6bb0677d17dcac760ee5230/tpf-client__beta2_.zip
+  https://gitlab.zhdk.ch/TPF/tpf-client/tags/v1.0.0
 
 
 Known bugs
