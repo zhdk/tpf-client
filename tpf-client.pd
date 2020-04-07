@@ -832,7 +832,7 @@ include;
 #X obj 447 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 359 50 \; pd dsp 1 \; \$1.name symbol <LOCATION> \; \$1.host
-symbol telematic.zhdk.ch \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
+symbol <servername> \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 4 \; \$1.blocksize 128 \;;
 #N canvas 765 657 450 300 manage.links 0;
 #X obj 59 16 r \$0.refresh.mylink.display;
