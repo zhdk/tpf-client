@@ -1,10 +1,10 @@
-#N canvas 0 65 972 389 10;
+#N canvas 0 99 972 389 10;
 #X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
 ;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas 0 497 806 372 code 0;
-#N canvas 966 53 664 577 communication 0;
+#N canvas 0 489 806 372 code 0;
+#N canvas 956 99 664 577 communication 0;
 #X obj 9 38 packOSC;
 #X obj 9 17 r \$0.send;
 #X obj 9 58 slipenc 16384;
@@ -63,6 +63,23 @@
 #X connect 6 0 5 0;
 #X connect 7 0 5 0;
 #X restore 21 419 pd msgs;
+#N canvas 0 182 296 241 keep_alive 0;
+#X obj 6 16 r \$0.connection.state;
+#X obj 25 99 del 1000;
+#X obj 6 39 sel 0 1;
+#X msg 6 68 stop;
+#X obj 6 128 metro 60000;
+#X msg 6 151 /s/server/dummy;
+#X obj 6 175 s \$0.send;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 1 1 0;
+#X connect 3 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 132 221 pd keep_alive;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -1288,8 +1305,8 @@ symbol <servername> \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 -1 0;
 #X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 -233017
 -1 0;
-#X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level   0dB 8 16 0 20
--1 -262144 0;
+#X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level \ \ 0dB 8 16 0
+20 -1 -262144 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 -233017 -1
 0;
 #X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 -1
