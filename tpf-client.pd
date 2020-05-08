@@ -1,6 +1,5 @@
 #N canvas 0 99 972 389 10;
-#X declare -stdpath iemnet -stdpath osc -stdpath slip -path include
-;
+#X declare -path iemnet -path osc -path slip -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
 #N canvas 0 481 806 372 code 0;
@@ -319,8 +318,6 @@
 #X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
 #X obj 176 83 text define \$0.mylinks;
-#X obj 8 8 declare -stdpath iemnet -stdpath osc -stdpath slip -path
-include;
 #N canvas 20 381 1109 592 params 0;
 #X obj 619 83 text search \$0.clients 0;
 #X obj 619 58 f;
@@ -1486,23 +1483,25 @@ symbol <servername> \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
 #X restore 732 15 pd META;
-#X connect 12 0 14 0;
-#X connect 14 0 13 0;
-#X connect 15 0 17 0;
-#X connect 16 0 15 0;
-#X connect 18 0 14 1;
-#X connect 18 0 15 1;
-#X connect 19 0 11 0;
-#X connect 20 0 21 0;
-#X connect 21 0 23 0;
-#X connect 22 0 21 0;
-#X connect 27 0 31 0;
-#X connect 29 0 32 0;
-#X connect 31 0 28 0;
-#X connect 32 0 30 0;
-#X connect 33 0 32 1;
-#X connect 33 0 31 1;
-#X connect 34 0 35 0;
+#X obj 8 8 declare -path iemnet -path osc -path slip -path include
+;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 17 0 13 1;
+#X connect 17 0 14 1;
+#X connect 18 0 10 0;
+#X connect 19 0 20 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 26 0 30 0;
+#X connect 28 0 31 0;
+#X connect 30 0 27 0;
+#X connect 31 0 29 0;
+#X connect 32 0 31 1;
+#X connect 32 0 30 1;
+#X connect 33 0 34 0;
 #X restore 875 346 pd code;
 #X obj 4 65 tpf-client-link \$0 0;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
