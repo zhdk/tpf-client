@@ -104,10 +104,12 @@ application bundle from:
   https://gitlab.zhdk.ch/TPF/tpf-client/tags/v1.0.0
 
 
-Known bugs
-----------
+Bugs
+----
 
   * tpf-client crashes Pd when receiving a stream with 3 channels
+
+For any bug, issue, or suggestion, please open an issue [here](https://github.com/reduzent/tpf-client/issues).
 
 
 Authors
