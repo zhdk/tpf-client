@@ -1475,7 +1475,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 137 106 631 468 settings 0;
+#N canvas 150 106 631 468 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
@@ -1584,6 +1584,15 @@
 #X restore 742 46 pd from_blocksize;
 #X obj 872 48 - 1;
 #X obj 872 144 + 1;
+#X obj 22 187 r \$0.name;
+#X msg 22 210 label \$1;
+#X obj 22 233 s \$0.name.display.r;
+#X obj 211 162 r \$0.host;
+#X obj 277 163 r \$0.room;
+#X obj 211 210 pack s s;
+#X obj 277 186 t b a;
+#X msg 211 233 label \$1/\$2;
+#X obj 211 256 s \$0.connection.display.r;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1618,6 +1627,14 @@
 #X connect 49 0 28 0;
 #X connect 50 0 33 0;
 #X connect 51 0 37 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 0;
+#X connect 55 0 57 0;
+#X connect 56 0 58 0;
+#X connect 57 0 59 0;
+#X connect 58 0 57 0;
+#X connect 58 1 57 1;
+#X connect 59 0 60 0;
 #X restore 8 164 pd settings.code;
 #X msg 358 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
@@ -1639,28 +1656,9 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
 0;
 #X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
-#X obj 39 3 symbolatom_311x32 \$0 \$0.name \$0.name.r 100 20;
-#X obj 452 20 cnv 15 84 15 empty \$0.res.label res=16 4 7 0 13 -1 -195568
-0;
-#X obj 353 20 cnv 15 98 15 empty \$0.sr.label sr=44100Hz 4 7 0 13 -1
--195568 0;
 #X obj 764 348 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
 ;
-#X obj 353 3 cnv 15 44 16 empty empty host= 4 8 0 13 -1 -262144 0;
-#X obj 398 3 symbolatom_203x17 \$0 \$0.host \$0.host.r 500 15;
-#X obj 605 3 nbx 7 16 6 34 0 0 \$0.channels.nb \$0.channels.nb.r empty
-0 8 0 10 -262144 -1 -1 8 256;
-#X obj 602 3 cnv 15 75 16 empty \$0.channels.label ch=2 4 8 0 13 -1
--262144 0;
-#X obj 610 19 nbx 6 16 10 398 0 0 \$0.queue.nb \$0.queue.nb.r empty
-0 8 0 10 -262144 -1 -1 16 256;
-#X obj 610 20 cnv 15 67 15 empty \$0.queue.label q=4 4 7 0 13 -1 -262144
-0;
-#X obj 540 19 nbx 6 16 2 26 0 0 \$0.bs.nb \$0.bs.nb.r empty 0 8 0 10
--262144 -1 -1 20 256;
-#X obj 537 20 cnv 15 72 15 empty \$0.bs.label bs=1024 4 7 0 13 -1 -262144
-0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
 #X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
 #X obj 750 38 cnv 24 32 24 empty empty 3 10 13 0 16 -228856 -1 0;
@@ -1696,3 +1694,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 ;
 #X obj 4 345 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
 ;
+#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r <servername>/public
+8 16 0 20 -1 -262144 0;
+#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
+0 20 -1 -262144 0;
