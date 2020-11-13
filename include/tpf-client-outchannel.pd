@@ -1,5 +1,5 @@
-#N canvas 1123 388 608 415 10;
-#X obj 20 20 cnv 32 32 32 empty \$0.led.r  8 14 10 0 14 -233017 -262144
+#N canvas 438 396 608 415 10;
+#X obj 20 20 cnv 32 32 32 empty \$0.led.r \ 8 14 10 0 14 -233017 -262144
 0;
 #X obj 68 355 s \$0.led.r;
 #X msg 68 335 color \$1 0 30;
@@ -17,13 +17,13 @@
 #X msg 249 265 10;
 #X obj 249 242 sel 0;
 #X obj 68 299 change 11;
-#X obj 459 149 s \$0.led.r;
-#X msg 459 129 label \$1;
-#X obj 459 104 makefilename %2d;
+#X obj 459 179 s \$0.led.r;
+#X msg 459 159 label \$1;
+#X obj 459 134 makefilename %2d;
 #X obj 459 23 loadbang;
 #X obj 459 43 f \$2;
-#X obj 459 63 * 8;
-#X obj 459 83 + \$3;
+#X obj 459 93 * 8;
+#X obj 459 113 + \$3;
 #X obj 249 34 route STATUS;
 #X obj 249 14 r \$1.from.jacktrip;
 #X obj 249 54 route receiving inchannels;
@@ -33,6 +33,7 @@
 #X obj 249 71 sel 0 1;
 #X obj 282 101 f;
 #X obj 68 25 r~ \$2.channel.\$3;
+#X obj 459 66 - 1;
 #X connect 2 0 1 0;
 #X connect 3 0 9 0;
 #X connect 4 0 5 0;
@@ -51,7 +52,7 @@
 #X connect 18 0 17 0;
 #X connect 19 0 18 0;
 #X connect 20 0 21 0;
-#X connect 21 0 22 0;
+#X connect 21 0 33 0;
 #X connect 22 0 23 0;
 #X connect 23 0 19 0;
 #X connect 24 0 26 0;
@@ -65,4 +66,5 @@
 #X connect 30 1 31 0;
 #X connect 31 0 29 0;
 #X connect 32 0 11 0;
+#X connect 33 0 22 0;
 #X coords 0 -1 1 1 32 32 2 20 20;

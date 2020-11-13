@@ -162,7 +162,7 @@
 #X msg 516 210 1;
 #X obj 413 189 sel 5;
 #X obj 516 189 sel 6;
-#X floatatom 256 82 5 0 0 0 - - -, f 5;
+#X floatatom 256 82 5 0 0 0 - - -;
 #X msg 155 350 0 255 0;
 #X msg 367 356 255 255 0;
 #X obj 603 363 r \$0.tx.switch.s;
@@ -590,7 +590,7 @@
 #X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
 -1 -262144 0;
 #X obj 16 212 adc~ 1 2 3 4 5 6 7 8;
-#N canvas 178 237 307 328 set.out.channels 0;
+#N canvas 178 270 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
 #X msg 31 45 8;
 #X obj 48 87 until;
@@ -607,11 +607,12 @@
 #X msg 31 229 bang \, set;
 #X msg 125 204 add2 set;
 #X obj 100 121 f \$2;
-#X obj 100 141 * 8;
+#X obj 100 171 * 8;
 #X obj 48 167 +;
 #X msg 48 190 add2 \$1;
 #X obj 31 65 t b a b b;
 #X obj 31 276 outlet;
+#X obj 100 144 - 1;
 #X connect 0 0 1 0;
 #X connect 1 0 13 0;
 #X connect 2 0 3 0;
@@ -622,7 +623,7 @@
 #X connect 6 0 14 0;
 #X connect 7 0 6 0;
 #X connect 8 0 6 0;
-#X connect 9 0 10 0;
+#X connect 9 0 15 0;
 #X connect 10 0 11 1;
 #X connect 11 0 12 0;
 #X connect 12 0 6 0;
@@ -630,6 +631,7 @@
 #X connect 13 1 2 0;
 #X connect 13 2 9 0;
 #X connect 13 3 8 0;
+#X connect 15 0 10 0;
 #X restore 384 234 pd set.out.channels;
 #X obj 696 20 tpf-client-outchannel \$0 \$2 0;
 #X obj 433 416 dac~ 1 2 3 4 5 6 7 8;
