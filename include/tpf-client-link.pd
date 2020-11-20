@@ -1,7 +1,7 @@
 #N canvas 24 147 1022 479 10;
 #X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 247 142 450 300 get.peer.data 0;
+#N canvas 247 142 450 300 get.peer.data 1;
 #X obj 21 38 sel 1;
 #X obj 21 58 f;
 #X obj 53 59 r \$0.peer;
@@ -709,7 +709,7 @@
 #X connect 73 0 48 0;
 #X connect 73 1 71 0;
 #X restore 16 144 pd negotiate.token;
-#N canvas 146 101 604 759 negotiate.port 0;
+#N canvas 584 208 604 759 negotiate.port 0;
 #X obj 10 34 r \$1.receive;
 #X obj 10 78 routeOSC /tpf/setpeerport;
 #X obj 10 112 routeOSC /__;
@@ -1013,7 +1013,7 @@
 #X obj 146 235 s \$1.intercom;
 #X msg 146 211 refresh_peers \$1;
 #X obj 8 50 loadbang;
-#X msg 8 73 symbol empty;
+#X msg 7 73 symbol empty;
 #X text 142 15 === refresh peers ===;
 #X text 320 15 === persist my assignment ===;
 #X text 7 15 === init peer ===;
