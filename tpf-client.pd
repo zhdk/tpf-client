@@ -2,7 +2,7 @@
 #X declare -path iemnet -path osc -path slip -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas 172 571 837 342 code 0;
+#N canvas 137 566 858 346 code 0;
 #N canvas 956 106 664 577 communication 0;
 #X obj 9 38 packOSC;
 #X obj 9 17 r \$0.send;
@@ -114,7 +114,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 14 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 328 387 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -929,8 +929,8 @@
 #X restore 82 310 pd chat;
 #X obj 651 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 560 119 ---------------------------------;
-#X obj 560 140 print -n;
+#X msg 569 122 ---------------------------------;
+#X obj 569 143 print -n;
 #N canvas 667 381 509 572 latency.code 0;
 #X obj 75 122 osc~;
 #X obj 75 248 *~;
@@ -1137,7 +1137,7 @@
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
 #X obj 170 83 nbx 2 20 0 63 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
-0 -8 0 20 -1 -262144 -1 63 256;
+0 -8 0 20 -1 -262144 -1 0 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
 #X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 -233017
@@ -1498,11 +1498,11 @@
 #X connect 62 1 63 0;
 #X connect 63 0 62 1;
 #X restore 8 164 pd settings.code;
-#X msg 358 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
+#X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize
 128 \;;
-#N canvas 225 246 667 537 clients 0;
+#N canvas 225 246 667 578 clients 0;
 #X obj 17 9 r \$0.from.tpf;
 #X obj 17 71 s \$0.to.tpf;
 #X obj 15 106 r \$0.from.tpf;
@@ -1517,38 +1517,65 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 73 170 t b b;
 #X msg 73 191 1;
 #X msg 54 214 0;
-#X obj 15 343 s \$0.refresh.client.display;
-#X obj 9 389 r \$0.connection.state;
-#X obj 9 409 sel 0;
-#X obj 9 429 t b b b;
-#X msg 48 450 -1;
-#X obj 48 475 text delete \$0.clients;
+#X obj 16 389 r \$0.connection.state;
+#X obj 16 409 sel 0;
+#X obj 16 429 t b b b;
+#X msg 55 450 -1;
+#X obj 55 475 text delete \$0.clients;
 #X obj 17 29 routeOSC /updated/clients;
 #X msg 17 50 /refresh/clients;
-#X obj 9 501 s \$0.reset;
-#X obj 132 183 list append -1;
 #X obj 15 170 t b b b;
+#N canvas 0 106 806 345 check.assignment 0;
+#X obj 15 16 inlet;
+#X obj 15 256 outlet;
+#X obj 15 39 t a a b, f 33;
+#X obj 15 229 list append;
+#X text 250 35 Set to -1 if not yet assigned;
+#X text 249 17 Which tpf-client-link "owns" this peer?;
+#X msg 210 205 -1;
+#X obj 181 124 s \$0.intercom;
+#X msg 181 99 get_link_owner \$2;
+#X text 302 100 peer name;
+#X obj 180 147 r \$0.intercom;
+#X obj 180 170 route set_link_owner;
+#X text 310 169 we except tpf-client-link id here;
+#X msg 112 175 0;
 #N canvas 420 364 450 300 mark.self 0;
 #X obj 16 23 inlet;
-#X obj 31 55 r \$0.id;
-#X obj 16 119 text search \$0.clients 0;
-#X obj 16 86 f;
-#X obj 49 190 text set \$0.clients 0 4;
-#X obj 16 142 sel -1;
-#X msg 49 165 0 \$1;
+#X obj 79 138 outlet;
+#X obj 61 78 r \$0.id;
+#X obj 16 76 route;
+#X obj 16 135 outlet;
+#X obj 16 106 b;
 #X connect 0 0 3 0;
-#X connect 1 0 3 1;
-#X connect 2 0 5 0;
-#X connect 3 0 2 0;
-#X connect 5 1 6 0;
-#X connect 6 0 4 0;
-#X restore 34 261 pd mark.self;
-#X connect 0 0 20 0;
+#X connect 2 0 3 1;
+#X connect 3 0 5 0;
+#X connect 3 1 1 0;
+#X connect 5 0 4 0;
+#X restore 112 73 pd mark.self;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 14 0;
+#X connect 2 2 6 0;
+#X connect 3 0 1 0;
+#X connect 6 0 3 1;
+#X connect 8 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 1;
+#X connect 13 0 3 1;
+#X connect 14 0 13 0;
+#X connect 14 1 8 0;
+#X restore 132 180 pd check.assignment;
+#X obj 15 348 s \$0.intercom;
+#X obj 16 524 s \$0.intercom;
+#X msg 15 325 refresh_peers 1;
+#X msg 16 501 refresh_peers 1;
+#X connect 0 0 19 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
-#X connect 4 0 24 0;
+#X connect 4 0 21 0;
 #X connect 4 1 11 0;
-#X connect 4 2 23 0;
+#X connect 4 2 22 0;
 #X connect 6 0 7 0;
 #X connect 7 0 5 1;
 #X connect 9 0 8 0;
@@ -1557,18 +1584,30 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X connect 11 1 9 0;
 #X connect 12 0 10 1;
 #X connect 13 0 10 1;
+#X connect 14 0 15 0;
 #X connect 15 0 16 0;
-#X connect 16 0 17 0;
-#X connect 17 0 22 0;
-#X connect 17 2 18 0;
-#X connect 18 0 19 0;
-#X connect 20 0 21 0;
-#X connect 21 0 1 0;
-#X connect 23 0 10 0;
-#X connect 24 0 14 0;
-#X connect 24 1 25 0;
-#X connect 24 2 13 0;
+#X connect 16 0 26 0;
+#X connect 16 2 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 20 0 1 0;
+#X connect 21 0 25 0;
+#X connect 21 2 13 0;
+#X connect 22 0 10 0;
+#X connect 25 0 23 0;
+#X connect 26 0 24 0;
 #X restore 8 82 pd clients;
+#N canvas 0 106 450 300 intercom 0;
+#X obj 11 25 r \$0.intercom;
+#X obj 11 88 print INTERCOM;
+#X obj 11 58 spigot;
+#X obj 123 33 inlet;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 1;
+#X restore 761 87 pd intercom;
+#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 9 0 31 0;
 #X connect 10 0 8 0;
 #X connect 11 0 12 0;
@@ -1576,6 +1615,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X connect 13 0 12 0;
 #X connect 17 0 32 0;
 #X connect 18 0 19 0;
+#X connect 37 0 36 0;
 #X restore 867 350 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
@@ -1624,10 +1664,10 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 4 345 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
-10 0 10 -262144 -1 -1 0 1;
+10 0 10 -262144 -1 -1 100 1;
 #X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r localhost/vch
 8 16 0 20 -1 -262144 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 -262144 -1 -1 0 1;
-#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r roman 8 16 0 20
+#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
 -1 -262144 0;
