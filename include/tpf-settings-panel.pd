@@ -15,10 +15,10 @@
 #X text 89 396 2048;
 #X text 89 416 4096;
 #X obj 67 297 vradio 20 1 0 7 \$1.set.blocksize \$1.set.blocksize.r
-empty 0 -8 0 10 -262144 -1 -1 0;
+empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 65 271 blocksize:;
 #X obj 314 273 hradio 20 1 0 8 \$1.set.channels \$1.set.channels.r
-empty 0 -8 0 10 -262144 -1 -1 0;
+empty 0 -8 0 10 -262144 -1 -1 5;
 #X text 178 271 send channels:;
 #X text 318 252 1;
 #X text 338 252 2;
@@ -39,4 +39,6 @@ empty 0 -8 0 10 -262144 -1 -1 0;
 #X obj 311 363 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
 16 -262144 -1 0;
 #X text 205 361 samplerate:;
+#X obj 208 427 cnv 15 370 25 empty \$1.notification.label reconnect_to_apply_new_settings
+10 12 0 17 -262144 -128992 0;
 #X coords 0 -1 1 1 600 440 2 20 20;
