@@ -1,0 +1,16 @@
+host <servername>
+room public
+name <yourname>
+port 3025
+audioport 4460
+channels 2
+blocksize 128
+queue 4
+peer_name 8 empty
+peer_name 7 empty
+peer_name 6 empty
+peer_name 5 empty
+peer_name 4 empty
+peer_name 3 empty
+peer_name 2 empty
+peer_name 1 empty
