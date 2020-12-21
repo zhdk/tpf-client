@@ -1,4 +1,4 @@
-#N canvas 317 261 670 475 16;
+#N canvas 275 300 656 549 16;
 #X symbolatom 147 66 30 0 0 0 - #1.set.host.r #1.set.host;
 #X symbolatom 147 96 30 0 0 0 - #1.set.room.r #1.set.room;
 #X symbolatom 147 126 30 0 0 0 - #1.set.name.r #1.set.name;
@@ -18,7 +18,7 @@
 empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 65 271 blocksize:;
 #X obj 314 273 hradio 20 1 0 8 \$1.set.channels \$1.set.channels.r
-empty 0 -8 0 10 -262144 -1 -1 5;
+empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 178 271 send channels:;
 #X text 318 252 1;
 #X text 338 252 2;
@@ -39,6 +39,11 @@ empty 0 -8 0 10 -262144 -1 -1 5;
 #X obj 311 363 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
 16 -262144 -1 0;
 #X text 205 361 samplerate:;
-#X obj 208 427 cnv 15 370 25 empty \$1.notification.label reconnect_to_apply_new_settings
-10 12 0 17 -262144 -128992 0;
-#X coords 0 -1 1 1 600 440 2 20 20;
+#X obj 220 428 cnv 15 370 25 empty \$1.notification.label reconnect\ to\ apply\ new\ settings
+2 12 0 17 -262144 -128992 0;
+#X obj 219 477 tpf-client-button Save\ to \$1.save.to.s \$1.save.to.r
+;
+#X obj 350 477 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
+;
+#X obj 481 477 tpf-client-button Save \$1.save.s \$1.save.r;
+#X coords 0 -1 1 1 600 500 2 20 20;

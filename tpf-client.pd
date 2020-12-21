@@ -114,7 +114,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 328 453 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -1329,7 +1329,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 164 106 631 468 settings 0;
+#N canvas 158 106 632 522 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
@@ -1476,7 +1476,6 @@
 #X obj 546 228 sel 1;
 #X msg 546 251 0;
 #X obj 427 278 change -1;
-#X obj 872 167 t b a;
 #X obj 872 190 spigot 1;
 #X obj 872 223 f;
 #X obj 940 146 r \$0.connection.state;
@@ -1484,9 +1483,10 @@
 #X obj 940 169 t a a;
 #X obj 967 195 sel 1;
 #X obj 446 388 s \$0.notification.label;
-#X msg 446 325 label reconnect_to_apply_new_settings;
 #X msg 427 350 label empty;
 #X obj 427 301 sel 0 1;
+#X obj 872 167 t a a;
+#X msg 446 328 label reconnect\ to\ apply\ new\ settings;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1520,7 +1520,7 @@
 #X connect 48 0 32 0;
 #X connect 49 0 28 0;
 #X connect 50 0 33 0;
-#X connect 51 0 70 0;
+#X connect 51 0 79 0;
 #X connect 52 0 53 0;
 #X connect 53 0 54 0;
 #X connect 55 0 57 0;
@@ -1538,20 +1538,20 @@
 #X connect 66 0 69 0;
 #X connect 67 0 68 0;
 #X connect 68 0 69 0;
-#X connect 69 0 80 0;
+#X connect 69 0 78 0;
 #X connect 70 0 71 0;
-#X connect 70 1 72 1;
-#X connect 71 0 72 0;
-#X connect 72 0 37 0;
-#X connect 73 0 75 0;
-#X connect 74 0 71 1;
-#X connect 75 0 74 0;
-#X connect 75 1 76 0;
-#X connect 76 0 72 0;
+#X connect 71 0 37 0;
+#X connect 72 0 74 0;
+#X connect 73 0 70 1;
+#X connect 74 0 73 0;
+#X connect 74 1 75 0;
+#X connect 75 0 71 0;
+#X connect 77 0 76 0;
 #X connect 78 0 77 0;
-#X connect 79 0 77 0;
-#X connect 80 0 79 0;
-#X connect 80 1 78 0;
+#X connect 78 1 80 0;
+#X connect 79 0 70 0;
+#X connect 79 1 71 1;
+#X connect 80 0 76 0;
 #X restore 8 164 pd settings.code;
 #X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
@@ -1722,6 +1722,6 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r telematic.zhdk.ch/public
 8 16 0 20 -1 -262144 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
-0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 100 1;
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
 -1 -262144 0;
