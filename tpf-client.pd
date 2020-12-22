@@ -114,7 +114,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #N canvas 328 486 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -1317,11 +1317,11 @@
 #X obj 9 286 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 1;
 #X restore 200 310 pd messages;
 #N canvas 184 692 422 154 META 0;
-#X text 10 7 VERSION 1.0.0;
 #X text 11 23 AUTHOR Roman Haefeli <roman.haefeli@zhdk.ch>;
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
+#X text 10 7 VERSION 1.1beta1;
 #X restore 732 15 pd META;
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
