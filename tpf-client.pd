@@ -1326,7 +1326,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 75 102 636 523 settings 0;
+#N canvas 75 0 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
