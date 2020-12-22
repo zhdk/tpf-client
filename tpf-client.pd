@@ -115,7 +115,7 @@
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 -262144 -1 -1 4 256;
-#N canvas 328 453 314 294 tpf.initialization 0;
+#N canvas 328 486 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
 #X obj 17 30 moses 1;
@@ -123,7 +123,6 @@
 #X obj 17 54 s \$0.to.tpf;
 #X obj 17 74 r \$0.from.tpf;
 #X obj 17 114 unpack f f;
-#X obj 74 133 == 0;
 #X obj 17 154 &&;
 #X obj 17 175 sel 1;
 #X msg 44 195 protocol version of server does not match;
@@ -133,20 +132,20 @@
 #X obj 17 11 inlet;
 #X obj 17 255 outlet;
 #X text 69 254 bang when OK;
-#X obj 216 262 print DEBUG;
-#X obj 17 134 == 2;
-#X connect 1 0 9 0;
-#X connect 2 0 14 0;
-#X connect 2 1 3 0;
-#X connect 3 0 4 1;
-#X connect 4 0 5 0;
-#X connect 5 0 11 0;
-#X connect 5 1 6 0;
-#X connect 6 0 7 0;
-#X connect 8 0 0 0;
-#X connect 9 0 2 0;
-#X connect 10 0 8 0;
-#X connect 14 0 4 0;
+#X obj 17 134 == 1;
+#X obj 74 133 == 1;
+#X connect 1 0 8 0;
+#X connect 2 0 12 0;
+#X connect 2 1 13 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 4 1 5 0;
+#X connect 5 0 6 0;
+#X connect 7 0 0 0;
+#X connect 8 0 2 0;
+#X connect 9 0 7 0;
+#X connect 12 0 3 0;
+#X connect 13 0 3 1;
 #X restore 17 94 pd protocol/version;
 #X obj 17 207 s \$0.registered;
 #X obj 174 135 r \$0.name;
@@ -1843,7 +1842,7 @@
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
 #X restore 761 87 pd intercom;
-#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
