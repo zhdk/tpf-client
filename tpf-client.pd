@@ -114,7 +114,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 4 256;
 #N canvas 328 453 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -720,8 +720,6 @@
 #X msg 191 183 /reset/clients;
 #X obj 359 11 loadbang;
 #X obj 359 31 f \$0;
-#N canvas 765 657 450 300 manage.links 0;
-#X restore 8 142 pd manage.links;
 #N canvas 635 497 992 567 chat.code 0;
 #X obj 52 132 s \$0.send;
 #X obj 52 91 list prepend /b/tpf/chat/message;
@@ -902,7 +900,7 @@
 #X connect 54 0 53 0;
 #X connect 55 0 49 0;
 #X connect 56 0 48 0;
-#X restore 8 186 pd chat.code;
+#X restore 8 166 pd chat.code;
 #N canvas 978 106 787 374 chat 0;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 -233017 -66577
 0;
@@ -1131,7 +1129,7 @@
 #X connect 41 0 1 1;
 #X connect 41 0 18 0;
 #X connect 42 0 16 0;
-#X restore 8 227 pd latency.code;
+#X restore 8 207 pd latency.code;
 #N canvas 527 553 310 188 latency 0;
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
@@ -1301,7 +1299,7 @@
 #X connect 41 0 36 1;
 #X connect 42 0 36 1;
 #X connect 43 0 44 0;
-#X restore 8 207 pd messages.code;
+#X restore 8 187 pd messages.code;
 #N canvas 972 502 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
 #X obj 9 10 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 13;
@@ -1329,7 +1327,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 44 106 632 522 settings 0;
+#N canvas 75 102 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
@@ -1479,7 +1477,6 @@
 #X obj 940 146 r \$0.connection.state;
 #X obj 940 193 ==;
 #X obj 940 169 t a a;
-#X obj 967 195 sel 1;
 #X obj 347 399 s \$0.notification.label;
 #X msg 328 361 label empty;
 #X obj 328 312 sel 0 1;
@@ -1490,8 +1487,8 @@
 #X obj 328 265 route 1;
 #X obj 447 230 sel 0;
 #X msg 447 253 0;
-#X msg 496 226 label Save*;
-#X obj 496 250 s \$0.save.r;
+#X msg 497 247 label Save*;
+#X obj 497 271 s \$0.save.r;
 #X obj 328 190 t b b, f 9;
 #N canvas 528 298 636 555 save.settings 0;
 #X obj 11 17 r \$0.save.s;
@@ -1662,6 +1659,9 @@
 #X connect 27 0 26 0;
 #X restore 67 350 pd load.settings;
 #X obj 24 394 text define \$0.settings;
+#X obj 967 193 sel 0;
+#X obj 497 198 r \$0.intercom;
+#X obj 497 221 route peer_swap_response;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1695,7 +1695,7 @@
 #X connect 48 0 32 0;
 #X connect 49 0 28 0;
 #X connect 50 0 33 0;
-#X connect 51 0 77 0;
+#X connect 51 0 76 0;
 #X connect 52 0 53 0;
 #X connect 53 0 54 0;
 #X connect 55 0 57 0;
@@ -1708,35 +1708,37 @@
 #X connect 62 0 0 0;
 #X connect 62 1 63 0;
 #X connect 63 0 62 1;
-#X connect 64 0 86 0;
-#X connect 65 0 80 1;
-#X connect 65 0 82 0;
-#X connect 66 0 80 0;
-#X connect 67 0 76 0;
+#X connect 64 0 85 0;
+#X connect 65 0 79 1;
+#X connect 65 0 81 0;
+#X connect 66 0 79 0;
+#X connect 67 0 75 0;
 #X connect 68 0 69 0;
 #X connect 69 0 37 0;
 #X connect 70 0 72 0;
 #X connect 71 0 68 1;
 #X connect 72 0 71 0;
-#X connect 72 1 73 0;
-#X connect 73 0 69 0;
+#X connect 72 1 89 0;
+#X connect 74 0 73 0;
 #X connect 75 0 74 0;
-#X connect 76 0 75 0;
-#X connect 76 1 78 0;
-#X connect 77 0 68 0;
-#X connect 77 1 69 1;
-#X connect 78 0 74 0;
-#X connect 79 0 69 1;
-#X connect 80 0 81 0;
-#X connect 81 0 67 0;
-#X connect 82 0 83 0;
-#X connect 83 0 67 0;
-#X connect 84 0 85 0;
-#X connect 86 0 66 0;
-#X connect 86 1 84 0;
-#X connect 87 0 89 0;
-#X connect 88 0 89 0;
-#X restore 8 164 pd settings.code;
+#X connect 75 1 77 0;
+#X connect 76 0 68 0;
+#X connect 76 1 69 1;
+#X connect 77 0 73 0;
+#X connect 78 0 69 1;
+#X connect 79 0 80 0;
+#X connect 80 0 67 0;
+#X connect 81 0 82 0;
+#X connect 82 0 67 0;
+#X connect 83 0 84 0;
+#X connect 85 0 66 0;
+#X connect 85 1 83 0;
+#X connect 86 0 88 0;
+#X connect 87 0 88 0;
+#X connect 89 0 69 0;
+#X connect 90 0 91 0;
+#X connect 91 0 83 0;
+#X restore 8 144 pd settings.code;
 #N canvas 225 246 667 578 clients 0;
 #X obj 17 9 r \$0.from.tpf;
 #X obj 17 71 s \$0.to.tpf;
@@ -1841,19 +1843,19 @@
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
 #X restore 761 87 pd intercom;
-#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize
 128 \; \$1.load.settings bang \;;
-#X connect 9 0 30 0;
+#X connect 9 0 29 0;
 #X connect 10 0 8 0;
 #X connect 11 0 12 0;
-#X connect 12 0 36 0;
-#X connect 16 0 31 0;
-#X connect 17 0 18 0;
-#X connect 35 0 34 0;
+#X connect 12 0 35 0;
+#X connect 15 0 30 0;
+#X connect 16 0 17 0;
+#X connect 34 0 33 0;
 #X restore 867 350 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
@@ -1903,7 +1905,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 -262144 -1 -1 0 1;
-#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r telematic.zhdk.ch/public
+#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r telematic.zhdk.ch/vch
 8 16 0 20 -1 -262144 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 -262144 -1 -1 0 1;
