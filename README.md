@@ -37,6 +37,13 @@ Depending on the locations of the endpoints it is advised to
 run a server closer to one of the endpoints in order to
 keep transmission latency low.
 
+#### Scope
+
+tpf-client doesn't have any mixing, levelling, routing capabilities. It is meant
+as a pure transmission utility. For concerts and experiments, we usually interface
+it with a DAW like Ardour. Further instructions and Ardour template sessions are in
+progress and will be provided.
+
 
 Prerequisites
 -------------
