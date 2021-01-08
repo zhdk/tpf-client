@@ -6,33 +6,30 @@ tpf-client
 About
 -----
 
-tpf-client is a low-latency audio transmission software based
-on the jacktrip protocol and built in Pure Data.
+tpf-client is a low-latency multi-channel audio transmission software
+based on the jacktrip protocol and built in Pure Data.
 
 It tries to overcome some limitations that are often encountered
 when using the traditional jacktrip commandline utility:
 
- * None of the endpoints are required to have a public IP address.
-   All clients can be behind a firewall.
+ * No need for clients to run with a public IP address and no need
+   for setting up port-forwarding on the client side.
 
  * The tpf-client reduces complexity when configuring a session
    with many endpoints.
 
 The client registers itself to a tpf-server which keeps track
-of the connected clients. Thus the clients learn about the other
-clients and establish a jacktrip audio connection to their
-peers either by routing the packets through the tpf-server or
-directly to the peer by employing a technique called UDP hole
-punching (https://en.wikipedia.org/wiki/UDP_hole_punching).
+of the connected clients. While connected to the server, clients
+establish a jacktrip audio connection to their peers either by
+routing the audio packets through the tpf-server (a UDP-proxy running
+on a separate port) or directly to their peers by employing a
+technique called UDP hole punching (https://en.wikipedia.org/wiki/UDP_hole_punching).
 
 You can download the client from:
 
   https://gitlab.zhdk.ch/TPF/tpf-client
 
-The client is pre-configured to connect to a tpf-server
-running on telematic.zhdk.ch (TCP-Port 3025) which is supposed
-to be running anytime in the area of Zurich, Switzerland. The
-tpf-server software can be found here:
+The server software is hosted separately at:
 
   https://gitlab.zhdk.ch/TPF/tpf-server
 
@@ -60,7 +57,8 @@ You can install externals through the Pd menu:
 Running the client
 ------------------
 
-To run the client, open the patch tpf-client in Pure Data. Typically,
+## Run
+To run the client, open the patch tpf-client.pd in Pure Data. Typically,
 you run Pd with jack as audio backend, so that you can send audio from
 and to the tpf-client to other software. When running from the command-
 line, the recommended parameters are:
@@ -68,14 +66,23 @@ line, the recommended parameters are:
   pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
      -jackname tpf-client -open tpf-client/tpf-client.pd
 
-Before connecting to the server, make sure to set a name in <Location>
-and all parameters. The parameters sr (samplerate) and bs (blocksize)
-must be the same for all clients. The first connecting client defines
-the values of those parameters for the session. After configuring those
-parameters the client can connect to the server by clicking the top
-left button. Blue indicates connection is established. Red indicates that
-some error occured. Check the message for the reason. Reasons for connection
-failure include samplerate or name conflict (configured name is already in
+## Configure
+
+Before anything, open 'Settings' and configure the field 'server' and 'name'. If
+you don't know about a server, you can run your own (see https://gitlab.zhdk.ch/TPF/tpf-server
+for details).
+
+All parameters from the 'Settings' panel need to be configured prior to
+connecting to the server. Any changes will take only effect after a reconnection.
+The parameters 'samplerate' and 'blocksize' must be shared by all clients. An error
+is displayed, when a mismatch occurs. The first client joining a room sets those parameters
+for the lifetime of the room. The room exists as long as there are any clients connected to it.
+
+## Connect
+
+The client connects to the server by clicking the top left button. Blue indicates connection
+is established. Red indicates that some error occured. Check the message for the reason.
+Reasons for connection failure include samplerate or name conflict (configured name is already in
 use by someone else).
 
 Once connected, other endpoints appear in one of the 8 rows. In order to
@@ -88,9 +95,11 @@ number of received channels and the level of each. The numbers on the
 channel indicators correspond with the numbers in the qjackctl connection
 dialog.
 
+## Peer-2-Peer
+
 By double-clicking the left square, a request for a connection using
-UDP hole punching is sent. When confirmed, a direct transmission between
-endpoints without using the server as UDP proxy is established. However,
+UDP hole punching is sent (button flashes purple). When confirmed, a direct transmission between
+endpoints is established (no UDP proxy involved). However,
 this feature is considered experimental and can't be used in certain
 network environments.
 
