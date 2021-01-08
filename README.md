@@ -57,16 +57,18 @@ You can install externals through the Pd menu:
 Running the client
 ------------------
 
-## Run
+#### Run
 To run the client, open the patch tpf-client.pd in Pure Data. Typically,
 you run Pd with jack as audio backend, so that you can send audio from
 and to the tpf-client to other software. When running from the command-
 line, the recommended parameters are:
 
-  pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
+~~~sh
+pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
      -jackname tpf-client -open tpf-client/tpf-client.pd
+~~~
 
-## Configure
+#### Configure
 
 Before anything, open 'Settings' and configure the field 'server' and 'name'. If
 you don't know about a server, you can run your own (see https://gitlab.zhdk.ch/TPF/tpf-server
@@ -78,7 +80,7 @@ The parameters 'samplerate' and 'blocksize' must be shared by all clients. An er
 is displayed, when a mismatch occurs. The first client joining a room sets those parameters
 for the lifetime of the room. The room exists as long as there are any clients connected to it.
 
-## Connect
+#### Connect
 
 The client connects to the server by clicking the top left button. Blue indicates connection
 is established. Red indicates that some error occured. Check the message for the reason.
@@ -95,7 +97,7 @@ number of received channels and the level of each. The numbers on the
 channel indicators correspond with the numbers in the qjackctl connection
 dialog.
 
-## Peer-2-Peer
+#### Peer-2-Peer connection
 
 By double-clicking the left square, a request for a connection using
 UDP hole punching is sent (button flashes purple). When confirmed, a direct transmission between
