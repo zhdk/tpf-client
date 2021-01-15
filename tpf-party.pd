@@ -1097,7 +1097,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 75 0 636 523 settings 0;
+#N canvas 75 106 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
@@ -1367,7 +1367,7 @@
 #X connect 20 0 16 0;
 #X connect 21 0 20 0;
 #X restore 24 313 pd save.settings;
-#N canvas 0 72 645 562 load.settings 0;
+#N canvas 0 106 645 562 load.settings 0;
 #X obj 26 30 r \$0.load.settings;
 #X obj 137 218 outlet;
 #X msg 190 156 clear;
@@ -1383,19 +1383,21 @@
 #X obj 85 337 t a a;
 #X obj 134 330 + 1;
 #X obj 85 385 list trim;
-#X obj 85 408 route peer_name, f 48;
-#X obj 85 454 list trim;
-#X obj 85 486 s \$0.intercom;
+#X obj 85 487 list trim;
+#X obj 85 519 s \$0.intercom;
 #X obj 370 433 list;
 #X obj 370 456 t a a, f 17;
 #X obj 404 532 s;
 #X obj 469 479 list prepend \$0;
 #X msg 469 502 symbol \$1.\$2;
 #X obj 370 479 list split 1;
-#X obj 85 431 list prepend restore_settings peer_name;
 #X obj 325 40 r \$0.load.from.s;
 #X obj 325 91 openpanel;
 #X msg 325 66 symbol .;
+#X obj 85 434 list prepend peer_name;
+#X obj 85 408 route peer_name mixer, f 48;
+#X obj 227 435 list prepend mixer;
+#X obj 85 464 list prepend restore_settings;
 #X connect 0 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 5 0;
@@ -1413,20 +1415,23 @@
 #X connect 12 0 6 0;
 #X connect 12 1 13 0;
 #X connect 13 0 10 1;
-#X connect 14 0 15 0;
-#X connect 15 0 24 0;
-#X connect 15 1 18 0;
-#X connect 16 0 17 0;
-#X connect 18 0 19 0;
-#X connect 19 0 23 0;
-#X connect 19 1 21 0;
-#X connect 21 0 22 0;
-#X connect 22 0 20 1;
-#X connect 23 1 20 0;
-#X connect 24 0 16 0;
-#X connect 25 0 27 0;
-#X connect 26 0 5 0;
+#X connect 14 0 27 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 18 0 22 0;
+#X connect 18 1 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 1;
+#X connect 22 1 19 0;
+#X connect 23 0 25 0;
+#X connect 24 0 5 0;
+#X connect 25 0 24 0;
+#X connect 26 0 29 0;
 #X connect 27 0 26 0;
+#X connect 27 1 28 0;
+#X connect 27 2 17 0;
+#X connect 28 0 29 0;
+#X connect 29 0 15 0;
 #X restore 67 350 pd load.settings;
 #X obj 24 394 text define \$0.settings;
 #X obj 967 193 sel 0;
@@ -1654,12 +1659,12 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 -262144 -1 -1 0 1;
-#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r <servername>/public
+#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r telematic.zhdk.ch/public
 8 16 0 20 -1 -262144 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 -262144 -1 -1 0 1;
-#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
-0 20 -1 -262144 0;
+#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
+-1 -262144 0;
 #X obj 680 3 tpf-party-audio-in \$0;
 #X obj 680 625 tpf-party-audio-out \$0;
 #X obj 4 345 tpf-client-link \$0 9;
