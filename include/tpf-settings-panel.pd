@@ -17,17 +17,8 @@
 #X obj 67 297 vradio 20 1 0 7 \$1.set.blocksize \$1.set.blocksize.r
 empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 65 271 blocksize:;
-#X obj 314 273 hradio 20 1 0 8 \$1.set.channels \$1.set.channels.r
-empty 0 -8 0 10 -262144 -1 -1 -1;
 #X text 178 271 send channels:;
-#X text 318 252 1;
-#X text 338 252 2;
-#X text 358 252 3;
-#X text 378 252 4;
-#X text 398 252 5;
-#X text 418 252 6;
-#X text 438 252 7;
-#X text 458 252 8;
+#X text 314 271 1;
 #X floatatom 314 301 11 2 99 0 - #1.set.queue.r #1.set.queue;
 #X text 250 301 queue:;
 #X text 241 331 bitres: 16;
