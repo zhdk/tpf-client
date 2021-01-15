@@ -1,13 +1,13 @@
-tpf-client
+tpf-party
 ==========
 
-![alt text](tpf-client.png "tpf-client")
 
 About
 -----
 
-tpf-client is a low-latency multi-channel audio transmission software
-based on the jacktrip protocol and built in Pure Data.
+tpf-party is a low-latency single-channel multi-location
+audio transmission software based on the jacktrip protocol
+and built in Pure Data.
 
 It tries to overcome some limitations that are often encountered
 when using the traditional jacktrip commandline utility:
@@ -15,7 +15,7 @@ when using the traditional jacktrip commandline utility:
  * No need for clients to run with a public IP address and no need
    for setting up port-forwarding on the client side.
 
- * The tpf-client reduces complexity when configuring a session
+ * The tpf-party reduces complexity when configuring a session
    with many endpoints.
 
 The client registers itself to a tpf-server which keeps track
@@ -39,10 +39,12 @@ keep transmission latency low.
 
 #### Scope
 
-tpf-client doesn't have any mixing, levelling, routing capabilities. It is meant
-as a pure transmission utility. For concerts and experiments, we usually interface
-it with a DAW like Ardour. Further instructions and Ardour template sessions are in
-progress and will be provided.
+tpf-party is a modification of the original multi-channel tpf-client.
+It is limited to sending one channel and only expects one channel from peers.
+It features a built-in mixer with level and pan controls per slot. It's less
+flexible than tpf-client, but simpler to use and doesn't need a DAW. For a lot
+of setups (people participating from home with laptops) this might come handy.
+Otherwise it is fully compatible with tpf-client.
 
 
 Prerequisites
@@ -65,14 +67,13 @@ Running the client
 ------------------
 
 #### Run
-To run the client, open the patch tpf-client.pd in Pure Data. Typically,
+To run the client, open the patch tpf-party.pd in Pure Data. Typically,
 you run Pd with jack as audio backend, so that you can send audio from
 and to the tpf-client to other software. When running from the command-
 line, the recommended parameters are:
 
 ~~~sh
-pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
-     -jackname tpf-client -open tpf-client/tpf-client.pd
+pd -open tpf-client/tpf-party.pd
 ~~~
 
 #### Configure
@@ -124,8 +125,6 @@ application bundle from:
 
 Bugs
 ----
-
-  * tpf-client crashes Pd when receiving a stream with 3 channels
 
 For any bug, issue, or suggestion, please open an issue [here](https://github.com/reduzent/tpf-client/issues).
 
