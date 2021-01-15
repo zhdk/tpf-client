@@ -1,8 +1,8 @@
-#N canvas 0 106 984 386 10;
+#N canvas 0 106 996 426 10;
 #X declare -path iemnet -path osc -path slip -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas 117 550 858 346 code 0;
+#N canvas 107 542 858 346 code 0;
 #N canvas 956 106 664 577 communication 0;
 #X obj 9 38 packOSC;
 #X obj 9 17 r \$0.send;
@@ -1892,4 +1892,5 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 0 10 -262144 -1 -1 0 1;
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
 0 20 -1 -262144 0;
-#X obj 680 3 tpf-party-audio-in;
+#X obj 680 3 tpf-party-audio-in \$0;
+#X obj 680 345 tpf-party-audio-out \$0;
