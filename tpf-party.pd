@@ -1,4 +1,4 @@
-#N canvas 0 106 918 398 10;
+#N canvas 0 106 914 668 10;
 #X declare -path iemnet -path osc -path slip -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
@@ -1626,7 +1626,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X connect 15 0 28 0;
 #X connect 16 0 17 0;
 #X connect 32 0 31 0;
-#X restore 607 359 pd code;
+#X restore 607 639 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
 #X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
@@ -1637,7 +1637,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
 #X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
 ;
-#X obj 135 345 tpf-client-button Chat \$0.display.chat \$0.display.chat.r
+#X obj 135 625 tpf-client-button Chat \$0.display.chat \$0.display.chat.r
 ;
 #X obj 4 3 tpf-client-button32x32 \$0.connect.switch \$0.connect.switch.r
 ;
@@ -1648,9 +1648,9 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 4 240 tpf-client-link \$0 6;
 #X obj 4 275 tpf-client-link \$0 7;
 #X obj 4 310 tpf-client-link \$0 8;
-#X obj 266 345 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
+#X obj 266 625 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
 ;
-#X obj 4 345 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
+#X obj 4 625 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 -262144 -1 -1 0 1;
@@ -1661,4 +1661,12 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
 0 20 -1 -262144 0;
 #X obj 680 3 tpf-party-audio-in \$0;
-#X obj 680 345 tpf-party-audio-out \$0;
+#X obj 680 625 tpf-party-audio-out \$0;
+#X obj 4 345 tpf-client-link \$0 9;
+#X obj 4 380 tpf-client-link \$0 10;
+#X obj 4 415 tpf-client-link \$0 11;
+#X obj 4 450 tpf-client-link \$0 12;
+#X obj 4 485 tpf-client-link \$0 13;
+#X obj 4 520 tpf-client-link \$0 14;
+#X obj 4 555 tpf-client-link \$0 15;
+#X obj 4 590 tpf-client-link \$0 16;
