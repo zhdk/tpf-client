@@ -1092,7 +1092,7 @@
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
-#X text 10 7 VERSION 1.1-beta1;
+#X text 10 7 VERSION 1.1-beta2;
 #X restore 732 15 pd META;
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
