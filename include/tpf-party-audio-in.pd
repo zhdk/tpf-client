@@ -8,7 +8,7 @@
 empty -2 -8 0 10 -262144 -1 -1 1440 1;
 #X obj 40 40 cnv 24 150 32 empty empty empty 5 10 0 12 -66577 -1 0
 ;
-#X obj 40 40 cnv 2 64 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
+#X obj 40 40 cnv 2 2 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
 -66577 0;
 #X obj 196 49 hsl 66 23 0 1 0 0 \$0.pan.slider.s \$0.pan.slider empty
 -2 -8 0 10 -262144 -1 -1 3250 1;
@@ -108,8 +108,6 @@ empty -2 -8 0 10 -262144 -1 -1 1440 1;
 #X obj 285 186 r \$0.pan.slider.s;
 #X obj 90 196 env~ 4096;
 #X obj 90 219 s \$0.meter.in;
-#X obj 62 357 throw~ \$0.sum.l;
-#X obj 111 332 throw~ \$0.sum.r;
 #X obj 62 134 adc~ 1;
 #N canvas 740 515 450 300 input.meter 0;
 #X obj 44 225 s \$0.input.meter.r;
@@ -240,8 +238,10 @@ empty -2 -8 0 10 -262144 -1 -1 1440 1;
 #X restore 330 294 pd pan.slider;
 #X obj 226 50 cnv 2 2 22 empty \$0.pan.slider.r empty 20 12 0 14 -261682
 -66577 0;
-#X connect 9 0 23 0;
-#X connect 10 0 24 0;
+#X obj 62 357 throw~ \$1.sum.l;
+#X obj 111 332 throw~ \$1.sum.r;
+#X connect 9 0 28 0;
+#X connect 10 0 29 0;
 #X connect 11 0 9 1;
 #X connect 12 0 11 0;
 #X connect 13 0 10 1;
@@ -254,7 +254,7 @@ empty -2 -8 0 10 -262144 -1 -1 1440 1;
 #X connect 19 0 16 1;
 #X connect 20 0 15 1;
 #X connect 21 0 22 0;
-#X connect 25 0 21 0;
-#X connect 25 0 9 0;
-#X connect 25 0 10 0;
+#X connect 23 0 21 0;
+#X connect 23 0 9 0;
+#X connect 23 0 10 0;
 #X coords 0 -1 1 1 224 59 2 40 40;
