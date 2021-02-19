@@ -114,7 +114,7 @@
 #X connect 38 0 37 1;
 #X restore 8 41 pd communication;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 5 256;
 #N canvas 328 585 314 294 tpf.initialization 0;
 #X obj 17 10 r \$0.id;
 #X obj 17 51 b;
@@ -348,7 +348,6 @@
 #X obj 156 74 t a a;
 #X obj 23 16 inlet;
 #X obj 88 201 list append;
-#X msg 88 222 \$1 mismatch: mandated \$2 - configured \$3;
 #X obj 88 242 s \$0.error;
 #X obj 23 38 route client_version;
 #X obj 156 22 r \$0.client_version;
@@ -360,25 +359,26 @@
 #X msg 23 136 1;
 #X msg 50 152 0;
 #X obj 88 155 b;
-#X connect 0 0 13 0;
-#X connect 0 1 10 0;
-#X connect 2 0 13 1;
-#X connect 2 1 10 1;
-#X connect 3 0 7 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 7 0 12 0;
-#X connect 8 0 11 0;
-#X connect 9 0 4 0;
-#X connect 10 0 4 1;
-#X connect 11 0 2 0;
-#X connect 12 0 0 0;
-#X connect 13 0 14 0;
-#X connect 13 1 15 0;
-#X connect 13 1 16 0;
+#X msg 88 222 \$1 mismatch: mandated \$2 - having \$3;
+#X connect 0 0 12 0;
+#X connect 0 1 9 0;
+#X connect 2 0 12 1;
+#X connect 2 1 9 1;
+#X connect 3 0 6 0;
+#X connect 4 0 16 0;
+#X connect 6 0 11 0;
+#X connect 7 0 10 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 1;
+#X connect 10 0 2 0;
+#X connect 11 0 0 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 12 1 15 0;
+#X connect 13 0 1 0;
 #X connect 14 0 1 0;
-#X connect 15 0 1 0;
-#X connect 16 0 9 0;
+#X connect 15 0 8 0;
+#X connect 16 0 5 0;
 #X restore 516 370 pd client_version;
 #X connect 0 0 3 0;
 #X connect 1 0 0 0;
@@ -466,6 +466,7 @@
 #X connect 77 1 56 0;
 #X connect 77 2 78 0;
 #X connect 77 3 58 0;
+#X connect 78 0 76 1;
 #X restore 8 102 pd params;
 #X obj 176 93 text define \$0.params;
 #N canvas 368 602 316 192 gui.code 0;
@@ -1347,7 +1348,7 @@
 #X connect 42 0 36 1;
 #X connect 43 0 44 0;
 #X restore 8 187 pd messages.code;
-#N canvas 972 502 783 348 messages 0;
+#N canvas 972 502 783 348 messages 1;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
 #X obj 9 10 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 13;
 #X obj 9 309 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 0;
@@ -1374,7 +1375,7 @@
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 75 0 636 523 settings 0;
+#N canvas 75 106 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
 #X text 563 11 PRINT DEBUG MESSAGES;
