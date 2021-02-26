@@ -5,16 +5,14 @@
 ;
 #X obj 193 75 cnv 24 71 24 empty empty PAN 5 13 0 16 -228856 -1 0;
 #X obj 43 49 hsl 145 23 0 1 0 0 \$0.volume.slider.s \$0.volume.slider
-empty -2 -8 0 10 -262144 -1 -1 1440 1;
-#X obj 40 40 cnv 24 150 32 empty empty empty 5 10 0 12 -66577 -1 0
-;
-#X obj 40 40 cnv 2 2 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
+empty -2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 40 40 cnv 24 150 32 empty empty empty 5 10 0 12 -1 -1 0;
+#X obj 40 40 cnv 2 65 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
 -66577 0;
 #X obj 196 49 hsl 66 23 0 1 0 0 \$0.pan.slider.s \$0.pan.slider empty
 -2 -8 0 10 -262144 -1 -1 3250 1;
-#X obj 193 40 cnv 3 71 32 empty empty empty 20 12 0 14 -66577 -66577
-0;
-#X obj 40 49 cnv 2 15 23 empty \$0.volume.slider.r empty 20 12 0 14
+#X obj 193 40 cnv 3 71 32 empty empty empty 20 12 0 14 -1 -1 0;
+#X obj 40 49 cnv 2 2 23 empty \$0.volume.slider.r empty 20 12 0 14
 -261682 -66577 0;
 #X obj 62 307 *~;
 #X obj 112 307 *~;
