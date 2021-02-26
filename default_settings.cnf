@@ -6,11 +6,35 @@ audioport 4460
 channels 2
 blocksize 128
 queue 4
+peer_name 16 empty
+mixer 16 0.787402 0.5
+peer_name 15 empty
+mixer 15 0.787402 0.5
+peer_name 14 empty
+mixer 14 0.787402 0.5
+peer_name 13 empty
+mixer 13 0.787402 0.5
+peer_name 12 empty
+mixer 12 0.787402 0.5
+peer_name 11 empty
+mixer 11 0.787402 0.5
+peer_name 10 empty
+mixer 10 0.787402 0.5
+peer_name 9 empty
+mixer 9 0.787402 0.5
 peer_name 8 empty
+mixer 8 0.787402 0.5
 peer_name 7 empty
+mixer 7 0.787402 0.5
 peer_name 6 empty
+mixer 6 0.787402 0.5
 peer_name 5 empty
+mixer 5 0.787402 0.5
 peer_name 4 empty
+mixer 4 0.787402 0.5
 peer_name 3 empty
+mixer 3 0.787402 0.5
 peer_name 2 empty
+mixer 2 0.787402 0.5
 peer_name 1 empty
+mixer 1 0.787402 0.5
