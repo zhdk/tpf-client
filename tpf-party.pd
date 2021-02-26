@@ -1,6 +1,6 @@
-#N canvas 0 106 915 668 10;
+#N canvas 0 106 912 666 10;
 #X declare -path iemnet -path osc -path slip -path include;
-#X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
+#X obj 39 39 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
 #N canvas 107 542 858 346 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
@@ -130,47 +130,49 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X connect 10 0 22 0;
 #X connect 11 0 12 0;
 #X connect 24 0 23 0;
-#X restore 607 639 pd code;
-#X obj 4 65 tpf-client-link \$0 1;
-#X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
-#X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
-#X obj 461 38 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
+#X restore 607 640 pd code;
+#X obj 4 66 tpf-client-link \$0 1;
+#X obj 353 39 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
+#X obj 4 39 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
+#X obj 461 39 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
 ;
-#X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
+#X obj 534 39 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
 0;
-#X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
-#X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
+#X obj 607 39 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
+#X obj 388 39 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
 ;
-#X obj 135 625 tpf-client-button Chat \$0.display.chat \$0.display.chat.r
+#X obj 135 626 tpf-client-button Chat \$0.display.chat \$0.display.chat.r
 ;
-#X obj 4 3 tpf-client-button32x32 \$0.connect.switch \$0.connect.switch.r
+#X obj 4 4 tpf-client-button32x32 \$0.connect.switch \$0.connect.switch.r
 ;
-#X obj 4 100 tpf-client-link \$0 2;
-#X obj 4 135 tpf-client-link \$0 3;
-#X obj 4 170 tpf-client-link \$0 4;
-#X obj 4 205 tpf-client-link \$0 5;
-#X obj 4 240 tpf-client-link \$0 6;
-#X obj 4 275 tpf-client-link \$0 7;
-#X obj 4 310 tpf-client-link \$0 8;
-#X obj 266 625 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
+#X obj 4 101 tpf-client-link \$0 2;
+#X obj 4 136 tpf-client-link \$0 3;
+#X obj 4 171 tpf-client-link \$0 4;
+#X obj 4 206 tpf-client-link \$0 5;
+#X obj 4 241 tpf-client-link \$0 6;
+#X obj 4 276 tpf-client-link \$0 7;
+#X obj 4 311 tpf-client-link \$0 8;
+#X obj 266 626 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
 ;
-#X obj 4 625 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
+#X obj 4 626 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
 ;
-#X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
+#X obj 356 4 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 -262144 -1 -1 0 1;
-#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r <servername>/public
+#X obj 353 4 cnv 15 324 32 empty \$0.connection.display.r <servername>/public
 8 16 0 20 -1 -262144 0;
-#X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
+#X obj 42 4 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 -262144 -1 -1 0 1;
-#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
+#X obj 39 4 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
 0 20 -1 -262144 0;
-#X obj 680 3 tpf-party-audio-in \$0;
-#X obj 680 625 tpf-party-audio-out \$0;
-#X obj 4 345 tpf-client-link \$0 9;
-#X obj 4 380 tpf-client-link \$0 10;
-#X obj 4 415 tpf-client-link \$0 11;
-#X obj 4 450 tpf-client-link \$0 12;
-#X obj 4 485 tpf-client-link \$0 13;
-#X obj 4 520 tpf-client-link \$0 14;
-#X obj 4 555 tpf-client-link \$0 15;
-#X obj 4 590 tpf-client-link \$0 16;
+#X obj 680 4 tpf-party-audio-in \$0;
+#X obj 680 626 tpf-party-audio-out \$0;
+#X obj 4 346 tpf-client-link \$0 9;
+#X obj 4 381 tpf-client-link \$0 10;
+#X obj 4 416 tpf-client-link \$0 11;
+#X obj 4 451 tpf-client-link \$0 12;
+#X obj 4 486 tpf-client-link \$0 13;
+#X obj 4 521 tpf-client-link \$0 14;
+#X obj 4 556 tpf-client-link \$0 15;
+#X obj 4 591 tpf-client-link \$0 16;
+#X obj 573 630 cnv 15 100 30 empty empty empty 20 12 0 14 -262144 -66577
+0;
