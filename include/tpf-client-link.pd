@@ -1,4 +1,4 @@
-#N canvas 24 147 1022 479 10;
+#N canvas 27 243 1022 479 10;
 #X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 247 142 448 324 get.peer.data 0;
@@ -64,7 +64,7 @@
 #X msg 360 263 label \$1;
 #X obj 360 283 s \$0.channels.label;
 #X obj 240 289 s \$0.channels.label;
-#N canvas 653 155 837 754 tx.button 0;
+#N canvas 653 155 942 740 tx.button 0;
 #X obj 47 429 s \$0.tx.switch.r;
 #X msg 47 400 color \$1 \$2 \$3;
 #X msg 47 348 0 0 0;
@@ -107,34 +107,37 @@
 #X msg 516 210 1;
 #X obj 413 189 sel 5;
 #X obj 516 189 sel 6;
-#X floatatom 256 82 5 0 0 0 - - -;
 #X msg 155 350 0 255 0;
 #X msg 367 356 255 255 0;
 #X obj 603 363 r \$0.tx.switch.s;
 #X obj 631 386 r \$0.udp.link.status;
 #X obj 603 386 f;
 #X obj 603 409 sel 0;
-#X obj 603 597 del 300;
-#X msg 641 572 stop;
-#X obj 603 482 f;
-#X obj 688 488 + 1;
-#X obj 603 504 t a a;
-#X obj 603 528 sel 0 1;
-#X obj 622 550 t b b b;
-#X msg 707 525 0;
-#X obj 603 618 t b b;
-#X obj 672 620 s \$0.initiate.stun;
-#X obj 603 647 s \$0.initiate.server;
+#X obj 603 647 del 300;
+#X msg 641 622 stop;
+#X obj 603 532 f;
+#X obj 688 538 + 1;
+#X obj 603 554 t a a;
+#X obj 603 578 sel 0 1;
+#X obj 622 600 t b b b;
+#X msg 707 575 0;
+#X obj 603 668 t b b;
+#X obj 672 670 s \$0.initiate.stun;
+#X obj 603 697 s \$0.initiate.server;
 #X obj 630 435 r \$0.peer.ready;
 #X obj 603 435 f;
 #X obj 603 457 sel 1;
 #X obj 176 235 t a a;
 #X obj 413 231 t a a;
+#X obj 603 485 f;
+#X obj 603 507 sel 1;
+#X obj 664 463 r \$1.intercom;
+#X obj 664 486 route param_check;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 4 0 5 0;
 #X connect 4 1 6 0;
-#X connect 5 0 63 0;
+#X connect 5 0 62 0;
 #X connect 6 0 7 1;
 #X connect 7 0 9 0;
 #X connect 8 0 7 0;
@@ -144,7 +147,7 @@
 #X connect 11 0 13 0;
 #X connect 12 0 11 0;
 #X connect 13 0 2 0;
-#X connect 13 1 43 0;
+#X connect 13 1 42 0;
 #X connect 14 0 11 1;
 #X connect 15 0 14 0;
 #X connect 15 1 10 0;
@@ -167,47 +170,50 @@
 #X connect 32 0 31 0;
 #X connect 33 0 2 0;
 #X connect 33 1 29 0;
-#X connect 34 0 64 0;
+#X connect 34 0 63 0;
 #X connect 35 0 36 1;
 #X connect 36 0 38 0;
 #X connect 37 0 36 0;
 #X connect 38 0 2 0;
-#X connect 38 1 44 0;
+#X connect 38 1 43 0;
 #X connect 39 0 36 1;
 #X connect 40 0 34 0;
 #X connect 40 1 30 0;
 #X connect 41 0 39 0;
 #X connect 41 1 35 0;
-#X connect 42 0 25 0;
+#X connect 42 0 1 0;
 #X connect 43 0 1 0;
-#X connect 44 0 1 0;
-#X connect 45 0 47 0;
-#X connect 46 0 47 1;
-#X connect 47 0 48 0;
-#X connect 48 0 61 0;
-#X connect 49 0 57 0;
-#X connect 50 0 49 0;
-#X connect 51 0 53 0;
-#X connect 52 0 51 1;
-#X connect 53 0 54 0;
-#X connect 53 1 52 0;
-#X connect 54 0 49 0;
-#X connect 54 0 29 0;
-#X connect 54 1 55 0;
-#X connect 55 0 58 0;
-#X connect 55 1 50 0;
-#X connect 55 2 56 0;
-#X connect 56 0 51 1;
-#X connect 57 0 59 0;
-#X connect 57 1 56 0;
-#X connect 60 0 61 1;
-#X connect 61 0 62 0;
-#X connect 62 0 51 0;
-#X connect 63 0 7 0;
-#X connect 63 1 7 1;
-#X connect 64 0 31 0;
-#X connect 64 1 31 1;
-#X restore 12 104 pd tx.button;
+#X connect 44 0 46 0;
+#X connect 45 0 46 1;
+#X connect 46 0 47 0;
+#X connect 47 0 60 0;
+#X connect 48 0 56 0;
+#X connect 49 0 48 0;
+#X connect 50 0 52 0;
+#X connect 51 0 50 1;
+#X connect 52 0 53 0;
+#X connect 52 1 51 0;
+#X connect 53 0 48 0;
+#X connect 53 0 29 0;
+#X connect 53 1 54 0;
+#X connect 54 0 57 0;
+#X connect 54 1 49 0;
+#X connect 54 2 55 0;
+#X connect 55 0 50 1;
+#X connect 56 0 58 0;
+#X connect 56 1 55 0;
+#X connect 59 0 60 1;
+#X connect 60 0 61 0;
+#X connect 61 0 64 0;
+#X connect 62 0 7 0;
+#X connect 62 1 7 1;
+#X connect 63 0 31 0;
+#X connect 63 1 31 1;
+#X connect 64 0 65 0;
+#X connect 65 0 50 0;
+#X connect 66 0 67 0;
+#X connect 67 0 64 1;
+#X restore 15 73 pd tx.button;
 #X obj 805 138 metro 500;
 #X obj 805 159 == 0;
 #X obj 805 180 t a a;
@@ -259,7 +265,7 @@
 #X connect 17 0 15 0;
 #X connect 17 1 18 0;
 #X connect 18 0 14 1;
-#X restore 12 130 pd rx.button;
+#X restore 15 99 pd rx.button;
 #N canvas 347 761 450 300 delay.nb 0;
 #X obj 45 170 s \$0.delay.nb.r;
 #X msg 45 144 color -1 \$1 -1;
@@ -279,7 +285,7 @@
 #X connect 6 0 1 0;
 #X connect 6 1 0 0;
 #X connect 8 0 7 0;
-#X restore 15 160 pd delay.nb;
+#X restore 14 124 pd delay.nb;
 #N canvas 0 106 431 345 peer.name 0;
 #X obj 11 74 s \$0.client.label;
 #X msg 11 46 label \$1;
@@ -406,10 +412,10 @@
 #X obj 540 89 r \$1.reset;
 #X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 -262144 -262144
 0;
-#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label \ \ \ 0 8 16 0 20
--1 -262144 0;
-#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label \ \ \ 0 8 16 0 20 -1
+#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 -1
 -262144 0;
+#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
+0;
 #X obj 15 284 jacktrip . . . . . . . . . . . . . .;
 #X obj 228 262 r \$0.to.jacktrip;
 #X obj 228 304 s \$0.from.jacktrip;
@@ -556,8 +562,8 @@
 #X connect 63 0 40 1;
 #X connect 64 0 41 0;
 #X restore 16 164 pd jacktrip.start.stop;
-#X obj 404 20 cnv 32 70 32 empty \$0.channels.label \ \ \ 0 8 16 0
-20 -1 -262144 0;
+#X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
+-1 -262144 0;
 #X obj 16 212 adc~ 1 2 3 4 5 6 7 8;
 #N canvas 178 270 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
@@ -623,7 +629,7 @@
 0 -8 0 20 -1 -262144 -1 0 256;
 #X obj 475 20 cnv 10 10 32 empty empty empty 20 12 0 14 -262144 -66577
 0;
-#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label \ \ \ 0 8 16 0 20
+#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
 -1 -262144 0;
 #N canvas 459 427 652 267 delay- 0;
 #X obj 512 46 r \$0.delay;
@@ -1295,8 +1301,8 @@
 #X restore 16 124 pd init.stun.connection;
 #X obj 58 20 hsl 290 32 0 127 0 0 \$0.client.reset empty empty -2 -8
 0 10 -262144 -1 -1 0 1;
-#X obj 55 20 cnv 32 295 32 empty \$0.client.label Michael 8 16 0 20
--1 -262144 0;
+#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 -1
+-262144 0;
 #X connect 0 0 3 0;
 #X connect 4 0 3 0;
 #X connect 8 0 40 0;
