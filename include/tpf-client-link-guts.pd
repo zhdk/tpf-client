@@ -294,6 +294,7 @@
 #X msg 12 179 color -1 -1 \$1;
 #X msg 12 153 1;
 #X msg 51 155 0;
+#X msg 127 41 label empty;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -302,6 +303,7 @@
 #X connect 6 0 5 0;
 #X connect 7 0 6 0;
 #X connect 8 0 6 0;
+#X connect 9 0 0 0;
 #X restore 17 18 pd peer.name;
 #N canvas 428 518 477 324 arrow.up.down 0;
 #X obj 12 16 r \$3.arrow.up;
@@ -412,15 +414,15 @@
 #X obj 107 157 r \$3.bind.port;
 #X obj 25 177 list prepend;
 #X obj 25 575 s \$3.to.jacktrip;
-#X obj 315 257 s \$3.to.jacktrip;
+#X obj 364 249 s \$3.to.jacktrip;
 #X obj 315 131 r \$3.peer.ready;
 #X obj 315 153 sel 0;
-#X msg 315 238 stop;
+#X msg 364 219 stop;
 #X obj 533 129 r \$3.from.jacktrip;
 #X obj 533 149 route STATUS;
-#X obj 315 194 f;
+#X obj 315 174 f;
 #X obj 25 136 f;
-#X obj 315 216 sel 1;
+#X obj 315 196 sel 1;
 #X obj 428 30 r \$1.queue;
 #X obj 324 33 r \$1.channels;
 #X obj 496 29 r \$1.blocksize;
@@ -473,6 +475,9 @@
 #X obj 367 497 r \$3.peer.id;
 #X obj 397 517 r \$1.id;
 #X obj 594 380 r \$3.peer.id;
+#X obj 315 273 s \$3.udp.link.status;
+#X msg 315 245 0;
+#X obj 315 219 t b b;
 #X connect 0 0 12 1;
 #X connect 1 0 3 0;
 #X connect 2 0 1 1;
@@ -484,7 +489,7 @@
 #X connect 10 0 49 0;
 #X connect 11 0 13 0;
 #X connect 12 0 1 0;
-#X connect 13 0 8 0;
+#X connect 13 0 67 0;
 #X connect 14 0 18 0;
 #X connect 15 0 17 0;
 #X connect 16 0 21 0;
@@ -541,6 +546,9 @@
 #X connect 62 0 39 1;
 #X connect 63 0 40 1;
 #X connect 64 0 41 0;
+#X connect 66 0 65 0;
+#X connect 67 0 66 0;
+#X connect 67 1 8 0;
 #X restore 13 108 pd jacktrip.start.stop;
 #N canvas 353 200 1015 693 peer.assignment 0;
 #X obj 146 47 r \$1.intercom;
