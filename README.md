@@ -27,11 +27,11 @@ technique called UDP hole punching (https://en.wikipedia.org/wiki/UDP_hole_punch
 
 You can download the client from:
 
-  https://gitlab.zhdk.ch/TPF/tpf-client
+  https://github.com/zhdk/tpf-client
 
 The server software is hosted separately at:
 
-  https://gitlab.zhdk.ch/TPF/tpf-server
+  https://github.com/zhdk/tpf-server
 
 Depending on the locations of the endpoints it is advised to
 run a server closer to one of the endpoints in order to
@@ -119,7 +119,7 @@ Ready-to-use macOS app
 If your computer runs macOS, you may download a self-contained
 application bundle from:
 
-  https://gitlab.zhdk.ch/TPF/tpf-client/-/releases/
+  https://github.com/zhdk/tpf-client/releases
 
 
 Bugs
@@ -127,7 +127,7 @@ Bugs
 
   * tpf-client crashes Pd when receiving a stream with 3 channels
 
-For any bug, issue, or suggestion, please open an issue [here](https://github.com/reduzent/tpf-client/issues).
+For any bug, issue, or suggestion, please open an issue [here](https://github.com/zhdk/tpf-client/issues).
 
 
 Authors
