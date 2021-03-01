@@ -7,7 +7,7 @@
 #X obj 43 49 hsl 145 23 0 1 0 0 \$0.volume.slider.s \$0.volume.slider
 empty -2 8 0 10 -262144 -1 -1 1440 1;
 #X obj 40 40 cnv 24 150 32 empty empty empty 5 10 0 12 -1 -1 0;
-#X obj 40 40 cnv 2 65 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
+#X obj 40 40 cnv 2 62 8 empty \$0.input.meter.r empty -20 12 0 14 -4034
 -66577 0;
 #X obj 196 49 hsl 66 23 0 1 0 0 \$0.pan.slider.s \$0.pan.slider empty
 -2 8 0 10 -262144 -1 -1 3250 1;
@@ -238,6 +238,40 @@ empty -2 8 0 10 -262144 -1 -1 1440 1;
 -66577 0;
 #X obj 62 357 throw~ \$1.sum.l;
 #X obj 111 332 throw~ \$1.sum.r;
+#N canvas 605 252 465 461 save.restore 0;
+#X obj 27 45 route fetch_settings;
+#X obj 27 68 b;
+#X obj 26 244 route restore_settings;
+#X obj 27 22 r \$1.intercom;
+#X obj 27 192 s \$1.intercom;
+#X obj 26 221 r \$1.intercom;
+#X obj 229 23 r \$0.volume.slider.s;
+#X obj 277 49 r \$0.pan.slider.s;
+#X obj 27 91 f;
+#X obj 27 114 pack f f;
+#X msg 27 166 save_settings mixer \$1 \$2 \$3;
+#X obj 26 267 route mixer;
+#X obj 26 313 unpack f f;
+#X obj 26 367 s \$0.volume.slider;
+#X obj 83 338 s \$0.pan.slider;
+#X obj 27 141 list prepend input;
+#X obj 26 290 route input;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 11 0;
+#X connect 3 0 0 0;
+#X connect 5 0 2 0;
+#X connect 6 0 8 1;
+#X connect 7 0 9 1;
+#X connect 8 0 9 0;
+#X connect 9 0 15 0;
+#X connect 10 0 4 0;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 15 0 10 0;
+#X connect 16 0 12 0;
+#X restore 332 225 pd save.restore;
 #X connect 9 0 28 0;
 #X connect 10 0 29 0;
 #X connect 11 0 9 1;
