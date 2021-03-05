@@ -90,7 +90,7 @@
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
-#X text 10 7 VERSION 1.1-beta4;
+#X text 10 7 VERSION 1.1-beta5;
 #X restore 732 15 pd META;
 #X text 13 207 ======;
 #N canvas 75 106 636 523 settings 0;
