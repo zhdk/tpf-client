@@ -1,15 +1,15 @@
-#N canvas 0 0 912 666 10;
+#N canvas 0 106 912 666 10;
 #X declare -path iemnet -path osc -path slip -path include;
 #X obj 39 39 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas 107 542 858 346 code 0;
+#N canvas 0 362 927 354 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 -262144 -1 -1 0 256;
 #X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
 #X obj 176 93 text define \$0.params;
 #X obj 191 203 s \$0.to.tpf;
-#X obj 589 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 619 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 191 183 /reset/clients;
 #X obj 359 11 loadbang;
@@ -37,10 +37,10 @@
 #X obj 9 263 tpf-client-chatline \$0.chat \$0.scb.chat.s 2;
 #X obj 9 286 tpf-client-chatline \$0.chat \$0.scb.chat.s 1;
 #X restore 82 310 pd chat;
-#X obj 671 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 701 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 589 122 ---------------------------------;
-#X obj 589 143 print -n;
+#X msg 619 122 ---------------------------------;
+#X obj 619 143 print -n;
 #N canvas 972 502 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
 #X obj 9 10 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 13;
@@ -58,22 +58,22 @@
 #X obj 9 263 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 2;
 #X obj 9 286 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 1;
 #X restore 200 310 pd messages;
-#N canvas 184 692 422 154 META 0;
+#N canvas 0 602 422 154 META 0;
 #X text 11 23 AUTHOR Roman Haefeli <roman.haefeli@zhdk.ch>;
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
 #X text 10 7 VERSION party-v1.1-beta4;
-#X restore 762 15 pd META;
+#X restore 792 15 pd META;
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
 #X text 13 277 ======;
-#N canvas 75 106 636 523 settings 0;
+#N canvas 0 106 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 310 pd settings;
-#X text 593 11 PRINT DEBUG MESSAGES;
+#X text 623 11 PRINT DEBUG MESSAGES;
 #X text 13 262 PANELS;
-#X text 593 24 ====================;
+#X text 623 24 ====================;
 #N canvas 0 106 412 168 from/to 0;
 #X obj 21 17 r \$0.from.tpf;
 #X obj 21 112 print FROM;
@@ -88,7 +88,7 @@
 #X connect 4 0 3 0;
 #X connect 6 0 3 1;
 #X connect 6 0 2 1;
-#X restore 589 87 pd from/to;
+#X restore 619 87 pd from/to;
 #N canvas 0 106 436 166 send/receive 0;
 #X obj 5 24 r \$0.send;
 #X obj 5 95 print SEND;
@@ -103,7 +103,7 @@
 #X connect 5 0 3 0;
 #X connect 6 0 5 1;
 #X connect 6 0 4 1;
-#X restore 671 87 pd send/receive;
+#X restore 701 87 pd send/receive;
 #N canvas 0 106 450 300 intercom 0;
 #X obj 11 25 r \$0.intercom;
 #X obj 11 88 print INTERCOM;
@@ -112,17 +112,18 @@
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
-#X restore 781 87 pd intercom;
-#X obj 781 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 811 87 pd intercom;
+#X obj 811 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 9 49 tpf-client-guts \$0;
 #X text 582 289 <- avoid error from latency measurement;
 #X obj 479 290 s~ 1.channel.0;
-#X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
+#X obj 359 54 t a a;
+#X msg 359 243 \; \$1.channels 1 \;;
+#X msg 386 77 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
-4460 \; \$1.channels 1 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize
-128 \; \$1.client_version party-v1.1-beta4 \; \$1.load.settings bang
-\;;
+4460 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize 128 \; \$1.client_version
+party-v1.1-beta4 \; \$1.load.settings bang \;;
 #X connect 5 0 21 0;
 #X connect 6 0 4 0;
 #X connect 7 0 8 0;
@@ -130,6 +131,8 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X connect 10 0 22 0;
 #X connect 11 0 12 0;
 #X connect 24 0 23 0;
+#X connect 28 0 29 0;
+#X connect 28 1 30 0;
 #X restore 607 640 pd code;
 #X obj 4 66 tpf-client-link \$0 1;
 #X obj 353 39 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
