@@ -3,7 +3,7 @@ room public
 name <yourname>
 port 3025
 audioport 4460
-channels 2
+channels 1
 blocksize 128
 queue 4
 mixer input 0.1 0.5
