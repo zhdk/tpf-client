@@ -31,7 +31,7 @@ You can download the client from:
 
 The server software is hosted separately at:
 
-  https://github.com/zhdk/tpf-client/releases
+  https://github.com/zhdk/tpf-server
 
 Depending on the locations of the endpoints it is advised to
 run a server closer to one of the endpoints in order to
