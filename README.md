@@ -79,7 +79,7 @@ pd -open tpf-client/tpf-party.pd
 #### Configure
 
 Before anything, open 'Settings' and configure the field 'server' and 'name'. If
-you don't know about a server, you can run your own (see https://gitlab.zhdk.ch/TPF/tpf-server
+you don't know about a server, you can run your own (see https://github.com/zhdk/tpf-server
 for details).
 
 All parameters from the 'Settings' panel need to be configured prior to
