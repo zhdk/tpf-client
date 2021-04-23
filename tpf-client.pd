@@ -2,18 +2,18 @@
 #X declare -path iemnet -path osc -path slip -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas 101 521 864 277 code 0;
+#N canvas -8 485 877 319 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 -262144 -1 -1 0 256;
 #X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
 #X obj 176 93 text define \$0.params;
 #X obj 191 203 s \$0.to.tpf;
-#X obj 569 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 191 183 /reset/clients;
-#X obj 359 11 loadbang;
-#X obj 359 31 f \$0;
+#X obj 359 8 loadbang;
+#X obj 386 55 f \$0;
 #N canvas 978 106 787 374 chat 0;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 -233017 -66577
 0;
@@ -37,10 +37,10 @@
 #X obj 9 263 tpf-client-chatline \$0.chat \$0.scb.chat.s 2;
 #X obj 9 286 tpf-client-chatline \$0.chat \$0.scb.chat.s 1;
 #X restore 82 240 pd chat;
-#X obj 651 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 691 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 569 122 ---------------------------------;
-#X obj 569 143 print -n;
+#X msg 609 122 ---------------------------------;
+#X obj 609 143 print -n;
 #N canvas 527 553 310 188 latency 0;
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
 ;
@@ -91,14 +91,14 @@
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
 #X text 10 7 VERSION 1.1-beta6;
-#X restore 732 15 pd META;
+#X restore 820 10 pd META;
 #X text 13 207 ======;
 #N canvas 75 106 636 523 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 240 pd settings;
-#X text 563 11 PRINT DEBUG MESSAGES;
+#X text 603 11 PRINT DEBUG MESSAGES;
 #X text 13 192 PANELS;
-#X text 563 24 ====================;
+#X text 603 24 ====================;
 #N canvas 0 106 412 168 from/to 0;
 #X obj 21 17 r \$0.from.tpf;
 #X obj 21 112 print FROM;
@@ -113,7 +113,7 @@
 #X connect 4 0 3 0;
 #X connect 6 0 3 1;
 #X connect 6 0 2 1;
-#X restore 569 87 pd from/to;
+#X restore 609 87 pd from/to;
 #N canvas 0 106 436 166 send/receive 0;
 #X obj 5 24 r \$0.send;
 #X obj 5 95 print SEND;
@@ -128,7 +128,7 @@
 #X connect 5 0 3 0;
 #X connect 6 0 5 1;
 #X connect 6 0 4 1;
-#X restore 651 87 pd send/receive;
+#X restore 691 87 pd send/receive;
 #N canvas 0 106 450 300 intercom 0;
 #X obj 11 25 r \$0.intercom;
 #X obj 11 88 print INTERCOM;
@@ -137,27 +137,31 @@
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
-#X restore 761 87 pd intercom;
-#X obj 761 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 801 87 pd intercom;
+#X obj 801 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 437 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
 #X obj 8 8 declare -path iemnet -path osc -path slip -path ./include
 ;
 #X obj 15 48 tpf-client-guts \$0;
-#X msg 359 54 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
+#X obj 413 31 r \$0.reset.s;
+#X msg 359 279 \; \$1.load.settings bang \;;
+#X obj 359 31 t b b;
+#X obj 359 256 f \$0;
+#X msg 386 77 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize
-128 \; \$1.client_version tpf-v1.1-beta4 \; \$1.load.settings bang
-\;;
+128 \; \$1.client_version tpf-v1.1-beta4 \;;
 #X connect 5 0 21 0;
 #X connect 6 0 4 0;
-#X connect 7 0 8 0;
-#X connect 8 0 28 0;
+#X connect 7 0 29 0;
+#X connect 8 0 31 0;
 #X connect 10 0 22 0;
 #X connect 11 0 12 0;
 #X connect 24 0 23 0;
-#X connect 25 0 8 0;
+#X connect 27 0 8 0;
+#X connect 29 0 30 0;
+#X connect 29 1 8 0;
+#X connect 30 0 28 0;
 #X restore 867 350 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
@@ -207,9 +211,9 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 -262144 -1 -1 0 1;
-#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r <servername>/public
+#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r telematic.zhdk.ch/testi
 8 16 0 20 -1 -262144 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 -262144 -1 -1 0 1;
-#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r <yourname> 8 16
-0 20 -1 -262144 0;
+#X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
+-1 -262144 0;
