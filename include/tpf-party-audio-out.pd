@@ -4,7 +4,7 @@
 #X obj 43 49 hsl 145 23 0 1 0 0 \$0.volume.slider.s \$0.volume.slider
 empty -2 -8 0 10 -262144 -1 -1 11339 1;
 #X obj 40 40 cnv 24 150 32 empty empty empty 5 10 0 12 -1 -1 0;
-#X obj 40 40 cnv 2 46 8 empty \$0.output.meter.r empty -20 12 0 14
+#X obj 40 40 cnv 2 98 8 empty \$0.output.meter.r empty -20 12 0 14
 -4034 -66577 0;
 #X obj 193 40 cnv 3 71 32 empty empty empty 20 12 0 14 -1 -1 0;
 #X obj 40 49 cnv 2 118 23 empty \$0.volume.slider.r empty 20 12 0 14
@@ -146,6 +146,9 @@ empty -2 -8 0 10 -262144 -1 -1 11339 1;
 #X obj 13 21 r \$0.volume.slider.s;
 #X obj 13 173 s \$0.volume.slider.r;
 #X obj 195 131 s \$0.volume.slider;
+#X obj 269 14 r \$1.intercom;
+#X obj 269 37 route reset;
+#X obj 269 60 b;
 #X connect 0 0 9 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
@@ -156,6 +159,9 @@ empty -2 -8 0 10 -262144 -1 -1 11339 1;
 #X connect 6 0 7 0;
 #X connect 7 0 10 0;
 #X connect 8 0 5 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 7 0;
 #X restore 285 276 pd volume.slider;
 #X connect 6 0 15 0;
 #X connect 7 0 15 1;
