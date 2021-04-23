@@ -691,7 +691,6 @@
 #X obj 316 581 spigot 1;
 #X obj 189 489 r \$1.intercom;
 #X obj 189 512 route reset;
-#X obj 375 443 print;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 22 0;
@@ -748,7 +747,6 @@
 #X connect 68 0 59 0;
 #X connect 70 0 63 0;
 #X connect 71 0 72 0;
-#X connect 71 0 88 0;
 #X connect 72 0 74 0;
 #X connect 72 1 73 0;
 #X connect 73 0 72 1;
