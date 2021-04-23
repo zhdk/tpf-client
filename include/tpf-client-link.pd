@@ -210,6 +210,10 @@
 #X obj 550 393 r~ \$1.\$2.channel.7;
 #X obj 696 20 tpf-party-link-mixer \$1 \$2;
 #X obj 22 93 tpf-client-link-guts \$1 \$2 \$0;
+#X obj 653 148 r \$0.from.jacktrip;
+#X obj 653 171 route STATUS;
+#X obj 653 194 route connected;
+#X obj 653 217 switch~;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 6 0 29 0;
@@ -246,4 +250,7 @@
 #X connect 29 5 40 0;
 #X connect 29 6 39 0;
 #X connect 29 7 38 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
 #X coords 0 -1 1 1 900 32 2 20 20;
