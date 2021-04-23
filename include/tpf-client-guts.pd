@@ -1595,6 +1595,9 @@
 #X obj 692 476 s \$1.receive.jitter.buffer.label;
 #X obj 692 237 t a b;
 #X obj 742 260 t b a a;
+#X obj 23 424 r \$1.reset.s;
+#X msg 23 447 reset;
+#X obj 23 470 s \$1.intercom;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1681,6 +1684,8 @@
 #X connect 98 0 90 0;
 #X connect 99 0 90 0;
 #X connect 99 1 90 1;
+#X connect 100 0 101 0;
+#X connect 101 0 102 0;
 #X restore 8 137 pd settings.code;
 #N canvas 215 238 667 578 clients 0;
 #X obj 17 9 r \$1.from.tpf;
