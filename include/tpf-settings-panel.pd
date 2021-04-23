@@ -26,7 +26,7 @@ empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 34 186 audio port:;
 #X text 34 237 AUDIO PARAMETERS:;
 #X text 34 27 CONNECTION PARAMETERS:;
-#X obj 361 393 cnv 15 80 20 empty \$1.set.samplerate.r 48000 4 10 0
+#X obj 361 393 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
 16 -262144 -1 0;
 #X text 238 391 samplerate:;
 #X obj 220 428 cnv 15 370 25 empty \$1.notification.label empty 2 12
@@ -36,9 +36,10 @@ empty 0 -8 0 10 -262144 -1 -1 1;
 #X obj 219 477 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
 ;
 #X obj 481 477 tpf-client-button Save \$1.save.s \$1.save.r;
-#X obj 364 333 cnv 15 80 20 empty \$1.receive.jitter.buffer.label 5.3ms
+#X obj 364 333 cnv 15 80 20 empty \$1.receive.jitter.buffer.label 11.6ms
 4 10 0 16 -262144 -1 0;
 #X text 278 361 bitres:;
 #X text 364 361 16;
 #X text 228 331 recv buffer:;
+#X obj 88 477 tpf-client-button Reset \$1.reset.s \$1.reset.r;
 #X coords 0 -1 1 1 600 500 2 20 20;
