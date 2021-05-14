@@ -1,4 +1,4 @@
-#N canvas 0 103 964 386 10;
+#N canvas 0 0 964 386 10;
 #X declare -path iemnet -path osc -path slip -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
