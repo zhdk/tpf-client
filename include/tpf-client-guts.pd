@@ -1401,8 +1401,8 @@
 #X obj 328 265 route 1;
 #X obj 447 230 sel 0;
 #X msg 447 253 0;
-#X msg 497 277 label Save*;
-#X obj 497 301 s \$1.save.r;
+#X msg 497 294 label Save*;
+#X obj 497 318 s \$1.save.r;
 #X obj 328 190 t b b, f 9;
 #N canvas 518 290 636 555 save.settings 0;
 #X obj 11 17 r \$1.save.s;
@@ -1598,6 +1598,7 @@
 #X msg 23 447 reset;
 #X obj 23 470 s \$1.intercom;
 #X obj 504 247 r \$1.set.blocksize;
+#X obj 511 271 r \$1.set.queue;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1687,6 +1688,7 @@
 #X connect 100 0 101 0;
 #X connect 101 0 102 0;
 #X connect 103 0 78 0;
+#X connect 104 0 78 0;
 #X restore 8 137 pd settings.code;
 #N canvas 215 238 667 578 clients 0;
 #X obj 17 9 r \$1.from.tpf;
