@@ -28,17 +28,15 @@ empty 0 -8 0 10 -262144 -1 -1 1;
 #X text 444 252 6;
 #X text 464 252 7;
 #X text 484 252 8;
-#X floatatom 340 301 4 2 200 0 - #1.set.queue.r #1.set.queue;
-#X text 270 301 queue:;
-#X text 260 362 bitres: 16;
+#X floatatom 340 301 4 1 300 1 ms #1.set.recvbuf.r #1.set.recvbuf;
 #X floatatom 147 186 6 1 65535 0 - #1.set.audioport.r #1.set.audioport
 ;
 #X text 34 186 audio port:;
 #X text 34 237 AUDIO PARAMETERS:;
 #X text 34 27 CONNECTION PARAMETERS:;
-#X obj 338 394 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
+#X obj 338 364 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
 16 -262144 -1 0;
-#X text 220 392 samplerate:;
+#X text 220 361 samplerate:;
 #X obj 220 428 cnv 15 370 25 empty \$1.notification.label empty 2 12
 0 17 -262144 -128992 0;
 #X obj 350 477 tpf-client-button Save\ to \$1.save.to.s \$1.save.to.r
@@ -46,8 +44,8 @@ empty 0 -8 0 10 -262144 -1 -1 1;
 #X obj 219 477 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
 ;
 #X obj 481 477 tpf-client-button Save \$1.save.s \$1.save.r;
-#X obj 338 334 cnv 15 80 20 empty \$1.receive.jitter.buffer.label 31.9ms
-4 10 0 16 -262144 -1 0;
-#X text 210 331 recv buffer:;
+#X text 210 301 recv buffer:;
 #X obj 88 477 tpf-client-button Reset \$1.reset.s \$1.reset.r;
+#X text 260 331 bitres:;
+#X text 338 331 16;
 #X coords 0 -1 1 1 600 500 2 20 20;

@@ -1,10 +1,10 @@
-#N canvas 0 0 964 386 10;
+#N canvas 0 103 964 386 10;
 #X declare -path iemnet -path osc -path slip -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
 -1 0;
-#N canvas -8 485 877 319 code 0;
+#N canvas 0 485 877 319 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 -262144 -1 -1 4 256;
 #X text 249 150 my_id;
 #X obj 176 63 text define \$0.clients;
 #X obj 176 93 text define \$0.params;
@@ -149,7 +149,7 @@
 #X obj 359 256 f \$0;
 #X msg 386 77 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
-4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.queue 4 \; \$1.blocksize
+4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize
 128 \; \$1.client_version tpf-v1.1-beta4 \;;
 #X connect 5 0 21 0;
 #X connect 6 0 4 0;
