@@ -63,7 +63,7 @@
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
 #X text 10 55 LICENSE GPL-3;
 #X text 10 71 REPO_URL https://gitlab.zhdk.ch/TPF/tpf-client;
-#X text 10 7 VERSION party-v1.1-beta5;
+#X text 10 7 VERSION party-v1.1;
 #X restore 792 15 pd META;
 #X obj 8 8 declare -path iemnet -path osc -path slip -path include
 ;
@@ -128,7 +128,7 @@
 #X msg 386 81 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 4460 \; \$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize 128 \; \$1.client_version
-party-v1.1-beta4 \;;
+tpf-v1.1 \;;
 #X connect 5 0 21 0;
 #X connect 6 0 4 0;
 #X connect 7 0 30 0;
