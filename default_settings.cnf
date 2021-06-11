@@ -1,11 +1,11 @@
-host <servername>
-room public
-name <yourname>
-port 3025
+host tpf-server.zhdk.ch
+room testi
+name Roman
+port 12043
 audioport 4460
 channels 2
 blocksize 128
-queue 4
+recvbuf 12
 peer_name 8 empty
 peer_name 7 empty
 peer_name 6 empty
