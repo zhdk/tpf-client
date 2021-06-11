@@ -5,13 +5,12 @@
 #X obj 540 89 r \$1.reset;
 #X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 -262144 -262144
 0;
-#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label \ \ 11 8 16 0 20
--1 -262144 0;
-#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label \ \ \ 0 8 16 0 20 -1
+#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 -1
 -262144 0;
-#X obj 15 284 jacktrip . . . . . . . . . . . . . .;
-#X obj 228 262 r \$0.to.jacktrip;
-#X obj 228 304 s \$0.from.jacktrip;
+#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
+0;
+#X obj 266 237 r \$0.to.jacktrip;
+#X obj 259 266 s \$0.from.jacktrip;
 #X obj 297 111 s \$0.to.jacktrip;
 #X msg 297 74 status;
 #X obj 297 135 r \$0.from.jacktrip;
@@ -19,9 +18,9 @@
 #X obj 297 176 print STATUS;
 #X msg 342 74 start;
 #X msg 381 74 stop;
-#X obj 404 20 cnv 32 70 32 empty \$0.channels.label \ \ \ 2 8 16 0
-20 -1 -262144 0;
-#X obj 16 212 adc~ 1 2 3 4 5 6 7 8;
+#X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
+-1 -262144 0;
+#X obj 15 165 adc~ 1 2 3 4 5 6 7 8, f 35;
 #N canvas 178 270 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
 #X msg 31 45 8;
@@ -83,10 +82,10 @@
 #X msg 828 191 0;
 #X obj 836 162 r \$0.reset;
 #X obj 404 25 nbx 4 20 0 9999 0 0 \$0.delay.nb.s \$0.delay.nb.r empty
-0 -8 0 20 -1 -262144 -1 0 256;
+0 -8 0 20 -1 -1 -1 0 256;
 #X obj 475 20 cnv 10 10 32 empty empty empty 20 12 0 14 -262144 -66577
 0;
-#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label \ 321 8 16 0 20
+#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
 -1 -262144 0;
 #N canvas 459 427 652 267 delay- 0;
 #X obj 512 46 r \$0.delay;
@@ -191,15 +190,16 @@
 #X connect 18 5 12 0;
 #X connect 18 6 14 0;
 #X connect 18 7 16 0;
-#X restore 15 319 pd delay- - - - - - - - - - - -;
-#X obj 15 434 s~ \$2.channel.0;
-#X obj 41 414 s~ \$2.channel.1;
-#X obj 68 394 s~ \$2.channel.2;
+#X restore 11 326 pd delay- - - - - - - - - - - -;
+#X f 33;
+#X obj 10 436 s~ \$2.channel.0;
+#X obj 39 415 s~ \$2.channel.1;
+#X obj 65 395 s~ \$2.channel.2;
 #X obj 94 374 s~ \$2.channel.3;
-#X obj 121 434 s~ \$2.channel.4;
-#X obj 148 414 s~ \$2.channel.5;
-#X obj 174 394 s~ \$2.channel.6;
-#X obj 201 374 s~ \$2.channel.7;
+#X obj 121 436 s~ \$2.channel.4;
+#X obj 148 416 s~ \$2.channel.5;
+#X obj 178 395 s~ \$2.channel.6;
+#X obj 207 373 s~ \$2.channel.7;
 #X obj 433 253 r~ \$2.channel.0;
 #X obj 449 273 r~ \$2.channel.1;
 #X obj 466 293 r~ \$2.channel.2;
@@ -209,63 +209,63 @@
 #X obj 533 373 r~ \$2.channel.6;
 #X obj 550 393 r~ \$2.channel.7;
 #X obj 350 22 vsl 16 11 0 127 0 0 \$0.arrow.up \$0.arrow.up.r ▲ 5
-4 0 14 -1 -1 -166441 0 1;
+4 0 14 -1 -1 -33289 0 1;
 #X obj 350 39 vsl 16 10 0 127 0 0 \$0.arrow.down \$0.arrow.down.r ▼
-5 5 0 14 -1 -1 -166441 0 1;
+5 5 0 14 -1 -1 -33289 0 1;
 #X obj 58 20 hsl 290 32 0 127 0 0 \$0.client.reset empty empty -2 -8
 0 10 -262144 -1 -1 0 1;
-#X obj 55 20 cnv 32 295 32 empty \$0.client.label Michael 8 16 0 20
--1 -262144 0;
+#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 -1
+-166441 0;
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 641 170 r \$0.from.jacktrip;
 #X obj 641 193 route STATUS;
 #X obj 641 216 route connected;
 #X obj 641 268 switch~;
+#X obj 15 225 aoo_send~ 33012 \$2 8, f 35;
+#X obj 11 271 aoo_receive~ 33012 \$2 8, f 38;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
-#X connect 6 0 37 0;
-#X connect 6 1 37 1;
-#X connect 6 2 37 2;
-#X connect 6 3 37 3;
-#X connect 6 4 37 4;
-#X connect 6 5 37 5;
-#X connect 6 6 37 6;
-#X connect 6 7 37 7;
-#X connect 6 8 8 0;
-#X connect 7 0 6 8;
-#X connect 10 0 9 0;
-#X connect 12 0 13 0;
-#X connect 14 0 9 0;
-#X connect 15 0 9 0;
-#X connect 17 0 6 0;
-#X connect 17 1 6 1;
-#X connect 17 2 6 2;
-#X connect 17 3 6 3;
-#X connect 17 4 6 4;
-#X connect 17 5 6 5;
-#X connect 17 6 6 6;
-#X connect 17 7 6 7;
-#X connect 18 0 20 0;
-#X connect 30 0 32 0;
+#X connect 9 0 8 0;
+#X connect 11 0 12 0;
+#X connect 13 0 8 0;
+#X connect 14 0 8 0;
+#X connect 16 0 62 0;
+#X connect 16 1 62 1;
+#X connect 16 2 62 2;
+#X connect 16 3 62 3;
+#X connect 16 4 62 4;
+#X connect 16 5 62 5;
+#X connect 16 6 62 6;
+#X connect 16 7 62 7;
+#X connect 17 0 19 0;
+#X connect 29 0 31 0;
+#X connect 31 0 30 0;
 #X connect 32 0 31 0;
-#X connect 33 0 32 0;
-#X connect 37 0 38 0;
-#X connect 37 1 39 0;
-#X connect 37 2 40 0;
-#X connect 37 3 41 0;
-#X connect 37 4 42 0;
-#X connect 37 5 43 0;
-#X connect 37 6 44 0;
-#X connect 37 7 45 0;
-#X connect 46 0 20 0;
-#X connect 47 0 20 1;
-#X connect 48 0 20 2;
-#X connect 49 0 20 3;
-#X connect 50 0 20 4;
-#X connect 51 0 20 5;
-#X connect 52 0 20 6;
-#X connect 53 0 20 7;
+#X connect 36 0 37 0;
+#X connect 36 1 38 0;
+#X connect 36 2 39 0;
+#X connect 36 3 40 0;
+#X connect 36 4 41 0;
+#X connect 36 5 42 0;
+#X connect 36 6 43 0;
+#X connect 36 7 44 0;
+#X connect 45 0 19 0;
+#X connect 46 0 19 1;
+#X connect 47 0 19 2;
+#X connect 48 0 19 3;
+#X connect 49 0 19 4;
+#X connect 50 0 19 5;
+#X connect 51 0 19 6;
+#X connect 52 0 19 7;
+#X connect 58 0 59 0;
 #X connect 59 0 60 0;
 #X connect 60 0 61 0;
-#X connect 61 0 62 0;
+#X connect 63 0 36 0;
+#X connect 63 1 36 1;
+#X connect 63 2 36 2;
+#X connect 63 3 36 3;
+#X connect 63 4 36 4;
+#X connect 63 5 36 5;
+#X connect 63 6 36 6;
+#X connect 63 7 36 7;
 #X coords 0 -1 1 1 953 32 2 20 20;
