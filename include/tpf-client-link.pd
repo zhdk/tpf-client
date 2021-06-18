@@ -203,18 +203,17 @@
 #X obj 533 373 r~ \$2.channel.6;
 #X obj 550 393 r~ \$2.channel.7;
 #X obj 350 22 vsl 16 11 0 127 0 0 \$0.arrow.up \$0.arrow.up.r ▲ 5
-4 0 14 -1 -1 -33289 0 1;
+4 0 14 -1 -1 -166441 0 1;
 #X obj 350 39 vsl 16 10 0 127 0 0 \$0.arrow.down \$0.arrow.down.r ▼
-5 5 0 14 -1 -1 -33289 0 1;
+5 5 0 14 -1 -1 -166441 0 1;
 #X obj 58 20 hsl 290 32 0 127 0 0 \$0.client.reset empty empty -2 -8
 0 10 -262144 -1 -1 0 1;
-#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 -1
--166441 0;
+#X obj 55 20 cnv 32 295 32 empty \$0.client.label v2-box1 8 16 0 20
+-1 -166441 0;
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 641 170 r \$0.from.jacktrip;
 #X obj 641 193 route STATUS;
 #X obj 641 216 route connected;
-#X obj 641 268 switch~;
 #X obj 11 211 aoo_send~ 33012 \$2 8, f 35;
 #X obj 11 271 aoo_receive~ 33012 \$2 8, f 38;
 #X obj 21 179 r \$0.to.aoo;
@@ -226,14 +225,14 @@
 #X connect 9 0 10 0;
 #X connect 11 0 6 0;
 #X connect 12 0 6 0;
-#X connect 14 0 56 0;
-#X connect 14 1 56 1;
-#X connect 14 2 56 2;
-#X connect 14 3 56 3;
-#X connect 14 4 56 4;
-#X connect 14 5 56 5;
-#X connect 14 6 56 6;
-#X connect 14 7 56 7;
+#X connect 14 0 55 0;
+#X connect 14 1 55 1;
+#X connect 14 2 55 2;
+#X connect 14 3 55 3;
+#X connect 14 4 55 4;
+#X connect 14 5 55 5;
+#X connect 14 6 55 6;
+#X connect 14 7 55 7;
 #X connect 15 0 17 0;
 #X connect 30 0 31 0;
 #X connect 30 1 32 0;
@@ -253,15 +252,15 @@
 #X connect 46 0 17 7;
 #X connect 52 0 53 0;
 #X connect 53 0 54 0;
-#X connect 56 0 60 0;
-#X connect 57 0 30 0;
-#X connect 57 1 30 1;
-#X connect 57 2 30 2;
-#X connect 57 3 30 3;
-#X connect 57 4 30 4;
-#X connect 57 5 30 5;
-#X connect 57 6 30 6;
-#X connect 57 7 30 7;
-#X connect 57 8 59 0;
-#X connect 58 0 56 0;
+#X connect 55 0 59 0;
+#X connect 56 0 30 0;
+#X connect 56 1 30 1;
+#X connect 56 2 30 2;
+#X connect 56 3 30 3;
+#X connect 56 4 30 4;
+#X connect 56 5 30 5;
+#X connect 56 6 30 6;
+#X connect 56 7 30 7;
+#X connect 56 8 58 0;
+#X connect 57 0 55 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
