@@ -216,9 +216,10 @@
 #X obj 641 216 route connected;
 #X obj 11 211 aoo_send~ 33012 \$2 8, f 35;
 #X obj 11 271 aoo_receive~ 33012 \$2 8, f 38;
-#X obj 21 179 r \$0.to.aoo;
-#X obj 236 335 s \$0.from.aoo;
-#X obj 11 235 s \$0.from.aoo;
+#X obj 236 335 s \$0.from.aoo.r;
+#X obj 21 179 r \$0.to.aoo.s;
+#X obj 11 241 s \$0.from.aoo.s;
+#X obj 125 241 r \$0.to.aoo.r;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 7 0 6 0;
@@ -261,6 +262,7 @@
 #X connect 56 5 30 5;
 #X connect 56 6 30 6;
 #X connect 56 7 30 7;
-#X connect 56 8 58 0;
-#X connect 57 0 55 0;
+#X connect 56 8 57 0;
+#X connect 58 0 55 0;
+#X connect 60 0 56 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
