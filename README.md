@@ -79,14 +79,15 @@ pd -open tpf-client/tpf-party.pd
 #### Configure
 
 Before anything, open 'Settings' and configure the field 'server' and 'name'. If
-you don't know about a server, you can run your own (see https://github.com/zhdk/tpf-server
+you don't know about a server, you can run your own (see https://github.com/zhdk/tpf-server/
 for details).
 
-All parameters from the 'Settings' panel need to be configured prior to
-connecting to the server. Any changes will take only effect after a reconnection.
-The parameters 'samplerate' and 'blocksize' must be shared by all clients. An error
-is displayed, when a mismatch occurs. The first client joining a room sets those parameters
-for the lifetime of the room. The room exists as long as there are any clients connected to it.
+The parameter 'blocksize'  from the 'Settings' panel needs to be
+configured prior to connecting to the server. Any changes will take only effect after a reconnection.
+The parameters 'samplerate' and 'client_version' (not configurable)  must be
+shared by all clients in the same room. An error is displayed, when a mismatch occurs.
+The first client joining a room sets those parameters for the lifetime of the room.
+The room exists as long as there are any clients connected to it.
 
 #### Connect
 
