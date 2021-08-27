@@ -1,0 +1,31 @@
+#N canvas 0 103 435 427 10;
+#X obj 24 63 inlet;
+#X obj 24 369 outlet;
+#X obj 124 369 outlet;
+#X obj 204 369 outlet;
+#N canvas 23 227 326 242 \$0.dynamic 0;
+#X restore 24 301 pd \$0.dynamic;
+#X obj 24 341 r \$0.o.0;
+#X obj 124 341 r \$0.o.1;
+#X obj 204 341 r \$0.o.2;
+#X obj 81 110 s \$0.i.0;
+#X text 24 12 This wrapper of [aoo_client] implements the ability to
+dynamically set port number. As soon as [aoo_client] can do this \,
+we can ditch this abstraction.;
+#X obj 24 264 s pd-\$0.dynamic;
+#X obj 24 142 list prepend \$0;
+#X msg 24 170 clear \, obj 22 44 r \$1.i.0 \, obj 22 159 s \$1.o.0
+\, obj 68 135 s \$1.o.1 \, obj 115 109 s \$1.o.2 \, obj 22 83 aoo_client
+\$2 \, connect 0 0 4 0 \, connect 4 0 1 0 \, connect 4 1 2 0 \, connect
+4 2 3 0;
+#X obj 24 86 route port;
+#X msg 47 241 clear;
+#X connect 0 0 13 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 13 1 8 0;
+#X connect 14 0 10 0;
