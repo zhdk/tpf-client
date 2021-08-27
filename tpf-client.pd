@@ -1,21 +1,21 @@
-#N canvas 0 103 964 386 10;
+#N canvas 0 0 964 386 10;
 #X declare -lib aoo -path osc -path ./include;
-#X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 -228856
--1 0;
-#N canvas 0 485 877 319 code 0;
+#X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 #dcdcdc
+#000000 0;
+#N canvas 0 485 993 354 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
-0 10 -262144 -1 -1 0 256;
+0 10 #fcfcfc #000000 #000000 0 256;
 #X text 249 150 my_id;
 #X obj 191 203 s \$0.to.tpf;
-#X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X msg 191 183 /reset/clients;
 #X obj 359 8 loadbang;
-#X obj 386 55 f \$0;
+#X obj 378 66 f \$0;
 #N canvas 978 106 787 374 chat 0;
-#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 -233017 -66577
+#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040
 0;
 #X obj 743 10 scrollbar_24x321 \$0.scb.chat.r \$0.scb.chat.s 14;
 #X obj 140 334 symbolatom_600x22 \$0 \$0.chat.s \$0.chat.r 150 340
@@ -35,36 +35,37 @@
 #X obj 9 263 tpf-client-chatline \$0.chat \$0.scb.chat.s 2;
 #X obj 9 286 tpf-client-chatline \$0.chat \$0.scb.chat.s 1;
 #X restore 82 240 pd chat;
-#X obj 691 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 691 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X msg 609 122 ---------------------------------;
 #X obj 609 143 print -n;
 #N canvas 527 553 310 188 latency 0;
-#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
-;
+#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
+0;
 #X obj 170 83 nbx 2 20 0 63 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
-0 -8 0 20 -1 -262144 -1 0 256;
+0 -8 0 20 #000000 #fcfcfc #000000 0 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
-#X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 -233017
--1 0;
-#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 -233017
--1 0;
-#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 -233017
--1 0;
+#X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
+#000000 0;
 #X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level \ \ 0dB 8 16 0
-20 -1 -262144 0;
-#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 -233017 -1
+20 #000000 #fcfcfc 0;
+#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
 0;
-#X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 -1
--1 0;
-#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 -1 -262144 0
-;
-#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 -233017
--1 0;
+#X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 #000000
+#000000 0;
+#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
+0;
+#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0
+#000000 0;
 #X obj 170 48 nbx 2 20 1 10 0 0 \$0.lat.period \$0.lat.period.r empty
-0 -8 0 20 -1 -262144 -1 1 256;
-#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 -1 -262144 0;
+0 -8 0 20 #000000 #fcfcfc #000000 1 256;
+#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
+0;
 #X restore 132 240 pd latency;
 #N canvas 972 502 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
@@ -136,49 +137,76 @@
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
 #X restore 801 87 pd intercom;
-#X obj 801 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 801 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 15 48 tpf-client-guts \$0;
-#X obj 413 31 r \$0.reset.s;
+#X obj 415 42 r \$0.reset.s;
 #X msg 359 279 \; \$1.load.settings bang \;;
-#X obj 359 31 t b b;
 #X obj 359 256 f \$0;
-#X msg 386 77 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
+#X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
 symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize
 128 \; \$1.client_version tpf-v2.0 \;;
 #X obj 8 8 declare -lib aoo -path osc -path ./include;
+#X obj 359 31 t b b b;
+#N canvas 593 229 380 213 port 0;
+#X obj 45 122 s \$0.send;
+#X obj 45 27 inlet;
+#X obj 45 76 + 32768;
+#X msg 45 99 port \$1;
+#X obj 168 137 print;
+#X msg 168 111 use port \$1;
+#X obj 45 53 seeded-random 32768;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X restore 430 20 pd port;
 #X connect 3 0 19 0;
 #X connect 4 0 2 0;
-#X connect 5 0 26 0;
-#X connect 6 0 28 0;
+#X connect 5 0 29 0;
+#X connect 6 0 27 0;
 #X connect 8 0 20 0;
 #X connect 9 0 10 0;
 #X connect 22 0 21 0;
 #X connect 24 0 6 0;
-#X connect 26 0 27 0;
-#X connect 26 1 6 0;
-#X connect 27 0 25 0;
+#X connect 26 0 25 0;
+#X connect 29 0 26 0;
+#X connect 29 1 6 0;
+#X connect 29 2 30 0;
 #X restore 867 350 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
-#X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 -228856 -1 0;
-#X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 -228856 -1 0;
-#X obj 461 38 cnv 24 70 24 empty empty DROP 5 13 0 16 -228856 -1 0
-;
-#X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 -228856 -1
+#X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 #dcdcdc #000000
 0;
-#X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 -228856 -1 0;
-#X obj 764 348 namecanvas \$0.main.cnv;
-#X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 -228856 -1 0
+#X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 #dcdcdc #000000 0
 ;
-#X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 -228856 -1 0;
-#X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 -228856 -1 0;
-#X obj 750 38 cnv 24 32 24 empty empty 3 10 13 0 16 -228856 -1 0;
-#X obj 785 38 cnv 24 32 24 empty empty 4 10 13 0 16 -228856 -1 0;
-#X obj 820 38 cnv 24 32 24 empty empty 5 10 13 0 16 -228856 -1 0;
-#X obj 855 38 cnv 24 32 24 empty empty 6 10 13 0 16 -228856 -1 0;
-#X obj 890 38 cnv 24 32 24 empty empty 7 10 13 0 16 -228856 -1 0;
-#X obj 925 38 cnv 24 32 24 empty empty 8 10 13 0 16 -228856 -1 0;
+#X obj 461 38 cnv 24 70 24 empty empty DROP 5 13 0 16 #dcdcdc #000000
+0;
+#X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 #dcdcdc #000000
+0;
+#X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 #dcdcdc #000000
+0;
+#X obj 764 348 namecanvas \$0.main.cnv;
+#X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 #dcdcdc #000000
+0;
+#X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 715 38 cnv 24 32 24 empty empty 2 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 750 38 cnv 24 32 24 empty empty 3 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 785 38 cnv 24 32 24 empty empty 4 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 820 38 cnv 24 32 24 empty empty 5 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 855 38 cnv 24 32 24 empty empty 6 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 890 38 cnv 24 32 24 empty empty 7 10 13 0 16 #dcdcdc #000000
+0;
+#X obj 925 38 cnv 24 32 24 empty empty 8 10 13 0 16 #dcdcdc #000000
+0;
 #X obj 680 3 tpf-client-inchannel \$0 0;
 #X obj 715 3 tpf-client-inchannel \$0 1;
 #X obj 750 3 tpf-client-inchannel \$0 2;
@@ -199,7 +227,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 4 275 tpf-client-link \$0 7;
 #X obj 4 310 tpf-client-link \$0 8;
 #X obj 925 345 tpf-client-testsignal-outchannel \$0 8 0;
-#X obj 730 345 cnv 15 192 32 empty empty empty 20 12 0 14 -262144 -66577
+#X obj 730 345 cnv 15 192 32 empty empty empty 20 12 0 14 #fcfcfc #404040
 0;
 #X obj 266 345 tpf-client-button Latency \$0.display.latency;
 #X obj 397 345 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
@@ -207,10 +235,10 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 4 345 tpf-client-button Settings \$0.display.settings \$0.display.settings.r
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
-10 0 10 -262144 -1 -1 0 1;
+10 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r tpf-server.zhdk.ch/testi
-8 16 0 20 -1 -262144 0;
+8 16 0 20 #000000 #fcfcfc 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
-0 10 -262144 -1 -1 0 1;
+0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
--1 -262144 0;
+#000000 #fcfcfc 0;

@@ -1,14 +1,14 @@
 #N canvas 27 243 1022 479 10;
-#X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X obj 529 110 s \$0.reset;
 #X obj 540 89 r \$1.reset;
-#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 -262144 -262144
+#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 #fcfcfc #fcfcfc
 0;
-#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 -1
--262144 0;
-#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 -1 -262144
-0;
+#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 #000000
+#fcfcfc 0;
+#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 #000000
+#fcfcfc 0;
 #X obj 297 111 s \$0.to.jacktrip;
 #X msg 297 74 status;
 #X obj 297 135 r \$0.from.jacktrip;
@@ -17,7 +17,7 @@
 #X msg 342 74 start;
 #X msg 381 74 stop;
 #X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
--1 -262144 0;
+#000000 #fcfcfc 0;
 #X obj 11 151 adc~ 1 2 3 4 5 6 7 8, f 35;
 #N canvas 178 300 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
@@ -76,11 +76,11 @@
 #X obj 369 20 tpf-client-button32x32 \$0.rx.switch.s \$0.rx.switch.r
 ;
 #X obj 404 25 nbx 4 20 0 9999 0 0 \$0.delay.nb.s \$0.delay.nb.r empty
-0 -8 0 20 -1 -1 -1 0 256;
-#X obj 475 20 cnv 10 10 32 empty empty empty 20 12 0 14 -262144 -66577
+0 -8 0 20 #000000 #000000 #000000 0 256;
+#X obj 475 20 cnv 10 10 32 empty empty empty 20 12 0 14 #fcfcfc #404040
 0;
 #X obj 477 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
--1 -262144 0;
+#000000 #fcfcfc 0;
 #N canvas 459 427 652 267 delay- 0;
 #X obj 512 46 r \$0.delay;
 #X obj 24 57 inlet~;
@@ -203,37 +203,37 @@
 #X obj 533 373 r~ \$2.channel.6;
 #X obj 550 393 r~ \$2.channel.7;
 #X obj 350 22 vsl 16 11 0 127 0 0 \$0.arrow.up \$0.arrow.up.r ▲ 5
-4 0 14 -1 -1 -166441 0 1;
+4 0 14 #000000 #000000 #202020 0 1;
 #X obj 350 39 vsl 16 10 0 127 0 0 \$0.arrow.down \$0.arrow.down.r ▼
-5 5 0 14 -1 -1 -166441 0 1;
+5 5 0 14 #000000 #000000 #202020 0 1;
 #X obj 58 20 hsl 290 32 0 127 0 0 \$0.client.reset empty empty -2 -8
-0 10 -262144 -1 -1 0 1;
-#X obj 55 20 cnv 32 295 32 empty \$0.client.label v2-box1 8 16 0 20
--1 -166441 0;
+0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 #000000
+#a0a0a0 0;
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 641 170 r \$0.from.jacktrip;
 #X obj 641 193 route STATUS;
 #X obj 641 216 route connected;
-#X obj 11 211 aoo_send~ 33012 \$2 8, f 35;
-#X obj 11 271 aoo_receive~ 33012 \$2 8, f 38;
 #X obj 236 335 s \$0.from.aoo.r;
 #X obj 21 179 r \$0.to.aoo.s;
 #X obj 11 241 s \$0.from.aoo.s;
 #X obj 125 241 r \$0.to.aoo.r;
+#X obj 11 271 aoo_receive~ 0 \$2 8, f 38;
+#X obj 11 211 aoo_send~ 0 \$2 8, f 35;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 7 0 6 0;
 #X connect 9 0 10 0;
 #X connect 11 0 6 0;
 #X connect 12 0 6 0;
-#X connect 14 0 55 0;
-#X connect 14 1 55 1;
-#X connect 14 2 55 2;
-#X connect 14 3 55 3;
-#X connect 14 4 55 4;
-#X connect 14 5 55 5;
-#X connect 14 6 55 6;
-#X connect 14 7 55 7;
+#X connect 14 0 60 0;
+#X connect 14 1 60 1;
+#X connect 14 2 60 2;
+#X connect 14 3 60 3;
+#X connect 14 4 60 4;
+#X connect 14 5 60 5;
+#X connect 14 6 60 6;
+#X connect 14 7 60 7;
 #X connect 15 0 17 0;
 #X connect 30 0 31 0;
 #X connect 30 1 32 0;
@@ -253,16 +253,16 @@
 #X connect 46 0 17 7;
 #X connect 52 0 53 0;
 #X connect 53 0 54 0;
-#X connect 55 0 59 0;
-#X connect 56 0 30 0;
-#X connect 56 1 30 1;
-#X connect 56 2 30 2;
-#X connect 56 3 30 3;
-#X connect 56 4 30 4;
-#X connect 56 5 30 5;
-#X connect 56 6 30 6;
-#X connect 56 7 30 7;
-#X connect 56 8 57 0;
-#X connect 58 0 55 0;
-#X connect 60 0 56 0;
+#X connect 56 0 60 0;
+#X connect 58 0 59 0;
+#X connect 59 0 30 0;
+#X connect 59 1 30 1;
+#X connect 59 2 30 2;
+#X connect 59 3 30 3;
+#X connect 59 4 30 4;
+#X connect 59 5 30 5;
+#X connect 59 6 30 6;
+#X connect 59 7 30 7;
+#X connect 59 8 55 0;
+#X connect 60 0 57 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
