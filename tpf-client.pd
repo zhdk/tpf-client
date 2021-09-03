@@ -154,15 +154,11 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
 #X obj 45 27 inlet;
 #X obj 45 76 + 32768;
 #X msg 45 99 port \$1;
-#X obj 168 137 print;
-#X msg 168 111 use port \$1;
 #X obj 45 53 seeded-random 32768;
-#X connect 1 0 6 0;
+#X connect 1 0 4 0;
 #X connect 2 0 3 0;
-#X connect 2 0 5 0;
 #X connect 3 0 0 0;
-#X connect 5 0 4 0;
-#X connect 6 0 2 0;
+#X connect 4 0 2 0;
 #X restore 430 20 pd port;
 #X connect 3 0 19 0;
 #X connect 4 0 2 0;
