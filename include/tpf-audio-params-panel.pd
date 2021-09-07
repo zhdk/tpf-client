@@ -1,4 +1,4 @@
-#N canvas 388 120 994 553 16;
+#N canvas 378 112 994 553 16;
 #X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X obj 20 294 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -11,7 +11,6 @@
 0;
 #X obj 20 270 cnv 15 60 24 empty empty pcm 4 12 0 18 #dfdfdf #000000
 0;
-#X msg 652 281 coords 0 0 580 240 580 240 2 20 \$1;
 #X msg 652 193 20;
 #X msg 740 197 270;
 #X obj 652 252 change -1;
@@ -22,7 +21,7 @@
 #X obj 20 20 cnv 15 60 24 empty empty pcm 4 12 0 18 #ffffff #000000
 0;
 #X obj 84 270 hsl 55 24 0 127 0 0 \$0.opus empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
+#000000 #000000 100 1;
 #X obj 81 270 cnv 15 60 24 empty empty opus 4 12 0 18 #ffffff #000000
 0;
 #X obj 740 125 r \$0.pcm;
@@ -35,16 +34,17 @@
 ;
 #X msg 47 139 format opus <nchannels> <blocksize> <samplerate> <application>
 , f 37;
-#X connect 6 0 11 0;
-#X connect 7 0 9 0;
-#X connect 8 0 9 0;
-#X connect 9 0 6 0;
-#X connect 16 0 17 0;
-#X connect 17 0 8 0;
-#X connect 17 1 18 0;
-#X connect 18 0 17 1;
-#X connect 19 0 7 0;
-#X connect 19 1 20 0;
-#X connect 20 0 19 1;
-#X connect 21 0 19 0;
+#X msg 652 281 coords 0 -1 1 1 580 240 2 20 \$1;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 8 0 23 0;
+#X connect 15 0 16 0;
+#X connect 16 0 7 0;
+#X connect 16 1 17 0;
+#X connect 17 0 16 1;
+#X connect 18 0 6 0;
+#X connect 18 1 19 0;
+#X connect 19 0 18 1;
+#X connect 20 0 18 0;
+#X connect 23 0 10 0;
 #X coords 0 -1 1 1 580 240 2 20 20;
