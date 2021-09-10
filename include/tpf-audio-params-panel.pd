@@ -1,24 +1,26 @@
-#N struct 1197.rectangle float id float x float y float w float h float
+#N struct 1043.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1198.rectangle float id float x float y float w float h float
+#N struct 1044.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1199.rectangle float id float x float y float w float h float
+#N struct 1046.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1200.rectangle float id float x float y float w float h float
+#N struct 1047.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1201.rectangle float id float x float y float w float h float
+#N struct 1048.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1202.rectangle float id float x float y float w float h float
+#N struct 1049.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1203.rectangle float id float x float y float w float h float
+#N struct 1050.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1204.rectangle float id float x float y float w float h float
+#N struct 1051.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1205.rectangle float id float x float y float w float h float
+#N struct 1167.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1210.rectangle float id float x float y float w float h float
+#N struct 1168.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N canvas 268 103 966 581 10;
+#N struct 1169.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N canvas 258 103 966 581 10;
 #X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X obj 20 294 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -41,7 +43,7 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 20 20 cnv 15 60 24 empty empty pcm 4 12 0 18 #ffffff #000000
 0;
 #X obj 84 270 hsl 55 24 0 127 0 0 \$0.opus empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
+#000000 #000000 200 1;
 #X obj 81 270 cnv 15 60 24 empty empty opus 4 12 0 18 #ffffff #000000
 0;
 #X obj 740 125 r \$0.pcm;
@@ -52,44 +54,36 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 652 125 r \$0.opus;
 #X msg 652 281 coords 0 -1 1 1 580 240 2 20 \$1;
 #X obj 103 315 hmenu \$0.channels.gui 20 1 2 3 4 5 6 7 8;
-#X obj 103 355 hmenu \$0.blocksize.gui 26 32 64 96 128 192 256;
 #X obj 103 395 hmenu \$0.bitdepth.gui 26 16 24 32 64;
-#X obj 363 315 vmenu \$0.samplerate.gui 46 11025 22050 44100 48000
-88200 96000;
 #X obj 103 65 hmenu \$0.channels.gui 20 1 2 3 4 5 6 7 8;
-#X obj 363 65 vmenu \$0.samplerate.gui 46 11025 22050 44100 48000 88200
+#X obj 363 75 vmenu \$0.samplerate.gui 46 11025 22050 44100 48000 88200
 96000;
-#X obj 103 145 hmenu \$0.application.gui 62 audio voip lowdelay;
 #X obj 33 314 cnv 15 30 20 empty empty channels: 0 12 0 12 #e0e0e0
 #000000 0;
 #X obj 33 354 cnv 15 30 20 empty empty blocksize: 0 12 0 12 #e0e0e0
 #000000 0;
 #X obj 33 394 cnv 15 30 20 empty empty bitdepth: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 283 314 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
-#000000 0;
 #X obj 33 64 cnv 15 30 20 empty empty channels: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 33 104 cnv 15 30 20 empty empty blocksize: 0 12 0 12 #e0e0e0
+#X obj 33 104 cnv 15 30 20 empty empty framesize: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 33 144 cnv 15 30 20 empty empty type: 0 12 0 12 #e0e0e0 #000000
+#X obj 523 144 cnv 15 30 20 empty empty usage: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 283 64 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
+#X obj 363 54 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 33 184 cnv 15 30 20 empty empty quality: 0 12 0 12 #e0e0e0 #000000
+#X obj 33 144 cnv 15 30 20 empty empty quality: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 103 185 hmenu \$0.complexity.gui 20 0 1 2 3 4 5 6 7 8 9 10;
-#X obj 433 64 cnv 15 30 20 empty empty bitrate: 0 12 0 12 #e0e0e0 #000000
+#X obj 103 145 hmenu \$0.complexity.gui 20 0 1 2 3 4 5 6 7 8 9 10;
+#X obj 453 54 cnv 15 30 20 empty empty bitrate: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 103 105 hmenu \$0.blocksize.gui 28 32 64 96 128 192 256 512
-;
-#X obj 493 65 vmenu \$0.bitrate.gui 34 16 32 48 64 96 128 160 auto
+#X obj 453 75 vmenu \$0.bitrate.gui 34 16 32 48 64 96 128 160 auto
 max;
 #X obj 33 474 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
 0;
 #X obj 103 477 nbx 5 14 2 1000 0 0 \$0.recvbuf.gui \$0.recvbuf.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 40 256;
-#X obj 103 474 cnv 15 60 20 empty \$0.recvbuf.label 40ms 2 12 0 12
+empty 0 -8 0 10 #fcfcfc #000000 #000000 2 256;
+#X obj 103 474 cnv 15 60 20 empty \$0.recvbuf.label 134ms 2 12 0 12
 #ffffff #000000 0;
 #X obj 638 373 r \$0.recvbuf.gui;
 #X msg 638 426 label \$1ms;
@@ -98,9 +92,21 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 40 256;
 #X obj 33 224 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
 0;
 #X obj 103 227 nbx 5 14 2 1000 0 0 \$0.recvbuf.gui \$0.recvbuf.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 40 256;
-#X obj 103 224 cnv 15 60 20 empty \$0.recvbuf.label 40ms 2 12 0 12
+empty 0 -8 0 10 #fcfcfc #000000 #000000 2 256;
+#X obj 103 224 cnv 15 60 20 empty \$0.recvbuf.label 134ms 2 12 0 12
 #ffffff #000000 0;
+#X obj 103 355 hmenu \$0.blocksize.gui 28 32 64 96 128 192 256 512
+;
+#X obj 103 105 hmenu \$0.framesize.gui 34 120 240 480 960 1920 2880
+;
+#X obj 523 54 cnv 15 30 20 empty empty signal: 0 12 0 12 #e0e0e0 #000000
+0;
+#X obj 523 75 vmenu \$0.signaltype.gui 46 auto voice music;
+#X obj 523 165 vmenu \$0.application.gui 62 audio voip lowdelay;
+#X obj 363 325 vmenu \$0.samplerate.gui 46 11025 22050 44100 48000
+88200 96000;
+#X obj 363 304 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
+#000000 0;
 #X connect 6 0 8 0;
 #X connect 7 0 8 0;
 #X connect 8 0 21 0;
@@ -113,7 +119,7 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 40 256;
 #X connect 19 0 18 1;
 #X connect 20 0 18 0;
 #X connect 21 0 10 0;
-#X connect 45 0 47 0;
-#X connect 46 0 48 0;
-#X connect 47 0 46 0;
-#X coords 0 -1 1 1 580 240 2 20 20;
+#X connect 40 0 42 0;
+#X connect 41 0 43 0;
+#X connect 42 0 41 0;
+#X coords 0 -1 1 1 580 240 2 20 270;
