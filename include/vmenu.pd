@@ -1,6 +1,6 @@
 #N canvas 0 103 702 419 10;
 #N canvas 217 325 763 207 \$0.gop 0;
-#X coords 0 0 60 54 60 54 2 50 50;
+#X coords 0 0 40 54 40 54 2 50 50;
 #X restore 50 50 pd \$0.gop;
 #N canvas 0 103 689 647 create.items 0;
 #X obj 43 526 s pd-\$0.gop;
@@ -122,11 +122,11 @@
 #X restore 301 106 pd create.items;
 #N canvas 256 166 432 155 the.struct 0;
 #X obj 11 112 outlet;
-#X obj 12 12 filledpolygon bgclr boxclr 1 0 0 w 0 w h 0 h;
 #X obj 11 76 struct \$0.rectangle float id float x float y float w
 float h float txtclr float boxclr float bgclr symbol label;
+#X obj 12 12 filledpolygon -xv bgclr boxclr 1 0 0 w 0 w h 0 h;
 #X obj 13 44 drawsymbol label 4 3 txtclr;
-#X connect 2 0 0 0;
+#X connect 1 0 0 0;
 #X restore 301 132 pd the.struct;
 #X text 483 26 arg1: sendname;
 #X obj 301 34 namecanvas \$0.top;
@@ -243,7 +243,7 @@ float h float txtclr float boxclr float bgclr symbol label;
 #X obj 206 306 s \$0.top;
 #X msg 206 281 font \$1 100 100;
 #X obj 206 257 r \$0.fontsize;
-#N canvas 163 147 588 403 select 1;
+#N canvas 163 147 588 403 select 0;
 #X obj 28 30 inlet;
 #X obj 28 53 route click;
 #X msg 28 76 \$1;
@@ -319,4 +319,4 @@ float h float txtclr float boxclr float bgclr symbol label;
 #X connect 8 0 7 0;
 #X connect 10 0 7 0;
 #X connect 11 0 12 0;
-#X coords 0 0 60 54 60 54 2 50 50;
+#X coords 0 0 40 54 40 54 2 50 50;
