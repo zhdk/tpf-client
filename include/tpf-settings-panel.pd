@@ -1,4 +1,24 @@
-#N canvas 275 300 656 549 16;
+#N struct 1212.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1213.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1214.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1215.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1216.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1217.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1218.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1219.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1220.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1221.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N canvas 265 292 656 549 16;
 #X symbolatom 147 66 30 0 0 0 - #1.set.host.r #1.set.host;
 #X symbolatom 147 96 30 0 0 0 - #1.set.room.r #1.set.room;
 #X symbolatom 147 126 30 0 0 0 - #1.set.name.r #1.set.name;
@@ -7,45 +27,15 @@
 #X text 88 126 name:;
 #X floatatom 147 156 6 1 65535 0 - #1.set.port.r #1.set.port;
 #X text 88 156 port:;
-#X text 89 296 64;
-#X text 89 316 128;
-#X text 89 336 256;
-#X text 89 356 512;
-#X text 89 376 1024;
-#X text 89 396 2048;
-#X text 89 416 4096;
-#X obj 67 297 vradio 20 1 0 7 \$1.set.blocksize \$1.set.blocksize.r
-empty 0 -8 0 10 -262144 -1 -1 1;
-#X text 65 271 blocksize:;
-#X obj 340 273 hradio 20 1 0 8 \$1.set.channels \$1.set.channels.r
-empty 0 -8 0 10 -262144 -1 -1 1;
-#X text 190 271 send channels:;
-#X text 344 252 1;
-#X text 364 252 2;
-#X text 384 252 3;
-#X text 404 252 4;
-#X text 424 252 5;
-#X text 444 252 6;
-#X text 464 252 7;
-#X text 484 252 8;
-#X floatatom 340 301 4 1 300 1 ms #1.set.recvbuf.r #1.set.recvbuf;
-#X floatatom 147 186 6 1 65535 0 - #1.set.audioport.r #1.set.audioport
-;
-#X text 34 186 audio port:;
-#X text 34 237 AUDIO PARAMETERS:;
-#X text 34 27 CONNECTION PARAMETERS:;
-#X obj 338 364 cnv 15 80 20 empty \$1.set.samplerate.r 44100 4 10 0
-16 -262144 -1 0;
-#X text 220 361 samplerate:;
+#X text 30 33 CONNECTION PARAMETERS:;
 #X obj 220 428 cnv 15 370 25 empty \$1.notification.label empty 2 12
-0 17 -262144 -128992 0;
+0 17 #fcfcfc #7c7c7c 0;
 #X obj 350 477 tpf-client-button Save\ to \$1.save.to.s \$1.save.to.r
 ;
 #X obj 219 477 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
 ;
 #X obj 481 477 tpf-client-button Save \$1.save.s \$1.save.r;
-#X text 210 301 recv buffer:;
 #X obj 88 477 tpf-client-button Reset \$1.reset.s \$1.reset.r;
-#X text 260 331 bitres:;
-#X text 338 331 16;
+#X obj 31 224 tpf-audio-params-panel \$1;
+#X text 31 193 AUDIO PARAMETERS:;
 #X coords 0 -1 1 1 600 500 2 20 20;
