@@ -144,9 +144,8 @@
 #X msg 359 279 \; \$1.load.settings bang \;;
 #X obj 359 256 f \$0;
 #X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
-symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.audioport
-4460 \; \$1.channels 2 \; \$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize
-128 \; \$1.client_version tpf-v2.0 \;;
+symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels 2 \;
+\$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize 128 \; \$1.client_version tpf-v2.0alpha \;;
 #X obj 8 8 declare -lib aoo -path osc -path ./include;
 #X obj 359 31 t b b b;
 #N canvas 593 229 380 213 port 0;
