@@ -1,31 +1,33 @@
-#N struct 1212.rectangle float id float x float y float w float h float
+#N struct 1043.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1213.rectangle float id float x float y float w float h float
+#N struct 1044.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1214.rectangle float id float x float y float w float h float
+#N struct 1045.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1215.rectangle float id float x float y float w float h float
+#N struct 1046.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1216.rectangle float id float x float y float w float h float
+#N struct 1047.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1217.rectangle float id float x float y float w float h float
+#N struct 1048.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1218.rectangle float id float x float y float w float h float
+#N struct 1049.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1219.rectangle float id float x float y float w float h float
+#N struct 1050.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1220.rectangle float id float x float y float w float h float
+#N struct 1051.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1221.rectangle float id float x float y float w float h float
+#N struct 1052.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1053.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N canvas 265 292 656 549 16;
-#X symbolatom 147 66 30 0 0 0 - #1.set.host.r #1.set.host;
-#X symbolatom 147 96 30 0 0 0 - #1.set.room.r #1.set.room;
-#X symbolatom 147 126 30 0 0 0 - #1.set.name.r #1.set.name;
+#X symbolatom 147 66 30 0 0 0 - #1.host.gui #1.host;
+#X symbolatom 147 96 30 0 0 0 - #1.room.gui #1.room;
+#X symbolatom 147 126 30 0 0 0 - #1.name.gui #1.name;
 #X text 70 67 server:;
 #X text 88 96 room:;
 #X text 88 126 name:;
-#X floatatom 147 156 6 1 65535 0 - #1.set.port.r #1.set.port;
+#X floatatom 147 156 6 1 65535 0 - #1.port.gui #1.port;
 #X text 88 156 port:;
 #X text 30 33 CONNECTION PARAMETERS:;
 #X obj 220 428 cnv 15 370 25 empty \$1.notification.label empty 2 12

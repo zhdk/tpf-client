@@ -1,4 +1,26 @@
-#N canvas 258 103 966 581 10;
+#N struct 1043.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1044.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1045.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1046.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1047.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1048.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1049.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1050.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1051.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1052.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1053.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N canvas 258 103 1138 608 10;
 #X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X obj 20 294 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -21,7 +43,7 @@
 #X obj 20 20 cnv 15 60 24 empty empty pcm 4 12 0 18 #ffffff #000000
 0;
 #X obj 84 270 hsl 55 24 0 127 0 0 \$0.opus empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 200 1;
+#000000 #000000 0 1;
 #X obj 81 270 cnv 15 60 24 empty empty opus 4 12 0 18 #ffffff #000000
 0;
 #X obj 740 125 r \$0.pcm;
@@ -52,58 +74,58 @@
 #000000 0;
 #X obj 33 144 cnv 15 30 20 empty empty quality: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 103 145 hmenu \$1.complexity.gui 20 0 1 2 3 4 5 6 7 8 9 10;
+#X obj 103 145 hmenu \$1.quality.gui 20 0 1 2 3 4 5 6 7 8 9 10;
 #X obj 453 54 cnv 15 30 20 empty empty bitrate: 0 12 0 12 #e0e0e0 #000000
 0;
 #X obj 453 75 vmenu \$1.bitrate.gui 34 16 32 48 64 96 128 160 auto
 max;
 #X obj 33 474 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 103 477 nbx 5 14 2 1000 0 0 \$1.recvbuf.gui \$1.recvbuf.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 2 256;
-#X obj 103 474 cnv 15 60 20 empty \$1.recvbuf.label 2ms 2 12 0 12 #ffffff
-#000000 0;
-#X obj 638 373 r \$1.recvbuf.gui;
+#X obj 103 477 nbx 5 14 2 1000 0 0 \$1.recvbuf \$1.recvbuf.gui empty
+0 -8 0 10 #fcfcfc #000000 #000000 12 256;
+#X obj 103 474 cnv 15 60 20 empty \$1.recvbuf.label 12ms 2 12 0 12
+#ffffff #000000 0;
 #X msg 638 426 label \$1ms;
 #X obj 638 396 int;
 #X obj 638 452 s \$1.recvbuf.label;
 #X obj 33 224 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 103 227 nbx 5 14 2 1000 0 0 \$1.recvbuf.gui \$1.recvbuf.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 2 256;
-#X obj 103 224 cnv 15 60 20 empty \$1.recvbuf.label 2ms 2 12 0 12 #ffffff
-#000000 0;
+#X obj 103 227 nbx 5 14 2 1000 0 0 \$1.recvbuf \$1.recvbuf.gui empty
+0 -8 0 10 #fcfcfc #000000 #000000 12 256;
+#X obj 103 224 cnv 15 60 20 empty \$1.recvbuf.label 12ms 2 12 0 12
+#ffffff #000000 0;
 #X obj 103 355 hmenu \$1.blocksize.gui 28 32 64 96 128 192 256 512
 ;
 #X obj 103 105 hmenu \$1.framesize.gui 34 120 240 480 960 1920 2880
 ;
 #X obj 523 54 cnv 15 30 20 empty empty signal: 0 12 0 12 #e0e0e0 #000000
 0;
-#X obj 523 75 vmenu \$1.signaltype.gui 46 auto voice music;
-#X obj 523 165 vmenu \$1.application.gui 62 audio voip lowdelay;
+#X obj 523 75 vmenu \$1.signal.gui 46 auto voice music;
+#X obj 523 165 vmenu \$1.usage.gui 62 audio voip lowdelay;
 #X obj 363 325 vmenu \$1.samplerate.gui 46 11025 22050 44100 48000
 88200 96000;
 #X obj 363 304 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
 #000000 0;
 #X obj 203 474 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 293 477 nbx 5 14 200 10000 0 0 \$1.packetsize.gui \$1.packetsize.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 1472 256;
-#X obj 293 474 cnv 15 60 20 empty \$1.packetsize.label 1472 2 12 0
-12 #ffffff #000000 0;
+#X obj 293 477 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
+empty 0 -8 0 10 #fcfcfc #000000 #000000 200 256;
+#X obj 293 474 cnv 15 60 20 empty \$1.packetsize.label 396 2 12 0 12
+#ffffff #000000 0;
 #X obj 768 396 int;
 #X obj 768 476 s \$1.packetsize.label;
-#X obj 768 373 r \$1.packetsize.gui;
 #X obj 768 419 list append;
-#X obj 865 404 loadbang;
-#X msg 865 427 symbol;
+#X obj 861 403 loadbang;
+#X msg 861 426 symbol;
 #X obj 203 224 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 293 227 nbx 5 14 200 10000 0 0 \$1.packetsize.gui \$1.packetsize.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 1472 256;
-#X obj 293 224 cnv 15 60 20 empty \$1.packetsize.label 1472 2 12 0
-12 #ffffff #000000 0;
+#X obj 293 227 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
+empty 0 -8 0 10 #fcfcfc #000000 #000000 396 256;
+#X obj 293 224 cnv 15 60 20 empty \$1.packetsize.label 396 2 12 0 12
+#ffffff #000000 0;
 #X msg 768 449 label \$1\$2;
+#X obj 768 371 r \$1.packetsize;
+#X obj 638 373 r \$1.recvbuf;
 #X connect 6 0 8 0;
 #X connect 7 0 8 0;
 #X connect 8 0 21 0;
@@ -117,12 +139,12 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 1472 256;
 #X connect 20 0 18 0;
 #X connect 21 0 10 0;
 #X connect 40 0 42 0;
-#X connect 41 0 43 0;
-#X connect 42 0 41 0;
-#X connect 57 0 60 0;
-#X connect 59 0 57 0;
-#X connect 60 0 66 0;
-#X connect 61 0 62 0;
-#X connect 62 0 60 1;
-#X connect 66 0 58 0;
-#X coords 0 -1 1 1 580 240 2 20 270;
+#X connect 41 0 40 0;
+#X connect 56 0 58 0;
+#X connect 58 0 64 0;
+#X connect 59 0 60 0;
+#X connect 60 0 58 1;
+#X connect 64 0 57 0;
+#X connect 65 0 56 0;
+#X connect 66 0 41 0;
+#X coords 0 -1 1 1 580 240 2 20 20;
