@@ -99,19 +99,19 @@
 #X text 13 192 PANELS;
 #X text 603 24 ====================;
 #N canvas 0 106 412 168 from/to 0;
-#X obj 21 17 r \$0.from.tpf;
-#X obj 21 112 print FROM;
 #X obj 21 83 spigot;
 #X obj 120 80 spigot;
-#X obj 120 20 r \$0.to.tpf;
-#X obj 120 109 print TO;
 #X obj 174 52 inlet;
-#X connect 0 0 2 0;
-#X connect 2 0 1 0;
-#X connect 3 0 5 0;
-#X connect 4 0 3 0;
-#X connect 6 0 3 1;
-#X connect 6 0 2 1;
+#X obj 21 17 r \$0.oscrecv;
+#X obj 120 20 r \$0.oscsend;
+#X obj 120 109 print OSC.SEND;
+#X obj 21 112 print OSC.RECV;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 2 0 1 1;
+#X connect 2 0 0 1;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
 #X restore 609 87 pd from/to;
 #N canvas 0 106 436 166 send/receive 0;
 #X obj 5 24 r \$0.send;
@@ -144,8 +144,9 @@
 #X msg 359 279 \; \$1.load.settings bang \;;
 #X obj 359 256 f \$0;
 #X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
-symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels 2 \;
-\$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize 128 \; \$1.client_version tpf-v2.0alpha \;;
+symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels
+2 \; \$1.bitres 16 \; \$1.recvbuf 12 \; \$1.blocksize 128 \; \$1.client_version
+tpf-v2.0alpha \;;
 #X obj 8 8 declare -lib aoo -path osc -path ./include;
 #X obj 359 31 t b b b;
 #N canvas 593 229 380 213 port 0;
@@ -231,7 +232,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels 2
 ;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r tpf-server.zhdk.ch/testi
+#X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r tpf-server.zhdk.ch/public
 8 16 0 20 #000000 #fcfcfc 0;
 #X obj 42 3 hsl 306 32 0 127 0 0 \$0.show.settings empty empty -2 10
 0 10 #fcfcfc #000000 #000000 0 1;
