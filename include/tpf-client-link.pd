@@ -121,7 +121,7 @@
 #X restore 24 88 pd delwrites_tilde.........................................
 ;
 #N canvas 0 103 597 274 delwrites_tilde.........................................
-1;
+0;
 #X obj 24 27 inlet~;
 #X obj 24 187 outlet~;
 #X obj 74 187 outlet~;
@@ -206,8 +206,6 @@
 #X obj 246 275 s \$0.from.aoo.r;
 #X obj 21 161 r \$0.to.aoo.r;
 #X obj 21 211 aoo_receive~ 0 \$2 8, f 38;
-#X obj 796 245 r \$0.to.aoo.r;
-#X obj 796 275 print \$2.AOO.RECV;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 7 0 9 0;
@@ -229,5 +227,4 @@
 #X connect 46 6 29 0;
 #X connect 46 7 30 0;
 #X connect 46 8 44 0;
-#X connect 47 0 48 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
