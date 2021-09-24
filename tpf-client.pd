@@ -143,10 +143,6 @@
 #X obj 415 42 r \$0.reset.s;
 #X msg 359 279 \; \$1.load.settings bang \;;
 #X obj 359 256 f \$0;
-#X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
-symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels
-2 \; \$1.bitres 16 \; \$1.recvbuf 14 \; \$1.blocksize 128 \; \$1.client_version
-tpf-v2.0alpha \;;
 #X obj 8 8 declare -lib aoo -path osc -path ./include;
 #X obj 359 31 t b b b;
 #N canvas 593 229 380 213 port 0;
@@ -160,18 +156,21 @@ tpf-v2.0alpha \;;
 #X connect 3 0 0 0;
 #X connect 4 0 2 0;
 #X restore 430 20 pd port;
+#X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
+symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels
+2 \; \$1.bitres 16 \; \$1.recvbuf 14 \; \$1.blocksize 128 \;;
 #X connect 3 0 19 0;
 #X connect 4 0 2 0;
-#X connect 5 0 29 0;
-#X connect 6 0 27 0;
+#X connect 5 0 28 0;
+#X connect 6 0 30 0;
 #X connect 8 0 20 0;
 #X connect 9 0 10 0;
 #X connect 22 0 21 0;
 #X connect 24 0 6 0;
 #X connect 26 0 25 0;
-#X connect 29 0 26 0;
-#X connect 29 1 6 0;
-#X connect 29 2 30 0;
+#X connect 28 0 26 0;
+#X connect 28 1 6 0;
+#X connect 28 2 29 0;
 #X restore 867 350 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 #dcdcdc #000000
