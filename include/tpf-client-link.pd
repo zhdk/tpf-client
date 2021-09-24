@@ -120,8 +120,8 @@
 #X connect 7 0 15 0;
 #X restore 24 88 pd delwrites_tilde.........................................
 ;
-#N canvas 0 53 597 274 delwrites_tilde.........................................
-0;
+#N canvas 0 103 597 274 delwrites_tilde.........................................
+1;
 #X obj 24 27 inlet~;
 #X obj 24 187 outlet~;
 #X obj 74 187 outlet~;
@@ -176,7 +176,7 @@
 #X connect 18 5 12 0;
 #X connect 18 6 14 0;
 #X connect 18 7 16 0;
-#X restore 21 266 pd delay- - - - - - - - - - - -;
+#X restore 34 418 pd delay- - - - - - - - - - - -;
 #X f 33;
 #X obj 20 376 s~ \$2.channel.0;
 #X obj 49 355 s~ \$2.channel.1;
@@ -211,14 +211,6 @@
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 7 0 9 0;
-#X connect 22 0 23 0;
-#X connect 22 1 24 0;
-#X connect 22 2 25 0;
-#X connect 22 3 26 0;
-#X connect 22 4 27 0;
-#X connect 22 5 28 0;
-#X connect 22 6 29 0;
-#X connect 22 7 30 0;
 #X connect 31 0 9 0;
 #X connect 32 0 9 1;
 #X connect 33 0 9 2;
@@ -228,14 +220,14 @@
 #X connect 37 0 9 6;
 #X connect 38 0 9 7;
 #X connect 45 0 46 0;
-#X connect 46 0 22 0;
-#X connect 46 1 22 1;
-#X connect 46 2 22 2;
-#X connect 46 3 22 3;
-#X connect 46 4 22 4;
-#X connect 46 5 22 5;
-#X connect 46 6 22 6;
-#X connect 46 7 22 7;
+#X connect 46 0 23 0;
+#X connect 46 1 24 0;
+#X connect 46 2 25 0;
+#X connect 46 3 26 0;
+#X connect 46 4 27 0;
+#X connect 46 5 28 0;
+#X connect 46 6 29 0;
+#X connect 46 7 30 0;
 #X connect 46 8 44 0;
 #X connect 47 0 48 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
