@@ -1,16 +1,24 @@
 host tpf-server.zhdk.ch
-room testi
-name Roman
+room public
+name <your\ name>
 port 12043
-audioport 4460
 channels 2
-blocksize 128
 recvbuf 12
-peer_name 8 empty
-peer_name 7 empty
-peer_name 6 empty
-peer_name 5 empty
-peer_name 4 empty
-peer_name 3 empty
-peer_name 2 empty
+samplerate 48000
+codec pcm
+blocksize 64
+bitdepth 16
+packetsize 1450
+framesize 120
+quality 10
+bitrate 96
+signal music
+usage lowdelay
 peer_name 1 empty
+peer_name 2 empty
+peer_name 3 empty
+peer_name 4 empty
+peer_name 5 empty
+peer_name 6 empty
+peer_name 7 empty
+peer_name 8 empty
