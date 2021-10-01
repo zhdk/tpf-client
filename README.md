@@ -7,23 +7,13 @@ About
 -----
 
 tpf-client is a low-latency multi-channel audio transmission software
-based on the jacktrip protocol and built in Pure Data.
+based on the [AoO](https://git.iem.at/cm/aoo)  (Audio-over-OSC) protocol.
 
-It tries to overcome some limitations that are often encountered
-when using the traditional jacktrip commandline utility:
-
- * No need for clients to run with a public IP address and no need
-   for setting up port-forwarding on the client side.
-
- * The tpf-client reduces complexity when configuring a session
-   with many endpoints.
-
-The client registers itself to a tpf-server which keeps track
-of the connected clients. While connected to the server, clients
-establish a jacktrip audio connection to their peers either by
-routing the audio packets through the tpf-server (a UDP-proxy running
-on a separate port) or directly to their peers by employing a
-technique called UDP hole punching (https://en.wikipedia.org/wiki/UDP_hole_punching).
+In its current version it supports sending and receiving up to 8 channel
+to and from up to 8 other locations. The received audio streams are
+made available on separate ports on the [JACK](https://jackaudio.org/) server
+where they can be connected to an JACK-aware DAW like [Ardour](https://ardour.org/)
+or an external mixing desk.
 
 You can download the client from:
 
@@ -32,17 +22,6 @@ You can download the client from:
 The server software is hosted separately at:
 
   https://github.com/zhdk/tpf-server
-
-Depending on the locations of the endpoints it is advised to
-run a server closer to one of the endpoints in order to
-keep transmission latency low.
-
-#### Scope
-
-tpf-client doesn't have any mixing, levelling, routing capabilities. It is meant
-as a pure transmission utility. For concerts and experiments, we usually interface
-it with a DAW like Ardour. Further instructions and Ardour template sessions are in
-progress and will be provided.
 
 
 Prerequisites
@@ -53,9 +32,7 @@ Make sure to get the latest Pure Data from:
   https://puredata.info/downloads/
 
 You need the following externals to run tpf-client
-  * iemnet
-  * osc
-  * slip
+  * aoo
 
 You can install externals through the Pd menu:
 'Help' -> 'Find Externals'
@@ -65,6 +42,7 @@ Running the client
 ------------------
 
 #### Run
+
 To run the client, open the patch tpf-client.pd in Pure Data. Typically,
 you run Pd with jack as audio backend, so that you can send audio from
 and to the tpf-client to other software. When running from the command-
@@ -72,45 +50,49 @@ line, the recommended parameters are:
 
 ~~~sh
 pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
-     -jackname tpf-client -open tpf-client/tpf-client.pd
+     -jackname tpf-client -open tpf-client.pd
 ~~~
 
 #### Configure
 
-Before anything, open 'Settings' and configure the field 'server' and 'name'. If
-you don't know about a server, you can run your own (see https://github.com/zhdk/tpf-server/
-for details).
+Before anything, open 'Settings' and configure the fields in the 'Connection
+parameters' section. If you don't know about a server, you can run your own
+(see [here](https://github.com/zhdk/tpf-server/) for details).
 
-All parameters from the 'Settings' panel need to be configured prior to
-connecting to the server. Any changes will take only effect after a reconnection.
-The parameters 'samplerate' and 'blocksize' must be shared by all clients. An error
-is displayed, when a mismatch occurs. The first client joining a room sets those parameters
-for the lifetime of the room. The room exists as long as there are any clients connected to it.
+All parameters in the 'Audio Parameters' section take immediate effect, even
+when the streaming is already running. You can either send your audio compressed
+- encoded with [OPUS](https://opus-codec.org/) audio codec - or uncompressed
+as [PCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) encoded.
+
 
 #### Connect
 
-The client connects to the server by clicking the top left button. Blue indicates connection
-is established. Red indicates that some error occured. Check the message for the reason.
-Reasons for connection failure include samplerate or name conflict (configured name is already in
-use by someone else).
+The client connects to the server by clicking the top left button. Blue indicates
+connection is established. Red indicates that some error occured. The name used
+for each client connected to the same server must be unique. If the conncection
+is successfull, other clients connected to the same room are listed in the
+client rows below 'peer nodes'. To establish an audio transmission, either side
+needs to initiate the connection by clicking the black square in the left and
+the other side has to confirm by clicking the flashing yellow button.
+Once the audio connection is established, the corresponding button turns blue
+and the numbered squares indicate the number of received channels and the audio
+level of each. The numbers on the channel indicators correspond with the numbers
+in the QJackCtl connection dialog.
 
-Once connected, other endpoints appear in one of the 8 rows. In order to
-establish audio transmission, either of one side needs to initiate the
-connection by clicking the black square in the left and the other side
-has to confirm. A flashing button indicates the other side is waiting
-for confirmation. Once the audio connection is established, the
-corresponding button turns blue and the numbered squares indicate the
-number of received channels and the level of each. The numbers on the
-channel indicators correspond with the numbers in the qjackctl connection
-dialog.
 
-#### Peer-2-Peer connection
+#### Transmission mode
 
-By double-clicking the left square, a request for a connection using
-UDP hole punching is sent (button flashes purple). When confirmed, a direct transmission between
-endpoints is established (no UDP proxy involved). However,
-this feature is considered experimental and can't be used in certain
-network environments.
+tpf-client supports two transmission modes. The first transmits all audio data
+through the server which relays streams between clients. The second mode uses
+[UDP hole punching](https://en.wikipedia.org/wiki/UDP_hole_punching) for
+establishing a direct peer-to-peer connection between two clients. Since the
+peer-to-peer mode doesn't put any load onto the server and usually means lower
+latency, it is the preferred mode. However, not in all network environments
+it is possible to use peer-to-peer mode. tpf-client automatically detects
+whether peer-to-peer mode is available for a certain connection and falls back
+to server relay mode if it is not. This evaluation happens for any set of two
+clients independently. When streaming to more than one peer, it is possible
+that both modes are used simultaneously.
 
 
 Ready-to-use macOS app
@@ -125,7 +107,8 @@ application bundle from:
 Bugs
 ----
 
-For any bug, issue, or suggestion, please open an issue [here](https://github.com/zhdk/tpf-client/issues).
+For any bug, issue, or suggestion, please open an issue
+[here](https://github.com/zhdk/tpf-client/issues).
 
 
 Authors
