@@ -38,8 +38,8 @@ You can install externals through the Pd menu:
 'Help' -> 'Find Externals'
 
 
-Running the client
-------------------
+Usage
+-----
 
 #### Run
 
