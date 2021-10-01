@@ -60,9 +60,10 @@ parameters' section. If you don't know about a server, you can run your own
 (see [here](https://github.com/zhdk/tpf-server/) for details).
 
 All parameters in the 'Audio Parameters' section take immediate effect, even
-when the streaming is already running. You can either send your audio compressed
-- encoded with [OPUS](https://opus-codec.org/) audio codec - or uncompressed
-as [PCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) encoded.
+when the streaming is already running. You can either send your audio
+compressed - encoded with [OPUS](https://opus-codec.org/) audio codec - or
+uncompressed as [PCM](https://en.wikipedia.org/wiki/Pulse-code_modulation)
+encoded.
 
 
 #### Connect
