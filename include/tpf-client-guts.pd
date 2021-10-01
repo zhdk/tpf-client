@@ -849,7 +849,7 @@
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X restore 12 485 pd sample.period;
-#X obj 343 225 r~ 1.channel.0;
+#X obj 343 225 r~ 1.channel.1;
 #X obj 343 151 + 1;
 #X connect 0 0 26 0;
 #X connect 1 0 8 0;

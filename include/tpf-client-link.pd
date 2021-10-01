@@ -54,15 +54,15 @@
 #X connect 13 3 8 0;
 #X connect 15 0 10 0;
 #X restore 384 234 pd set.out.channels;
-#X obj 696 20 tpf-client-outchannel \$0 \$2 0;
+#X obj 696 20 tpf-client-outchannel \$0 \$2 1;
 #X obj 433 416 dac~ 1 2 3 4 5 6 7 8;
-#X obj 731 20 tpf-client-outchannel \$0 \$2 1;
-#X obj 766 20 tpf-client-outchannel \$0 \$2 2;
-#X obj 801 20 tpf-client-outchannel \$0 \$2 3;
-#X obj 836 20 tpf-client-outchannel \$0 \$2 4;
-#X obj 871 20 tpf-client-outchannel \$0 \$2 5;
-#X obj 906 20 tpf-client-outchannel \$0 \$2 6;
-#X obj 941 20 tpf-client-outchannel \$0 \$2 7;
+#X obj 731 20 tpf-client-outchannel \$0 \$2 2;
+#X obj 766 20 tpf-client-outchannel \$0 \$2 3;
+#X obj 801 20 tpf-client-outchannel \$0 \$2 4;
+#X obj 836 20 tpf-client-outchannel \$0 \$2 5;
+#X obj 871 20 tpf-client-outchannel \$0 \$2 6;
+#X obj 906 20 tpf-client-outchannel \$0 \$2 7;
+#X obj 941 20 tpf-client-outchannel \$0 \$2 8;
 #X obj 20 20 tpf-client-button32x32 \$0.tx.switch.s \$0.tx.switch.r
 ;
 #X obj 369 20 tpf-client-button32x32 \$0.rx.switch.s \$0.rx.switch.r
@@ -178,22 +178,22 @@
 #X connect 18 7 16 0;
 #X restore 34 418 pd delay- - - - - - - - - - - -;
 #X f 33;
-#X obj 20 376 s~ \$2.channel.0;
-#X obj 49 355 s~ \$2.channel.1;
-#X obj 75 335 s~ \$2.channel.2;
-#X obj 104 314 s~ \$2.channel.3;
-#X obj 131 376 s~ \$2.channel.4;
-#X obj 158 356 s~ \$2.channel.5;
-#X obj 188 335 s~ \$2.channel.6;
-#X obj 217 313 s~ \$2.channel.7;
-#X obj 433 253 r~ \$2.channel.0;
-#X obj 449 273 r~ \$2.channel.1;
-#X obj 466 293 r~ \$2.channel.2;
-#X obj 483 313 r~ \$2.channel.3;
-#X obj 499 333 r~ \$2.channel.4;
-#X obj 516 353 r~ \$2.channel.5;
-#X obj 533 373 r~ \$2.channel.6;
-#X obj 550 393 r~ \$2.channel.7;
+#X obj 20 376 s~ \$2.channel.1;
+#X obj 49 355 s~ \$2.channel.2;
+#X obj 75 335 s~ \$2.channel.3;
+#X obj 104 314 s~ \$2.channel.4;
+#X obj 131 376 s~ \$2.channel.5;
+#X obj 158 356 s~ \$2.channel.6;
+#X obj 188 335 s~ \$2.channel.7;
+#X obj 217 313 s~ \$2.channel.8;
+#X obj 433 253 r~ \$2.channel.1;
+#X obj 449 273 r~ \$2.channel.2;
+#X obj 466 293 r~ \$2.channel.3;
+#X obj 483 313 r~ \$2.channel.4;
+#X obj 499 333 r~ \$2.channel.5;
+#X obj 516 353 r~ \$2.channel.6;
+#X obj 533 373 r~ \$2.channel.7;
+#X obj 550 393 r~ \$2.channel.8;
 #X obj 350 22 vsl 16 11 0 127 0 0 \$0.arrow.up \$0.arrow.up.r ▲ 5
 4 0 14 #000000 #000000 #202020 0 1;
 #X obj 350 39 vsl 16 10 0 127 0 0 \$0.arrow.down \$0.arrow.down.r ▼
