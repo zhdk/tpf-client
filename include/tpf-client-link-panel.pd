@@ -1,0 +1,23 @@
+#N canvas 1827 870 450 300 12;
+#X obj 20 20 cnv 8 289 32 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 128 20 cnv 15 100 16 empty empty format=opus 3 9 0 12 -1 -228856
+0;
+#X obj 229 20 cnv 15 80 16 empty empty fs=2880 3 9 0 12 -1 -228856
+0;
+#X obj 229 36 cnv 15 80 16 empty empty sr=48000 3 9 0 12 -1 -228856
+0;
+#X obj 128 36 cnv 15 100 16 empty empty type=lowdelay 3 9 0 12 -1 -228856
+0;
+#X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 -262144 -66577
+0;
+#X obj 20 20 cnv 16 100 16 empty empty recvbuf: 3 9 0 12 -1 -262144
+0;
+#X obj 80 20 nbx 3 14 2 999 0 0 empty empty empty 0 -8 0 12 -1 -262144
+-1 999 256;
+#X obj 20 36 cnv 16 100 16 empty empty delay: 3 9 0 12 -1 -262144 0
+;
+#X obj 80 36 nbx 3 14 0 999 0 0 empty empty empty 0 -8 0 12 -1 -262144
+-1 0 256;
+#X obj 82 20 cnv 4 5 32 empty empty empty 0 12 0 14 -1 -66577 0;
+#X coords 0 -1 1 1 289 32 2 20 20;

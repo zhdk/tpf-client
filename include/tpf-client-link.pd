@@ -1,16 +1,10 @@
-#N canvas 27 243 1022 479 10;
-#X obj 529 71 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 529 110 s \$0.reset;
-#X obj 540 89 r \$1.reset;
-#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 #fcfcfc #fcfcfc
+#N canvas 677 626 1022 479 10;
+#X obj 769 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 769 261 s \$0.reset;
+#X obj 780 240 r \$1.reset;
+#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 -262144 -262144
 0;
-#X obj 550 20 cnv 32 70 32 empty \$0.glitch.label empty 8 16 0 20 #000000
-#fcfcfc 0;
-#X obj 623 20 cnv 32 70 32 empty \$0.ooo.label empty 8 16 0 20 #000000
-#fcfcfc 0;
-#X obj 404 20 cnv 32 70 32 empty \$0.channels.label empty 8 16 0 20
-#000000 #fcfcfc 0;
 #N canvas 178 300 307 328 set.out.channels 0;
 #X obj 31 25 loadbang;
 #X msg 31 45 8;
@@ -67,12 +61,6 @@
 ;
 #X obj 369 20 tpf-client-button32x32 \$0.rx.switch.s \$0.rx.switch.r
 ;
-#X obj 404 25 nbx 4 20 0 9999 0 0 \$0.delay.nb.s \$0.delay.nb.r empty
-0 -8 0 20 #000000 #000000 #000000 0 256;
-#X obj 475 20 cnv 10 10 32 empty empty empty 20 12 0 14 #fcfcfc #404040
-0;
-#X obj 477 20 cnv 32 70 32 empty \$0.dropped.label empty 8 16 0 20
-#000000 #fcfcfc 0;
 #N canvas 459 427 652 267 delay- 0;
 #X obj 512 46 r \$0.delay;
 #X obj 24 57 inlet~;
@@ -195,36 +183,37 @@
 #X obj 533 373 r~ \$2.channel.7;
 #X obj 550 393 r~ \$2.channel.8;
 #X obj 350 22 vsl 16 11 0 127 0 0 \$0.arrow.up \$0.arrow.up.r ▲ 5
-4 0 14 #000000 #000000 #202020 0 1;
+4 0 14 -1 -1 -33289 0 1;
 #X obj 350 39 vsl 16 10 0 127 0 0 \$0.arrow.down \$0.arrow.down.r ▼
-5 5 0 14 #000000 #000000 #202020 0 1;
+5 5 0 14 -1 -1 -33289 0 1;
 #X obj 58 20 hsl 290 32 0 127 0 0 \$0.client.reset empty empty -2 -8
-0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 #000000
-#a0a0a0 0;
+0 10 -262144 -1 -1 0 1;
+#X obj 55 20 cnv 32 295 32 empty \$0.client.label empty 8 16 0 20 -1
+-166441 0;
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 246 275 s \$0.from.aoo.r;
 #X obj 21 161 r \$0.to.aoo.r;
 #X obj 21 211 aoo_receive~ 0 \$2 8, f 38;
+#X obj 404 20 tpf-client-link-panel \$1 \$2 \$0;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
-#X connect 7 0 9 0;
-#X connect 31 0 9 0;
-#X connect 32 0 9 1;
-#X connect 33 0 9 2;
-#X connect 34 0 9 3;
-#X connect 35 0 9 4;
-#X connect 36 0 9 5;
-#X connect 37 0 9 6;
-#X connect 38 0 9 7;
-#X connect 45 0 46 0;
-#X connect 46 0 23 0;
-#X connect 46 1 24 0;
-#X connect 46 2 25 0;
-#X connect 46 3 26 0;
-#X connect 46 4 27 0;
-#X connect 46 5 28 0;
-#X connect 46 6 29 0;
-#X connect 46 7 30 0;
-#X connect 46 8 44 0;
+#X connect 4 0 6 0;
+#X connect 25 0 6 0;
+#X connect 26 0 6 1;
+#X connect 27 0 6 2;
+#X connect 28 0 6 3;
+#X connect 29 0 6 4;
+#X connect 30 0 6 5;
+#X connect 31 0 6 6;
+#X connect 32 0 6 7;
+#X connect 39 0 40 0;
+#X connect 40 0 17 0;
+#X connect 40 1 18 0;
+#X connect 40 2 19 0;
+#X connect 40 3 20 0;
+#X connect 40 4 21 0;
+#X connect 40 5 22 0;
+#X connect 40 6 23 0;
+#X connect 40 7 24 0;
+#X connect 40 8 38 0;
 #X coords 0 -1 1 1 953 32 2 20 20;
