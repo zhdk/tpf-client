@@ -1,25 +1,26 @@
-#N canvas 907 540 719 510 10;
-#X obj 20 20 cnv 8 289 32 empty empty empty 20 12 0 14 -1 -66577 0
-;
-#X obj 128 20 cnv 15 100 16 empty \$0.format.label format=opus 3 9
-0 12 -1 -1 0;
-#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label fs=120 3 9 0 12 -1
--1 0;
-#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=48000 3 9 0 12 -1
--1 0;
-#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label type=lowdelay 3
-9 0 12 -1 -1 0;
-#X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 -262144 -66577
+#N canvas 850 478 947 682 10;
+#X obj 20 20 cnv 8 289 32 empty empty empty 20 12 0 14 #000000 #404040
+0;
+#X obj 128 20 cnv 15 100 16 empty \$0.format.label format=pcm 3 9 0
+12 #000000 #000000 0;
+#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label fs=64 3 9 0 12 #000000
+#000000 0;
+#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=48000 3 9 0 12 #000000
+#000000 0;
+#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label type=2 3 9 0 12
+#000000 #000000 0;
+#X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 #fcfcfc #404040
 0;
 #X obj 20 20 cnv 16 100 16 empty \$0.recvbuf.label recvbuf: 3 9 0 12
--1 -1 0;
+#000000 #000000 0;
 #X obj 80 20 nbx 3 14 2 999 0 0 \$0.recvbuf.s \$0.recvbuf.r empty 0
--8 0 12 -1 -1 -1 962 256;
-#X obj 20 36 cnv 16 100 16 empty \$0.delay.label delay: 3 9 0 12 -1
--1 0;
+-8 0 12 #000000 #000000 #000000 0 256;
+#X obj 20 36 cnv 16 100 16 empty \$0.delay.label delay: 3 9 0 12 #000000
+#000000 0;
 #X obj 80 36 nbx 3 14 0 999 0 0 \$0.delay.s \$0.delay.r empty 0 -8
-0 12 -1 -1 -1 32 256;
-#X obj 81 20 cnv 4 6 32 empty empty empty 0 12 0 14 -1 -66577 0;
+0 12 #000000 #000000 #000000 0 256;
+#X obj 81 20 cnv 4 6 32 empty empty empty 0 12 0 14 #000000 #404040
+0;
 #X obj 26 441 s \$0.recvbuf.label;
 #X obj 19 464 s \$0.delay.label;
 #X obj 38 396 s \$0.recvbuf.r;
@@ -42,16 +43,29 @@
 #X obj 98 174 route start stop format;
 #X msg 36 221 1;
 #X msg 71 223 0;
-#X obj 393 241 list;
-#X obj 393 264 t a a a a, f 35;
-#X obj 393 470 s \$0.format.label;
-#X obj 462 415 s \$0.type.bd.label;
-#X obj 531 368 s \$0.fs.bs.label;
-#X obj 600 315 s \$0.sr.label;
-#X msg 393 445 label format=\$1;
-#X msg 462 392 label type=\$5;
-#X msg 531 344 label fs=\$3;
-#X msg 600 288 label sr=\$4;
+#X obj 393 211 list;
+#X obj 393 590 s \$0.format.label;
+#X obj 467 541 s \$0.type.bd.label;
+#X obj 541 497 s \$0.fs.bs.label;
+#X obj 615 451 s \$0.sr.label;
+#X msg 393 565 label format=\$1;
+#X msg 615 424 label sr=\$4;
+#X obj 393 234 t a a a a a, f 50;
+#X msg 689 287 symbol \$1;
+#X obj 689 310 select pcm opus;
+#X obj 467 393 list append;
+#X obj 467 306 route float;
+#X obj 467 328 * 8;
+#X msg 536 336 symbol bd;
+#X msg 546 359 symbol type;
+#X obj 541 419 list append;
+#X msg 638 364 symbol bs;
+#X msg 648 387 symbol fs;
+#X msg 467 261 \$5;
+#X obj 467 285 list;
+#X msg 467 518 label \$2=\$1;
+#X msg 541 473 label \$2=\$1;
+#X msg 541 284 \$3;
 #X connect 15 0 17 0;
 #X connect 16 0 17 0;
 #X connect 17 0 11 0;
@@ -77,13 +91,31 @@
 #X connect 30 2 33 0;
 #X connect 31 0 25 0;
 #X connect 32 0 25 0;
-#X connect 33 0 34 0;
-#X connect 34 0 39 0;
-#X connect 34 1 40 0;
-#X connect 34 2 41 0;
-#X connect 34 3 42 0;
-#X connect 39 0 35 0;
-#X connect 40 0 36 0;
-#X connect 41 0 37 0;
-#X connect 42 0 38 0;
+#X connect 33 0 40 0;
+#X connect 38 0 34 0;
+#X connect 39 0 37 0;
+#X connect 40 0 38 0;
+#X connect 40 1 51 0;
+#X connect 40 2 55 0;
+#X connect 40 3 39 0;
+#X connect 40 4 41 0;
+#X connect 41 0 42 0;
+#X connect 42 0 46 0;
+#X connect 42 0 49 0;
+#X connect 42 1 47 0;
+#X connect 42 1 50 0;
+#X connect 43 0 53 0;
+#X connect 44 0 45 0;
+#X connect 44 1 43 0;
+#X connect 45 0 43 0;
+#X connect 46 0 43 1;
+#X connect 47 0 43 1;
+#X connect 48 0 54 0;
+#X connect 49 0 48 1;
+#X connect 50 0 48 1;
+#X connect 51 0 52 0;
+#X connect 52 0 44 0;
+#X connect 53 0 35 0;
+#X connect 54 0 36 0;
+#X connect 55 0 48 0;
 #X coords 0 -1 1 1 289 32 2 20 20;
