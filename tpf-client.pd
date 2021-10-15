@@ -1,7 +1,7 @@
 #N canvas 0 0 964 386 10;
 #X declare -lib aoo -path ./include;
-#X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 #dcdcdc
-#000000 0;
+#X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
+0;
 #N canvas 0 485 993 375 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 #fcfcfc #000000 #000000 0 256;
@@ -180,14 +180,10 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
 0;
 #X obj 4 38 cnv 24 32 24 empty empty TX 5 13 0 16 #dcdcdc #000000 0
 ;
-#X obj 461 38 cnv 24 70 24 empty empty DROP 5 13 0 16 #dcdcdc #000000
-0;
-#X obj 534 38 cnv 24 70 24 empty empty GLITCH 5 13 0 16 #dcdcdc #000000
-0;
-#X obj 607 38 cnv 24 70 24 empty empty OOO 5 13 0 16 #dcdcdc #000000
+#X obj 493 38 cnv 24 184 24 empty empty FORMAT 5 13 0 16 #dcdcdc #000000
 0;
 #X obj 764 348 namecanvas \$0.main.cnv;
-#X obj 388 38 cnv 24 70 24 empty empty DELAY 5 13 0 16 #dcdcdc #000000
+#X obj 388 38 cnv 24 102 24 empty empty PARAMS 5 13 0 16 #dcdcdc #000000
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 #dcdcdc #000000
 0;
