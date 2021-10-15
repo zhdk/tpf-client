@@ -79,21 +79,9 @@ txtclr float boxclr float bgclr symbol label;
 0;
 #X obj 453 75 vmenu \$1.bitrate.gui 34 16 32 48 64 96 128 160 auto
 max;
-#X obj 33 474 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
-0;
-#X obj 103 477 nbx 5 14 2 1000 0 0 \$1.recvbuf \$1.recvbuf.gui empty
-0 -8 0 10 #fcfcfc #000000 #000000 13 256;
-#X obj 103 474 cnv 15 60 20 empty \$1.recvbuf.label 13ms 2 12 0 12
-#ffffff #000000 0;
 #X msg 638 426 label \$1ms;
 #X obj 638 396 int;
 #X obj 638 452 s \$1.recvbuf.label;
-#X obj 33 224 cnv 15 30 20 empty empty recvbuf: 0 12 0 12 #e0e0e0 #000000
-0;
-#X obj 103 227 nbx 5 14 2 1000 0 0 \$1.recvbuf \$1.recvbuf.gui empty
-0 -8 0 10 #fcfcfc #000000 #000000 13 256;
-#X obj 103 224 cnv 15 60 20 empty \$1.recvbuf.label 13ms 2 12 0 12
-#ffffff #000000 0;
 #X obj 103 355 hmenu \$1.blocksize.gui 28 32 64 96 128 192 256 512
 ;
 #X obj 103 105 hmenu \$1.framesize.gui 34 120 240 480 960 1920 2880
@@ -106,22 +94,22 @@ max;
 88200 96000;
 #X obj 363 304 cnv 15 30 20 empty empty samplerate: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 203 474 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
+#X obj 33 474 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 293 477 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 1451 256;
-#X obj 293 474 cnv 15 60 20 empty \$1.packetsize.label 1451 2 12 0
+#X obj 123 477 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
+empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
+#X obj 123 474 cnv 15 60 20 empty \$1.packetsize.label 1450 2 12 0
 12 #ffffff #000000 0;
 #X obj 768 396 int;
 #X obj 768 476 s \$1.packetsize.label;
 #X obj 768 419 list append;
 #X obj 861 403 loadbang;
 #X msg 861 426 symbol;
-#X obj 203 224 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
+#X obj 33 224 cnv 15 30 20 empty empty packetsize: 0 12 0 12 #e0e0e0
 #000000 0;
-#X obj 293 227 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
-empty 0 -8 0 10 #fcfcfc #000000 #000000 1451 256;
-#X obj 293 224 cnv 15 60 20 empty \$1.packetsize.label 1451 2 12 0
+#X obj 123 227 nbx 5 14 200 10000 0 0 \$1.packetsize \$1.packetsize.gui
+empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
+#X obj 123 224 cnv 15 60 20 empty \$1.packetsize.label 1450 2 12 0
 12 #ffffff #000000 0;
 #X msg 768 449 label \$1\$2;
 #X obj 768 371 r \$1.packetsize;
@@ -139,30 +127,30 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 1451 256;
 #X connect 8 0 21 0;
 #X connect 15 0 16 0;
 #X connect 16 0 7 0;
-#X connect 16 0 68 0;
+#X connect 16 0 62 0;
 #X connect 16 1 17 0;
 #X connect 17 0 16 1;
 #X connect 18 0 6 0;
-#X connect 18 0 67 0;
+#X connect 18 0 61 0;
 #X connect 18 1 19 0;
 #X connect 19 0 18 1;
 #X connect 20 0 18 0;
 #X connect 21 0 10 0;
-#X connect 40 0 42 0;
-#X connect 41 0 40 0;
-#X connect 56 0 58 0;
-#X connect 58 0 64 0;
-#X connect 59 0 60 0;
-#X connect 60 0 58 1;
-#X connect 64 0 57 0;
-#X connect 65 0 56 0;
-#X connect 66 0 41 0;
-#X connect 67 0 69 0;
-#X connect 68 0 69 0;
-#X connect 69 0 70 0;
-#X connect 70 0 71 0;
-#X connect 72 0 73 0;
-#X connect 73 0 74 0;
-#X connect 74 0 6 0;
-#X connect 74 1 7 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 50 0 52 0;
+#X connect 52 0 58 0;
+#X connect 53 0 54 0;
+#X connect 54 0 52 1;
+#X connect 58 0 51 0;
+#X connect 59 0 50 0;
+#X connect 60 0 38 0;
+#X connect 61 0 63 0;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
+#X connect 64 0 65 0;
+#X connect 66 0 67 0;
+#X connect 67 0 68 0;
+#X connect 68 0 6 0;
+#X connect 68 1 7 0;
 #X coords 0 -1 1 1 580 240 2 20 270;

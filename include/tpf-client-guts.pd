@@ -490,8 +490,8 @@
 #X obj 291 200 t b b;
 #X msg 318 222 32;
 #X obj 318 243 makefilename %c;
-#X obj 309 130 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 309 130 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #N canvas 1136 447 521 398 wrap 0;
 #X obj 17 8 inlet;
 #X obj 44 345 outlet;
@@ -1155,17 +1155,16 @@
 #X obj 195 91 tpf-settings-param \$1 name;
 #X obj 195 111 tpf-settings-param \$1 port;
 #X obj 195 131 tpf-settings-param \$1 channels;
-#X obj 195 151 tpf-settings-param \$1 recvbuf;
-#X obj 195 171 tpf-settings-param \$1 samplerate;
-#X obj 195 191 tpf-settings-param \$1 codec;
-#X obj 195 211 tpf-settings-param \$1 blocksize;
-#X obj 195 231 tpf-settings-param \$1 bitdepth;
-#X obj 195 251 tpf-settings-param \$1 packetsize;
-#X obj 195 271 tpf-settings-param \$1 framesize;
-#X obj 195 291 tpf-settings-param \$1 quality;
-#X obj 195 311 tpf-settings-param \$1 bitrate;
-#X obj 195 331 tpf-settings-param \$1 signal;
-#X obj 195 351 tpf-settings-param \$1 usage;
+#X obj 195 151 tpf-settings-param \$1 samplerate;
+#X obj 195 171 tpf-settings-param \$1 codec;
+#X obj 195 191 tpf-settings-param \$1 blocksize;
+#X obj 195 211 tpf-settings-param \$1 bitdepth;
+#X obj 195 231 tpf-settings-param \$1 packetsize;
+#X obj 195 251 tpf-settings-param \$1 framesize;
+#X obj 195 271 tpf-settings-param \$1 quality;
+#X obj 195 291 tpf-settings-param \$1 bitrate;
+#X obj 195 311 tpf-settings-param \$1 signal;
+#X obj 195 331 tpf-settings-param \$1 usage;
 #X obj 195 14 r \$1.intercom;
 #X obj 624 132 route peer_swap_response modified_flag;
 #X connect 0 0 2 0;
@@ -1185,7 +1184,7 @@
 #X connect 15 0 16 0;
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
-#X connect 20 0 41 0;
+#X connect 20 0 40 0;
 #X connect 21 0 22 0;
 #X connect 22 0 23 0;
 #X connect 24 0 25 0;
@@ -1202,10 +1201,9 @@
 #X connect 35 0 36 0;
 #X connect 36 0 37 0;
 #X connect 37 0 38 0;
-#X connect 38 0 39 0;
-#X connect 40 0 24 0;
-#X connect 41 0 15 0;
-#X connect 41 1 15 0;
+#X connect 39 0 24 0;
+#X connect 40 0 15 0;
+#X connect 40 1 15 0;
 #X restore 8 137 pd settings.code;
 #N canvas 220 217 559 377 peers 0;
 #X obj 23 22 r \$1.receive;
