@@ -39,10 +39,10 @@
 #000000 0 1;
 #X msg 609 122 ---------------------------------;
 #X obj 609 143 print -n;
-#N canvas 527 553 310 188 latency 0;
+#N canvas 652 611 310 188 latency 0;
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
 0;
-#X obj 170 83 nbx 2 20 0 63 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
+#X obj 170 83 nbx 2 20 1 64 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
 0 -8 0 20 #000000 #fcfcfc #000000 0 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
@@ -52,8 +52,8 @@
 #000000 0;
 #X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
 #000000 0;
-#X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level \ \ 0dB 8 16 0
-20 #000000 #fcfcfc 0;
+#X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level \ 76dB 8 16 0 20
+#000000 #fcfcfc 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
 0;
 #X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 #000000
