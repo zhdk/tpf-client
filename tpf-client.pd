@@ -2,7 +2,7 @@
 #X declare -lib aoo -path osc -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 #dcdcdc
 #000000 0;
-#N canvas 0 485 993 354 code 0;
+#N canvas 0 485 993 375 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 #fcfcfc #000000 #000000 0 256;
 #X text 249 150 my_id;
@@ -63,7 +63,7 @@
 #X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0
 #000000 0;
 #X obj 170 48 nbx 2 20 1 10 0 0 \$0.lat.period \$0.lat.period.r empty
-0 -8 0 20 #000000 #fcfcfc #000000 1 256;
+0 -8 0 20 #000000 #fcfcfc #000000 0 256;
 #X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
 0;
 #X restore 132 240 pd latency;
@@ -141,8 +141,8 @@
 #000000 0 1;
 #X obj 15 48 tpf-client-guts \$0;
 #X obj 415 42 r \$0.reset.s;
-#X msg 359 279 \; \$1.load.settings bang \;;
-#X obj 359 256 f \$0;
+#X msg 359 329 \; \$1.load.settings bang \;;
+#X obj 359 306 f \$0;
 #X obj 8 8 declare -lib aoo -path osc -path ./include;
 #X obj 359 31 t b b b;
 #N canvas 593 229 380 213 port 0;
@@ -157,8 +157,11 @@
 #X connect 4 0 2 0;
 #X restore 430 20 pd port;
 #X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
-symbol <servername> \; \$1.room symbol public \; \$1.port 3025 \; \$1.channels
-2 \; \$1.bitres 16 \; \$1.recvbuf 14 \; \$1.blocksize 128 \;;
+symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
+\$1.channels 2 \; \$1.codec symbol pcm \; \$1.blocksize 64 \; \$1.bitdepth
+16 \; \$1.packetsize 1450 \; \$1.framesize 120 \; \$1.quality 10 \;
+\$1.bitrate 96 \; \$1.signal symbol music \; \$1.usage symbol lowdelay
+\;;
 #X connect 3 0 19 0;
 #X connect 4 0 2 0;
 #X connect 5 0 28 0;
