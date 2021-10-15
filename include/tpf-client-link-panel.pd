@@ -3,11 +3,11 @@
 0;
 #X obj 128 20 cnv 15 100 16 empty \$0.format.label format=pcm 3 9 0
 12 #000000 #000000 0;
-#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label fs=64 3 9 0 12 #000000
+#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label bs=64 3 9 0 12 #000000
 #000000 0;
-#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=48000 3 9 0 12 #000000
+#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=44100 3 9 0 12 #000000
 #000000 0;
-#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label type=2 3 9 0 12
+#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label bd=16 3 9 0 12
 #000000 #000000 0;
 #X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 #fcfcfc #404040
 0;
@@ -66,6 +66,18 @@
 #X msg 467 518 label \$2=\$1;
 #X msg 541 473 label \$2=\$1;
 #X msg 541 284 \$3;
+#N canvas 999 500 436 160 recvbuf 0;
+#X msg 10 32 bufsize \$1;
+#X obj 10 55 s \$3.to.aoo.r;
+#X obj 10 12 r \$0.recvbuf.s;
+#X obj 110 57 s \$0.recvbuf.r;
+#X obj 110 10 loadbang;
+#X msg 110 33 12;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X restore 361 28 pd recvbuf;
 #X connect 15 0 17 0;
 #X connect 16 0 17 0;
 #X connect 17 0 11 0;

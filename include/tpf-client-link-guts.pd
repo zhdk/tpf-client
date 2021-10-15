@@ -652,13 +652,6 @@ immediately without confirmation (before we dealt with that situation
 #X connect 50 0 21 0;
 #X connect 51 0 28 0;
 #X restore 13 65 pd init.connection;
-#N canvas 0 103 350 109 recvbuf 0;
-#X obj 10 12 r \$1.recvbuf;
-#X msg 10 35 bufsize \$1;
-#X obj 10 58 s \$3.to.aoo.r;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X restore 13 165 pd recvbuf;
 #N canvas 277 523 1094 427 gui.code 0;
 #X obj 744 19 r \$3.reset;
 #X obj 811 38 sel 0;
