@@ -1,5 +1,5 @@
 #N canvas 0 0 964 386 10;
-#X declare -lib aoo -path osc -path ./include;
+#X declare -lib aoo -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERNODES 5 13 0 16 #dcdcdc
 #000000 0;
 #N canvas 0 485 993 375 code 0;
@@ -143,7 +143,7 @@
 #X obj 415 42 r \$0.reset.s;
 #X msg 359 329 \; \$1.load.settings bang \;;
 #X obj 359 306 f \$0;
-#X obj 8 8 declare -lib aoo -path osc -path ./include;
+#X obj 8 8 declare -lib aoo -path ./include;
 #X obj 359 31 t b b b;
 #N canvas 593 229 380 213 port 0;
 #X obj 45 122 s \$0.send;
