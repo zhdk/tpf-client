@@ -1,4 +1,4 @@
-#N canvas 0 0 964 386 10;
+#N canvas 0 0 967 387 10;
 #X declare -lib aoo -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
@@ -174,7 +174,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
 #X connect 28 0 26 0;
 #X connect 28 1 6 0;
 #X connect 28 2 29 0;
-#X restore 867 350 pd code;
+#X restore 621 352 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 #dcdcdc #000000
 0;
@@ -182,7 +182,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
 ;
 #X obj 493 38 cnv 24 184 24 empty empty FORMAT 5 13 0 16 #dcdcdc #000000
 0;
-#X obj 764 348 namecanvas \$0.main.cnv;
+#X obj 817 350 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 102 24 empty empty PARAMS 5 13 0 16 #dcdcdc #000000
 0;
 #X obj 680 38 cnv 24 32 24 empty empty 1 10 13 0 16 #dcdcdc #000000
@@ -220,9 +220,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
 #X obj 4 240 tpf-client-link \$0 6;
 #X obj 4 275 tpf-client-link \$0 7;
 #X obj 4 310 tpf-client-link \$0 8;
-#X obj 925 345 tpf-client-testsignal-outchannel \$0 8 1;
-#X obj 730 345 cnv 15 192 32 empty empty empty 20 12 0 14 #fcfcfc #404040
-0;
+#X obj 680 345 tpf-client-testsignal-outchannel \$0 8 1;
 #X obj 266 345 tpf-client-button Latency \$0.display.latency;
 #X obj 397 345 tpf-client-button Messages \$0.display.messages \$0.display.messages.r
 ;
@@ -236,3 +234,7 @@ symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
 #000000 #fcfcfc 0;
+#X obj 528 345 cnv 32 149 32 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 715 345 cnv 32 242 32 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
