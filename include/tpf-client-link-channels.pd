@@ -1,4 +1,5 @@
-#N canvas 235 450 443 252 10;
+#N canvas 235 450 531 205 10;
+#N canvas 225 837 463 313 \$0.gop 0;
 #X obj 20 200 cnv 15 279 32 empty empty empty 20 12 0 14 #ffffff #404040
 0;
 #X obj 22 200 tpf-client-outchannel \$3 \$2 1;
@@ -23,3 +24,5 @@
 #X connect 9 8 11 0;
 #X connect 10 0 9 0;
 #X coords 0 -1 1 1 279 32 2 20 200;
+#X restore 20 20 pd \$0.gop;
+#X coords 0 -1 1 1 279 32 2 20 20;
