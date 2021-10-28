@@ -1,0 +1,13 @@
+#N canvas 46 321 558 238 12;
+#N canvas 1434 543 341 121 \$0.gop 0;
+#X obj 20 20 tpf-client-inchannel \$0 1;
+#X obj 55 20 tpf-client-inchannel \$0 2;
+#X obj 90 20 tpf-client-inchannel \$0 3;
+#X obj 125 20 tpf-client-inchannel \$0 4;
+#X obj 160 20 tpf-client-inchannel \$0 5;
+#X obj 195 20 tpf-client-inchannel \$0 6;
+#X obj 230 20 tpf-client-inchannel \$0 7;
+#X obj 265 20 tpf-client-inchannel \$0 8;
+#X coords 0 -1 1 1 279 59 1 20 20;
+#X restore 20 20 pd \$0.gop;
+#X coords 0 -1 1 1 279 59 2 20 20;

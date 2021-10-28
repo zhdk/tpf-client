@@ -1,6 +1,4 @@
-#N canvas 211 155 345 444 10;
-#X obj 20 20 cnv 32 32 32 empty \$0.led.r \$2 21 10 0 14 #e0e0e0 #fcfcfc
-0;
+#N canvas 211 155 660 479 10;
 #X obj 68 385 s \$0.led.r;
 #X msg 68 365 color \$1 0 30;
 #X obj 68 154 max 0;
@@ -24,27 +22,33 @@
 #X obj 189 131 t a a a;
 #X obj 68 85 spigot;
 #X obj 189 108 >= \$2;
-#X connect 2 0 1 0;
-#X connect 3 0 9 0;
+#X obj 20 20 cnv 24 34 59 empty empty empty 10 13 0 16 #ffffff #000000
+0;
+#X obj 22 20 cnv 32 32 32 empty \$0.led.r \$2 21 10 0 14 #e0e0e0 #fcfcfc
+0;
+#X obj 22 55 cnv 24 32 24 empty empty \$2 10 13 0 16 #dcdcdc #000000
+0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 16 0;
-#X connect 7 0 4 0;
-#X connect 8 0 3 0;
-#X connect 9 0 10 0;
-#X connect 10 0 7 0;
+#X connect 5 0 15 0;
+#X connect 6 0 3 0;
+#X connect 7 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 10 0 21 0;
 #X connect 11 0 22 0;
-#X connect 12 0 23 0;
-#X connect 14 0 16 0;
-#X connect 15 0 14 0;
-#X connect 16 0 2 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 15 0 1 0;
+#X connect 16 0 17 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 19 0 20 0;
-#X connect 20 0 11 0;
-#X connect 21 0 15 0;
-#X connect 21 1 22 1;
-#X connect 21 2 13 0;
-#X connect 22 0 8 0;
-#X connect 23 0 21 0;
-#X coords 0 -1 1 1 32 32 2 20 20;
+#X connect 19 0 10 0;
+#X connect 20 0 14 0;
+#X connect 20 1 21 1;
+#X connect 20 2 12 0;
+#X connect 21 0 7 0;
+#X connect 22 0 20 0;
+#X coords 0 -1 1 1 34 59 2 20 20;
