@@ -1,4 +1,4 @@
-#N canvas 964 382 563 329 10;
+#N canvas 964 382 381 309 10;
 #N canvas 470 103 983 554 communication 0;
 #X msg 63 190 disconnect;
 #X obj 44 20 r \$1.connect;
@@ -1260,10 +1260,6 @@
 #X connect 20 0 21 0;
 #X connect 21 0 22 0;
 #X restore 8 35 pd peers;
-#X obj 296 22 adc~ 1 2 3 4 5 6 7 8, f 35;
-#X obj 296 113 s \$1.from.aoo.s;
-#X obj 306 50 r \$1.to.aoo.s;
-#X obj 296 82 aoo_send~ 0 0 8, f 35;
 #N canvas 0 103 520 554 format.code 0;
 #X obj 21 408 r \$1.packetsize;
 #N canvas 0 103 422 444 pcm.format 0;
@@ -1457,13 +1453,3 @@
 #X connect 10 0 5 0;
 #X connect 11 0 3 0;
 #X restore 8 262 pd info;
-#X connect 7 0 10 0;
-#X connect 7 1 10 1;
-#X connect 7 2 10 2;
-#X connect 7 3 10 3;
-#X connect 7 4 10 4;
-#X connect 7 5 10 5;
-#X connect 7 6 10 6;
-#X connect 7 7 10 7;
-#X connect 9 0 10 0;
-#X connect 10 0 8 0;
