@@ -1,0 +1,25 @@
+#N canvas 235 450 443 252 10;
+#X obj 20 200 cnv 15 279 32 empty empty empty 20 12 0 14 #ffffff #404040
+0;
+#X obj 22 200 tpf-client-outchannel \$3 \$2 1;
+#X obj 57 200 tpf-client-outchannel \$3 \$2 2;
+#X obj 92 200 tpf-client-outchannel \$3 \$2 3;
+#X obj 127 200 tpf-client-outchannel \$3 \$2 4;
+#X obj 162 200 tpf-client-outchannel \$3 \$2 5;
+#X obj 197 200 tpf-client-outchannel \$3 \$2 6;
+#X obj 232 200 tpf-client-outchannel \$3 \$2 7;
+#X obj 267 200 tpf-client-outchannel \$3 \$2 8;
+#X obj 18 58 aoo_receive~ 0 \$2 8, f 38;
+#X obj 18 19 r \$3.to.aoo.r;
+#X obj 243 89 s \$3.from.aoo.r;
+#X connect 9 0 1 0;
+#X connect 9 1 2 0;
+#X connect 9 2 3 0;
+#X connect 9 3 4 0;
+#X connect 9 4 5 0;
+#X connect 9 5 6 0;
+#X connect 9 6 7 0;
+#X connect 9 7 8 0;
+#X connect 9 8 11 0;
+#X connect 10 0 9 0;
+#X coords 0 -1 1 1 279 32 2 20 200;
