@@ -1,4 +1,4 @@
-#N canvas 677 626 1022 150 10;
+#N canvas 677 626 1213 150 10;
 #X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 #fcfcfc #fcfcfc
 0;
 #X obj 20 20 tpf-client-button32x32 \$0.tx.switch.s \$0.tx.switch.r
@@ -16,4 +16,5 @@
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 404 20 tpf-client-link-panel \$1 \$2 \$0;
 #X obj 694 20 tpf-client-link-channels \$1 \$2 \$0;
+#X obj 205 87 namecanvas \$0.top;
 #X coords 0 -1 1 1 953 32 2 20 20;
