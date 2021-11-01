@@ -1,10 +1,8 @@
-host tpf-server.zhdk.ch
+host <server\ hostname>
 room public
 name <your\ name>
 port 12043
 channels 2
-recvbuf 12
-samplerate 48000
 codec pcm
 blocksize 64
 bitdepth 16
@@ -14,11 +12,5 @@ quality 10
 bitrate 96
 signal music
 usage lowdelay
-peer_name 1 empty
-peer_name 2 empty
-peer_name 3 empty
-peer_name 4 empty
-peer_name 5 empty
-peer_name 6 empty
-peer_name 7 empty
-peer_name 8 empty
+layout maxchannels 8
+layout maxrows 8
