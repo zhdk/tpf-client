@@ -16,7 +16,7 @@ txtclr float boxclr float bgclr symbol label;
 txtclr float boxclr float bgclr symbol label;
 #N struct 1053.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N canvas 0 0 966 420 10;
+#N canvas 0 0 823 243 10;
 #X declare -lib aoo -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
@@ -74,7 +74,7 @@ txtclr float boxclr float bgclr symbol label;
 #N canvas 652 611 323 201 latency 0;
 #X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
 0;
-#X obj 170 83 nbx 2 20 1 64 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
+#X obj 170 83 nbx 2 20 1 16 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
 0 -8 0 20 #000000 #fcfcfc #000000 0 256;
 #X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
 ;
@@ -124,7 +124,7 @@ txtclr float boxclr float bgclr symbol label;
 #X text 10 7 VERSION 2.0-alpha1;
 #X restore 820 10 pd META;
 #X text 13 207 ======;
-#N canvas 75 106 636 523 settings 0;
+#N canvas -10 134 627 638 settings 0;
 #X obj 16 8 tpf-settings-panel \$0;
 #X restore 9 240 pd settings;
 #X text 603 11 PRINT DEBUG MESSAGES;
