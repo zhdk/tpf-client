@@ -16,5 +16,5 @@
 #X obj 23 87 tpf-client-link-guts \$1 \$2 \$0;
 #X obj 404 20 tpf-client-link-panel \$1 \$2 \$0;
 #X obj 694 20 tpf-client-link-channels \$1 \$2 \$0;
-#X obj 205 87 namecanvas \$0.top;
-#X coords 0 -1 1 1 953 32 2 20 20;
+#X obj 205 87 namecanvas \$1.\$2.link;
+#X coords 0 0 953 32 953 32 2 20 20;

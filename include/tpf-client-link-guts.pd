@@ -871,13 +871,13 @@ immediately without confirmation (before we dealt with that situation
 #N canvas 156 619 335 187 gop.expand 0;
 #X obj 13 20 r \$3.expand;
 #X msg 13 70 32 \$1;
-#X obj 13 120 s \$3.top;
 #X msg 13 95 coords 0 0 \$2 \$1 \$2 \$1 2 20 20;
 #X obj 13 44 + 674;
-#X connect 0 0 4 0;
-#X connect 1 0 3 0;
-#X connect 3 0 2 0;
-#X connect 4 0 1 0;
+#X obj 13 120 s \$1.\$2.link;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
 #X restore 14 148 pd gop.expand;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
