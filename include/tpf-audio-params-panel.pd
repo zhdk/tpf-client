@@ -1,10 +1,4 @@
-#N struct 1043.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1044.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1045.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1047.rectangle float id float x float y float w float h float
+#N struct 1046.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N struct 1048.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
@@ -15,6 +9,8 @@ txtclr float boxclr float bgclr symbol label;
 #N struct 1051.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N struct 1052.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1053.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N canvas 258 103 1193 590 10;
 #X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -49,9 +45,7 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 700 205 t a;
 #X obj 662 175 r \$0.opus;
 #X msg 652 295 coords 0 -1 1 1 580 240 2 20 \$1;
-#X obj 103 315 hmenu \$1.channels.gui 20 1 2 3 4 5 6 7 8;
 #X obj 103 395 hmenu \$1.bitdepth.gui 26 16 24 32 64;
-#X obj 103 65 hmenu \$1.channels.gui 20 1 2 3 4 5 6 7 8;
 #X obj 33 314 cnv 15 30 20 empty empty channels: 0 12 0 12 #e0e0e0
 #000000 0;
 #X obj 33 354 cnv 15 30 20 empty empty blocksize: 0 12 0 12 #e0e0e0
@@ -73,9 +67,6 @@ txtclr float boxclr float bgclr symbol label;
 0;
 #X obj 383 75 vmenu \$1.bitrate.gui 34 16 32 48 64 96 128 160 auto
 max;
-#X msg 638 426 label \$1ms;
-#X obj 638 396 int;
-#X obj 638 452 s \$1.recvbuf.label;
 #X obj 103 355 hmenu \$1.blocksize.gui 28 32 64 96 128 192 256 512
 ;
 #X obj 103 105 hmenu \$1.framesize.gui 34 120 240 480 960 1920 2880
@@ -105,7 +96,6 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 12 #ffffff #000000 0;
 #X msg 768 449 label \$1\$2;
 #X obj 768 371 r \$1.packetsize;
-#X obj 638 373 r \$1.recvbuf;
 #X msg 836 131 opus;
 #X msg 903 129 pcm;
 #X obj 836 168 symbol;
@@ -125,42 +115,62 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X obj 951 440 list append;
 #X msg 951 470 label \$1\$2;
 #X obj 951 497 s \$1.samplerate.label;
+#X obj 105 317 nbx 5 14 1 12 0 0 \$1.channels \$1.channels.gui empty
+0 -8 0 10 #fcfcfc #000000 #000000 0 256;
+#X obj 103 315 cnv 15 60 20 empty \$1.channels.label 12 4 12 0 12 #ffffff
+#000000 0;
+#X obj 621 400 int;
+#X obj 621 423 list append;
+#X msg 621 453 label \$1\$2;
+#X obj 621 375 r \$1.channels;
+#X obj 621 480 s \$1.channels.label;
+#X obj 622 556 s \$1.channels.gui;
+#X obj 622 507 r \$1.maxchannels;
+#X msg 622 530 range 1 \$1;
+#X obj 105 67 nbx 5 14 1 12 0 0 \$1.channels \$1.channels.gui empty
+0 -8 0 10 #fcfcfc #000000 #000000 0 256;
+#X obj 103 65 cnv 15 60 20 empty \$1.channels.label 12 4 12 0 12 #ffffff
+#000000 0;
 #X connect 6 0 8 0;
 #X connect 7 0 8 0;
 #X connect 8 0 21 0;
 #X connect 15 0 16 0;
 #X connect 16 0 7 0;
-#X connect 16 0 60 0;
+#X connect 16 0 54 0;
 #X connect 16 1 17 0;
 #X connect 17 0 16 1;
 #X connect 18 0 6 0;
-#X connect 18 0 59 0;
+#X connect 18 0 53 0;
 #X connect 18 1 19 0;
 #X connect 19 0 18 1;
 #X connect 20 0 18 0;
 #X connect 21 0 10 0;
-#X connect 36 0 38 0;
-#X connect 37 0 36 0;
-#X connect 48 0 50 0;
-#X connect 50 0 56 0;
-#X connect 51 0 52 0;
-#X connect 52 0 50 1;
-#X connect 52 0 73 1;
-#X connect 56 0 49 0;
-#X connect 57 0 48 0;
-#X connect 58 0 37 0;
-#X connect 59 0 61 0;
-#X connect 60 0 61 0;
-#X connect 61 0 62 0;
-#X connect 62 0 63 0;
+#X connect 43 0 45 0;
+#X connect 45 0 51 0;
+#X connect 46 0 47 0;
+#X connect 47 0 45 1;
+#X connect 47 0 67 1;
+#X connect 47 0 73 1;
+#X connect 51 0 44 0;
+#X connect 52 0 43 0;
+#X connect 53 0 55 0;
+#X connect 54 0 55 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 60 0 6 0;
+#X connect 60 1 7 0;
+#X connect 63 0 64 0;
 #X connect 64 0 65 0;
 #X connect 65 0 66 0;
-#X connect 66 0 6 0;
-#X connect 66 1 7 0;
-#X connect 69 0 70 0;
-#X connect 70 0 71 0;
-#X connect 71 0 72 0;
+#X connect 66 0 67 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
 #X connect 72 0 73 0;
 #X connect 73 0 74 0;
-#X connect 74 0 75 0;
-#X coords 0 -1 1 1 580 240 2 20 20;
+#X connect 74 0 76 0;
+#X connect 75 0 72 0;
+#X connect 78 0 79 0;
+#X connect 79 0 77 0;
+#X coords 0 -1 1 1 580 240 2 20 270;
