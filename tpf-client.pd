@@ -1,8 +1,26 @@
+#N struct 1043.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1044.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1045.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1046.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1047.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1048.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1049.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1050.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1051.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
 #N canvas 0 0 964 381 10;
 #X declare -lib aoo -path ./include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
-#N canvas 0 485 993 375 code 0;
+#N canvas 0 485 896 280 code 0;
 #X obj 189 149 nbx 5 14 -1e+37 1e+37 0 0 \$0.bla \$0.id empty 0 -8
 0 10 #fcfcfc #000000 #000000 0 256;
 #X text 249 150 my_id;
@@ -10,8 +28,7 @@
 #X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X msg 191 183 /reset/clients;
-#X obj 359 8 loadbang;
-#X obj 378 66 f \$0;
+#X obj 297 12 loadbang;
 #N canvas 978 106 787 374 chat 0;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
@@ -140,40 +157,15 @@
 #X obj 801 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 15 48 tpf-client-guts \$0;
-#X obj 415 42 r \$0.reset.s;
-#X msg 359 329 \; \$1.load.settings bang \;;
-#X obj 359 306 f \$0;
 #X obj 8 8 declare -lib aoo -path ./include;
-#X obj 359 31 t b b b;
-#N canvas 593 229 380 213 port 0;
-#X obj 45 122 s \$0.send;
-#X obj 45 27 inlet;
-#X obj 45 76 + 32768;
-#X msg 45 99 port \$1;
-#X obj 45 53 seeded-random 32768;
-#X connect 1 0 4 0;
-#X connect 2 0 3 0;
-#X connect 3 0 0 0;
+#X obj 297 35 s \$0.init;
+#X text 353 11 loadbang from main patch fires last;
+#X connect 3 0 18 0;
 #X connect 4 0 2 0;
-#X restore 430 20 pd port;
-#X msg 378 88 \; pd dsp 1 \; \$1.name symbol <yourname> \; \$1.host
-symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \;
-\$1.channels 2 \; \$1.codec symbol pcm \; \$1.blocksize 64 \; \$1.bitdepth
-16 \; \$1.packetsize 1450 \; \$1.framesize 120 \; \$1.quality 10 \;
-\$1.bitrate 96 \; \$1.signal symbol music \; \$1.usage symbol lowdelay
-\;;
-#X connect 3 0 19 0;
-#X connect 4 0 2 0;
-#X connect 5 0 28 0;
-#X connect 6 0 30 0;
-#X connect 8 0 20 0;
-#X connect 9 0 10 0;
-#X connect 22 0 21 0;
-#X connect 24 0 6 0;
-#X connect 26 0 25 0;
-#X connect 28 0 26 0;
-#X connect 28 1 6 0;
-#X connect 28 2 29 0;
+#X connect 5 0 24 0;
+#X connect 7 0 19 0;
+#X connect 8 0 9 0;
+#X connect 21 0 20 0;
 #X restore 621 352 pd code;
 #X obj 4 65 tpf-client-link \$0 1;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 #dcdcdc #000000
