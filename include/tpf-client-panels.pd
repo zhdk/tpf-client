@@ -1,0 +1,42 @@
+#N canvas 514 274 1039 233 10;
+#X obj 20 20 cnv 20 710 32 empty empty empty 20 12 0 14 #ffffff #404040
+0;
+#X obj 151 20 tpf-client-button Chat \$1.display.chat \$1.display.chat.r
+;
+#X obj 696 20 tpf-client-testsignal-outchannel \$1 8 1;
+#X obj 282 20 tpf-client-button Latency \$1.display.latency;
+#X obj 413 20 tpf-client-button Messages \$1.display.messages \$1.display.messages.r
+;
+#X obj 20 20 tpf-client-button Settings \$1.display.settings \$1.display.settings.r
+;
+#X obj 731 20 cnv 32 102 32 empty \$0.filler empty 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 544 20 cnv 32 149 32 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 21 64 namecanvas \$1.panels;
+#N canvas 628 571 407 297 gop.resize 0;
+#X obj 30 26 inlet;
+#X obj 30 62 * 35;
+#X msg 30 190 coords 0 0 \$2 \$1 \$2 \$1 2 20 20;
+#X msg 30 165 32 \$1;
+#X obj 30 235 s \$1.panels;
+#X obj 30 132 + 673;
+#X obj 192 145 s \$0.filler;
+#X msg 192 118 vis_size \$1 32;
+#X obj 30 85 t a a;
+#X obj 192 63 - 38;
+#X obj 192 89 max 32;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 8 1 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X restore 30 144 pd gop.resize;
+#X obj 30 118 r \$1.maxchannels;
+#X connect 10 0 9 0;
+#X coords 0 0 813 32 813 32 2 20 20;
