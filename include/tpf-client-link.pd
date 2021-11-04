@@ -1,5 +1,5 @@
 #N canvas 677 626 1213 150 10;
-#X obj 20 20 cnv 32 953 32 empty empty empty 8 16 0 20 #fcfcfc #fcfcfc
+#X obj 20 20 cnv 32 676 32 empty empty empty 8 16 0 20 #ffffff #fcfcfc
 0;
 #X obj 20 20 tpf-client-button32x32 \$0.tx.switch.s \$0.tx.switch.r
 ;
