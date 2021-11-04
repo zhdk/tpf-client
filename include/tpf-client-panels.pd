@@ -3,7 +3,7 @@
 0;
 #X obj 151 20 tpf-client-button Chat \$1.display.chat \$1.display.chat.r
 ;
-#X obj 696 20 tpf-client-testsignal-outchannel \$1 8 1;
+#X obj 696 20 tpf-client-testsignal-outchannel \$1 \$2 1;
 #X obj 282 20 tpf-client-button Latency \$1.display.latency;
 #X obj 413 20 tpf-client-button Messages \$1.display.messages \$1.display.messages.r
 ;
