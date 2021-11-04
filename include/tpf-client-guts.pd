@@ -252,11 +252,13 @@
 #X obj 95 101 r \$1.codec.gui;
 #X obj 72 157 b;
 #X obj 73 181 del 40;
-#X connect 0 0 4 0;
+#X obj 72 127 route selected;
+#X connect 0 0 6 0;
 #X connect 1 0 2 0;
-#X connect 3 0 4 0;
+#X connect 3 0 6 0;
 #X connect 4 0 5 0;
 #X connect 5 0 1 0;
+#X connect 6 0 4 0;
 #X restore 9 94 pd suppress.artefacts;
 #X restore 8 130 pd gui.code;
 #N canvas 472 277 992 567 chat.code 0;
