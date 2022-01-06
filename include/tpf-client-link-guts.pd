@@ -888,7 +888,7 @@ immediately without confirmation (before we dealt with that situation
 #X connect 7 0 4 0;
 #X connect 13 0 1 0;
 #X restore 13 140 pd gui.code;
-#N canvas 647 337 821 483 persist.params 0;
+#N canvas 647 337 1154 483 persist.params 0;
 #X obj 281 79 r \$3.peer.name;
 #X obj 238 79 symbol;
 #X obj 13 29 route fetch_settings;
@@ -921,7 +921,7 @@ immediately without confirmation (before we dealt with that situation
 #X obj 493 362 s \$3.peer.name;
 #X obj 443 391 s \$3.recvbuf;
 #X obj 394 417 s \$3.delay;
-#X msg 443 324 12;
+#X msg 443 361 12;
 #X msg 394 323 0;
 #X obj 13 196 list trim;
 #X obj 625 53 r \$3.client.reset;
@@ -942,6 +942,11 @@ immediately without confirmation (before we dealt with that situation
 #X obj 468 82 f;
 #X obj 497 82 r \$3.peer.state;
 #X obj 468 105 sel 0;
+#X obj 586 379 r \$1.send;
+#X obj 586 402 route port;
+#X obj 586 425 b;
+#X text 664 376 <- make sure to init recvbuf after aoo_receive~ creation
+\, but before preset loading.;
 #X connect 0 0 1 1;
 #X connect 1 0 14 0;
 #X connect 2 0 15 0;
@@ -996,6 +1001,9 @@ immediately without confirmation (before we dealt with that situation
 #X connect 50 0 52 0;
 #X connect 51 0 50 1;
 #X connect 52 0 27 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
+#X connect 55 0 32 0;
 #X restore 13 165 pd persist.params;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
