@@ -1,4 +1,8 @@
+#N struct 1045.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
 #N struct 1046.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1047.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N struct 1048.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
@@ -7,10 +11,6 @@ txtclr float boxclr float bgclr symbol label;
 #N struct 1050.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N struct 1051.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1052.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1053.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N canvas 258 103 1193 590 10;
 #X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -105,9 +105,9 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X obj 652 111 route set;
 #X obj 652 134 route opus pcm, f 26;
 #X obj 123 434 cnv 15 60 20 empty \$1.samplerate.label 44100 4 12 0
-12 #ffffff #000000 0;
+12 #ffffff #9f9f9f 0;
 #X obj 123 184 cnv 15 60 20 empty \$1.samplerate.label 44100 4 12 0
-12 #ffffff #000000 0;
+12 #ffffff #9f9f9f 0;
 #X obj 951 346 loadbang;
 #X obj 951 369 metro 1000;
 #X obj 951 392 samplerate~;
@@ -115,9 +115,9 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X obj 951 440 list append;
 #X msg 951 470 label \$1\$2;
 #X obj 951 497 s \$1.samplerate.label;
-#X obj 105 317 nbx 5 14 1 12 0 0 \$1.channels \$1.channels.gui empty
+#X obj 105 317 nbx 5 14 1 8 0 0 \$1.channels \$1.channels.gui empty
 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
-#X obj 103 315 cnv 15 60 20 empty \$1.channels.label 12 4 12 0 12 #ffffff
+#X obj 103 315 cnv 15 60 20 empty \$1.channels.label 1 4 12 0 12 #ffffff
 #000000 0;
 #X obj 621 400 int;
 #X obj 621 423 list append;
@@ -127,9 +127,9 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X obj 622 556 s \$1.channels.gui;
 #X obj 622 507 r \$1.maxchannels;
 #X msg 622 530 range 1 \$1;
-#X obj 105 67 nbx 5 14 1 12 0 0 \$1.channels \$1.channels.gui empty
+#X obj 105 67 nbx 5 14 1 8 0 0 \$1.channels \$1.channels.gui empty
 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
-#X obj 103 65 cnv 15 60 20 empty \$1.channels.label 12 4 12 0 12 #ffffff
+#X obj 103 65 cnv 15 60 20 empty \$1.channels.label 1 4 12 0 12 #ffffff
 #000000 0;
 #X connect 6 0 8 0;
 #X connect 7 0 8 0;
