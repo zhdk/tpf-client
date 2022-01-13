@@ -536,7 +536,7 @@
 #X obj 312 530 s pd-latency;
 #X obj 12 30 metro 1000;
 #X obj 12 429 delay 900;
-#N canvas 977 392 757 449 latency.display 0;
+#N canvas 1484 862 757 449 latency.display 0;
 #X obj 35 200 int;
 #X msg 35 243 label \$1ms;
 #X obj 35 266 s \$1.latency.label;
@@ -572,6 +572,8 @@
 #X msg 240 310 16;
 #X obj 160 140 del 300;
 #X obj 537 345 moses 20;
+#X obj 35 147 - 20;
+#X obj 35 172 max 0;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
 #X connect 3 0 1 0;
@@ -580,7 +582,7 @@
 #X connect 6 0 7 0;
 #X connect 7 0 5 0;
 #X connect 8 0 9 0;
-#X connect 9 0 0 0;
+#X connect 9 0 35 0;
 #X connect 9 1 27 0;
 #X connect 9 2 33 0;
 #X connect 10 0 17 0;
@@ -613,6 +615,8 @@
 #X connect 33 0 7 0;
 #X connect 34 0 25 0;
 #X connect 34 1 26 0;
+#X connect 35 0 36 0;
+#X connect 36 0 0 0;
 #X restore 12 525 pd latency.display;
 #X obj 226 416 r \$1.latency.measurement.state;
 #X obj 226 437 sel 0;
@@ -668,6 +672,8 @@
 #X obj 473 164 - 1;
 #X msg 473 188 range 1 \$1;
 #X obj 343 225 r~ 1.channel.1;
+#X obj 343 249 delwrite~ \$0.offset 20;
+#X obj 343 272 delread~ \$0.offset 20;
 #X connect 0 0 26 0;
 #X connect 1 0 8 0;
 #X connect 2 0 32 0;
@@ -720,8 +726,9 @@
 #X connect 49 0 50 0;
 #X connect 50 0 51 0;
 #X connect 51 0 48 0;
-#X connect 52 0 1 1;
-#X connect 52 0 18 0;
+#X connect 52 0 53 0;
+#X connect 54 0 1 1;
+#X connect 54 0 18 0;
 #X restore 8 280 pd latency.code;
 #N canvas 41 537 1034 543 messages.code 0;
 #X obj 420 74 print TPF_ERROR;
