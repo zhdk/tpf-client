@@ -1,7 +1,9 @@
-host <server\ hostname>
+host <servername>
 room public
-name <your\ name>
+name <yourname>
 port 12043
+callback 1
+audiobuf 5
 channels 2
 codec pcm
 blocksize 64
@@ -12,5 +14,5 @@ quality 10
 bitrate 96
 signal music
 usage lowdelay
-layout maxchannels 8
 layout maxrows 8
+layout maxchannels 8
