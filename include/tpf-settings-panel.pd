@@ -12,36 +12,43 @@ txtclr float boxclr float bgclr symbol label;
 txtclr float boxclr float bgclr symbol label;
 #N struct 1051.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1052.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1053.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N canvas 265 292 659 665 16;
-#X symbolatom 147 66 30 0 0 0 - #1.host.gui #1.host 0;
-#X symbolatom 147 96 30 0 0 0 - #1.room.gui #1.room 0;
-#X symbolatom 147 126 30 0 0 0 - #1.name.gui #1.name 0;
+#N canvas 265 292 633 710 16;
+#X symbolatom 147 66 30 0 0 0 - \$1.host.gui \$1.host 0;
+#X symbolatom 147 96 30 0 0 0 - \$1.room.gui \$1.room 0;
+#X symbolatom 147 126 30 0 0 0 - \$1.name.gui \$1.name 0;
 #X text 70 67 server:;
 #X text 88 96 room:;
 #X text 88 126 name:;
-#X floatatom 147 156 6 1 65535 0 - #1.port.gui #1.port 0;
+#X floatatom 147 156 6 1 65535 0 - \$1.port.gui \$1.port 0;
 #X text 88 156 port:;
 #X text 30 33 CONNECTION PARAMETERS:;
-#X obj 220 428 cnv 15 370 25 empty \$1.notification.label empty 2 12
+#X obj 220 478 cnv 15 370 25 empty \$1.notification.label empty 2 12
 0 17 #fcfcfc #7c7c7c 0;
-#X obj 350 597 tpf-client-button Save\ to \$1.save.to.s \$1.save.to.r
+#X obj 350 647 tpf-client-button Save\ to \$1.save.to.s \$1.save.to.r
 ;
-#X obj 219 597 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
+#X obj 219 647 tpf-client-button Load\ from \$1.load.from.s \$1.load.from.r
 ;
-#X obj 481 597 tpf-client-button Save \$1.save.s \$1.save.r;
-#X obj 88 597 tpf-client-button Reset \$1.reset.s \$1.reset.r;
-#X obj 31 224 tpf-audio-params-panel \$1;
+#X obj 481 647 tpf-client-button Save \$1.save.s \$1.save.r;
+#X obj 88 647 tpf-client-button Reset \$1.reset.s \$1.reset.r;
+#X obj 31 274 tpf-audio-params-panel \$1;
 #X text 31 193 AUDIO PARAMETERS:;
-#X text 31 483 LAYOUT:;
-#X floatatom 197 516 6 1 64 0 - #1.maxchannels.gui.r #1.maxchannels.gui.s
+#X text 31 533 LAYOUT:;
+#X floatatom 197 566 6 1 64 0 - \$1.maxchannels.gui.r \$1.maxchannels.gui.s
 0;
-#X text 31 516 channels per row:;
-#X floatatom 197 546 6 1 64 0 - #1.maxrows.gui.r #1.maxrows.gui.s 0
-;
-#X text 139 547 rows:;
-#X text 273 531 (effective after restart);
-#X coords 0 -1 1 1 600 620 2 20 20;
+#X text 31 566 channels per row:;
+#X floatatom 197 596 6 1 64 0 - \$1.maxrows.gui.r \$1.maxrows.gui.s
+0;
+#X text 139 597 rows:;
+#X text 273 581 (effective after restart);
+#X obj 31 225 cnv 15 580 30 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X text 33 228 JACK:;
+#X obj 219 232 nbx 3 18 2 999 0 0 \$1.audiobuf \$1.audiobuf.gui empty
+0 -8 0 10 #fcfcfc #000000 #000000 0 256;
+#X obj 217 230 cnv 15 40 20 empty \$1.audiobuf.label 999 14 12 0 12
+#ffffff #000000 0;
+#X obj 113 230 cnv 15 100 20 empty \$1.callback.label use\ callbacks
+4 12 0 12 #ffffff #000000 0;
+#X obj 259 230 cnv 15 100 20 empty \$1.callback.label ms\ (buffer)
+4 12 0 12 #dfdfdf #000000 0;
+#X coords 0 -1 1 1 600 670 2 20 20;
