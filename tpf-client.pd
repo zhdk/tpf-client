@@ -1,5 +1,5 @@
 #N canvas 0 0 823 243 10;
-#X declare -lib aoo -path ./include;
+#X declare -lib aoo -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
 #X obj 353 38 cnv 24 32 24 empty empty RX 5 13 0 16 #dcdcdc #000000
@@ -154,7 +154,7 @@
 #X obj 801 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 16 78 tpf-client-guts \$0;
-#X obj 16 56 declare -lib aoo -path ./include;
+#X obj 16 56 declare -lib aoo -path include;
 #X obj 297 35 s \$0.init;
 #X text 353 11 loadbang from main patch fires last;
 #X connect 0 0 14 0;
