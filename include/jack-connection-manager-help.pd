@@ -1,0 +1,12 @@
+#N canvas 830 133 450 300 10;
+#X obj 62 145 jack-connection-manager;
+#X obj 197 182 print ERROR;
+#X obj 62 191 print OUTPUT;
+#X msg 58 29 refresh;
+#X msg 104 60 list_connections system playback_1;
+#X msg 140 88 list_connections netpd output_1;
+#X connect 0 0 2 0;
+#X connect 0 1 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
