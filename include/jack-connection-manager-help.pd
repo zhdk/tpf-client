@@ -1,12 +1,20 @@
-#N canvas 830 133 506 358 10;
-#X obj 62 225 jack-connection-manager;
-#X obj 197 262 print ERROR;
-#X obj 62 271 print OUTPUT;
+#N canvas 830 133 722 516 10;
+#X obj 62 345 jack-connection-manager;
+#X obj 197 382 print ERROR;
+#X obj 62 391 print OUTPUT;
 #X msg 58 29 refresh;
 #X msg 104 60 list_connections system playback_1;
 #X msg 140 88 list_connections netpd output_1;
 #X msg 167 114 list_clients;
 #X msg 188 139 list_ports ardour;
+#X msg 246 224 connect netpd output_1 system playback_1 \, connect
+netpd output_2 system playback_2;
+#X msg 251 269 disonnect netpd output_1 system playback_1 \, disconnect
+netpd output_2 system playback_2;
+#X msg 207 162 port_exists mpv out_0;
+#X msg 221 190 is_connected mpv out_1 system playback_2;
+#X msg 316 344 is_connected netpd output_1 system playback_1;
+#X msg 315 378 connect netpd output_1 system playback_1;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 0 0;
@@ -14,3 +22,9 @@
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
