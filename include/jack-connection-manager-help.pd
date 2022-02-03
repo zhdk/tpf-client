@@ -1,30 +1,40 @@
-#N canvas 830 133 722 516 10;
-#X obj 62 345 jack-connection-manager;
-#X obj 197 382 print ERROR;
-#X obj 62 391 print OUTPUT;
-#X msg 58 29 refresh;
-#X msg 104 60 list_connections system playback_1;
-#X msg 167 114 list_clients;
-#X msg 188 139 list_ports ardour;
-#X msg 246 224 connect netpd output_1 system playback_1 \, connect
-netpd output_2 system playback_2;
-#X msg 251 269 disonnect netpd output_1 system playback_1 \, disconnect
-netpd output_2 system playback_2;
-#X msg 207 162 port_exists mpv out_0;
-#X msg 221 190 is_connected mpv out_1 system playback_2;
-#X msg 315 378 connect netpd output_1 system playback_1;
-#X msg 140 88 list_connections netpd output_2;
-#X msg 316 344 is_connected netpd output_1 system playback_1;
-#X connect 0 0 2 0;
-#X connect 0 1 1 0;
+#N canvas 830 133 738 464 10;
+#X obj 22 365 jack-connection-manager;
+#X msg 22 68 refresh;
+#X msg 73 144 list_connections system playback_1;
+#X msg 73 174 list_clients;
+#X msg 73 204 list_ports ardour;
+#X msg 73 234 port_exists mpv out_0;
+#X msg 73 264 is_connected mpv out_1 system playback_2;
+#X msg 73 294 connect netpd output_1 system playback_1;
+#X msg 73 324 disconnect netpd output_1 system playback_1;
+#X text 78 68 refresh internal cache;
+#X text 13 9 jack-connection-manager - manage JACK connections with
+Pd;
+#X text 13 19 ---------------------------------------------------------
+;
+#X text 358 97 NOTE:;
+#X text 358 115 This abstraction only emulates what can be done with
+a proper external. It stores the state of all jack connections internally
+in a cache \, which is updated with the 'refresh' method. Any modifications
+on the connections are immediately applied to the cache and then to
+the reald world with 'jack_connect' and 'jack_disconnect' commands.
+This allows the abstraction to handle any requests immediately (synchronosously
+\, in zero logical time). However \, external modifications won't be
+detected. This can cause errors which are reported on the right outlet.
+If such errors occur \, it is adviced to 'refresh' the cache again
+to make sure that the internal cache reflects the actual connections.
+;
+#X obj 157 410 print jcm:ERROR;
+#X obj 22 411 print jcm:OUTPUT;
+#X text 596 434 2022 \, Roman Haefeli;
+#X connect 0 0 15 0;
+#X connect 0 1 14 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
 #X connect 3 0 0 0;
 #X connect 4 0 0 0;
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
 #X connect 8 0 0 0;
-#X connect 9 0 0 0;
-#X connect 10 0 0 0;
-#X connect 11 0 0 0;
-#X connect 12 0 0 0;
-#X connect 13 0 0 0;
