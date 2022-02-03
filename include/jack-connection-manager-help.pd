@@ -4,7 +4,6 @@
 #X obj 62 391 print OUTPUT;
 #X msg 58 29 refresh;
 #X msg 104 60 list_connections system playback_1;
-#X msg 140 88 list_connections netpd output_1;
 #X msg 167 114 list_clients;
 #X msg 188 139 list_ports ardour;
 #X msg 246 224 connect netpd output_1 system playback_1 \, connect
@@ -13,8 +12,9 @@ netpd output_2 system playback_2;
 netpd output_2 system playback_2;
 #X msg 207 162 port_exists mpv out_0;
 #X msg 221 190 is_connected mpv out_1 system playback_2;
-#X msg 316 344 is_connected netpd output_1 system playback_1;
 #X msg 315 378 connect netpd output_1 system playback_1;
+#X msg 140 88 list_connections netpd output_2;
+#X msg 316 344 is_connected netpd output_1 system playback_1;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 0 0;
