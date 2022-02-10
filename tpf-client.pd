@@ -1,3 +1,17 @@
+#N struct 1045.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1046.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1047.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1048.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1049.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1050.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1051.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
 #N canvas 0 0 823 243 10;
 #X declare -lib aoo -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
@@ -26,7 +40,7 @@
 #X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 297 12 loadbang;
-#N canvas 968 0 783 374 chat 0;
+#N canvas 968 0 783 374 chat 1;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040
@@ -81,7 +95,7 @@
 #X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
 0;
 #X restore 132 240 pd latency;
-#N canvas 968 483 783 348 messages 0;
+#N canvas 968 483 783 348 messages 1;
 #X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
 #X obj 9 10 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 13;
 #X obj 9 309 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 0;
@@ -157,6 +171,9 @@
 #X obj 16 56 declare -lib aoo -path include;
 #X obj 297 35 s \$0.init;
 #X text 353 11 loadbang from main patch fires last;
+#N canvas 516 345 567 342 ardour 0;
+#X text 12 8 ARDOUR SETTINGS;
+#X restore 274 240 pd ardour;
 #X connect 0 0 14 0;
 #X connect 1 0 20 0;
 #X connect 3 0 15 0;
@@ -164,3 +181,8 @@
 #X connect 17 0 16 0;
 #X coords 0 -1 1 1 10 10 2 20 20;
 #X restore 4 3 pd \$0.code;
+#X obj 4 65 tpf-client-link 1003 1;
+#X obj 4 100 tpf-client-link 1003 2;
+#X obj 4 135 tpf-client-link 1003 3;
+#X obj 4 170 tpf-client-link 1003 4;
+#X obj 4 205 tpf-client-panels 1003 4;
