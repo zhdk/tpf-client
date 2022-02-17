@@ -1,4 +1,18 @@
-#N canvas 955 30 464 390 10;
+#N struct 1069.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1070.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1071.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1072.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1073.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1074.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N struct 1075.rectangle float id float x float y float w float h float
+txtclr float boxclr float bgclr symbol label;
+#N canvas 1049 26 464 390 10;
 #N canvas 470 103 983 554 communication 0;
 #X msg 63 190 disconnect;
 #X obj 44 20 r \$1.connect;
@@ -1726,9 +1740,9 @@ else:;
 #X connect 24 0 23 0;
 #X connect 25 0 24 0;
 #X restore 184 40 pd jack;
-#N canvas 472 277 992 567 ardour.code 0;
+#N canvas 472 277 1002 619 ardour.code 0;
 #X obj 12 232 ardour-interface;
-#X obj 396 188 jack-connection-manager;
+#X obj 17 321 jack-connection-manager;
 #X obj 20 11 loadbang;
 #X obj 12 207 r \$0.to.ard;
 #X obj 12 258 s \$0.from.ard;
@@ -1738,14 +1752,14 @@ else:;
 #X obj 60 112 metro 1000;
 #X msg 20 140 connect 0 \, connect 1;
 #X obj 20 166 s \$0.to.ard;
-#X obj 20 363 r \$0.from.ard;
-#X obj 20 386 route session_name;
-#X symbolatom 20 471 35 0 0 0 - - - 0;
-#X obj 20 409 symbol;
-#X obj 137 362 r \$0.from.ard;
-#X obj 137 385 route ready;
-#X obj 137 408 sel 0;
-#X msg 137 431 symbol;
+#X obj 16 411 r \$0.from.ard;
+#X obj 16 434 route session_name;
+#X symbolatom 16 519 35 0 0 0 - - - 0;
+#X obj 16 457 symbol;
+#X obj 133 410 r \$0.from.ard;
+#X obj 133 433 route ready;
+#X obj 133 456 sel 0;
+#X msg 133 479 symbol;
 #X obj 400 40 r \$1.name;
 #X obj 312 40 r \$0.from.ard;
 #X obj 312 63 route ready;
@@ -1754,7 +1768,63 @@ else:;
 #X obj 312 87 sel 1;
 #X msg 312 134 rename_group 1 \$1;
 #X obj 312 158 s \$0.to.ard;
+#X msg 803 167 list_strips;
+#X obj 542 44 r \$0.from.ard;
+#X obj 542 67 route ready;
+#X obj 17 297 r \$0.to.jcm;
+#X obj 17 346 s \$0.from.jcm;
+#X obj 542 90 sel 1;
+#X obj 542 163 s \$0.to.jcm;
+#X msg 542 137 refresh;
+#X obj 152 366 print jack-connection-manager;
+#X msg 152 344 ERROR: inconsistency detected;
+#X obj 856 227 print STRIPS;
+#X obj 802 194 ask \$0 ard;
+#X obj 788 252 print DONE;
+#X obj 245 495 r \$1.jack.clientname;
+#X symbolatom 246 520 35 0 0 0 - - - 0;
+#N canvas 1127 295 444 376 detect.jack.clientname 0;
+#X obj 16 121 ask \$0 jcm;
+#X msg 16 98 list_clients;
+#X obj 16 19 r \$0.from.jcm;
+#X obj 16 42 route refreshed;
+#X obj 73 144 select tpf-client tpf-client-dev;
+#X msg 73 171 symbol tpf-client;
+#X msg 167 191 symbol tpf-client-dev;
+#X obj 16 217 symbol;
+#X obj 16 65 t b b, f 18;
+#X obj 16 240 select UNKNOWN;
+#X msg 121 106 symbol UNKNOWN;
+#X obj 16 315 s \$1.warning;
+#X msg 16 286 couldn't detect tpf-client's JACK client name;
+#X obj 97 263 s \$1.jack.clientname;
+#X obj 171 47 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 315 264 print;
+#X connect 0 0 7 0;
+#X connect 0 1 4 0;
+#X connect 0 1 15 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 1;
+#X connect 7 0 9 0;
+#X connect 8 0 1 0;
+#X connect 8 1 10 0;
+#X connect 9 0 12 0;
+#X connect 9 1 13 0;
+#X connect 10 0 7 1;
+#X connect 12 0 11 0;
+#X connect 14 0 8 0;
+#X restore 541 225 pd detect.jack.clientname;
+#X obj 542 113 del 500;
+#X text 594 113 <- make sure we see ourselves as jack client;
 #X connect 0 0 4 0;
+#X connect 1 0 31 0;
+#X connect 1 1 36 0;
 #X connect 2 0 9 0;
 #X connect 3 0 0 0;
 #X connect 5 0 6 0;
@@ -1776,6 +1846,17 @@ else:;
 #X connect 23 0 25 0;
 #X connect 24 0 23 0;
 #X connect 25 0 26 0;
+#X connect 27 0 38 0;
+#X connect 28 0 29 0;
+#X connect 29 0 32 0;
+#X connect 30 0 1 0;
+#X connect 32 0 43 0;
+#X connect 34 0 33 0;
+#X connect 36 0 35 0;
+#X connect 38 0 39 0;
+#X connect 38 1 37 0;
+#X connect 40 0 41 0;
+#X connect 43 0 34 0;
 #X restore 184 70 pd ardour.code;
 #N canvas 968 0 783 374 chat 0;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
@@ -1813,8 +1894,8 @@ else:;
 #000000 0;
 #X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
 #000000 0;
-#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \\\ \\\ 0dB 8 16
-0 20 #000000 #fcfcfc 0;
+#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \ \ 0dB 8 16 0
+20 #000000 #fcfcfc 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
 0;
 #X obj 170 148 cnv 32 70 32 empty \$1.latency.label 0ms 8 16 0 20 #000000
