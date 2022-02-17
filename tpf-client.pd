@@ -12,7 +12,7 @@ txtclr float boxclr float bgclr symbol label;
 txtclr float boxclr float bgclr symbol label;
 #N struct 1051.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N canvas 0 0 823 243 10;
+#N canvas 0 0 943 247 10;
 #X declare -lib aoo -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
@@ -181,8 +181,3 @@ txtclr float boxclr float bgclr symbol label;
 #X connect 17 0 16 0;
 #X coords 0 -1 1 1 10 10 2 20 20;
 #X restore 4 3 pd \$0.code;
-#X obj 4 65 tpf-client-link 1003 1;
-#X obj 4 100 tpf-client-link 1003 2;
-#X obj 4 135 tpf-client-link 1003 3;
-#X obj 4 170 tpf-client-link 1003 4;
-#X obj 4 205 tpf-client-panels 1003 4;
