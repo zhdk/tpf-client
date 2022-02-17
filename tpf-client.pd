@@ -1,18 +1,4 @@
-#N struct 1045.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1046.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1047.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1048.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1049.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1050.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1051.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N canvas 0 0 943 247 10;
+#N canvas 0 0 843 190 10;
 #X declare -lib aoo -path include;
 #X obj 39 38 cnv 24 311 24 empty empty PEERS 5 13 0 16 #dcdcdc #000000
 0;
@@ -36,82 +22,14 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 39 3 cnv 15 311 32 empty \$0.name.display.r Roman 8 16 0 20
 #000000 #fcfcfc 0;
 #X obj 678 3 tpf-client-inchannels \$0;
-#N canvas -10 474 922 306 \$0.code 0;
+#N canvas -10 474 904 220 \$0.code 0;
 #X obj 609 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 297 12 loadbang;
-#N canvas 968 0 783 374 chat 1;
-#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
-0;
-#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040
-0;
-#X obj 743 10 scrollbar_24x321 \$0.scb.chat.r \$0.scb.chat.s 14;
-#X obj 140 334 symbolatom_600x22 \$0 \$0.chat.s \$0.chat.r 150 340
-;
-#X obj 9 309 tpf-client-chatline \$0.chat \$0.scb.chat.s 0;
-#X obj 9 10 tpf-client-chatline \$0.chat \$0.scb.chat.s 13;
-#X obj 9 33 tpf-client-chatline \$0.chat \$0.scb.chat.s 12;
-#X obj 9 56 tpf-client-chatline \$0.chat \$0.scb.chat.s 11;
-#X obj 9 79 tpf-client-chatline \$0.chat \$0.scb.chat.s 10;
-#X obj 9 102 tpf-client-chatline \$0.chat \$0.scb.chat.s 9;
-#X obj 9 125 tpf-client-chatline \$0.chat \$0.scb.chat.s 8;
-#X obj 9 148 tpf-client-chatline \$0.chat \$0.scb.chat.s 7;
-#X obj 9 171 tpf-client-chatline \$0.chat \$0.scb.chat.s 6;
-#X obj 9 194 tpf-client-chatline \$0.chat \$0.scb.chat.s 5;
-#X obj 9 217 tpf-client-chatline \$0.chat \$0.scb.chat.s 4;
-#X obj 9 240 tpf-client-chatline \$0.chat \$0.scb.chat.s 3;
-#X obj 9 263 tpf-client-chatline \$0.chat \$0.scb.chat.s 2;
-#X obj 9 286 tpf-client-chatline \$0.chat \$0.scb.chat.s 1;
-#X restore 82 240 pd chat;
 #X obj 691 62 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X msg 609 122 ---------------------------------;
 #X obj 609 143 print -n;
-#N canvas 652 611 323 201 latency 0;
-#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
-0;
-#X obj 170 83 nbx 2 20 1 16 0 0 \$0.lat.ret.ch \$0.lat.ret.ch.r empty
-0 -8 0 20 #000000 #fcfcfc #000000 0 256;
-#X obj 170 8 tpf-client-button32x32 \$0.latency.switch \$0.latency.switch.r
-;
-#X obj 7 8 cnv 32 160 32 empty \$0.button.fg ON/OFF 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 170 113 cnv 32 70 32 empty \$0.lat.ret.level \ \ 0dB 8 16 0
-20 #000000 #fcfcfc 0;
-#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
-0;
-#X obj 170 148 cnv 32 70 32 empty \$0.latency.label 0ms 8 16 0 20 #000000
-#000000 0;
-#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
-0;
-#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 170 48 nbx 2 20 1 10 0 0 \$0.lat.period \$0.lat.period.r empty
-0 -8 0 20 #000000 #fcfcfc #000000 0 256;
-#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
-0;
-#X restore 132 240 pd latency;
-#N canvas 968 483 783 348 messages 1;
-#X obj 743 10 scrollbar_24x321 \$0.scb.msgs.r \$0.scb.msgs.s 14;
-#X obj 9 10 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 13;
-#X obj 9 309 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 0;
-#X obj 9 33 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 12;
-#X obj 9 56 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 11;
-#X obj 9 79 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 10;
-#X obj 9 102 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 9;
-#X obj 9 125 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 8;
-#X obj 9 148 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 7;
-#X obj 9 171 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 6;
-#X obj 9 194 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 5;
-#X obj 9 217 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 4;
-#X obj 9 240 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 3;
-#X obj 9 263 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 2;
-#X obj 9 286 tpf-client-chatline \$0.msgs \$0.scb.msgs.s 1;
-#X restore 200 240 pd messages;
 #N canvas 184 692 422 154 META 0;
 #X text 11 23 AUTHOR Roman Haefeli <roman.haefeli@zhdk.ch>;
 #X text 11 38 AUTHOR Johannes Schütt <johannes.schütt@zhdk.ch>;
@@ -119,12 +37,7 @@ txtclr float boxclr float bgclr symbol label;
 #X text 10 71 REPO_URL https://github.com/zhdk/tpf-client;
 #X text 10 7 VERSION 2.0-beta1;
 #X restore 820 10 pd META;
-#X text 13 207 ======;
-#N canvas -10 134 627 694 settings 0;
-#X obj 16 8 tpf-settings-panel \$0;
-#X restore 9 240 pd settings;
 #X text 603 11 PRINT DEBUG MESSAGES;
-#X text 13 192 PANELS;
 #X text 603 24 ====================;
 #N canvas 0 106 412 168 from/to 0;
 #X obj 21 83 spigot;
@@ -171,13 +84,10 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 16 56 declare -lib aoo -path include;
 #X obj 297 35 s \$0.init;
 #X text 353 11 loadbang from main patch fires last;
-#N canvas 516 345 567 342 ardour 0;
-#X text 12 8 ARDOUR SETTINGS;
-#X restore 274 240 pd ardour;
-#X connect 0 0 14 0;
-#X connect 1 0 20 0;
-#X connect 3 0 15 0;
-#X connect 4 0 5 0;
-#X connect 17 0 16 0;
+#X connect 0 0 8 0;
+#X connect 1 0 14 0;
+#X connect 2 0 9 0;
+#X connect 3 0 4 0;
+#X connect 11 0 10 0;
 #X coords 0 -1 1 1 10 10 2 20 20;
 #X restore 4 3 pd \$0.code;

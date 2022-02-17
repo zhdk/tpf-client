@@ -1,4 +1,4 @@
-#N canvas 955 30 435 349 10;
+#N canvas 955 30 464 390 10;
 #N canvas 470 103 983 554 communication 0;
 #X msg 63 190 disconnect;
 #X obj 44 20 r \$1.connect;
@@ -1777,3 +1777,79 @@ else:;
 #X connect 24 0 23 0;
 #X connect 25 0 26 0;
 #X restore 184 70 pd ardour.code;
+#N canvas 968 0 783 374 chat 0;
+#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040
+0;
+#X obj 743 10 scrollbar_24x321 \$1.scb.chat.r \$1.scb.chat.s 14;
+#X obj 140 334 symbolatom_600x22 \$1 \$1.chat.s \$1.chat.r 150 340
+;
+#X obj 9 309 tpf-client-chatline \$1.chat \$1.scb.chat.s 0;
+#X obj 9 10 tpf-client-chatline \$1.chat \$1.scb.chat.s 13;
+#X obj 9 33 tpf-client-chatline \$1.chat \$1.scb.chat.s 12;
+#X obj 9 56 tpf-client-chatline \$1.chat \$1.scb.chat.s 11;
+#X obj 9 79 tpf-client-chatline \$1.chat \$1.scb.chat.s 10;
+#X obj 9 102 tpf-client-chatline \$1.chat \$1.scb.chat.s 9;
+#X obj 9 125 tpf-client-chatline \$1.chat \$1.scb.chat.s 8;
+#X obj 9 148 tpf-client-chatline \$1.chat \$1.scb.chat.s 7;
+#X obj 9 171 tpf-client-chatline \$1.chat \$1.scb.chat.s 6;
+#X obj 9 194 tpf-client-chatline \$1.chat \$1.scb.chat.s 5;
+#X obj 9 217 tpf-client-chatline \$1.chat \$1.scb.chat.s 4;
+#X obj 9 240 tpf-client-chatline \$1.chat \$1.scb.chat.s 3;
+#X obj 9 263 tpf-client-chatline \$1.chat \$1.scb.chat.s 2;
+#X obj 9 286 tpf-client-chatline \$1.chat \$1.scb.chat.s 1;
+#X restore 216 227 pd chat;
+#N canvas 652 611 323 201 latency 0;
+#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
+0;
+#X obj 170 83 nbx 2 20 1 16 0 0 \$1.lat.ret.ch \$1.lat.ret.ch.r empty
+0 -8 0 20 #000000 #fcfcfc #000000 0 256;
+#X obj 170 8 tpf-client-button32x32 \$1.latency.switch \$1.latency.switch.r
+;
+#X obj 7 8 cnv 32 160 32 empty \$1.button.fg ON/OFF 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \\\ \\\ 0dB 8 16
+0 20 #000000 #fcfcfc 0;
+#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
+0;
+#X obj 170 148 cnv 32 70 32 empty \$1.latency.label 0ms 8 16 0 20 #000000
+#000000 0;
+#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
+0;
+#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0
+#000000 0;
+#X obj 170 48 nbx 2 20 1 10 0 0 \$1.lat.period \$1.lat.period.r empty
+0 -8 0 20 #000000 #fcfcfc #000000 0 256;
+#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
+0;
+#X restore 216 257 pd latency;
+#N canvas 968 483 783 348 messages 0;
+#X obj 743 10 scrollbar_24x321 \$1.scb.msgs.r \$1.scb.msgs.s 14;
+#X obj 9 10 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 13;
+#X obj 9 309 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 0;
+#X obj 9 33 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 12;
+#X obj 9 56 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 11;
+#X obj 9 79 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 10;
+#X obj 9 102 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 9;
+#X obj 9 125 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 8;
+#X obj 9 148 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 7;
+#X obj 9 171 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 6;
+#X obj 9 194 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 5;
+#X obj 9 217 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 4;
+#X obj 9 240 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 3;
+#X obj 9 263 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 2;
+#X obj 9 286 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 1;
+#X restore 216 287 pd messages;
+#X text 214 174 ======;
+#N canvas -10 134 627 694 settings 0;
+#X obj 16 8 tpf-settings-panel \$1;
+#X restore 216 197 pd settings;
+#X text 214 159 PANELS;
+#N canvas 516 345 567 342 ardour 0;
+#X text 12 8 ARDOUR SETTINGS;
+#X restore 216 317 pd ardour;
