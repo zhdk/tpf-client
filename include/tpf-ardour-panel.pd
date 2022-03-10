@@ -1,0 +1,6 @@
+#N canvas 813 401 627 432 12;
+#X obj 20 372 cnv 15 580 30 empty \$1.ardour.session.label tpf-intermediate-4ch-4loc
+5 16 0 16 #e6e6e6 #000000 0;
+#X text 20 354 Ardour Session Template:;
+#X obj 83 100 number-stepwise-widget \$1.strip.no 1 1;
+#X coords 0 -1 1 1 600 400 2 10 10;
