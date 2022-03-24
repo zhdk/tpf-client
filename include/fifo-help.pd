@@ -1,7 +1,6 @@
 #N canvas 409 44 504 399 10;
 #X obj 0 0 cnv 15 500 30 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X text 7 7 netpd-fifo - first-in-first-out message stack;
 #X obj 22 94 bng 15 250 50 0 empty empty empty 17 7 0 10 #c4fcc4 #000000
 #000000;
 #X text 43 94 <- spit out one message;
@@ -23,10 +22,11 @@ later in the same order as they were stored.;
 #X text 275 258 inlet0: bang|clear;
 #X obj 22 229 fifo;
 #X obj 22 296 print fifo;
-#X connect 2 0 18 0;
-#X connect 4 0 18 1;
-#X connect 5 0 18 1;
-#X connect 6 0 18 1;
-#X connect 15 0 18 0;
-#X connect 18 0 19 0;
-#X connect 18 1 8 0;
+#X text 7 7 fifo - first-in-first-out message stack;
+#X connect 1 0 17 0;
+#X connect 3 0 17 1;
+#X connect 4 0 17 1;
+#X connect 5 0 17 1;
+#X connect 14 0 17 0;
+#X connect 17 0 18 0;
+#X connect 17 1 7 0;
