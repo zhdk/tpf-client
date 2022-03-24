@@ -6,11 +6,11 @@
 #000000 0 1;
 #X text 340 14 format:;
 #X obj 342 54 text define \$0.strips;
-#N canvas 406 237 930 550 INIT 0;
+#N canvas 406 237 925 525 INIT 0;
 #X obj 23 140 r \$0.to;
-#X obj 23 325 s \$0.from;
-#X obj 39 192 r \$0.connection;
-#X obj 23 249 s \$0.connected;
+#X obj 23 355 s \$0.from;
+#X obj 39 222 r \$0.connection;
+#X obj 23 279 s \$0.connected;
 #X obj 637 433 outlet;
 #X obj 249 106 r \$0.from;
 #X obj 22 16 r \$0.connected;
@@ -23,9 +23,9 @@
 #X obj 664 329 text delete \$0.strips;
 #X obj 637 283 t b b;
 #X obj 22 85 s \$0.to;
-#X obj 23 220 netsend -u -b;
+#X obj 23 250 netsend -u -b;
 #X obj 22 39 sel 1;
-#X obj 23 275 route 35;
+#X obj 23 305 route 35;
 #X msg 395 275 \$1 name \$2;
 #X msg 320 275 \$1 group \$2;
 #X msg 249 275 \$1 hide \$2;
@@ -167,8 +167,8 @@
 #X connect 31 0 32 0;
 #X connect 32 0 33 0;
 #X restore 396 370 pd update;
-#X obj 23 165 oscformat;
-#X obj 23 303 oscparse;
+#X obj 23 195 oscformat;
+#X obj 23 333 oscparse;
 #X obj 249 155 route strip;
 #X obj 249 179 route hide group name;
 #X obj 249 129 list trim;
@@ -181,7 +181,7 @@
 #X obj 249 202 unpack f f;
 #X obj 249 251 pack f f;
 #X obj 294 229 == 0;
-#X text 79 276 filter #reply;
+#X text 79 306 filter #reply;
 #X text 320 21 1: Button status for strips;
 #X text 320 31 8: Hearbeat;
 #X msg 22 61 set set_surfacestrip_types \, 513 \, set set_surface feedback
@@ -194,7 +194,78 @@
 #X obj 753 25 r \$0.connected;
 #X obj 753 48 sel 0;
 #X msg 753 75 stop;
-#X connect 0 0 26 0;
+#N canvas 1057 730 579 380 detect.response.end 0;
+#X obj 346 229 route jog;
+#X obj 346 252 route mode;
+#X obj 346 275 route 0;
+#X obj 346 207 list trim;
+#X obj 346 298 b;
+#X obj 23 225 list trim;
+#X obj 23 248 route strip;
+#X obj 23 200 r \$0.from;
+#X obj 23 294 b;
+#X obj 23 271 route bang;
+#X obj 23 329 print HIDE;
+#X obj 336 154 s \$0.to;
+#X obj 346 182 r \$0.from;
+#X msg 336 108 set set_surface feedback \, 25;
+#X msg 352 130 set strip list \, bang;
+#X obj 24 168 s \$0.to;
+#X msg 24 141 set strip hide \, 3 1;
+#X obj 346 330 print LIST;
+#X text 49 24 Certain message trigger a response from ardour that takes
+quite some time. In order not to overload it \, those snippets detect
+the end of each response for the respective request.;
+#X text 150 141 response only on change;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 5 0;
+#X connect 9 0 8 0;
+#X connect 12 0 3 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 16 0 15 0;
+#X restore 40 425 pd detect.response.end;
+#N canvas 630 70 521 519 buffer 0;
+#X obj 200 105 inlet;
+#X obj 32 481 outlet;
+#X text 95 10 Certain ardour responses are slow. That's why we slowly
+send messages to ardour one after another with a delay between. A full
+'/strip/list' response takes ~60ms \, that's why set the dealy to 100ms.
+Probably \, with larger sessions \, the response is longer and likely
+takes more time. This is not a clean solution \, but one that is not
+too complicated to implement.;
+#X obj 32 294 fifo, f 16;
+#X obj 200 222 t b a;
+#X msg 200 246 1;
+#X msg 152 371 0;
+#X obj 32 160 change 0;
+#X obj 125 324 del 1000;
+#X obj 125 426 print READY;
+#X obj 125 347 t b b;
+#X obj 32 186 metro 100;
+#X obj 152 397 s \$0.buffer.metro;
+#X obj 200 273 s \$0.buufer.metro;
+#X obj 32 137 r \$0.buufer.metro;
+#X connect 0 0 4 0;
+#X connect 3 0 1 0;
+#X connect 3 1 8 0;
+#X connect 4 0 5 0;
+#X connect 4 1 3 1;
+#X connect 5 0 13 0;
+#X connect 6 0 12 0;
+#X connect 7 0 11 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 10 1 6 0;
+#X connect 11 0 3 0;
+#X connect 14 0 7 0;
+#X restore 23 167 pd buffer;
+#X connect 0 0 53 0;
 #X connect 2 0 16 0;
 #X connect 5 0 30 0;
 #X connect 6 0 17 0;
@@ -238,6 +309,7 @@
 #X connect 49 0 50 0;
 #X connect 50 0 51 0;
 #X connect 51 0 47 0;
+#X connect 53 0 26 0;
 #X restore 174 103 pd INIT;
 #X text 341 31 <ssid> <group> <name> <hide>;
 #X obj 12 13 inlet;
