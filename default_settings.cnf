@@ -14,5 +14,8 @@ quality 10
 bitrate 96
 signal music
 usage lowdelay
+ardour.enable 1
+ardour.jack 1
+ardour.hide 1
 layout maxrows 8
 layout maxchannels 8
