@@ -17,5 +17,6 @@ usage lowdelay
 ardour.enable 1
 ardour.jack 1
 ardour.hide 1
-layout maxrows 8
-layout maxchannels 8
+ardour.strips empty empty empty empty
+layout maxrows 4
+layout maxchannels 4
