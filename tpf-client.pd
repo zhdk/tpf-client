@@ -11,8 +11,6 @@
 #X obj 540 9 namecanvas \$0.main.cnv;
 #X obj 388 38 cnv 24 102 24 empty empty PARAMS 5 13 0 16 #dcdcdc #000000
 0;
-#X obj 4 3 tpf-client-button32x32 \$0.connect.switch \$0.connect.switch.r
-;
 #X obj 356 3 hsl 319 32 0 127 0 0 \$0.show.settings empty empty -2
 10 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 353 3 cnv 15 324 32 empty \$0.connection.display.r tpf-server.zhdk.ch/public
@@ -91,3 +89,5 @@
 #X connect 11 0 10 0;
 #X coords 0 -1 1 1 10 10 2 20 20;
 #X restore 4 3 pd \$0.code;
+#X obj 4 3 tpf-client-button32x32 \$0.connect.switch \$0.connect.switch.r
+;
