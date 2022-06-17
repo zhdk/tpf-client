@@ -24,7 +24,7 @@ The server software is hosted separately at:
 
   https://github.com/zhdk/tpf-server
 
-### NOTE:
+#### NOTE:
 tpf-client is not yet considered stable, because AoO is not released
 and still subject to change.  Altough tpf-client already works well, the current
 development version might not be compatible with the released version.
