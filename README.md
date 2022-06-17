@@ -13,6 +13,7 @@ The received audio streams are made available on separate ports on the
 JACK-aware DAW like [Ardour](https://ardour.org/) or an external mixing desk.
 tpf-client's layout is configurable. The maximum of channels per peer and also
 the number of peer slots can be adjusted so that different needs are covered.
+It supports streaming in PCM and OPUS and the formats are also configurable.
 
 You can download the client from:
 
@@ -40,10 +41,14 @@ Make sure to get the latest Pure Data from:
 
 You need the following externals to run tpf-client
   * aoo
+  * command
 
 You can install externals through the Pd menu:
 'Help' -> 'Find Externals'
 
+#### NOTE:
+There is no release of the aoo version used by tpf-client. The beta versions
+of tpf-client are based on the most recent [AoO developments](https://git.iem.at/cm/aoo/-/tree/develop).
 
 Usage
 -----
