@@ -24,13 +24,13 @@ The server software is hosted separately at:
 
   https://github.com/zhdk/tpf-server
 
-
-> **_NOTE:_**  tpf-client 2.0 is not considered stable, because AoO is not released
+<div id="header" align="center">
+ **_NOTE:_**  tpf-client 2.0 is not considered stable, because AoO is not released
 yet and still subject to change.  Altough tpf-client already works well, the current
 development version might not be compatible with the released version.
->
-> There is also an [older tpf-client](https://github.com/zhdk/tpf-client/releases/tag/v1.1.1) based on the jacktrip protocol available.
 
+There is also an [older tpf-client](https://github.com/zhdk/tpf-client/releases/tag/v1.1.1) based on the jacktrip protocol available.
+</div>
 
 Prerequisites
 -------------
