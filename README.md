@@ -8,11 +8,9 @@ About
 
 tpf-client is a low-latency multi-channel audio transmission software
 based on the [AoO](https://git.iem.at/cm/aoo)  (Audio-over-OSC) protocol.
-
 The received audio streams are made available on separate ports on the
 [JACK](https://jackaudio.org/) server where they can be connected to an
 JACK-aware DAW like [Ardour](https://ardour.org/) or an external mixing desk.
-
 tpf-client's layout is configurable. The maximum of channels per peer and also
 the number of peer slots can be adjusted so that different needs are covered.
 
