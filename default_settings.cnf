@@ -1,7 +1,7 @@
 host <servername>
 room public
 name <yourname>
-port 12044
+port 27001
 callback 1
 audiobuf 5
 channels 2
