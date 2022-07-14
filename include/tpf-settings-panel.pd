@@ -1,16 +1,16 @@
-#N struct 1045.rectangle float id float x float y float w float h float
+#N struct 1077.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1046.rectangle float id float x float y float w float h float
+#N struct 1078.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1047.rectangle float id float x float y float w float h float
+#N struct 1079.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1048.rectangle float id float x float y float w float h float
+#N struct 1080.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1049.rectangle float id float x float y float w float h float
+#N struct 1081.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1050.rectangle float id float x float y float w float h float
+#N struct 1082.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
-#N struct 1051.rectangle float id float x float y float w float h float
+#N struct 1083.rectangle float id float x float y float w float h float
 txtclr float boxclr float bgclr symbol label;
 #N canvas 265 292 633 710 16;
 #X symbolatom 147 66 30 0 0 0 - \$1.host.gui \$1.host 0;
@@ -43,14 +43,18 @@ txtclr float boxclr float bgclr symbol label;
 #X text 33 228 JACK:;
 #X obj 253 232 nbx 3 18 2 999 0 0 \$1.audiobuf.s \$1.audiobuf.r empty
 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
-#X obj 251 230 cnv 15 40 20 empty \$1.audiobuf.label \ \ 0 14 12 0
-12 #ffffff #909090 0;
+#X obj 251 230 cnv 15 40 20 empty \$1.audiobuf.label \ \ 5 14 12 0
+12 #ffffff #000000 0;
 #X obj 293 230 cnv 15 100 20 empty empty ms\\\ (buffer) 4 12 0 12 #dfdfdf
 #000000 0;
 #X obj 150 230 hsl 95 20 0 127 0 0 \$1.callback.click empty empty -2
 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 147 230 cnv 15 100 20 empty \$1.callback.label use\\\ callbacks
-4 12 0 12 #ffffff #000000 0;
+4 12 0 12 #ffffff #909090 0;
 #X text 77 568 channels per row;
 #X text 76 598 rows;
+#X obj 510 230 hsl 95 20 0 127 0 0 \$1.disable.jack.click empty empty
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 507 230 cnv 15 100 20 empty \$1.disable.jack.label disable\ JACK
+4 12 0 12 #ffffff #909090 0;
 #X coords 0 -1 1 1 600 670 2 20 20;
