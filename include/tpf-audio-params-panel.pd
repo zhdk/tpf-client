@@ -1,28 +1,28 @@
 #N canvas 258 103 1193 590 10;
-#X obj 20 44 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
+#X obj 20 48 cnv 15 580 212 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X obj 20 294 cnv 15 580 216 empty empty empty 20 12 0 14 #e0e0e0 #404040
+#X obj 20 298 cnv 15 580 212 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X obj 20 20 cnv 4 580 24 empty empty empty 20 12 0 14 #ffffff #ffffff
 0;
-#X obj 81 20 cnv 15 60 24 empty empty opus✓ 4 12 0 18 #dfdfdf #000000
+#X obj 91 20 cnv 15 70 27 empty empty opus✓ 4 12 0 22 #dfdfdf #000000
 0;
 #X obj 20 270 cnv 15 580 24 empty empty empty 20 12 0 14 #ffffff #ffffff
 0;
-#X obj 20 270 cnv 15 60 24 empty empty pcm✓ 4 12 0 18 #dfdfdf #000000
+#X obj 20 270 cnv 15 70 27 empty empty pcm✓ 4 12 0 22 #dfdfdf #000000
 0;
 #X msg 652 233 20;
 #X msg 740 237 270;
 #X obj 652 272 change -1;
 #X obj 647 30 namecanvas \$0.gop;
 #X obj 652 318 s \$0.gop;
-#X obj 23 20 hsl 55 24 0 127 0 0 \$0.pcm empty empty -2 -8 0 10 #fcfcfc
+#X obj 23 20 hsl 65 27 0 127 0 0 \$0.pcm empty empty -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X obj 20 20 cnv 15 60 24 empty empty pcm 4 12 0 18 #ffffff #000000
+#X obj 20 20 cnv 15 70 27 empty empty pcm 4 12 0 22 #ffffff #000000
 0;
-#X obj 84 270 hsl 55 24 0 127 0 0 \$0.opus empty empty -2 -8 0 10 #fcfcfc
+#X obj 94 270 hsl 65 27 0 127 0 0 \$0.opus empty empty -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X obj 81 270 cnv 15 60 24 empty empty opus 4 12 0 18 #ffffff #000000
+#X obj 91 270 cnv 15 70 27 empty empty opus 4 12 0 22 #ffffff #000000
 0;
 #X obj 750 175 r \$0.pcm;
 #X obj 750 204 sel;
@@ -102,7 +102,7 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X obj 951 497 s \$1.samplerate.label;
 #X obj 105 317 nbx 5 14 1 4 0 0 \$1.channels \$1.channels.gui empty
 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
-#X obj 103 315 cnv 15 60 20 empty \$1.channels.label 4 4 12 0 12 #ffffff
+#X obj 103 315 cnv 15 60 20 empty \$1.channels.label 2 4 12 0 12 #ffffff
 #000000 0;
 #X obj 621 400 int;
 #X obj 621 423 list append;
@@ -114,7 +114,7 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X msg 622 530 range 1 \$1;
 #X obj 105 67 nbx 5 14 1 4 0 0 \$1.channels \$1.channels.gui empty
 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
-#X obj 103 65 cnv 15 60 20 empty \$1.channels.label 4 4 12 0 12 #ffffff
+#X obj 103 65 cnv 15 60 20 empty \$1.channels.label 2 4 12 0 12 #ffffff
 #000000 0;
 #X obj 103 395 hmenu \$1.bitdepth.gui 26 8 16 24 32 64;
 #X connect 6 0 8 0;
@@ -159,4 +159,4 @@ empty 0 -8 0 10 #fcfcfc #000000 #000000 0 256;
 #X connect 74 0 71 0;
 #X connect 77 0 78 0;
 #X connect 78 0 76 0;
-#X coords 0 -1 1 1 580 240 2 20 270;
+#X coords 0 -1 1 1 580 240 2 20 20;
