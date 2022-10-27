@@ -1,17 +1,12 @@
-#N struct 1078.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1079.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1080.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1081.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1082.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1083.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
-#N struct 1084.rectangle float id float x float y float w float h float
-txtclr float boxclr float bgclr symbol label;
+#N struct 1078.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1079.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1080.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1081.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1082.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1083.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1084.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1088.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1090.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N canvas 813 26 474 385 10;
 #N canvas 395 186 1139 630 communication 0;
 #X msg 62 189 disconnect;
@@ -331,8 +326,7 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 291 200 t b b;
 #X msg 318 222 32;
 #X obj 318 243 makefilename %c;
-#X obj 309 130 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 309 130 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #N canvas 1136 447 521 398 wrap 0;
 #X obj 17 8 inlet;
 #X obj 44 345 outlet;
@@ -907,7 +901,7 @@ txtclr float boxclr float bgclr symbol label;
 #X connect 42 0 36 1;
 #X connect 43 0 44 0;
 #X restore 8 250 pd messages.code;
-#N canvas 219 132 984 519 settings.code 0;
+#N canvas 506 367 984 549 settings.code 0;
 #X msg 20 80 vis 1;
 #X obj 31 57 r \$1.display.settings;
 #X obj 20 101 s pd-settings;
@@ -1206,6 +1200,9 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 195 435 tpf-settings-param \$1 ardour.hide;
 #X obj 195 455 tpf-settings-param \$1 ardour.strips;
 #X obj 195 134 tpf-settings-param \$1 disable.jack;
+#X obj 502 422 r \$1.configure.be.click;
+#X msg 502 446 vis 1;
+#X obj 502 470 s pd-audio.settings;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
@@ -1258,6 +1255,8 @@ txtclr float boxclr float bgclr symbol label;
 #X connect 52 0 53 0;
 #X connect 53 0 46 0;
 #X connect 54 0 47 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;
 #X restore 8 160 pd settings.code;
 #N canvas 220 217 582 485 peers 0;
 #X obj 23 22 r \$1.receive;
@@ -1573,14 +1572,7 @@ txtclr float boxclr float bgclr symbol label;
 #X obj 17 571 s pd;
 #X obj 17 495 t b b;
 #X obj 44 520 s \$0.start.audio.backend;
-#X msg 48 169 \; \$1.name symbol <yourname> \; \$1.host symbol <servername>
-\; \$1.room symbol public \; \$1.port 12043 \; \$1.disable.jack 0 \;
-\$1.callback 1 \; \$1.audiobuf 5 \; \$1.channels 2 \; \$1.codec symbol
-pcm \; \$1.blocksize 64 \; \$1.bitdepth 16 \; \$1.packetsize 1450 \;
-\$1.framesize 120 \; \$1.quality 10 \; \$1.bitrate 96 \; \$1.signal
-symbol music \; \$1.usage symbol lowdelay \; \$1.ardour.enable 0 \;
-\$1.ardour.jack 0 \; \$1.ardour.hide 0 \; \$1.ardour.strips list empty
-empty empty empty \;;
+#X msg 48 169 \; \$1.name symbol <yourname> \; \$1.host symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \; \$1.disable.jack 0 \; \$1.callback 1 \; \$1.audiobuf 5 \; \$1.channels 2 \; \$1.codec symbol pcm \; \$1.blocksize 64 \; \$1.bitdepth 16 \; \$1.packetsize 1450 \; \$1.framesize 120 \; \$1.quality 10 \; \$1.bitrate 96 \; \$1.signal symbol music \; \$1.usage symbol lowdelay \; \$1.ardour.enable 0 \; \$1.ardour.jack 0 \; \$1.ardour.hide 0 \; \$1.ardour.strips list empty empty empty empty \;;
 #X connect 1 0 6 0;
 #X connect 3 0 11 0;
 #X connect 5 0 3 0;
@@ -1634,8 +1626,7 @@ empty empty empty \;;
 #X msg 197 474 symbol \$1.\$2;
 #X obj 197 451 list prepend \$1;
 #X obj 31 591 send;
-#X text 21 18 make sure to load maxrow \, maxchannels before anything
-else:;
+#X text 21 18 make sure to load maxrow \, maxchannels before anything else:;
 #X obj 31 46 r \$1.load.layout;
 #X msg 58 96 symbol ../default_settings.cnf;
 #X obj 31 72 t b b;
@@ -1739,8 +1730,7 @@ else:;
 #N canvas 1015 481 482 397 udp.pipe 0;
 #X obj 24 156 netsend -u -b;
 #X msg 189 98 connect localhost 12041 12040;
-#X obj 24 183 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 24 183 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 219 128 disconnect;
 #X obj 189 67 loadbang;
 #X obj 27 5 r \$1.oscrecv;
@@ -1795,8 +1785,7 @@ else:;
 #X obj 109 350 f;
 #X obj 412 279 t b a;
 #X obj 249 266 del 500;
-#X msg 109 422 params @input 0 \$1 @output 0 \$2 @advance \$3 @callback
-\$4;
+#X msg 109 422 params @input 0 \$1 @output 0 \$2 @advance \$3 @callback \$4;
 #X obj 109 374 spigot 0;
 #X obj 37 261 t b a;
 #X msg 154 351 1;
@@ -2528,8 +2517,7 @@ else:;
 #X restore 27 398 pd refresh.remote.strip.names;
 #X obj 27 234 r \$1.intercom;
 #X obj 27 282 symbol;
-#X obj 31 111 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 31 111 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X text 47 111 FULL RESET;
 #X obj 27 257 route peer_reclaim peer_name;
 #X obj 172 325 list;
@@ -2920,10 +2908,8 @@ else:;
 #X obj 173 278 s \$1.automate.jack.check;
 #X obj 418 362 r \$1.ardour.enable;
 #X obj 417 237 r \$1.ardour.jack;
-#X obj 418 391 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 417 262 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 418 391 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 417 262 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 41 237 r \$1.ardour.jack;
 #X obj 15 341 route float;
 #X obj 15 364 sel 0;
@@ -2938,8 +2924,7 @@ else:;
 #X obj 15 411 s \$1.ardour.hide;
 #X obj 41 387 r \$1.ardour.hide;
 #X obj 173 317 r \$1.ardour.hide;
-#X obj 415 339 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 415 339 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 415 314 r \$1.ardour.hide;
 #X obj 384 135 s \$1.automate.jack.check;
 #X obj 363 161 s \$1.hide.unused.check;
@@ -3085,8 +3070,7 @@ else:;
 #X msg 71 426 connect \$7 output_\$1 ardour \$5/audio_in\\\ 1;
 #X obj 14 375 route bang;
 #X obj 15 512 s \$1.error;
-#X msg 14 489 cannot auto-connect to ardour. Too few strips detected
-;
+#X msg 14 489 cannot auto-connect to ardour. Too few strips detected;
 #X obj 71 451 s \$0.to.jcm;
 #X connect 0 0 3 0;
 #X connect 1 0 4 1;
@@ -3200,10 +3184,8 @@ else:;
 #X connect 11 0 7 1;
 #X connect 11 0 8 1;
 #X restore 20 286 pd jcm.com;
-#X obj 20 206 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
-#X obj 20 266 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 20 206 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 20 266 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #N canvas 1174 65 450 402 connect.ardour 0;
 #X obj 85 114 r \$0.from.ard;
 #X obj 85 137 route ready;
@@ -3222,8 +3204,7 @@ else:;
 #X obj 19 37 t b a, f 10;
 #X obj 19 60 del 100;
 #X obj 19 83 f, f 10;
-#X text 83 60 <- prevents tpf-client from crashing at startup on macOS
-;
+#X text 83 60 <- prevents tpf-client from crashing at startup on macOS;
 #X text 98 75 (is there less ugly way to achieve this?);
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -3281,13 +3262,10 @@ else:;
 #X connect 30 0 28 0;
 #X restore 184 70 pd ardour.code;
 #N canvas 968 0 783 374 chat 0;
-#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040
-0;
-#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040
-0;
+#X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
+#X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040 0;
 #X obj 743 10 scrollbar_24x321 \$1.scb.chat.r \$1.scb.chat.s 14;
-#X obj 140 334 symbolatom_600x22 \$1 \$1.chat.s \$1.chat.r 150 340
-;
+#X obj 140 334 symbolatom_600x22 \$1 \$1.chat.s \$1.chat.r 150 340;
 #X obj 9 309 tpf-client-chatline \$1.chat \$1.scb.chat.s 0;
 #X obj 9 10 tpf-client-chatline \$1.chat \$1.scb.chat.s 13;
 #X obj 9 33 tpf-client-chatline \$1.chat \$1.scb.chat.s 12;
@@ -3304,32 +3282,19 @@ else:;
 #X obj 9 286 tpf-client-chatline \$1.chat \$1.scb.chat.s 1;
 #X restore 216 227 pd chat;
 #N canvas 652 611 323 201 latency 0;
-#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
-0;
-#X obj 170 83 nbx 2 20 1 16 0 0 \$1.lat.ret.ch \$1.lat.ret.ch.r empty
-0 -8 0 20 #000000 #fcfcfc #000000 0 256;
-#X obj 170 8 tpf-client-button32x32 \$1.latency.switch \$1.latency.switch.r
-;
-#X obj 7 8 cnv 32 160 32 empty \$1.button.fg ON/OFF 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \ \ 0dB 8 16 0
-20 #000000 #fcfcfc 0;
-#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000
-0;
-#X obj 170 148 cnv 32 70 32 empty \$1.latency.label 0ms 8 16 0 20 #000000
-#000000 0;
-#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc
-0;
-#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0
-#000000 0;
-#X obj 170 48 nbx 2 20 1 10 0 0 \$1.lat.period \$1.lat.period.r empty
-0 -8 0 20 #000000 #fcfcfc #000000 0 256;
-#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc
-0;
+#X obj 170 78 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc 0;
+#X obj 170 83 nbx 2 20 1 16 0 0 \$1.lat.ret.ch \$1.lat.ret.ch.r empty 0 -8 0 20 #000000 #fcfcfc #000000 0 256;
+#X obj 170 8 tpf-client-button32x32 \$1.latency.switch \$1.latency.switch.r;
+#X obj 7 8 cnv 32 160 32 empty \$1.button.fg ON/OFF 8 16 0 20 #e0e0e0 #000000 0;
+#X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0 #000000 0;
+#X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0 #000000 0;
+#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \ \ 0dB 8 16 0 20 #000000 #fcfcfc 0;
+#X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000 0;
+#X obj 170 148 cnv 32 70 32 empty \$1.latency.label 0ms 8 16 0 20 #000000 #000000 0;
+#X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc 0;
+#X obj 7 43 cnv 32 160 32 empty empty SAMPLEPERIOD 8 16 0 20 #e0e0e0 #000000 0;
+#X obj 170 48 nbx 2 20 1 10 0 0 \$1.lat.period \$1.lat.period.r empty 0 -8 0 20 #000000 #fcfcfc #000000 0 256;
+#X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc 0;
 #X restore 216 257 pd latency;
 #N canvas 968 483 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$1.scb.msgs.r \$1.scb.msgs.s 14;
@@ -3356,3 +3321,6 @@ else:;
 #N canvas 472 534 638 341 ardour 0;
 #X obj 20 15 tpf-ardour-panel \$1;
 #X restore 216 317 pd ardour;
+#N canvas 630 697 678 502 audio.settings 1;
+#X obj 6 5 tpf-settings-audiobackend-panel \$0;
+#X restore 290 198 pd audio.settings;
