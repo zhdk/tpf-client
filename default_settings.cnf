@@ -2,9 +2,6 @@ host <servername>
 room public
 name <yourname>
 port 27001
-disable.jack 0
-callback 1
-audiobuf 5
 channels 2
 codec pcm
 blocksize 64
@@ -19,5 +16,12 @@ ardour.enable 1
 ardour.jack 1
 ardour.hide 1
 ardour.strips empty empty empty empty
+be.type JACK
+be.callback 1
+be.audiobuf 5
+be.input.device empty
+be.input.channels 2
+be.output.device empty
+be.output.channels 2
 layout maxrows 4
 layout maxchannels 4
