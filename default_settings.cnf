@@ -2,6 +2,7 @@ host <servername>
 room public
 name <yourname>
 port 27001
+autoconfirm 0
 channels 2
 codec pcm
 blocksize 64
