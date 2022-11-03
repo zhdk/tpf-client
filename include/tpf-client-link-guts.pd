@@ -279,8 +279,7 @@
 #X obj 684 571 spigot;
 #X obj 891 571 spigot;
 #X obj 1026 572 spigot;
-#X obj 813 512 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 813 512 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 1188 572 spigot;
 #X obj 1188 535 r \$1.receive;
 #X obj 1188 608 print CLIENT_RCV;
@@ -455,14 +454,12 @@
 #X obj 55 234 route pcm opus;
 #X obj 55 457 s \$1.info;
 #X obj 55 334 list prepend, f 15;
-#X msg 100 286 [\$1] receiving opus format: ch=\$2 | fs=\$3 | sr=\$4
-| type=\$5;
+#X msg 100 286 [\$1] receiving opus format: ch=\$2 | fs=\$3 | sr=\$4 | type=\$5;
 #X obj 55 357 t a a;
 #X msg 118 361 \$5;
 #X obj 118 384 * 8;
 #X obj 55 407 list append;
-#X msg 55 434 [\$1] receiving pcm format: ch=\$2 | bs=\$3 | sr=\$4
-| \$6bit;
+#X msg 55 434 [\$1] receiving pcm format: ch=\$2 | bs=\$3 | sr=\$4 | \$6bit;
 #X obj 107 165 list;
 #X obj 55 189 list append;
 #X obj 55 211 list trim;
@@ -529,13 +526,13 @@
 #X obj 468 58 r \$3.tx.switch.s;
 #X obj 493 81 r \$3.aoo.link.status;
 #X obj 468 81 f;
-#X obj 468 129 f;
-#X obj 468 151 sel 1;
-#X obj 468 172 t b b, f 11;
-#X obj 468 275 s \$3.aoo.link.status;
-#X obj 468 198 del 0;
+#X obj 468 159 f;
+#X obj 468 181 sel 1;
+#X obj 468 202 t b b, f 11;
+#X obj 468 305 s \$3.aoo.link.status;
+#X obj 468 228 del 0;
 #X obj 468 104 sel 6;
-#X msg 468 252 7;
+#X msg 468 282 7;
 #X obj 760 169 r \$3.aoo.link.status;
 #X obj 735 169 f;
 #X obj 735 192 sel 5;
@@ -556,10 +553,7 @@
 #X obj 223 130 sel 5;
 #X obj 223 225 s \$3.aoo.link.status;
 #X msg 223 204 7;
-#X text 354 17 When both clients initiatate a connection simultaneously
-\, their requests cross each other and we want to establish a connecction
-immediately without confirmation (before we dealt with that situation
-\, both clients flashed blue happily waiting for confirmation).;
+#X text 354 17 When both clients initiatate a connection simultaneously \, their requests cross each other and we want to establish a connecction immediately without confirmation (before we dealt with that situation \, both clients flashed blue happily waiting for confirmation).;
 #X obj 250 155 r \$3.peer.state;
 #X obj 54 193 r \$3.peer.state;
 #X connect 0 0 1 1;
@@ -586,8 +580,8 @@ immediately without confirmation (before we dealt with that situation
 #X obj 258 81 route initiate;
 #X obj 285 148 s \$3.peer.id;
 #X obj 258 124 t b a;
-#X obj 531 198 f \$2;
-#X obj 531 246 s \$0.to.peer;
+#X obj 531 228 f \$2;
+#X obj 531 276 s \$0.to.peer;
 #X obj 735 58 r \$0.from.peer;
 #X obj 735 82 route confirm;
 #X obj 762 148 s \$3.peer.id;
@@ -597,7 +591,7 @@ immediately without confirmation (before we dealt with that situation
 #X text 250 19 2) HANDLE INIT REQUEST;
 #X text 465 20 3) CONFIRM;
 #X text 732 20 4) HANDLE CONFIRMATION;
-#X obj 495 129 r \$3.peer.state;
+#X obj 495 159 r \$3.peer.state;
 #X text 973 80 0 = reset;
 #X text 974 158 4 = aborted;
 #X text 974 179 5 = waiting for peer (p2p);
@@ -610,7 +604,22 @@ immediately without confirmation (before we dealt with that situation
 #X text 973 120 2 = waiting for user (proxy) NOT USED;
 #X text 975 141 3 = connected (proxy) NOT USED;
 #X obj 23 60 r \$3.initiate;
-#X msg 531 224 dest confirm \, \$1;
+#X msg 531 254 dest confirm \, \$1;
+#N canvas 629 531 386 229 autoconfirm 0;
+#X obj 34 83 r \$1.autoconfirm;
+#X obj 19 24 r \$3.aoo.link.status;
+#X obj 19 47 sel 6;
+#X obj 19 109 f;
+#X obj 19 133 sel 1;
+#X obj 19 156 del 100;
+#X obj 19 179 outlet;
+#X connect 0 0 3 1;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 487 132 pd autoconfirm;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
 #X connect 3 0 5 0;
@@ -645,6 +654,7 @@ immediately without confirmation (before we dealt with that situation
 #X connect 46 0 20 0;
 #X connect 50 0 21 0;
 #X connect 51 0 28 0;
+#X connect 52 0 6 0;
 #X restore 13 65 pd init.connection;
 #N canvas 959 195 377 299 gui.code 0;
 #X obj 41 215 r \$3.reset;
@@ -901,8 +911,7 @@ immediately without confirmation (before we dealt with that situation
 #X connect 2 0 4 0;
 #X connect 3 0 1 0;
 #X restore 14 148 pd gop.expand;
-#X obj 137 163 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 137 163 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X connect 4 0 5 0;
@@ -968,8 +977,7 @@ immediately without confirmation (before we dealt with that situation
 #X obj 586 379 r \$1.send;
 #X obj 586 402 route port;
 #X obj 586 425 b;
-#X text 664 376 <- make sure to init recvbuf after aoo_receive~ creation
-\, but before preset loading.;
+#X text 664 376 <- make sure to init recvbuf after aoo_receive~ creation \, but before preset loading.;
 #X msg 443 361 5;
 #X obj 125 107 sel 5;
 #X connect 0 0 1 1;
