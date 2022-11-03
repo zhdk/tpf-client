@@ -1610,7 +1610,7 @@
 #X obj 17 631 s pd;
 #X obj 17 555 t b b;
 #X obj 44 580 s \$1.start.audio.backend;
-#X msg 48 169 \; \$1.name symbol <yourname> \; \$1.host symbol <servername> \; \$1.room symbol public \; \$1.port 12043 \; \$1.autoconfirm 0 \; \$1.channels 2 \; \$1.codec symbol pcm \; \$1.blocksize 64 \; \$1.bitdepth 16 \; \$1.packetsize 1450 \; \$1.framesize 120 \; \$1.quality 10 \; \$1.bitrate 96 \; \$1.signal symbol music \; \$1.usage symbol lowdelay \; \$1.ardour.enable 0 \; \$1.ardour.jack 0 \; \$1.ardour.hide 0 \; \$1.ardour.strips list empty empty empty empty \; \$1.be.type symbol JACK \; \$1.be.callback 0 \; \$1.be.audiobuf 5 \; \$1.be.input.device symbol empty \; \$1.be.input.channels 2 \; \$1.be.output.device symbol empty \; \$1.be.output.channels 2 \;;
+#X msg 48 169 \; \$1.name symbol <yourname> \; \$1.host symbol <servername> \; \$1.room symbol public \; \$1.port 27001 \; \$1.autoconfirm 0 \; \$1.channels 2 \; \$1.codec symbol pcm \; \$1.blocksize 64 \; \$1.bitdepth 16 \; \$1.packetsize 1450 \; \$1.framesize 120 \; \$1.quality 10 \; \$1.bitrate 96 \; \$1.signal symbol music \; \$1.usage symbol lowdelay \; \$1.ardour.enable 0 \; \$1.ardour.jack 0 \; \$1.ardour.hide 0 \; \$1.ardour.strips list empty empty empty empty \; \$1.be.type symbol JACK \; \$1.be.callback 0 \; \$1.be.audiobuf 5 \; \$1.be.input.device symbol empty \; \$1.be.input.channels 2 \; \$1.be.output.device symbol empty \; \$1.be.output.channels 2 \;;
 #X connect 1 0 6 0;
 #X connect 3 0 11 0;
 #X connect 5 0 3 0;
@@ -3291,13 +3291,13 @@
 #X obj 9 286 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 1;
 #X restore 216 287 pd messages;
 #X text 214 174 ======;
-#N canvas -10 509 627 694 settings 1;
+#N canvas -10 509 627 694 settings 0;
 #X obj 16 8 tpf-settings-panel \$1;
 #X restore 216 197 pd settings;
 #X text 214 159 PANELS;
 #N canvas 472 534 638 341 ardour 0;
 #X obj 20 15 tpf-ardour-panel \$1;
 #X restore 216 317 pd ardour;
-#N canvas 630 697 678 502 audio.settings 1;
+#N canvas 630 697 678 502 audio.settings 0;
 #X obj 6 5 tpf-settings-audiobackend-panel \$1;
 #X restore 290 198 pd audio.settings;
