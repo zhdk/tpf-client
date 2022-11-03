@@ -1,10 +1,10 @@
-#N struct 1082.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1083.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1084.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1085.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1086.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1087.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N struct 1088.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
+#N struct 1089.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N canvas 265 292 633 710 16;
 #X symbolatom 147 66 30 0 0 0 - \$1.host.gui \$1.host 0;
 #X symbolatom 147 96 30 0 0 0 - \$1.room.gui \$1.room 0;
@@ -22,7 +22,7 @@
 #X obj 31 273 tpf-audio-params-panel \$1;
 #X floatatom 41 568 3 1 64 0 - \$1.maxchannels.gui.r \$1.maxchannels.gui.s 0;
 #X floatatom 41 598 3 1 64 0 - \$1.maxrows.gui.r \$1.maxrows.gui.s 0;
-#X obj 31 225 cnv 15 580 30 empty \$1.backend.label Using\ CoreAudio 4 15 0 16 #e0e0e0 #000000 0;
+#X obj 31 225 cnv 15 580 30 empty \$1.backend.label Using\ JACK 4 15 0 16 #e0e0e0 #000000 0;
 #X obj 379 230 hsl 225 20 0 127 0 0 \$1.configure.be.click empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 376 230 cnv 15 230 20 empty empty configure\ audio\ backend\ > 4 10 0 16 #ffffff #000000 0;
 #X text 77 568 channels per row;
@@ -30,4 +30,6 @@
 #X obj 31 31 cnv 19 580 24 empty empty Connection\ Parameters: 5 12 0 20 #7c7c7c #ffffff 0;
 #X obj 31 190 cnv 19 580 24 empty empty Audio\ Parameters: 5 12 0 20 #7c7c7c #ffffff 0;
 #X obj 31 530 cnv 19 580 24 empty empty Layout:\ (effective\ after\ restart) 5 12 0 20 #7c7c7c #ffffff 0;
+#X text 268 156 auto-confirm:;
+#X obj 398 156 hsl 18 23 0 127 0 0 \$1.autoconfirm.check \$1.autoconfirm.check ✓ -2 12 0 38 #ffffff #ffffff #000000 0 1;
 #X coords 0 -1 1 1 600 670 2 20 20;
