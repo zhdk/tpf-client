@@ -20,10 +20,10 @@
 #X coords 0 -1 1 1 50 24 2 100 100;
 #X restore 571 84 pd \$0.gop;
 #X obj 622 84 cnv 19 28 24 empty empty CH 5 12 0 16 #e0e0e0 #000000 0;
-#X obj 498 46 hsl 19 24 0 127 0 0 \$0.callback.check \$0.callback.check empty -2 12 0 40 #ffffff #ffffff #000000 0 1;
+#X obj 498 46 hsl 19 24 0 127 0 0 \$0.callback.check \$0.callback.check ✓ -2 12 0 40 #ffffff #ffffff #000000 0 1;
 #X obj 520 46 cnv 19 130 24 empty empty Use\ callbacks 5 12 0 16 #e0e0e0 #000000 0;
 #N canvas 1802 443 450 300 \$0.gop 0;
-#X obj 100 100 nbx 4 24 0 2048 0 0 \$0.audiobuf.s \$0.audiobuf.r empty 0 -10 0 20 #ffffff #000000 #aaaaaa 0 256;
+#X obj 100 100 nbx 4 24 0 2048 0 0 \$0.audiobuf.s \$0.audiobuf.r empty 0 -10 0 20 #ffffff #aaaaaa #aaaaaa 0 256;
 #X obj 101 101 cnv 10 11 22 empty empty empty 20 12 0 12 #ffffff #404040 0;
 #X obj 176 101 cnv 7 7 7 empty empty empty 20 12 0 12 #ffffff #404040 0;
 #X coords 0 -1 1 1 84 24 2 100 100;
@@ -668,6 +668,13 @@
 #X connect 1 0 2 0;
 #X connect 3 0 1 0;
 #X restore 673 327 pd audiosettings;
+#N canvas 1292 574 381 120 backend.label 0;
+#X obj 44 72 s \$1.backend.label;
+#X msg 44 49 label Using\\\ \$1;
+#X obj 44 23 r \$1.be.type;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X restore 676 186 pd backend.label;
 #X connect 27 0 28 0;
 #X connect 28 0 26 0;
 #X connect 28 1 25 0;
