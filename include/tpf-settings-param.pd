@@ -28,9 +28,8 @@
 #X obj 240 296 s \$1.intercom;
 #X msg 240 270 modified_flag;
 #X obj 240 247 spigot 0;
-#X obj 364 220 loadbang;
-#X obj 364 243 del 0;
 #X msg 364 266 1;
+#X obj 364 236 r \$1.init.end;
 #X connect 0 0 15 0;
 #X connect 2 0 18 0;
 #X connect 3 0 7 0;
@@ -58,6 +57,5 @@
 #X connect 25 0 28 1;
 #X connect 27 0 26 0;
 #X connect 28 0 27 0;
-#X connect 29 0 30 0;
-#X connect 30 0 31 0;
-#X connect 31 0 28 1;
+#X connect 29 0 28 1;
+#X connect 30 0 29 0;
