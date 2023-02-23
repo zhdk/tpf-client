@@ -1,26 +1,15 @@
 #N canvas 716 251 947 682 10;
-#X obj 20 20 cnv 8 289 32 empty empty empty 20 12 0 14 #000000 #404040
-0;
-#X obj 128 20 cnv 15 100 16 empty \$0.format.label format=pcm 3 9 0
-12 #000000 #000000 0;
-#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label bs=64 3 9 0 12 #000000
-#000000 0;
-#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=44100 3 9 0 12 #000000
-#000000 0;
-#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label bd=16 3 9 0 12
-#000000 #000000 0;
-#X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 #fcfcfc #404040
-0;
-#X obj 20 20 cnv 16 100 16 empty \$0.recvbuf.label recvbuf: 3 9 0 12
-#000000 #000000 0;
-#X obj 80 20 nbx 3 14 2 999 0 0 \$3.recvbuf \$3.recvbuf.r empty 0 -8
-0 12 #000000 #000000 #000000 0 256;
-#X obj 20 36 cnv 16 100 16 empty \$0.delay.label delay: 3 9 0 12 #000000
-#000000 0;
-#X obj 80 36 nbx 3 14 0 999 0 0 \$3.delay \$3.delay.r empty 0 -8 0
-12 #000000 #000000 #000000 0 256;
-#X obj 81 20 cnv 4 6 32 empty empty empty 0 12 0 14 #000000 #404040
-0;
+#X obj 20 20 cnv 8 289 32 empty empty empty 20 12 0 14 #000000 #404040 0;
+#X obj 128 20 cnv 15 100 16 empty \$0.format.label format=pcm 3 9 0 12 #000000 #e0e0e0 0;
+#X obj 229 20 cnv 15 80 16 empty \$0.fs.bs.label bs=64 3 9 0 12 #000000 #e0e0e0 0;
+#X obj 229 36 cnv 15 80 16 empty \$0.sr.label sr=44100 3 9 0 12 #000000 #e0e0e0 0;
+#X obj 128 36 cnv 15 100 16 empty \$0.type.bd.label bd=16 3 9 0 12 #000000 #e0e0e0 0;
+#X obj 123 20 cnv 1 1 32 empty empty empty 0 12 0 14 #fcfcfc #404040 0;
+#X obj 20 20 cnv 16 100 16 empty \$0.recvbuf.label recvbuf: 3 9 0 12 #000000 #ffffff 0;
+#X obj 80 20 nbx 3 14 2 999 0 0 \$3.recvbuf \$3.recvbuf.r empty 0 -8 0 12 #000000 #ffffff #ffffff 0 256;
+#X obj 20 36 cnv 16 100 16 empty \$0.delay.label delay: 3 9 0 12 #000000 #ffffff 0;
+#X obj 80 36 nbx 3 14 0 999 0 0 \$3.delay \$3.delay.r empty 0 -8 0 12 #000000 #ffffff #ffffff 0 256;
+#X obj 81 20 cnv 4 6 32 empty empty empty 0 12 0 14 #000000 #404040 0;
 #X obj 26 441 s \$0.recvbuf.label;
 #X obj 19 464 s \$0.delay.label;
 #X msg 55 321 symbol #ffffff;
@@ -62,18 +51,18 @@
 #X msg 541 473 label \$2=\$1;
 #X msg 541 284 \$3;
 #N canvas 1026 618 436 160 recvbuf 0;
-#X msg 10 32 bufsize \$1;
 #X obj 10 55 s \$3.to.aoo.r;
 #X obj 10 12 r \$3.recvbuf;
 #X obj 256 21 r \$3.recvbuf;
 #X obj 256 44 route float;
 #X msg 256 67 set \$1;
 #X obj 256 90 s \$3.recvbuf.r;
-#X connect 0 0 1 0;
-#X connect 2 0 0 0;
+#X msg 10 32 latency \$1;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
+#X connect 6 0 0 0;
 #X restore 361 28 pd recvbuf;
 #X obj 38 396 s \$3.recvbuf.r;
 #X obj 33 417 s \$3.delay.r;
