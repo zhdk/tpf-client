@@ -1,5 +1,8 @@
+#N struct 1003.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
 #N canvas 195 265 998 353 10;
 #N canvas 247 349 709 287 \$0.gop 0;
+#X scalar 1003.rectangle 1 0 0 100 16 0 666 777  \;;
+#X scalar 1003.rectangle 0 0 0 100 16 0 666 888  \;;
 #X coords 0 0 100 16 100 16 2 50 50;
 #X restore 50 50 pd \$0.gop;
 #X obj 604 272 s \$0.expand;
@@ -215,9 +218,6 @@
 #X obj 117 350 f;
 #X text 146 350 <- if we do not acquire the lock immediately \, we do not even request it;
 #X obj 106 264 r \$0.to.mutex;
-#X obj 468 179 b;
-#X msg 468 239 0;
-#X obj 468 210 del 100;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 11 0;
@@ -238,7 +238,7 @@
 #X connect 16 1 9 0;
 #X connect 18 0 23 0;
 #X connect 19 0 16 0;
-#X connect 20 0 27 0;
+#X connect 20 0 21 0;
 #X connect 20 1 22 0;
 #X connect 21 0 18 0;
 #X connect 21 1 19 0;
@@ -249,9 +249,6 @@
 #X connect 23 1 24 1;
 #X connect 24 0 18 0;
 #X connect 26 0 20 0;
-#X connect 27 0 29 0;
-#X connect 28 0 21 0;
-#X connect 29 0 28 0;
 #X restore 601 143 pd register.clicks;
 #N canvas 306 206 433 148 the.struct 0;
 #X obj 11 112 outlet;
