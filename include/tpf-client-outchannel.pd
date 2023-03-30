@@ -9,7 +9,7 @@
 #X obj 148 144 - 30;
 #X obj 148 188 min 40;
 #X obj 148 210 / 40;
-#X obj 148 93 env~ 1024 1024;
+#X obj 148 93 env~ 2048 2048;
 #X obj 288 203 switch~;
 #X msg 249 265 10;
 #X obj 249 242 sel 0;

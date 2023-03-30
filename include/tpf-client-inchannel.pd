@@ -9,7 +9,7 @@
 #X obj 68 132 - 30;
 #X obj 68 176 min 40;
 #X obj 68 198 / 40;
-#X obj 68 62 env~ 1024 1024;
+#X obj 68 62 env~ 2048 2048;
 #X obj 189 88 r \$1.channels;
 #X obj 228 158 switch~;
 #X msg 188 232 10;
