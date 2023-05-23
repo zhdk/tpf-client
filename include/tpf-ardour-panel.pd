@@ -1,33 +1,19 @@
 #N canvas 813 401 627 329 12;
-#X obj 20 272 cnv 15 580 30 empty \$1.ardour.session.label tpf-intermediate-4ch-4loc
-5 16 0 16 #ffffff #0400c9 0;
+#X obj 20 272 cnv 15 580 30 empty \$1.ardour.session.label empty 5 16 0 16 #ffffff #0400c9 0;
 #X text 20 254 Ardour Session Template:;
 #X obj 15 46 number-stepwise-widget \$1.strip.no 1 1;
-#X symbolatom 81 47 18 0 0 0 - \$1.strip.name.entry.r \$1.strip.name.entry.s
-24;
+#X symbolatom 81 47 18 0 0 0 - \$1.strip.name.entry.r \$1.strip.name.entry.s 24;
 #X text 34 20 Set Ardour Local Strip Name:;
-#X obj 343 48 hsl 57 32 0 127 0 0 \$1.strip.name.clear.button empty
-empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 411 48 hsl 99 32 0 127 0 0 \$1.strip.name.clearall.button empty
-empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 408 48 cnv 15 104 32 empty \$1.strip.name.clearall.label Clear\\\ All
-4 16 0 18 #dfdfdf #000000 0;
-#X obj 340 48 cnv 15 62 32 empty \$1.strip.name.clear.label Clear 4
-16 0 18 #e0e0e0 #000000 0;
-#X obj 36 114 hsl 20 25 0 127 0 0 \$1.enable.ardour.check \$1.enable.ardour.check
-✓ -2 12 0 40 #fcfcfc #ffffff #000000 0 1;
-#X obj 36 154 hsl 20 25 0 127 0 0 \$1.automate.jack.check \$1.automate.jack.check
-✓ -2 12 0 40 #ffffff #ffffff #000000 0 1;
-#X obj 36 194 hsl 20 25 0 127 0 0 \$1.hide.unused.check \$1.hide.unused.check
-✓ -2 12 0 40 #ffffff #ffffff #000000 0 1;
-#X obj 69 114 cnv 25 200 25 empty empty Enable\\\ Ardour\\\ Interface
-0 13 0 16 #ffffff #000000 0;
-#X obj 69 154 cnv 25 200 25 empty empty Automate\\\ Jack\\\ Connections
-0 13 0 16 #ffffff #000000 0;
-#X obj 69 194 cnv 25 200 25 empty empty Hide\\\ Unused\\\ Strips 0
-13 0 16 #ffffff #000000 0;
-#X obj 469 205 cnv 15 120 44 empty empty empty 4 20 0 30 #7c7c7c #000000
-0;
-#X obj 471 207 cnv 15 116 40 empty \$1.ardour.logo ARDOUR 4 20 0 30
-#dfdfdf #000000 0;
+#X obj 343 48 hsl 57 32 0 127 0 0 \$1.strip.name.clear.button empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 411 48 hsl 99 32 0 127 0 0 \$1.strip.name.clearall.button empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 408 48 cnv 15 104 32 empty \$1.strip.name.clearall.label Clear\ All 4 16 0 18 #dfdfdf #000000 0;
+#X obj 340 48 cnv 15 62 32 empty \$1.strip.name.clear.label Clear 4 16 0 18 #e0e0e0 #000000 0;
+#X obj 36 114 hsl 20 25 0 127 0 0 \$1.enable.ardour.check \$1.enable.ardour.check empty -2 12 0 40 #fcfcfc #ffffff #000000 0 1;
+#X obj 36 154 hsl 20 25 0 127 0 0 \$1.automate.jack.check \$1.automate.jack.check empty -2 12 0 40 #ffffff #ffffff #a0a0a0 0 1;
+#X obj 36 194 hsl 20 25 0 127 0 0 \$1.hide.unused.check \$1.hide.unused.check empty -2 12 0 40 #ffffff #ffffff #a0a0a0 0 1;
+#X obj 69 114 cnv 25 200 25 empty empty Enable\ Ardour\ Interface 0 13 0 16 #ffffff #000000 0;
+#X obj 69 154 cnv 25 200 25 empty empty Automate\ Jack\ Connections 0 13 0 16 #ffffff #000000 0;
+#X obj 69 194 cnv 25 200 25 empty empty Hide\ Unused\ Strips 0 13 0 16 #ffffff #000000 0;
+#X obj 392 175 cnv 15 120 44 empty empty empty 4 20 0 30 #7c7c7c #000000 0;
+#X obj 394 177 cnv 15 116 40 empty \$1.ardour.logo ARDOUR 4 20 0 30 #e0e0e0 #000000 0;
 #X coords 0 -1 1 1 600 300 2 10 10;
