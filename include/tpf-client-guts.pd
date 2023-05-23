@@ -209,7 +209,7 @@
 #X connect 8 0 9 0;
 #X connect 9 0 6 0;
 #X restore 9 49 pd latency.switch;
-#N canvas 881 518 615 188 connect 0;
+#N canvas 881 518 726 231 connect 0;
 #X obj 47 85 r \$1.connection.state;
 #X obj 16 104 ==;
 #X obj 16 125 s \$1.connect;
@@ -220,18 +220,19 @@
 #X obj 16 11 r \$1.connect.switch;
 #X obj 204 138 s \$1.connect.switch.r;
 #X msg 204 107 color \$1 \$2 \$3;
-#X msg 477 37 255 0 0;
+#X msg 462 75 255 0 0;
 #X msg 266 53 0 0 255;
 #X msg 203 57 0 0 0;
 #X msg 123 58 192 192 192;
 #X obj 407 104 loadbang;
 #X obj 184 33 sel 1 0;
+#X obj 477 40 route registering;
 #X connect 0 0 1 1;
 #X connect 1 0 2 0;
 #X connect 3 0 1 0;
 #X connect 4 0 11 0;
 #X connect 5 0 15 0;
-#X connect 6 0 10 0;
+#X connect 6 0 16 0;
 #X connect 7 0 3 0;
 #X connect 9 0 8 0;
 #X connect 10 0 9 0;
@@ -241,6 +242,7 @@
 #X connect 14 0 12 0;
 #X connect 15 0 13 0;
 #X connect 15 1 12 0;
+#X connect 16 0 10 0;
 #X restore 8 7 pd connect;
 #N canvas 1072 549 450 300 show.code 0;
 #X obj 33 22 r \$1.show.code;
@@ -4605,7 +4607,7 @@
 #X obj 16 8 tpf-settings-panel \$1;
 #X restore 216 197 pd settings;
 #X text 214 159 PANELS;
-#N canvas 1329 120 638 341 ardour 1;
+#N canvas 1329 120 638 341 ardour 0;
 #X obj 20 15 tpf-ardour-panel \$1;
 #X restore 216 317 pd ardour;
 #N canvas 630 697 674 497 audio.settings 0;
