@@ -1518,8 +1518,8 @@
 #X obj 310 99 s \$1.to.aoo.s;
 #X obj 373 324 r \$1.send;
 #X obj 373 347 route port;
-#X obj 373 395 s \$1.to.aoo.s;
-#X msg 373 370 port \$1;
+#X obj 373 457 s \$1.to.aoo.s;
+#X msg 400 401 port \$1;
 #X obj 426 52 route float;
 #X obj 489 75 t a b;
 #X obj 426 75 t a b;
@@ -1534,6 +1534,8 @@
 #X msg 536 279 stop;
 #X obj 536 196 r \$1.connection.state;
 #X obj 536 219 sel 0 1;
+#X obj 373 372 t b a;
+#X msg 373 424 buffersize 100;
 #X connect 0 0 40 0;
 #X connect 1 0 19 0;
 #X connect 2 0 15 0;
@@ -1566,7 +1568,7 @@
 #X connect 23 0 21 0;
 #X connect 23 1 21 1;
 #X connect 28 0 29 0;
-#X connect 29 0 31 0;
+#X connect 29 0 46 0;
 #X connect 31 0 30 0;
 #X connect 32 0 34 0;
 #X connect 32 1 33 0;
@@ -1585,6 +1587,9 @@
 #X connect 44 0 45 0;
 #X connect 45 0 43 0;
 #X connect 45 1 42 0;
+#X connect 46 0 47 0;
+#X connect 46 1 31 0;
+#X connect 47 0 30 0;
 #X restore 8 190 pd format.code;
 #N canvas 758 263 315 313 info 0;
 #X obj 12 57 list;
@@ -4588,7 +4593,7 @@
 #X obj 7 8 cnv 32 160 32 empty \$1.button.fg ON/OFF 8 16 0 20 #e0e0e0 #000000 0;
 #X obj 7 78 cnv 32 160 32 empty empty RETURN/CHAN 8 16 0 20 #e0e0e0 #000000 0;
 #X obj 7 113 cnv 32 160 32 empty empty RETURN/LEVEL 8 16 0 20 #e0e0e0 #000000 0;
-#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \ \ 0dB 8 16 0 20 #000000 #fcfcfc 0;
+#X obj 170 113 cnv 32 70 32 empty \$1.lat.ret.level \ 81dB 8 16 0 20 #000000 #fcfcfc 0;
 #X obj 7 148 cnv 32 160 32 empty empty LATENCY 8 16 0 20 #e0e0e0 #000000 0;
 #X obj 170 148 cnv 32 70 32 empty \$1.latency.label 0ms 8 16 0 20 #000000 #000000 0;
 #X obj 170 43 cnv 32 70 32 empty empty empty 8 16 0 20 #000000 #fcfcfc 0;
