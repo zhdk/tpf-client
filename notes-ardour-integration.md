@@ -6,8 +6,23 @@
 
 ### Enable Ardour Interface
 If this checkbox is enabled, tpf-client tries to communicate with Ardour
-through its OSC interface (which must be enabled in Ardour, of course).
-If tpf-client is able to talk Ardour, it does indicate so by 
+through Ardour's OSC interface (which must be enabled in Ardour, of course).
+If tpf-client is able to talk Ardour, it is indicated by the "Ardour"
+box lighting up in green. When enabled, tpf-client sets strip labels in
+Ardour, manages JACK connections between tpf-client and Ardour and makes
+sure that Ardour displays only the stripts currently used in the session.
+
+### Automate Jack Connections
+When enabled, tpf-client make sure that all necessary JACK audio connections
+from Ardour to tpf-client and from tpf-client to Ardour are created. This
+works dynamically as it takes into account the number of channels per peer
+and the number of peer slots, but also the strip mapping in the template
+session of Ardour. Ardour's and tpf-client's layout don't necessarily need
+to match for this work.
+
+### Hide Unused Strips
+When enabled, tpf-client sends OSC commands to hide unused and show
+active strips in Ardour.  
 
 
 ## Automatic JACK connections
