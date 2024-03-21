@@ -2,6 +2,8 @@
 
 ## tpf-client's Ardour Panel
 
+![Screenshot of tpf-client's Ardour Panel](img/tpf-client-ardour-panel.png "Ardour Panel")
+
 ### Enable Ardour Interface
 If this checkbox is enabled, tpf-client tries to communicate with Ardour
 through its OSC interface (which must be enabled in Ardour, of course).
