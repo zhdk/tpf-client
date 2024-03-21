@@ -1,7 +1,7 @@
 tpf-client
 ==========
 
-![alt text](tpf-client.png "tpf-client")
+![alt text](img/tpf-client.png "tpf-client")
 
 About
 -----
