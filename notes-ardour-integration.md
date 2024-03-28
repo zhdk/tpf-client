@@ -19,13 +19,33 @@ works dynamically as it takes into account the number of channels per peer
 and the number of peer slots, but also the strip mapping in the template
 session of Ardour. Ardour's and tpf-client's layout don't necessarily need
 to match for this work.
+This option has an impact only when the Ardour interface is enabled.
 
 ### Hide Unused Strips
-When enabled, tpf-client sends OSC commands to hide unused and show
-active strips in Ardour.  
+When enabled, tpf-client sends OSC commands to Ardour to hide unused strips
+so that only active strips remain visible. Active strips are those belonging
+to an occupied peer slot in tpf-client. Also, the number of strips shown for
+each peer reflects how many channels are received from that peer.
+When the option is disabled, all hidden strips are shown so that all strips
+are visible.
+This option has an impact only when the Ardour inteface is enabled.
+
+### Channel label
+tpf-client allows to assign labels to the local (or: source) channels. This
+is done in the top section of the Ardour panel (see `Set Ardour Local Strip Name`).
+The labels appear in Ardour on the strips connected tpf-client's inputs.
+They are also synchronized with remote peers so that their Ardour uses the
+labels for the strips carrying our signal. Of course, this means we also
+see the the strips with the signal from the remote peers showing the labels
+the remote peers gave to their channels.
 
 
 ## Automatic JACK connections
+This section is relevant only if you intend to create Ardour templates that
+are meant for tpf-client to interact with through the Ardour interface
+featue. This section explains how tpf-client identifies the different
+kinds of strips.
+
 ### From Ardour to tpf-client
 All strips from the group `to_TPF` are connected to the inputs of
 tpf-client until either the strips of the group named `to_TPF` or
