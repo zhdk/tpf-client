@@ -38,7 +38,7 @@
 10 #fcfcfc #000000 #000000 0 1;
 #X obj 675 20 cnv 10 18 32 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X obj 544 20 tpf-client-button Ardour \$1.display.ardour \$1.display.ardour.r
+#X obj 544 20 tpf-client-button Utils \$1.display.utils \$1.display.utils.r
 ;
 #X obj 731 20 cnv 32 102 32 empty \$0.filler empty 20 12 0 14 #e0e0e0
 #404040 0;

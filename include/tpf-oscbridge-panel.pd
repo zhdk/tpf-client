@@ -1,0 +1,11 @@
+#N canvas 813 401 699 378 10;
+#X obj 16 15 cnv 15 300 40 empty empty OSC\ Bridge 4 20 0 24 #ffffff #000000 0;
+#X obj 11 57 osc-bridge-instance \$1.bridge 0;
+#X obj 11 93 osc-bridge-instance \$1.bridge 1;
+#X obj 11 129 osc-bridge-instance \$1.bridge 2;
+#X obj 11 165 osc-bridge-instance \$1.bridge 3;
+#X obj 11 201 osc-bridge-instance \$1.bridge 4;
+#X obj 11 237 osc-bridge-instance \$1.bridge 5;
+#X obj 11 273 osc-bridge-instance \$1.bridge 6;
+#X obj 11 309 osc-bridge-instance \$1.bridge 7;
+#X coords 0 -1 1 1 600 340 2 10 10;
