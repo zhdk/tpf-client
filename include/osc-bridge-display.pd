@@ -27,6 +27,6 @@
 #X obj 115 47 cnv 2 497 2 empty \$1.bg empty 20 12 0 10 #e0e0e0 #404040 0;
 #X obj 95 24 hsl 23 23 0 127 0 0 \$1.print.click empty empty -2 -12 0 16 #fcfcfc #000000 #000000 0 1;
 #X obj 92 24 cnv 23 28 23 empty \$1.print.label P 9 12 0 20 #dfdfdf #606060 0;
-#X obj 44 20 cnv 5 5 30 empty \$1.down.lbl ▼ 2 12 0 24 #e0e0e0 #404040 0;
-#X obj 25 20 cnv 5 5 30 empty \$1.up.lbl ▲ 2 12 0 24 #e0e0e0 #404040 0;
+#X obj 44 20 cnv 5 5 30 empty \$1.down.lbl ▼ 2 12 0 24 #e0e0e0 #bbbbbb 0;
+#X obj 25 20 cnv 5 5 30 empty \$1.up.lbl ▲ 2 12 0 24 #e0e0e0 #bbbbbb 0;
 #X coords 0 -1 1 1 598 30 2 20 20;
