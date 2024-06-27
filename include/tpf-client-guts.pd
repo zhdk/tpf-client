@@ -4543,7 +4543,7 @@
 #X connect 39 0 36 0;
 #X connect 42 0 9 0;
 #X restore 184 70 pd ardour.code;
-#N canvas 968 0 783 374 chat 1;
+#N canvas 968 0 783 374 chat 0;
 #X obj 9 334 cnv 15 128 22 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
 #X obj 743 334 cnv 15 24 22 empty empty empty 2 12 0 14 #e0e0e0 #404040 0;
 #X obj 743 10 scrollbar_24x321 \$1.scb.chat.r \$1.scb.chat.s 14;
@@ -4578,7 +4578,7 @@
 #X obj 170 48 nbx 2 20 1 10 0 0 \$1.lat.period \$1.lat.period.r empty 0 -8 0 20 #000000 #fcfcfc #000000 0 256;
 #X obj 210 43 cnv 14 14 28 empty empty s 3 16 0 20 #000000 #fcfcfc 0;
 #X restore 216 257 pd latency;
-#N canvas 613 748 783 348 messages 1;
+#N canvas 613 748 783 348 messages 0;
 #X obj 743 10 scrollbar_24x321 \$1.scb.msgs.r \$1.scb.msgs.s 14;
 #X obj 9 10 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 13;
 #X obj 9 309 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 0;
@@ -4596,7 +4596,7 @@
 #X obj 9 286 tpf-client-chatline \$1.msgs \$1.scb.msgs.s 1;
 #X restore 216 287 pd messages;
 #X text 214 174 ======;
-#N canvas -10 340 624 691 settings 1;
+#N canvas -10 340 624 691 settings 0;
 #X obj 16 8 tpf-settings-panel \$1;
 #X restore 216 197 pd settings;
 #X text 214 159 PANELS;
@@ -4605,7 +4605,7 @@
 #X obj 62 88 tpf-gui-dropdown \$1.audio.in.drop 500 24 16 0 0 777 0 686 787;
 #X obj 62 122 tpf-gui-dropdown \$1.audio.out.drop 500 24 16 0 0 777 0 686 787;
 #X restore 290 198 pd audio.settings;
-#N canvas 1241 42 639 682 utils 1;
+#N canvas 1241 42 639 682 utils 0;
 #X obj 20 15 tpf-ardour-panel \$1;
 #X obj 20 326 tpf-oscbridge-panel \$1;
 #X restore 216 317 pd utils;
@@ -4681,3 +4681,10 @@
 #X connect 31 0 33 0;
 #X connect 33 0 32 0;
 #X restore 189 17 pd osc.bridge.code;
+#X obj 322 57 loadbang;
+#X obj 322 81 delay 100;
+#X msg 322 104 vis 0 \, vis 1;
+#X obj 322 127 s pd-tpf-client.pd;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
