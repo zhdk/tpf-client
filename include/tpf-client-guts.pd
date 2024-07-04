@@ -1,14 +1,4 @@
-#N struct 1075.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1076.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1077.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1078.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1079.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1080.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1081.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1083.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1085.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N struct 1087.rectangle float id float x float y float w float h float txtclr float boxclr float bgclr symbol label;
-#N canvas 809 26 474 384 10;
+#N canvas 809 40 474 384 10;
 #N canvas 395 186 1139 674 communication 0;
 #X msg 62 189 disconnect;
 #X obj 44 20 r \$1.connect;
@@ -1617,7 +1607,7 @@
 #X connect 5 1 2 0;
 #X connect 6 0 3 0;
 #X restore 8 310 pd info;
-#N canvas 965 30 394 703 init 0;
+#N canvas 965 40 394 703 init 0;
 #N canvas 593 229 380 213 port 0;
 #X obj 45 27 inlet;
 #X obj 45 76 + 32768;
@@ -1749,7 +1739,6 @@
 #X obj 663 158 t b a;
 #X obj 663 204 f;
 #X msg 663 257 vis 0 \, setbounds 0 0 \$1 \$2 \, vis 1;
-#X obj 663 181 del 300;
 #X connect 0 0 17 0;
 #X connect 2 0 3 0;
 #X connect 2 1 6 0;
@@ -1823,11 +1812,10 @@
 #X connect 66 0 67 1;
 #X connect 67 0 68 0;
 #X connect 68 0 44 0;
-#X connect 69 0 72 0;
+#X connect 69 0 70 0;
 #X connect 69 1 70 1;
 #X connect 70 0 60 0;
 #X connect 71 0 57 0;
-#X connect 72 0 70 0;
 #X restore 8 40 pd layout;
 #N canvas 639 423 712 591 ardour.code 0;
 #X obj 16 411 r \$0.from.ard;
