@@ -1755,7 +1755,7 @@
 #X obj 663 158 t b a;
 #X obj 663 204 f;
 #X msg 663 257 vis 0 \, setbounds 0 0 \$1 \$2 \, vis 1;
-#X obj 663 181 delay 1200;
+#X obj 663 182 delay 2400;
 #X connect 0 0 17 0;
 #X connect 2 0 3 0;
 #X connect 2 1 6 0;
