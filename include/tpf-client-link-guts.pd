@@ -1,4 +1,4 @@
-#N canvas 817 26 409 236 10;
+#N canvas 817 40 409 236 10;
 #N canvas 345 162 994 772 peer.assignment 0;
 #X obj 8 50 loadbang;
 #X msg 8 73 symbol empty;
@@ -1076,7 +1076,7 @@
 #X connect 55 0 29 0;
 #X connect 56 1 21 0;
 #X restore 13 165 pd persist.params;
-#N canvas 1098 422 712 264 peer.name.advertize 0;
+#N canvas 1098 422 712 369 peer.name.advertize 0;
 #X obj 22 20 r \$1.intercom;
 #X obj 200 16 r \$3.peer.name;
 #X obj 22 86 b;
@@ -1102,6 +1102,13 @@
 #X obj 534 85 r \$3.peer.name;
 #X obj 476 130 list prepend peer_id \$2;
 #X obj 476 62 list;
+#X obj 138 173 r \$1.intercom;
+#X obj 138 196 route from_reaper;
+#X obj 138 219 route track;
+#X obj 138 265 route name;
+#X obj 138 242 route \$2;
+#X obj 138 288 bang;
+#X obj 138 311 del 200;
 #X connect 0 0 5 0;
 #X connect 1 0 15 0;
 #X connect 2 0 3 0;
@@ -1126,6 +1133,13 @@
 #X connect 22 0 21 1;
 #X connect 23 0 18 0;
 #X connect 24 0 21 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 29 0;
+#X connect 28 0 30 0;
+#X connect 29 0 28 0;
+#X connect 30 0 31 0;
+#X connect 31 0 14 0;
 #X restore 13 190 pd peer.name.advertize;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
