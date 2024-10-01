@@ -1,6 +1,5 @@
 tpf-client
 ==========
-Test
 
 ![alt text](img/tpf-client.png "tpf-client")
 
