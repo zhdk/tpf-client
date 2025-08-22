@@ -15,7 +15,7 @@ tpf-client's layout is configurable. The maximum of channels per peer and also
 the number of peer slots can be adjusted so that different needs are covered.
 It supports streaming in PCM and OPUS and the formats are also configurable.
 
-You can download the client from:
+You can get the client from:
 
   https://github.com/zhdk/tpf-client
 
@@ -24,10 +24,6 @@ The server software is hosted separately at:
   https://github.com/zhdk/tpf-server
 
 #### NOTE:
-tpf-client is not yet considered stable, because AoO is not released
-and still subject to change.  Altough tpf-client already works well, the current
-development version might not be compatible with the released version.
-
 There is also an [older tpf-client](https://github.com/zhdk/tpf-client/releases/tag/v1.1.1)
 based on the jacktrip protocol available.
 
@@ -35,20 +31,22 @@ based on the jacktrip protocol available.
 Prerequisites
 -------------
 
+**NOTE**: This section is about running the tpf-client as a Pd patch in Pure Data. There are
+also [ready-to-use apps](https://github.com/zhdk/tpf-client#ready-to-use-apps-for-linux-and-macos)
+for Linux and macOS available.
+
+
 Make sure to get the latest Pure Data from:
 
   https://puredata.info/downloads/
 
 You need the following externals to run tpf-client
   * aoo
-  * command
+  * jackpatch
+  * mediasettings
 
 You can install externals through the Pd menu:
 'Help' -> 'Find Externals'
-
-#### NOTE:
-There is no release of the aoo version used by tpf-client. The beta versions
-of tpf-client are based on the most recent [AoO developments](https://git.iem.at/cm/aoo/-/tree/develop).
 
 Usage
 -----
@@ -70,6 +68,11 @@ pd -rt -jack -inchannels 8 -outchannels 65 -nojackconnect \
 Before anything, open 'Settings' and configure the fields in the 'Connection
 parameters' section. If you don't know about a server, you can run your own
 (see [here](https://github.com/zhdk/tpf-server/) for details).
+
+By courtesy of the ZHdK, a tpf-server is running that can be used publicly:
+
+  * Server: **tpf-server.zhdk.ch**
+  * Port: **27001**
 
 All parameters in the 'Audio Parameters' section take immediate effect, even
 when the streaming is already running. You can either send your audio
@@ -108,11 +111,10 @@ clients independently. When streaming to more than one peer, it is possible
 that both modes are used simultaneously.
 
 
-Ready-to-use macOS app
-----------------------
+Ready-to-use apps for Linux and macOS
+-------------------------------------
 
-If your computer runs macOS, you may download a self-contained
-application bundle from:
+You may download a self-contained application bundle from:
 
   https://github.com/zhdk/tpf-client/releases
 
